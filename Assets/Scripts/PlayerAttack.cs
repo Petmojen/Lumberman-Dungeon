@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-
+            //Jacks kod
         } else if(Input.GetMouseButton(1)) {
             Invoke(nameof(ThrowingAxe), 0f);
         }    

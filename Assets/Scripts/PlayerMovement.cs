@@ -10,7 +10,7 @@ public class PlayerMovement:MonoBehaviour
 
     void Start()
     {
-        rgbd = GetComponent<Rigidbody2D>();
+        rgbd2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -18,6 +18,6 @@ public class PlayerMovement:MonoBehaviour
         position.x = Input.GetAxis("Horizontal") * movementSpeed;
         position.y = Input.GetAxis("Vertical") * movementSpeed;
 
-        rgbd.velocity = new Vector2(position.x, position.y);
+        rgbd2D.velocity = new Vector2(position.x, position.y);
     }
 }

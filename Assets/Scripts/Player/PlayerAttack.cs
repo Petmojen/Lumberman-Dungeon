@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] GameObject getAxe;
+    [SerializeField] GameObject getAxe, axeOffset;
     Rigidbody2D rgbd2D;
 
     void Start()
     {
-        
+        rgbd2D = getAxe.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
             //Jacks kod
-        } else if(Input.GetMouseButton(1)) {
+        } else if(Input.GetMouseButtonDown(1)) {
             Invoke(nameof(ThrowingAxe), 0f);
         }    
     }
 
     void ThrowingAxe()
     {
+        Instantiate(getAxe, axeOffset.transform.position, axeOffset.transform.rotation);
         CancelInvoke();
     }
 }

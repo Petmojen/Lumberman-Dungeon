@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4829765929546748393}
   m_Layer: 0
   m_Name: Axe
-  m_TagString: Untagged
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d7d779cd7b06d4ca3839971abb9412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSprite: {fileID: 2274731223944811001}
   antiCollision:
   - Player
+  rotateSprite: {fileID: 720352931833167226}
 --- !u!58 &4829765929546748393
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,4 +167,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.09

@@ -161,13 +161,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 76706540}
     m_Modifications:
+    - target: {fileID: -8877306863059481761, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -8621625051788307021, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -8352182400271671966, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Camera Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: -4618165351516725897, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Camera Wall
+      objectReference: {fileID: 0}
     - target: {fileID: -4562782367805704878, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_Name
       value: test_map.
       objectReference: {fileID: 0}
+    - target: {fileID: -3756750093306997579, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 764657168041056648, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Camera Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229411735524839692, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2441476941502553390, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484582377757498189, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4756947300045923821, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274485012563623163, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Camera Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649859067363777943, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Camera Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858945773122486129, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322826515306157967, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 8855892002024423947, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_RootOrder
@@ -583,6 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axePrefab: {fileID: 8587911366970735423, guid: 24e2f04f563932d43ab8be712459bdee, type: 3}
   axeOffset: {fileID: 997293495}
+  axeInAir: 0
 --- !u!114 &1149884388
 MonoBehaviour:
   m_ObjectHideFlags: 0

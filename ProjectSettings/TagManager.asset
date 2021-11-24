@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - MinionShot
+  - Axe
+  - Camera Wall
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack:MonoBehaviour
 {
     [SerializeField] GameObject axePrefab, axeOffset;
+    public bool axeInAir = false;
     float axeThrowForce = 20;
     Rigidbody2D rgbd2D;
 
@@ -13,7 +14,8 @@ public class PlayerAttack:MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //Jacks kod
-        } else if(Input.GetMouseButtonDown(1)) {
+        } else if(Input.GetMouseButtonDown(1) && !axeInAir) {
+            axeInAir = true;
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
     }

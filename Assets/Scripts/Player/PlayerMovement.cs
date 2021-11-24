@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour
 {
+    PlayerAttack playerAttackScript;
     float movementSpeed = 5, angle;
     Vector2 playerPosition;
     bool attacking = false;
@@ -15,6 +16,7 @@ public class PlayerMovement:MonoBehaviour
 
     void Start()
     {
+        playerAttackScript = GetComponentInChildren<PlayerAttack>();
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
     }
@@ -74,5 +76,14 @@ public class PlayerMovement:MonoBehaviour
         attacking = false;
         rgbd2D.rotation = 0;
         CancelInvoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Axe") && !attacking)
+        {
+            Destroy(collision.gameObject);
+            playerAttackScript.axeInAir = false;
+        }
     }
 }

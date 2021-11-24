@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement:MonoBehaviour 
+public class PlayerMovement:MonoBehaviour
 {
-    [SerializeField] GameObject offsetRotation;
     float movementSpeed = 5, angle;
+    Vector2 playerPosition;
     Rigidbody2D rgbd2D;
-    Vector2 position;
 
-    //temp
+    //temp until we gen animations
     SpriteRenderer spriteFlip;
 
     void Start()
@@ -20,13 +19,13 @@ public class PlayerMovement:MonoBehaviour
 
     void Update()
     {
-        position.x = Input.GetAxis("Horizontal") * movementSpeed;
-        position.y = Input.GetAxis("Vertical") * movementSpeed;
+        playerPosition.x = Input.GetAxis("Horizontal") * movementSpeed;
+        playerPosition.y = Input.GetAxis("Vertical") * movementSpeed;
 
-        if(position.x > 0)
+        if(playerPosition.x > 0)
         {
             spriteFlip.flipX = false;
-        } else if(position.x < 0) {
+        } else if(playerPosition.x < 0) {
             spriteFlip.flipX = true;
         }
 
@@ -46,6 +45,6 @@ public class PlayerMovement:MonoBehaviour
             rgbd2D.rotation = angle;
         }
 
-        rgbd2D.velocity = new Vector2(position.x, position.y);
+        rgbd2D.velocity = new Vector2(playerPosition.x, playerPosition.y);
     }
 }

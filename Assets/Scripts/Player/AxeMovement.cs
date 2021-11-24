@@ -15,6 +15,7 @@ public class AxeMovement:MonoBehaviour
 
     void Update()
     {
+        transform.Rotate(0, 0, -flyingSpeed / 2);
     }
 
     void bounceBack()

@@ -18,13 +18,14 @@ public class PlayerAttack : MonoBehaviour
         {
             //Jacks kod
         } else if(Input.GetMouseButtonDown(1)) {
-            Invoke(nameof(ThrowingAxe), 0f);
+            ThrowingAxe(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }    
     }
 
-    void ThrowingAxe()
+    void ThrowingAxe(Vector2 mousePos)
     {
-        Instantiate(getAxe, axeOffset.transform.position, axeOffset.transform.rotation);
+        
+        Instantiate(getAxe, axeOffset.transform.position, transform.rotation);
         CancelInvoke();
     }
 }

@@ -43,7 +43,6 @@ public class PlayerMovement:MonoBehaviour
                 angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
                 spriteFlip.flipX = false;
             }
-            Debug.Log(angle);
             rgbd2D.rotation = angle;
         }
 

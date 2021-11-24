@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour
 {
-    [SerializeField] Sprite spriteRight, spriteLeft, spriteUp, spriteDown;
     float movementSpeed = 5, angle;
     Vector2 playerPosition;
     bool attacking = false;
     Rigidbody2D rgbd2D;
 
     //temp until we gen animations
+    [SerializeField] Sprite spriteRight, spriteLeft, spriteUp, spriteDown;
     SpriteRenderer changeSprite;
 
     void Start()
@@ -25,6 +25,7 @@ public class PlayerMovement:MonoBehaviour
         {
             LookAtMouse();
         }
+
         if(!attacking)
         {
             playerPosition.x = Input.GetAxis("Horizontal");
@@ -54,17 +55,18 @@ public class PlayerMovement:MonoBehaviour
         rgbd2D.velocity = new Vector2(0, 0);
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
-        if(lookDirection.x < 0)
+        angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        if(angle < 45 && angle > -45)
         {
-            changeSprite.sprite = spriteLeft;
-            angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 180;
-        } else
-        {
-            angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
             changeSprite.sprite = spriteRight;
+        } else if(angle > 45 && angle < 135) {
+            changeSprite.sprite = spriteUp;
+        } else if(angle < -45 && angle > -135) {
+            changeSprite.sprite = spriteDown;
+        } else if(angle > 135 || angle < -135) {
+            changeSprite.sprite = spriteLeft;
         }
-        rgbd2D.rotation = angle;
-        Invoke(nameof(DeactivateAttack), 0.2f);
+        Invoke(nameof(DeactivateAttack), 0.25f);
     }
 
     void DeactivateAttack()

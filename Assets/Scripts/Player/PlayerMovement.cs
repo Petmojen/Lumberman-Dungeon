@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour
 {
+    float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
+    bool attacking = false, dashCooldown = false;
     PlayerAttack playerAttackScript;
     float movementSpeed = 5, angle;
-    float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
     Vector2 playerPosition;
-    bool attacking = false, dashCooldown = false;
     public int dashTimer;
     Rigidbody2D rgbd2D;
 
@@ -33,6 +33,7 @@ public class PlayerMovement:MonoBehaviour
 
         if(!attacking)
         {
+
             playerPosition.x = Input.GetAxis("Horizontal");
             playerPosition.y = Input.GetAxis("Vertical");
 
@@ -49,6 +50,7 @@ public class PlayerMovement:MonoBehaviour
             } else if(playerPosition.y < 0) {
                 changeSprite.sprite = spriteDown;
             }
+
             if (Input.GetKey("space") && !dashCooldown)
             {
 				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed * dashSpeed, playerPosition.y * movementSpeed * dashSpeed);
@@ -87,31 +89,24 @@ public class PlayerMovement:MonoBehaviour
         CancelInvoke();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Axe") && !attacking)
-        {
-            Destroy(collision.gameObject);
-            playerAttackScript.axeInAir = false;
-        }
-    }
+	void Dashing()
+	{	
+		dashCooldown = true;
+		CancelInvoke();
+	}
+
+	void DashCooldown()
+	{
+		dashCooldown = false;
+		CancelInvoke();
+	}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Axe") && !attacking)
         {
             Destroy(collision.gameObject);
-            playerAttackScript.axeInAir = false;
+            playerAttackScript.usingAxe = false;
         }
     }
-	void Dashing()
-	{	
-		dashCooldown = true;
-		CancelInvoke();
-	}
-	void DashCooldown()
-	{
-		dashCooldown = false;
-		CancelInvoke();
-	}
 }

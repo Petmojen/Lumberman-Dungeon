@@ -6,8 +6,10 @@ public class PlayerMovement:MonoBehaviour
 {
     PlayerAttack playerAttackScript;
     float movementSpeed = 5, angle;
+    float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
     Vector2 playerPosition;
-    bool attacking = false;
+    bool attacking = false, dashCooldown = false;
+    public int dashTimer;
     Rigidbody2D rgbd2D;
 
     //temp until we gen animations
@@ -19,6 +21,7 @@ public class PlayerMovement:MonoBehaviour
         playerAttackScript = GetComponentInChildren<PlayerAttack>();
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
+        dashTimer = 0;
     }
 
     void Update()
@@ -46,8 +49,14 @@ public class PlayerMovement:MonoBehaviour
             } else if(playerPosition.y < 0) {
                 changeSprite.sprite = spriteDown;
             }
-
-            rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed, playerPosition.y * movementSpeed);
+            if (Input.GetKey("space") && !dashCooldown)
+            {
+				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed * dashSpeed, playerPosition.y * movementSpeed * dashSpeed);
+				Invoke ("Dashing", dashTime);
+			} else {
+				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed, playerPosition.y * movementSpeed);
+				Invoke ("DashCooldown", dashCooldownTime);
+            }
         }
     }
 
@@ -95,4 +104,14 @@ public class PlayerMovement:MonoBehaviour
             playerAttackScript.axeInAir = false;
         }
     }
+	void Dashing()
+	{	
+		dashCooldown = true;
+		CancelInvoke();
+	}
+	void DashCooldown()
+	{
+		dashCooldown = false;
+		CancelInvoke();
+	}
 }

@@ -12,7 +12,7 @@ public class StaticAttack : MonoBehaviour
 	public int i = 0;
 	int rotateDirection = 1;
     Rigidbody2D rgbd2D;
-	
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class StaticAttack : MonoBehaviour
     void Update()
     {
 		if (i < rotateSteps)
-		{			
+		{
 			rotateSprite2.Rotate(0, 0, -rotateSpeed * rotateDirection);
 			i++;
 		}
@@ -38,7 +38,7 @@ public class StaticAttack : MonoBehaviour
 		{
 			playerAttackScript.axeinAttack = false;
 			Destroy(gameObject);
-			
+
 		}
 
     }

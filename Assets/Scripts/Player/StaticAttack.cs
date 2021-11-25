@@ -34,7 +34,7 @@ public class StaticAttack : MonoBehaviour
 		}
 		if (i == rotateSteps)
 		{
-			Destroy (rotateSprite2, 0.1f);
+			//Destroy (rotateSprite2, 0.1f);
 		}
 		
     }

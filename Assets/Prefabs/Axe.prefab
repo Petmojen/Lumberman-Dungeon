@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d7d779cd7b06d4ca3839971abb9412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPosition: {fileID: 1528656597205333762, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
   antiCollision:
   - Player
   rotateSprite: {fileID: 720352931833167226}

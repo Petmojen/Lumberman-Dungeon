@@ -6,18 +6,24 @@ public class AxeMovement:MonoBehaviour
 {
     [SerializeField] string[] antiCollision;
     [SerializeField] Transform rotateSprite;
+    GameObject playerPosition;
     bool backToPlayer = false;
     float flyingSpeed = 10;
     Rigidbody2D rgbd2D;
 
-
     void Start()
     {
+        playerPosition = GameObject.FindGameObjectWithTag("Player");
         rgbd2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+
+        if(Vector2.Distance(playerPosition.transform.position, transform.position) > 6)
+        {
+            backToPlayer = true;
+        } 
 
         if(backToPlayer)
         {

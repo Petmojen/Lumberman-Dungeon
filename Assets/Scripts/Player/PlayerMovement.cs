@@ -86,4 +86,13 @@ public class PlayerMovement:MonoBehaviour
             playerAttackScript.axeInAir = false;
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Axe") && !attacking)
+        {
+            Destroy(collision.gameObject);
+            playerAttackScript.axeInAir = false;
+        }
+    }
 }

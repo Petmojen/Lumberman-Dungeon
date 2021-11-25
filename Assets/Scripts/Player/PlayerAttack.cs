@@ -7,15 +7,17 @@ public class PlayerAttack:MonoBehaviour
     [SerializeField] GameObject axePrefab, axeOffset;
 	[SerializeField] GameObject axeAttackPrefab;
     public bool axeInAir = false;
+    public bool axeinAttack = false;
     float axeThrowForce = 20;
     Rigidbody2D rgbd2D;
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !axeInAir)
+        if(Input.GetMouseButtonDown(0) && !axeInAir && !axeinAttack)
         {
+            axeinAttack = true;
             GetAngle4Attack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-			
+
         } else if(Input.GetMouseButtonDown(1) && !axeInAir) {
             axeInAir = true;
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -45,7 +47,8 @@ public class PlayerAttack:MonoBehaviour
     }
 	void Attack(float angle)
 	{
-		GameObject axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position, Quaternion.identity);
+        GameObject axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(0.8f, 0, 0), Quaternion.identity);
         rgbd2D = axeAttack.GetComponent<Rigidbody2D>();
-	}
+        axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
+    }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5445499469919067674}
   m_Layer: 0
   m_Name: AxeAttack
-  m_TagString: Attack
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSprite2: {fileID: 2656971056520529487}
+  i: 0
 --- !u!212 &-5445499469919067674
 SpriteRenderer:
   m_ObjectHideFlags: 0

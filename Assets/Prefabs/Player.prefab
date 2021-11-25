@@ -109,12 +109,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 81324dbeef5633945a948841362b75ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 547c58c34e8ce964ba4f5c41b8112141, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.25, y: 0.25}
+  m_Size: {x: 0.17, y: 0.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -132,10 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3444fb3b9a183459b6e22b1c7f4fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRight: {fileID: 21300000, guid: 81324dbeef5633945a948841362b75ff, type: 3}
-  spriteLeft: {fileID: 21300000, guid: 59beba69999c3474d9e843c0b04f06a7, type: 3}
-  spriteUp: {fileID: 21300000, guid: f383742934d61704ab5cae79551c84dc, type: 3}
-  spriteDown: {fileID: 21300000, guid: 5e2fb89f19fd36147bf07df01c390c64, type: 3}
+  spriteRight: {fileID: 21300000, guid: 0760f862282e5964589c652092d959d7, type: 3}
+  spriteLeft: {fileID: 21300000, guid: cb080bc30b4470f44b42ec8cbbc63845, type: 3}
+  spriteUp: {fileID: 21300000, guid: a8ad3ac02ffd00045b07af5232b6bd6d, type: 3}
+  spriteDown: {fileID: 21300000, guid: 547c58c34e8ce964ba4f5c41b8112141, type: 3}
 --- !u!114 &1528656597205333823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   axeOffset: {fileID: 1528656595461053803}
   axeAttackPrefab: {fileID: 4033656446156202671, guid: 61456c609fcd6944d836d38213921498, type: 3}
   axeInAir: 0
+  axeinAttack: 0
 --- !u!50 &1528656597205333822
 Rigidbody2D:
   serializedVersion: 4
@@ -317,8 +318,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
-    newSize: {x: 0.25, y: 0.25}
+    oldSize: {x: 0.17, y: 0.29}
+    newSize: {x: 0.17, y: 0.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

@@ -8,6 +8,8 @@ TagManager:
   - Axe
   - Wall
   - CameraWall
+  - Attack
+  - Cameracollider
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Walls
   - 
   - 
   - 

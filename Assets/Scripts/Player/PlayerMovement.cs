@@ -9,7 +9,6 @@ public class PlayerMovement:MonoBehaviour
     float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
     Vector2 playerPosition;
     bool attacking = false, dashCooldown = false;
-    public int dashTimer;
     Rigidbody2D rgbd2D;
 
     //temp until we gen animations
@@ -21,7 +20,6 @@ public class PlayerMovement:MonoBehaviour
         playerAttackScript = GetComponentInChildren<PlayerAttack>();
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
-        dashTimer = 0;
     }
 
     void Update()

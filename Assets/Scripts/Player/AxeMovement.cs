@@ -20,7 +20,7 @@ public class AxeMovement:MonoBehaviour
     void Update()
     {
 
-        if(Vector2.Distance(playerPosition.transform.position, transform.position) > 5)
+        if(Vector2.Distance(playerPosition.transform.position, transform.position) > 6)
         {
             backToPlayer = true;
         } 

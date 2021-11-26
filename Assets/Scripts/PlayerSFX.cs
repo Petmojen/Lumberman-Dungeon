@@ -28,8 +28,7 @@ public class PlayerSFX : MonoBehaviour
     public void PlayFootstepSFX()
     {
         audioSource.clip = playerSFX[0];
-        audioSource.volume = 0.20f;
-        audioSource.pitch = Random.Range(0.8f,1.2f);
+        audioSource.pitch = Random.Range(0.7f,1.4f);
         audioSource.Play();
     }
     void FootstepPlaySequence()

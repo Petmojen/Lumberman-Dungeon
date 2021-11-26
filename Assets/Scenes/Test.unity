@@ -1538,8 +1538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 997761611}
-  followPlayer: 1
-  direction: {x: 0, y: 1, z: 0}
+  followPlayerX: 1
+  followPlayerY: 1
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1572,7 +1572,7 @@ GameObject:
   - component: {fileID: 1713559244}
   m_Layer: 10
   m_Name: Walls
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

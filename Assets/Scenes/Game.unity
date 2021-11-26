@@ -340,6 +340,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -4.485
       objectReference: {fileID: 0}
+    - target: {fileID: -5164741050528204425, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_TagString
+      value: Cameracollider
+      objectReference: {fileID: 0}
     - target: {fileID: -4618165351516725897, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
       value: CameraWall
@@ -887,7 +891,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 612999926}
-  followPlayer: 1
+  followPlayerX: 1
+  followPlayerY: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1655857825
 GameObject:
   m_ObjectHideFlags: 0

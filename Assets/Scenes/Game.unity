@@ -338,12 +338,24 @@ PrefabInstance:
       value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: -8352182400271671966, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8352182400271671966, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
       value: CameraWall
       objectReference: {fileID: 0}
     - target: {fileID: -5434840213506429771, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4.485
+      objectReference: {fileID: 0}
+    - target: {fileID: -5164741050528204425, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4618165351516725897, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4618165351516725897, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
@@ -356,6 +368,10 @@ PrefabInstance:
     - target: {fileID: -3756750093306997579, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 764657168041056648, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 764657168041056648, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
@@ -386,12 +402,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6274485012563623163, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274485012563623163, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
       value: CameraWall
       objectReference: {fileID: 0}
     - target: {fileID: 6395628007123486802, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.559
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649859067363777943, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6649859067363777943, guid: 7e3bc0ef46e336f41b5b1a9c739fe1cf, type: 3}
       propertyPath: m_TagString
@@ -1197,6 +1221,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 126908869}
+  followPlayerX: 1
+  followPlayerY: 1
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1505861585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4492089120758484071, guid: dc256b4511934684e96b5fafddeb3c06, type: 3}

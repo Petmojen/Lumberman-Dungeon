@@ -10,7 +10,7 @@ public class cameraFollow : MonoBehaviour
 	
 	void Start()
 	{
-		mask = LayerMask.GetMask("Walls");
+		mask = LayerMask.GetMask("WallOutline");
 	}
 	
 	

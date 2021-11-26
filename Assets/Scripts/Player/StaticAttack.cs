@@ -5,41 +5,25 @@ using UnityEngine;
 public class StaticAttack : MonoBehaviour
 {
 	PlayerAttack playerAttackScript;
+	float rotateSpeed = 3f;
 	GameObject findPlayer;
-	[SerializeField] Transform rotateSprite2;
-	float rotateSpeed = 4f;
-	int rotateSteps = 100;
-	public int i = 0;
-	int rotateDirection = 1;
-    Rigidbody2D rgbd2D;
-	
-    // Start is called before the first frame update
+
     void Start()
     {
 		findPlayer = GameObject.FindGameObjectWithTag("Player");
 		playerAttackScript = findPlayer.GetComponent<PlayerAttack>();
-		rgbd2D = GetComponent<Rigidbody2D>();
+        transform.Rotate(0, 0, 45);
     }
 
-    // Update is called once per frame
     void Update()
     {
-		if (i < rotateSteps)
-		{			
-			rotateSprite2.Rotate(0, 0, -rotateSpeed * rotateDirection);
-			i++;
-		}
+        transform.Rotate(0, 0, -rotateSpeed);
+        Invoke(nameof(DestroyAxe), 0.25f);
+    }
 
-		if (i == rotateSteps / 2)
-		{
-			rotateDirection = -rotateDirection;
-		}
-		if (i == rotateSteps)
-		{
-			playerAttackScript.axeinAttack = false;
-			Destroy(gameObject);
-			
-		}
-
+    void DestroyAxe()
+    {
+        playerAttackScript.usingAxe = false;
+        Destroy(gameObject);
     }
 }

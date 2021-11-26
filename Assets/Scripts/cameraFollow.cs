@@ -5,8 +5,8 @@ using UnityEngine;
 public class cameraFollow : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    public bool followPlayer = true;
-	public Vector2 direction;
+    public bool followPlayerX = true, followPlayerY = true;
+	public Vector3 direction;
 	public LayerMask mask;
 	
 	void Start()
@@ -18,24 +18,38 @@ public class cameraFollow : MonoBehaviour
 
     void Update()
     {
-		if(followPlayer)
+		float edgeDistanceX = 6f;
+		float edgeDistanceY = 4f;
+		
+		if(followPlayerX)
         {
-            transform.position = player.transform.position;
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        }
+		if(followPlayerY)
+        {
+            transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
         }
 		
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 3, mask);
-		if (hit.distance <= 1)
+		RaycastHit2D hitRight = Physics2D.Raycast(player.transform.position, player.transform.right, edgeDistanceX, mask);
+		RaycastHit2D hitUp = Physics2D.Raycast(player.transform.position, player.transform.up, edgeDistanceY, mask);
+		RaycastHit2D hitLeft = Physics2D.Raycast(player.transform.position, -player.transform.right, edgeDistanceX, mask);
+		RaycastHit2D hitDown = Physics2D.Raycast(player.transform.position, -player.transform.up, edgeDistanceY, mask);
+		
+		if (hitRight.collider != null || hitLeft.collider != null)
 		{
-			followPlayer = false;
-			mask = LayerMask.GetMask("UI");
-			Debug.Log("hit");
+			followPlayerX = false;
 		}
-		if (hit.distance > 1)
+		if (hitUp.collider != null || hitDown.collider != null)
 		{
-			followPlayer = true;
-			mask = LayerMask.GetMask("Walls");
-			Debug.Log("No hit");
-		}	
- 
+			followPlayerY = false;
+		}
+		if (hitRight.collider == null && hitLeft.collider == null)
+		{
+			followPlayerX = true;
+		}
+		if (hitUp.collider == null && hitDown.collider == null)
+		{
+			followPlayerY = true;
+		}
     }
 }

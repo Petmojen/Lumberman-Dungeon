@@ -6,7 +6,6 @@ public class cameraFollow : MonoBehaviour
 {
     [SerializeField] GameObject player;
     public bool followPlayerX = true, followPlayerY = true;
-	public Vector3 direction;
 	public LayerMask mask;
 	
 	void Start()

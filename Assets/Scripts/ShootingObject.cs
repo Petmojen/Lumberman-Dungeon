@@ -11,17 +11,18 @@ public class ShootingObject : MonoBehaviour
 
     void Update()
     {
-        Shoot();
+        if (firedBullet)
+        {
+            InvokeRepeating(nameof(Shoot), 0, 1);
+            firedBullet = false;
+        }
     }
 
     void Shoot()
     {
-        if (firedBullet == true)
-        {
-            Instantiate(bulletPrefab, firePoint);
-            Destroy(gameObject, 2);
-            firedBullet = false;
-        }
+
+        GameObject bulletinstance = Instantiate(bulletPrefab, firePoint);
+        Destroy(bulletinstance, 2);
     }
 
 }

@@ -20,8 +20,8 @@ public class Pickup : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
-            
+        if(other.CompareTag("Player"))
+            // && Input.GetKeyDown(KeyCode.E)
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class PlayerHpSystem:MonoBehaviour
+public class PlayerHpSystem : MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
     float health = 100;
@@ -13,24 +14,30 @@ public class PlayerHpSystem:MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Shield:" + armor);   
+        Debug.Log("Shield:" + armor);
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
         sliderHealth.value = health / 100;
+        if(health <= 0)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     public void UpdateArmor()
     {
         armor--;
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
-            if(i < armor)
+            if (i < armor)
             {
                 armorSprite[i].SetActive(true);
-            } else {
+            }
+            else
+            {
                 armorSprite[i].SetActive(false);
             }
         }
@@ -38,12 +45,14 @@ public class PlayerHpSystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("MinionShot"))
+        if (collision.CompareTag("MinionShot"))
         {
-            if(armor >= 0)
+            if (armor >= 0)
             {
                 UpdateArmor();
-            } else {
+            }
+            else
+            {
                 TakeDamage(10);
             }
         }

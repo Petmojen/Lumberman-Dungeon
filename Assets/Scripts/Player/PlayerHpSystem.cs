@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
+    bool invincible = false;
     float health = 100;
 
-    GameObject[] armorSprite;
-    public int armor = 2;
+    [SerializeField] GameObject[] armorSprite;
+    public int armor;
 
     public void TakeDamage(float damage)
     {
@@ -19,8 +20,8 @@ public class PlayerHpSystem:MonoBehaviour
 
     public void UpdateArmor()
     {
-        armor--;
-        for(int i = 0; i < 3; i++)
+        invincible = true;
+        for(int i = 0; i < armorSprite.Length; i++)
         {
             if(i < armor)
             {
@@ -29,58 +30,45 @@ public class PlayerHpSystem:MonoBehaviour
                 armorSprite[i].SetActive(false);
             }
         }
+        Invoke(nameof(Vincible), 2);
+    }
+
+    void Vincible()
+    {
+        invincible = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("MinionShot"))
+        if(collision.CompareTag("MinionShot") && !invincible)
         {
             if(armor > 0)
             {
+                armor--;
                 UpdateArmor();
             } else {
                 TakeDamage(10);
             }
         }
 
-        if(collision.CompareTag("Boss"))
+        if(collision.CompareTag("Boss") && !invincible)
         {
             if(armor > 0)
             {
+                armor--;
                 UpdateArmor();
             } else {
                 TakeDamage(25);
             }
         }
 
-        if(collision.CompareTag("Leaf"))
+        if(collision.CompareTag("Leaf") && !invincible)
         {
             if(armor > 0)
             {
+                armor--;
                 UpdateArmor();
             } else {
-                TakeDamage(10);
-            }
-        }
-
-        if(collision.CompareTag("Boss"))
-        {
-            if(armor >= 0)
-            {
-                UpdateArmor();
-            } else
-            {
-                TakeDamage(10);
-            }
-        }
-
-        if(collision.CompareTag("Leaf"))
-        {
-            if(armor >= 0)
-            {
-                UpdateArmor();
-            } else
-            {
                 TakeDamage(10);
             }
         }

@@ -21,14 +21,11 @@ public class InventorySystem:MonoBehaviour
         if(seedBool && Input.GetKeyDown(KeyCode.E))
         {
             AddSeed();
-        } else if(vineBool && Input.GetKeyDown(KeyCode.E))
-        {
+        } else if(vineBool && Input.GetKeyDown(KeyCode.E)) {
             AddVine();
-        } else if(torchBool && Input.GetKeyDown(KeyCode.E))
-        {
+        } else if(torchBool && Input.GetKeyDown(KeyCode.E)) {
             AddTourch();
-        } else if(logBool && Input.GetKeyDown(KeyCode.E))
-        {
+        } else if(logBool && Input.GetKeyDown(KeyCode.E)) {
             AddArmor();
         }
 
@@ -85,16 +82,22 @@ public class InventorySystem:MonoBehaviour
     void AddSeed()
     {
         seedInt++;
+        seedText.text = seedInt.ToString();
+        Destroy(holdResource);
     }
 
     void AddVine()
     {
         vineInt++;
+        vineText.text = vineInt.ToString();
+        Destroy(holdResource);
     }
 
     void AddTourch()
     {
         torchInt++;
+        torchText.text = torchInt.ToString();
+        Destroy(holdResource);
     }
 
     void AddArmor()
@@ -103,6 +106,7 @@ public class InventorySystem:MonoBehaviour
         {
             playerHpScript.armor++;
             Destroy(holdResource);
+            playerHpScript.UpdateArmor();
         }
     }
 }

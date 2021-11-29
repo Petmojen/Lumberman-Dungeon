@@ -11,11 +11,6 @@ public class PlayerHpSystem:MonoBehaviour
     GameObject[] armorSprite;
     public int armor = 2;
 
-    void Update()
-    {
-        Debug.Log("Shield:" + armor);   
-    }
-
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -44,6 +39,28 @@ public class PlayerHpSystem:MonoBehaviour
             {
                 UpdateArmor();
             } else {
+                TakeDamage(10);
+            }
+        }
+
+        if(collision.CompareTag("Boss"))
+        {
+            if(armor >= 0)
+            {
+                UpdateArmor();
+            } else
+            {
+                TakeDamage(10);
+            }
+        }
+
+        if(collision.CompareTag("Leaf"))
+        {
+            if(armor >= 0)
+            {
+                UpdateArmor();
+            } else
+            {
                 TakeDamage(10);
             }
         }

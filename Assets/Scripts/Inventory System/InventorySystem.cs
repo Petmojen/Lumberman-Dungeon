@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-    bool seedBool, vineBool, tourchBool, logBool;
-    int seedInt, vineInt, tourchInt;
+    [SerializeField] Text seedText, vineText, torchText;
+    bool seedBool, vineBool, torchBool, logBool;
+    int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
 
@@ -17,15 +18,13 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Seeds:" + seedInt + " Vines:" + vineInt + " Tourches:" + tourchInt);
-
         if(seedBool && Input.GetKeyDown(KeyCode.E))
         {
             AddSeed();
         } else if(vineBool && Input.GetKeyDown(KeyCode.E))
         {
             AddVine();
-        } else if(tourchBool && Input.GetKeyDown(KeyCode.E))
+        } else if(torchBool && Input.GetKeyDown(KeyCode.E))
         {
             AddTourch();
         } else if(logBool && Input.GetKeyDown(KeyCode.E))
@@ -50,7 +49,7 @@ public class InventorySystem:MonoBehaviour
 
         if(collision.CompareTag("Tourch"))
         {
-            tourchBool = true;
+            torchBool = true;
         }
 
         if(collision.CompareTag("Log"))
@@ -74,7 +73,7 @@ public class InventorySystem:MonoBehaviour
 
         if(collision.CompareTag("Tourch"))
         {
-            tourchBool = false;
+            torchBool = false;
         }
 
         if(collision.CompareTag("Log"))
@@ -95,7 +94,7 @@ public class InventorySystem:MonoBehaviour
 
     void AddTourch()
     {
-        tourchInt++;
+        torchInt++;
     }
 
     void AddArmor()

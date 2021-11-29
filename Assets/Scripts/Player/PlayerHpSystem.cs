@@ -40,7 +40,27 @@ public class PlayerHpSystem:MonoBehaviour
     {
         if(collision.CompareTag("MinionShot"))
         {
-            if(armor >= 0)
+            if(armor > 0)
+            {
+                UpdateArmor();
+            } else {
+                TakeDamage(10);
+            }
+        }
+
+        if(collision.CompareTag("Boss"))
+        {
+            if(armor > 0)
+            {
+                UpdateArmor();
+            } else {
+                TakeDamage(25);
+            }
+        }
+
+        if(collision.CompareTag("Leaf"))
+        {
+            if(armor > 0)
             {
                 UpdateArmor();
             } else {

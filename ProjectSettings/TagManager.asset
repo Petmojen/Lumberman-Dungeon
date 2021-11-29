@@ -10,6 +10,9 @@ TagManager:
   - CameraWall
   - Minion
   - PlayerCollision
+  - Cameracollider
+  - Boss
+  - Leaf
   layers:
   - Default
   - TransparentFX

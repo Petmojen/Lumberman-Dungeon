@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHpSystem : MonoBehaviour
 {
+	public bool hitCooldown = false;
     int playerHP = 3;
 
     [SerializeField]
@@ -27,10 +28,21 @@ public class PlayerHpSystem : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("MinionShot"))
+        if ((collision.CompareTag("MinionShot") || collision.CompareTag("Boss") || collision.CompareTag("Leaf")) && !hitCooldown)
         {
             playerHP--;
             UpdatePlayerHP();
+			hitCooldown = true;
         }
+		if (playerHP <= 0)
+		{
+			playerHP = 3;
+		}
+		Invoke(nameof(PlayerHitCooldown), 2f);
     }
+	void PlayerHitCooldown()
+	{
+		hitCooldown = false;
+		CancelInvoke();
+	}
 }

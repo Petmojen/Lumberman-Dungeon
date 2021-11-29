@@ -17,8 +17,8 @@ public class cameraFollow : MonoBehaviour
 
     void Update()
     {
-		float edgeDistanceX = 6f;
-		float edgeDistanceY = 4f;
+		float edgeDistanceX = 8.4f;
+		float edgeDistanceY = 5.7f;
 		
 		if(followPlayerX)
         {

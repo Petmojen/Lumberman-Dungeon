@@ -117,7 +117,7 @@ SpriteRenderer:
   m_Size: {x: 0.25, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1528656597205333763
@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3444fb3b9a183459b6e22b1c7f4fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colCooldown: 0
+  dashTimer: 0
   spriteRight: {fileID: 21300000, guid: 81324dbeef5633945a948841362b75ff, type: 3}
   spriteLeft: {fileID: 21300000, guid: 59beba69999c3474d9e843c0b04f06a7, type: 3}
   spriteUp: {fileID: 21300000, guid: f383742934d61704ab5cae79551c84dc, type: 3}
@@ -151,7 +153,7 @@ MonoBehaviour:
   axePrefab: {fileID: 8587911366970735423, guid: 24e2f04f563932d43ab8be712459bdee, type: 3}
   axeOffset: {fileID: 1528656595461053803}
   axeAttackPrefab: {fileID: 4033656446156202671, guid: 61456c609fcd6944d836d38213921498, type: 3}
-  axeInAir: 0
+  usingAxe: 0
 --- !u!50 &1528656597205333822
 Rigidbody2D:
   serializedVersion: 4
@@ -295,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c03f87a1297c64f88bd6a8129ea496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitCooldown: 0
   hpBars:
   - {fileID: 21300000, guid: 22b8de2f873420a43994c89ad2924628, type: 3}
   - {fileID: 21300000, guid: 551edb2ea344c9a4eafbdba81bc8b4ab, type: 3}

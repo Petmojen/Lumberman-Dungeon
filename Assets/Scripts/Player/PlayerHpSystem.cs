@@ -3,34 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHpSystem : MonoBehaviour
+public class PlayerHpSystem:MonoBehaviour
 {
-    int playerHP = 3;
+    [SerializeField] Slider sliderHealth;
+    float health = 100;
 
-    [SerializeField]
-    Sprite[] hpBars;
+    GameObject[] armorSprite;
+    public int armor = 2;
 
-    [SerializeField]
-    Image hpBarUI;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        Debug.Log("Shield:" + armor);   
     }
-    void UpdatePlayerHP()
+
+    public void TakeDamage(float damage)
     {
-        hpBarUI.sprite = hpBars[playerHP];
+        health -= damage;
+        sliderHealth.value = health / 100;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void UpdateArmor()
     {
-        if (collision.CompareTag("MinionShot"))
+        armor--;
+        for(int i = 0; i < 3; i++)
         {
-            playerHP--;
-            UpdatePlayerHP();
+            if(i < armor)
+            {
+                armorSprite[i].SetActive(true);
+            } else {
+                armorSprite[i].SetActive(false);
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("MinionShot"))
+        {
+            if(armor >= 0)
+            {
+                UpdateArmor();
+            } else {
+                TakeDamage(10);
+            }
         }
     }
 }

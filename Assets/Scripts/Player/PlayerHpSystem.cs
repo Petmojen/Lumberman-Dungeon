@@ -2,47 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHpSystem : MonoBehaviour
 {
-	public bool hitCooldown = false;
-    int playerHP = 3;
+    [SerializeField] Slider sliderHealth;
+    float health = 100;
 
-    [SerializeField]
-    Sprite[] hpBars;
+    GameObject[] armorSprite;
+    public int armor = 2;
 
-    [SerializeField]
-    Image hpBarUI;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        Debug.Log("Shield:" + armor);
     }
-    void UpdatePlayerHP()
+
+    public void TakeDamage(float damage)
     {
-        hpBarUI.sprite = hpBars[playerHP];
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if ((collision.CompareTag("MinionShot") || collision.CompareTag("Boss") || collision.CompareTag("Leaf")) && !hitCooldown)
+        health -= damage;
+        sliderHealth.value = health / 100;
+        if(health <= 0)
         {
-            playerHP--;
-            UpdatePlayerHP();
-			hitCooldown = true;
+            SceneManager.LoadScene("MainMenu");
         }
-		if (playerHP <= 0)
-		{
-			playerHP = 3;
-		}
-		Invoke(nameof(PlayerHitCooldown), 2f);
     }
-	void PlayerHitCooldown()
-	{
-		hitCooldown = false;
-		CancelInvoke();
-	}
+
+    public void UpdateArmor()
+    {
+        armor--;
+        for (int i = 0; i < 3; i++)
+        {
+            if (i < armor)
+            {
+                armorSprite[i].SetActive(true);
+            }
+            else
+            {
+                armorSprite[i].SetActive(false);
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("MinionShot"))
+        {
+            if (armor >= 0)
+            {
+                UpdateArmor();
+            }
+            else
+            {
+                TakeDamage(10);
+            }
+        }
+    }
 }

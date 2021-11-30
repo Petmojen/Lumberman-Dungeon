@@ -18,15 +18,18 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-        if(seedBool && Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            AddSeed();
-        } else if(vineBool && Input.GetKeyDown(KeyCode.E)) {
-            AddVine();
-        } else if(torchBool && Input.GetKeyDown(KeyCode.E)) {
-            AddTorch();
-        } else if(logBool && Input.GetKeyDown(KeyCode.E)) {
-            AddArmor();
+            if(seedBool)
+            {
+                AddSeed();
+            } else if(vineBool) {
+                AddVine();
+            } else if(torchBool) {
+                AddTorch();
+            } else if(logBool) {
+                AddArmor();
+            }
         }
     }
 

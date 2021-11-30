@@ -9,28 +9,24 @@ public class PlayerHpSystem : MonoBehaviour
     [SerializeField] Slider sliderHealth;
     float health = 100;
 
-    GameObject[] armorSprite;
-    public int armor = 2;
-
-    void Update()
-    {
-        Debug.Log("Shield:" + armor);
-    }
+    [SerializeField] GameObject[] armorSprite;
+    public int armor;
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        sliderHealth.value = health / 100;
-        if(health <= 0)
+        if(armor > 0)
         {
-            SceneManager.LoadScene("MainMenu");
+            armor--;
+            UpdateArmor();
+        } else {
+            health -= damage;
+            sliderHealth.value = health / 100;
         }
     }
 
     public void UpdateArmor()
     {
-        armor--;
-        for (int i = 0; i < 3; i++)
+        for(int i = 0; i < armorSprite.Length; i++)
         {
             if (i < armor)
             {
@@ -45,16 +41,17 @@ public class PlayerHpSystem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("MinionShot"))
+        switch(collision.gameObject.tag)
         {
-            if (armor >= 0)
-            {
-                UpdateArmor();
-            }
-            else
-            {
+            case "MinionShot":
                 TakeDamage(10);
-            }
+                break;
+            case "Boss":
+                TakeDamage(25);
+                break;
+            case "Leaf":
+                TakeDamage(10);
+                break;
         }
     }
 }

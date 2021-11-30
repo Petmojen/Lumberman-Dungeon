@@ -25,7 +25,7 @@ public class AxeMovement:MonoBehaviour
             backToPlayer = true;
         } 
 
-        if(backToPlayer && Vector2.Distance(playerPosition.transform.position, transform.position) > 1f)
+        if(backToPlayer && Vector2.Distance(playerPosition.transform.position, transform.position) > 0.1f)
         {
             rotateSprite.Rotate(0, 0, flyingSpeed / 2f);
             Vector2 lookDirection = (Vector2)playerPosition.transform.position - (Vector2)transform.position;
@@ -39,18 +39,9 @@ public class AxeMovement:MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Wall"))
+        if(collision.CompareTag("Wall") || collision.CompareTag("Boss"))
         {
             backToPlayer = true;
         }
     }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Wall"))
-        {
-            backToPlayer = true;
-        }
-    }
-
 }

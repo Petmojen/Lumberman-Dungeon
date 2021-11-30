@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-    bool seedBool, vineBool, tourchBool, logBool;
-    int seedInt, vineInt, tourchInt;
+    [SerializeField] Text seedText, vineText, torchText;
+    bool seedBool, vineBool, torchBool, logBool;
+    int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
 
@@ -17,85 +18,69 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Seeds:" + seedInt + " Vines:" + vineInt + " Tourches:" + tourchInt);
-
-        if(seedBool && Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            AddSeed();
-        } else if(vineBool && Input.GetKeyDown(KeyCode.E))
-        {
-            AddVine();
-        } else if(tourchBool && Input.GetKeyDown(KeyCode.E))
-        {
-            AddTourch();
-        } else if(logBool && Input.GetKeyDown(KeyCode.E))
-        {
-            AddArmor();
+            if(seedBool)
+            {
+                AddSeed();
+            } else if(vineBool) {
+                AddVine();
+            } else if(torchBool) {
+                AddTorch();
+            } else if(logBool) {
+                AddArmor();
+            }
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         holdResource = collision.gameObject;
-        if(collision.CompareTag("Seed"))
+        switch(collision.gameObject.tag)
         {
-            seedBool = true;
-        }
-
-        if(collision.CompareTag("Vine"))
-        {
-            vineBool = true;
-        }
-
-        if(collision.CompareTag("Tourch"))
-        {
-            tourchBool = true;
-        }
-
-        if(collision.CompareTag("Log"))
-        {
-            logBool = true;
+            case "Seed":
+                seedBool = true;
+                break;
+            case "Vine":
+                vineBool = true;
+                break;
+            case "Tourch":
+                torchBool = true;
+                break;
+            case "Log":
+                logBool = true;
+                break;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         holdResource = null;
-        if(collision.CompareTag("Seed"))
-        {
-            seedBool = false;
-        }
-
-        if(collision.CompareTag("Vine"))
-        {
-            vineBool = false;
-        }
-
-        if(collision.CompareTag("Tourch"))
-        {
-            tourchBool = false;
-        }
-
-        if(collision.CompareTag("Log"))
-        {
-            logBool = false;
-        }
+        seedBool = false;
+        vineBool = false;
+        torchBool = false;
+        logBool = false;
     }
 
     void AddSeed()
     {
         seedInt++;
+        seedText.text = seedInt.ToString();
+        Destroy(holdResource);
     }
 
     void AddVine()
     {
         vineInt++;
+        vineText.text = vineInt.ToString();
+        Destroy(holdResource);
     }
 
-    void AddTourch()
+    void AddTorch()
     {
-        tourchInt++;
+        torchInt++;
+        torchText.text = torchInt.ToString();
+        Destroy(holdResource);
     }
 
     void AddArmor()
@@ -104,6 +89,7 @@ public class InventorySystem:MonoBehaviour
         {
             playerHpScript.armor++;
             Destroy(holdResource);
+            playerHpScript.UpdateArmor();
         }
     }
 }

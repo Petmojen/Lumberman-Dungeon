@@ -24,59 +24,39 @@ public class InventorySystem:MonoBehaviour
         } else if(vineBool && Input.GetKeyDown(KeyCode.E)) {
             AddVine();
         } else if(torchBool && Input.GetKeyDown(KeyCode.E)) {
-            AddTourch();
+            AddTorch();
         } else if(logBool && Input.GetKeyDown(KeyCode.E)) {
             AddArmor();
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         holdResource = collision.gameObject;
-        if(collision.CompareTag("Seed"))
+        switch(collision.gameObject.tag)
         {
-            seedBool = true;
-        }
-
-        if(collision.CompareTag("Vine"))
-        {
-            vineBool = true;
-        }
-
-        if(collision.CompareTag("Tourch"))
-        {
-            torchBool = true;
-        }
-
-        if(collision.CompareTag("Log"))
-        {
-            logBool = true;
+            case "Seed":
+                seedBool = true;
+                break;
+            case "Vine":
+                vineBool = true;
+                break;
+            case "Tourch":
+                torchBool = true;
+                break;
+            case "Log":
+                logBool = true;
+                break;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         holdResource = null;
-        if(collision.CompareTag("Seed"))
-        {
-            seedBool = false;
-        }
-
-        if(collision.CompareTag("Vine"))
-        {
-            vineBool = false;
-        }
-
-        if(collision.CompareTag("Tourch"))
-        {
-            torchBool = false;
-        }
-
-        if(collision.CompareTag("Log"))
-        {
-            logBool = false;
-        }
+        seedBool = false;
+        vineBool = false;
+        torchBool = false;
+        logBool = false;
     }
 
     void AddSeed()
@@ -93,7 +73,7 @@ public class InventorySystem:MonoBehaviour
         Destroy(holdResource);
     }
 
-    void AddTourch()
+    void AddTorch()
     {
         torchInt++;
         torchText.text = torchInt.ToString();

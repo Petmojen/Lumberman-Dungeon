@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
-    bool invincible = false;
     float health = 100;
 
     [SerializeField] GameObject[] armorSprite;
@@ -14,13 +13,18 @@ public class PlayerHpSystem:MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        sliderHealth.value = health / 100;
+        if(armor > 0)
+        {
+            armor--;
+            UpdateArmor();
+        } else {
+            health -= damage;
+            sliderHealth.value = health / 100;
+        }
     }
 
     public void UpdateArmor()
     {
-        invincible = true;
         for(int i = 0; i < armorSprite.Length; i++)
         {
             if(i < armor)
@@ -30,47 +34,21 @@ public class PlayerHpSystem:MonoBehaviour
                 armorSprite[i].SetActive(false);
             }
         }
-        Invoke(nameof(Vincible), 2);
-    }
-
-    void Vincible()
-    {
-        invincible = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("MinionShot") && !invincible)
+        switch(collision.gameObject.tag)
         {
-            if(armor > 0)
-            {
-                armor--;
-                UpdateArmor();
-            } else {
+            case "MinionShot":
                 TakeDamage(10);
-            }
-        }
-
-        if(collision.CompareTag("Boss") && !invincible)
-        {
-            if(armor > 0)
-            {
-                armor--;
-                UpdateArmor();
-            } else {
+                break;
+            case "Boss":
                 TakeDamage(25);
-            }
-        }
-
-        if(collision.CompareTag("Leaf") && !invincible)
-        {
-            if(armor > 0)
-            {
-                armor--;
-                UpdateArmor();
-            } else {
+                break;
+            case "Leaf":
                 TakeDamage(10);
-            }
+                break;
         }
     }
 }

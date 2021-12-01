@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BossMove : MonoBehaviour
 {
-	float movementSpeed = 0.5f, angle;
-	int i;
+	float movementSpeed = 0.5f;
+	int i, xDir, yDir;
 	Rigidbody2D rgbd2D;
 	
     // Start is called before the first frame update
@@ -20,26 +20,27 @@ public class BossMove : MonoBehaviour
     {
 		if (i < 20)
 		{
-			rgbd2D.velocity = new Vector2(movementSpeed, movementSpeed);
+			xDir = 1; yDir = 1;
 		}
 		if (i >= 20 && i < 40)
 		{
-			rgbd2D.velocity = new Vector2(-movementSpeed, -movementSpeed);
+			xDir = -1; yDir = -1;
 		}
 		if (i >= 40 && i < 60)
 		{
-			rgbd2D.velocity = new Vector2(-movementSpeed, movementSpeed);
+			xDir = -1; yDir = 1;
 		}
 		if (i >= 60 && i < 80)
 		{
-			rgbd2D.velocity = new Vector2(movementSpeed, -movementSpeed);
+			xDir = 1; yDir = -1;
 		}
-		i++;
-		
 		if (i >= 80)
 		{
 			i = 0;
 		}
+		
+		rgbd2D.velocity = new Vector2(movementSpeed * xDir, movementSpeed * yDir);
+		i++;
 
     }
 }

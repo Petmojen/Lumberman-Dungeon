@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
-    bool invicible = false;
+    bool invincible = false;
     float health = 100;
 
     [SerializeField] GameObject[] armorSprite;
@@ -15,7 +15,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        invicible = true;
+        invincible = true;
         if(armor > 0)
         {
             armor--;
@@ -24,7 +24,7 @@ public class PlayerHpSystem:MonoBehaviour
             health -= damage;
             sliderHealth.value = health / 100;
         }
-        Invoke(nameof(Vinsible), 2f);
+        Invoke(nameof(Vincible), 2f);
     }
 
     public void UpdateArmor()
@@ -40,15 +40,15 @@ public class PlayerHpSystem:MonoBehaviour
         }
     }
 
-    void Vinsible()
+    void Vincible()
     {
-        invicible = false;
+        invincible = false;
         CancelInvoke();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invicible)
+        if(!invincible)
         {
             switch(collision.gameObject.tag)
             {

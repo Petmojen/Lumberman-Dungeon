@@ -3936,6 +3936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4177312184486843125, guid: 5561c94e2775f7b4e865d1e657a91f3a, type: 3}
+      propertyPath: leafPrefab
+      value: 
+      objectReference: {fileID: 4238247389329539731, guid: 1cd6ae7666cfd7340921e6d77a126178, type: 3}
     - target: {fileID: 4771124559879932124, guid: 5561c94e2775f7b4e865d1e657a91f3a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3988,7 +3992,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6728685973276816862, guid: 5561c94e2775f7b4e865d1e657a91f3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5561c94e2775f7b4e865d1e657a91f3a, type: 3}
 --- !u!1001 &5977608175980136408
 PrefabInstance:

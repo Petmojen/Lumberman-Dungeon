@@ -170,4 +170,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c3d37404c46aa4f979e91d02343e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leafPrefab: {fileID: 4238247389329539731, guid: 1cd6ae7666cfd7340921e6d77a126178, type: 3}
+  leafPrefab: {fileID: 0}
+  attackType: 

@@ -4,35 +4,25 @@ using UnityEngine;
 
 public class LeafAttack : MonoBehaviour
 {
-	[SerializeField] GameObject leafPrefab;
-	float leafLimeTime;
-	int noofLeafs;
-int angle;
-	bool firedLeaf = true;
+	[SerializeField] Rigidbody2D rbd;
+	float speed = 2f;
     // Start is called before the first frame update
     void Start()
     {
-		noofLeafs = 3;
-		leafLimeTime = 2f;
-		angle = 25;
+		int randomDirection = Random.Range(-1, 2);
+		rbd.velocity = new Vector3((randomDirection * speed) / 3, -1 * speed, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (firedLeaf)
-        {
-            InvokeRepeating(nameof(Shoot), 0, 1);
-            firedLeaf = false;
-        }
+        
     }
-	void Shoot()
+	private void OnTriggerEnter2D(Collider2D collision)
     {
-		for (float i = 0; i < noofLeafs; i++)
+        if (collision.CompareTag("Player"))
 		{
-			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
-			Destroy(leafinstance, leafLimeTime);
+			Destroy(gameObject);
 		}
-    }
+	}
 }
-

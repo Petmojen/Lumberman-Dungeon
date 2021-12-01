@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4588998366180549207}
   - component: {fileID: -7131194200227894795}
   - component: {fileID: 6101920305011815725}
-  - component: {fileID: 1865360969623989522}
   - component: {fileID: 5374253062061897301}
+  - component: {fileID: -5721068118753247886}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Leaf
@@ -106,19 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1865360969623989522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4238247389329539731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f474696eaf0b845b5d0f446125efb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rbd: {fileID: 6101920305011815725}
 --- !u!58 &5374253062061897301
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,3 +122,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.125
+--- !u!114 &-5721068118753247886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238247389329539731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d690329be610f4aa887c1f46872574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbd: {fileID: 6101920305011815725}

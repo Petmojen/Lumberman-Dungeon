@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour
 {
-    bool attacking = false, dashCooldown = false;
-	public bool colCooldown = false;
-    PlayerAttack playerAttackScript;
+	bool dashCooldown = false, bossCollide = false;
+
 	float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
     float movementSpeed = 5, angle;
     Vector2 playerPosition;
-    public int dashTimer;
+    int dashTimer;
+	public int attacking;
     Rigidbody2D rgbd2D;
 
     //temp until we gen animations
@@ -19,10 +19,10 @@ public class PlayerMovement:MonoBehaviour
 
     void Start()
     {
-        playerAttackScript = GetComponentInChildren<PlayerAttack>();
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
         dashTimer = 0;
+		attacking = 0;
     }
 
     void Update()
@@ -31,8 +31,10 @@ public class PlayerMovement:MonoBehaviour
         {
             LookAtMouse();
         }
-
-        if(!attacking)
+		
+		
+		
+        if(attacking < 2)
         {
 
             playerPosition.x = Input.GetAxis("Horizontal");
@@ -60,12 +62,15 @@ public class PlayerMovement:MonoBehaviour
 				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed, playerPosition.y * movementSpeed);
 				Invoke ("DashCooldown", dashCooldownTime);
             }
+			if (bossCollide == true)
+			{
+				rgbd2D.velocity = -rgbd2D.velocity;
+			}
         }
     }
 
     void LookAtMouse()
     {
-        attacking = true;
         rgbd2D.velocity = new Vector2(0, 0);
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
@@ -80,14 +85,6 @@ public class PlayerMovement:MonoBehaviour
         } else if(angle > 135 || angle < -135) {
             changeSprite.sprite = spriteLeft;
         }
-        Invoke(nameof(DeactivateAttack), 0.25f);
-    }
-
-    void DeactivateAttack()
-    {
-        attacking = false;
-        rgbd2D.rotation = 0;
-        CancelInvoke();
     }
 
 	void Dashing()
@@ -104,24 +101,23 @@ public class PlayerMovement:MonoBehaviour
 
 	 private void OnTriggerStay2D(Collider2D collision)
 	{
-	    if(collision.CompareTag("Axe") && !attacking)
+	    if(collision.CompareTag("Axe") && attacking > 1)
 	    {
+			attacking = 0;
 			Destroy(collision.gameObject);
-			playerAttackScript.usingAxe = false;
 	    }
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Boss") && !colCooldown)
+        if (collision.CompareTag("Boss") && !bossCollide)
         {
-            rgbd2D.velocity = -rgbd2D.velocity;
-			colCooldown = true;
+			bossCollide = true;
         }
-		Invoke(nameof(PlayerBossCollisionCooldown), 1f);
+		Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
     }
 	void PlayerBossCollisionCooldown()
 	{
-		colCooldown = false;
+		bossCollide = false;
 		CancelInvoke();
 	}
 }

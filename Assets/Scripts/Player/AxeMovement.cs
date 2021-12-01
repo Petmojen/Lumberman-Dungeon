@@ -7,7 +7,8 @@ public class AxeMovement:MonoBehaviour
     [SerializeField] string[] antiCollision;
     [SerializeField] Transform rotateSprite;
     GameObject playerPosition;
-    bool backToPlayer = false;
+	PlayerMovement playerMovementScript;
+    public bool backToPlayer = false;
     float flyingSpeed = 10;
     Rigidbody2D rgbd2D;
 
@@ -15,6 +16,7 @@ public class AxeMovement:MonoBehaviour
     {
         playerPosition = GameObject.FindGameObjectWithTag("Player");
         rgbd2D = GetComponent<Rigidbody2D>();
+		playerMovementScript = GameObject.FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement; 
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class AxeMovement:MonoBehaviour
         if(Vector2.Distance(playerPosition.transform.position, transform.position) > 5)
         {
             backToPlayer = true;
+			playerMovementScript.attacking = 2;
         } 
 
         if(backToPlayer && Vector2.Distance(playerPosition.transform.position, transform.position) > 0.1f)
@@ -42,6 +45,7 @@ public class AxeMovement:MonoBehaviour
         if(collision.CompareTag("Wall") || collision.CompareTag("Boss"))
         {
             backToPlayer = true;
+			playerMovementScript.attacking = 2;
         }
     }
 }

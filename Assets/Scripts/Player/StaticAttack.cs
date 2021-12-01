@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class StaticAttack : MonoBehaviour
 {
-	PlayerAttack playerAttackScript;
+	PlayerMovement playerMovementScript;
 	float rotateSpeed = 3f;
 	GameObject findPlayer;
 
     void Start()
     {
-		findPlayer = GameObject.FindGameObjectWithTag("Player");
-		playerAttackScript = findPlayer.GetComponent<PlayerAttack>();
         transform.Rotate(0, 0, 45);
+		playerMovementScript = GameObject.FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
     }
 
     void Update()
     {
+		playerMovementScript.attacking = 1;
         transform.Rotate(0, 0, -rotateSpeed);
         Invoke(nameof(DestroyAxe), 0.25f);
     }
 
     void DestroyAxe()
     {
-        playerAttackScript.usingAxe = false;
+        playerMovementScript.attacking = 0;
         Destroy(gameObject);
     }
 }

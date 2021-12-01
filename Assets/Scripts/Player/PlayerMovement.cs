@@ -34,7 +34,7 @@ public class PlayerMovement:MonoBehaviour
 		
 		
 		
-        if(attacking < 2)
+        if(attacking <= 2)
         {
 
             playerPosition.x = Input.GetAxis("Horizontal");
@@ -101,7 +101,7 @@ public class PlayerMovement:MonoBehaviour
 
 	 private void OnTriggerStay2D(Collider2D collision)
 	{
-	    if(collision.CompareTag("Axe") && attacking > 1)
+	    if(collision.CompareTag("Axe") && attacking == 2)
 	    {
 			attacking = 0;
 			Destroy(collision.gameObject);

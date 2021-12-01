@@ -18,7 +18,7 @@ public class PlayerAttack:MonoBehaviour
     void Update()
     {
 
-        if(Input.GetMouseButtonDown(0) && playerMovementScript.attacking < 1)
+        if(Input.GetMouseButtonDown(0) && playerMovementScript.attacking == 0)
         {
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0);
 

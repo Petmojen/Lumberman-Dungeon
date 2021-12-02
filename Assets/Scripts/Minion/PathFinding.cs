@@ -78,15 +78,18 @@ public class PathFinding : MonoBehaviour
             distance[i] = Vector2.Distance(playerPosition.transform.position, holdConnectedGridPointData[i].transform.position);
         }
 
-        for(int x = 0; x < distance.Length - 1; x++)
+        newGridPoint = holdConnectedGridPointData[0];
+        float holdDistance = distance[0];
+
+        for(int x = 1; x < distance.Length; x++)
         {
-            if(distance[x] < distance[x + 1])
+            if(holdDistance > distance[x])
             {
+                holdDistance = distance[x];
                 newGridPoint = holdConnectedGridPointData[x];
-            } else {
-                newGridPoint = holdConnectedGridPointData[x + 1];
             }
         }
+
         currentGridPoint = newGridPoint;
         gridPointDataScript = currentGridPoint.GetComponent<GridPointData>();
     }

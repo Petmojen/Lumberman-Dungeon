@@ -25,7 +25,7 @@ public class AxeMovement:MonoBehaviour
             backToPlayer = true;
         } 
 
-        if(backToPlayer && Vector2.Distance(playerPosition.transform.position, transform.position) > 0.1f)
+        if(backToPlayer && Vector2.Distance(playerPosition.transform.position, transform.position) > 1.5f)
         {
             rotateSprite.Rotate(0, 0, flyingSpeed / 2f);
             Vector2 lookDirection = (Vector2)playerPosition.transform.position - (Vector2)transform.position;

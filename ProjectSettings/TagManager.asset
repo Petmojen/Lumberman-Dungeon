@@ -16,6 +16,7 @@ TagManager:
   - Seed
   - Boss
   - Leaf
+  - GridPoint
   layers:
   - Default
   - TransparentFX

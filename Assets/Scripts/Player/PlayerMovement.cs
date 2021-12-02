@@ -87,7 +87,7 @@ public class PlayerMovement:MonoBehaviour
     {
         attacking = false;
         rgbd2D.rotation = 0;
-        CancelInvoke();
+        CancelInvoke(nameof(DeactivateAttack));
     }
 
 	void Dashing()
@@ -102,23 +102,22 @@ public class PlayerMovement:MonoBehaviour
 		CancelInvoke();
 	}
 
-	 private void OnTriggerStay2D(Collider2D collision)
-	{
-	    if(collision.CompareTag("Axe") && !attacking)
-	    {
-			Destroy(collision.gameObject);
-			playerAttackScript.usingAxe = false;
-	    }
-	}
 	private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.CompareTag("Axe") && !attacking)
+        {
+                playerAttackScript.usingAxe = false;
+                Destroy(collision.gameObject);
+        }
+
         if (collision.CompareTag("Boss") && !colCooldown)
         {
             rgbd2D.velocity = -rgbd2D.velocity;
 			colCooldown = true;
+		    Invoke(nameof(PlayerBossCollisionCooldown), 1f);
         }
-		Invoke(nameof(PlayerBossCollisionCooldown), 1f);
     }
+
 	void PlayerBossCollisionCooldown()
 	{
 		colCooldown = false;

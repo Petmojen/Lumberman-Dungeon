@@ -25,7 +25,7 @@ public class AxeMovement:MonoBehaviour
         if(Vector2.Distance(playerPosition.transform.position, transform.position) > 5)
         {
             backToPlayer = true;
-			playerMovementScript.attacking = 2;
+			playerMovementScript.axeAttack = PlayerMovement.Attack.AxeReturning;
         } 
 
         if(backToPlayer && Vector2.Distance(playerPosition.transform.position, transform.position) > 0.1f)
@@ -45,7 +45,7 @@ public class AxeMovement:MonoBehaviour
         if(collision.CompareTag("Wall") || collision.CompareTag("Boss"))
         {
             backToPlayer = true;
-			playerMovementScript.attacking = 2;
+			playerMovementScript.axeAttack = PlayerMovement.Attack.AxeReturning;
         }
     }
 }

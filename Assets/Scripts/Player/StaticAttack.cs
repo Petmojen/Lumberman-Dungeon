@@ -16,14 +16,13 @@ public class StaticAttack : MonoBehaviour
 
     void Update()
     {
-		playerMovementScript.attacking = 3;
         transform.Rotate(0, 0, -rotateSpeed);
         Invoke(nameof(DestroyAxe), 0.4f);
     }
 
     void DestroyAxe()
     {
-        playerMovementScript.attacking = 0;
+        playerMovementScript.axeAttack = PlayerMovement.Attack.Idle;
         Destroy(gameObject);
     }
 }

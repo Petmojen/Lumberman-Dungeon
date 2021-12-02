@@ -10,7 +10,8 @@ public class PlayerMovement:MonoBehaviour
     float movementSpeed = 5, angle;
     Vector2 playerPosition;
     int dashTimer;
-	public int attacking;
+	public enum Attack {Idle, Throw, AxeReturning, Melee};
+	public Attack axeAttack;
     Rigidbody2D rgbd2D;
 
     //temp until we gen animations
@@ -22,7 +23,7 @@ public class PlayerMovement:MonoBehaviour
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
         dashTimer = 0;
-		attacking = 0;
+		axeAttack = Attack.Idle;
     }
 
     void Update()
@@ -34,7 +35,7 @@ public class PlayerMovement:MonoBehaviour
 		
 		
 		
-        if(attacking <= 2)
+        if(axeAttack != Attack.Melee)
         {
 
             playerPosition.x = Input.GetAxis("Horizontal");
@@ -101,9 +102,9 @@ public class PlayerMovement:MonoBehaviour
 
 	 private void OnTriggerStay2D(Collider2D collision)
 	{
-	    if(collision.CompareTag("Axe") && attacking == 2)
+	    if(collision.CompareTag("Axe") && axeAttack == Attack.AxeReturning)
 	    {
-			attacking = 0;
+			axeAttack = Attack.Idle;
 			Destroy(collision.gameObject);
 	    }
 	}

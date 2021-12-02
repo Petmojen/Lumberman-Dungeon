@@ -24,7 +24,6 @@ public class PathFinding : MonoBehaviour
     void Update()
     {
         Debug.DrawLine(transform.position, playerPosition.transform.position, Color.blue);
-        Debug.Log(Vector3.Distance(transform.position, playerPosition.transform.position));
 
         detectGridPoint.enabled = findGridPoint;
 
@@ -97,7 +96,6 @@ public class PathFinding : MonoBehaviour
         if(collision.CompareTag("GridPoint") && findGridPoint)
         {
             currentGridPoint = collision.gameObject;
-            Debug.Log(currentGridPoint.name);
             gridPointDataScript = currentGridPoint.GetComponent<GridPointData>();
             holdConnectedGridPointData = gridPointDataScript.connectedGridPoints;
             findGridPoint = false;

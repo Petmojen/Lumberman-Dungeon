@@ -20,6 +20,7 @@ public class PlayerMovement:MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
         dashTimer = 0;
@@ -113,8 +114,8 @@ public class PlayerMovement:MonoBehaviour
         if (collision.CompareTag("Boss") && !bossCollide)
         {
 			bossCollide = true;
-        }
 		Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
+        }
     }
 	void PlayerBossCollisionCooldown()
 	{

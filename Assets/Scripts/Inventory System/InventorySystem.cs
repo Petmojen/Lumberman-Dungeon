@@ -11,10 +11,12 @@ public class InventorySystem:MonoBehaviour
     int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
+	Debugger debuggerScript;
 
     void Start()
     {
         playerHpScript = GetComponent<PlayerHpSystem>();
+		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
     }
 
     void Update()
@@ -35,6 +37,22 @@ public class InventorySystem:MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			PlaceBonFire();
+		}
+		// Debug code
+		if (debuggerScript.addInventorySeed)
+		{
+			AddSeed();
+			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed ;
+		}
+		if (debuggerScript.addInventoryVine)
+		{
+			AddVine();
+			debuggerScript.addInventoryVine = !debuggerScript.addInventoryVine;
+		}
+		if (debuggerScript.addInventoryTorch)
+		{
+			AddTorch();
+			debuggerScript.addInventoryTorch = !debuggerScript.addInventoryTorch;
 		}
     }
 

@@ -12,7 +12,20 @@ public class PlayerHpSystem:MonoBehaviour
     public bool isDead = false;
     [SerializeField] GameObject[] armorSprite;
     public int armor;
-
+	Debugger debuggerScript;
+	
+	void Start()
+	{
+		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger; 
+	}
+	void Update()
+	{
+		if(debuggerScript.instaDeath)
+        {
+            isDead = true;
+			debuggerScript.instaDeath = !debuggerScript.instaDeath;
+        }
+	}
     public void TakeDamage(float damage)
     {
         invincible = true;
@@ -52,7 +65,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible)
+        if(!invincible && !debuggerScript.immortal)
         {
             switch(collision.gameObject.tag)
             {

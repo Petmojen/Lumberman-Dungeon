@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1528656597205333818}
   - component: {fileID: 1528656597205333819}
   - component: {fileID: 4193985152638803630}
+  - component: {fileID: -477536822230207967}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,8 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3444fb3b9a183459b6e22b1c7f4fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colCooldown: 0
-  dashTimer: 0
+  axeAttack: 0
   spriteRight: {fileID: 21300000, guid: 0760f862282e5964589c652092d959d7, type: 3}
   spriteLeft: {fileID: 21300000, guid: cb080bc30b4470f44b42ec8cbbc63845, type: 3}
   spriteUp: {fileID: 21300000, guid: a8ad3ac02ffd00045b07af5232b6bd6d, type: 3}
@@ -154,7 +154,6 @@ MonoBehaviour:
   axePrefab: {fileID: 8587911366970735423, guid: 24e2f04f563932d43ab8be712459bdee, type: 3}
   axeOffset: {fileID: 1528656595461053803}
   axeAttackPrefab: {fileID: 4033656446156202671, guid: 61456c609fcd6944d836d38213921498, type: 3}
-  usingAxe: 0
 --- !u!50 &1528656597205333822
 Rigidbody2D:
   serializedVersion: 4
@@ -299,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderHealth: {fileID: 0}
+  isDead: 0
   armorSprite:
   - {fileID: 0}
   - {fileID: 0}
@@ -352,3 +352,21 @@ MonoBehaviour:
   vineText: {fileID: 0}
   torchText: {fileID: 0}
   bonFirePrefab: {fileID: 752441669965792434, guid: 2722b4108ca7f1a48b0c8ba56475ad0c, type: 3}
+--- !u!114 &-477536822230207967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528656597205333762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ab4c991897cf54b99a3f59a4e8da8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immortal: 0
+  instaDeath: 0
+  addInventoryTorch: 0
+  addInventoryVines: 0
+  addInventoryLog: 0
+  addInventoryEarthMound: 0

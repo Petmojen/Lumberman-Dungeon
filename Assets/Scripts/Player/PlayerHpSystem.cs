@@ -57,14 +57,14 @@ public class PlayerHpSystem:MonoBehaviour
             switch(collision.gameObject.tag)
             {
                 case "MinionShot":
-                TakeDamage(10);
-                break;
+                    TakeDamage(10);
+                    break;
                 case "Boss":
-                TakeDamage(25);
-                break;
+                    TakeDamage(25);
+                    break;
                 case "Leaf":
-                TakeDamage(10);
-                break;
+                    TakeDamage(10);
+                    break;
             }
         }
     }

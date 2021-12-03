@@ -33,9 +33,9 @@ public class PlayerMovement:MonoBehaviour
         {
             LookAtMouse();
         }
-		
-		
-		
+
+
+
         if(axeAttack != Attack.Melee)
         {
 
@@ -90,7 +90,7 @@ public class PlayerMovement:MonoBehaviour
     }
 
 	void Dashing()
-	{	
+	{
 		dashCooldown = true;
 		CancelInvoke();
 	}
@@ -117,6 +117,7 @@ public class PlayerMovement:MonoBehaviour
 		Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
         }
     }
+
 	void PlayerBossCollisionCooldown()
 	{
 		bossCollide = false;

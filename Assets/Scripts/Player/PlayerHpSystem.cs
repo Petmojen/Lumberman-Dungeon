@@ -65,7 +65,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible && !debuggerScript.immortal)
+        if(!invincible || !debuggerScript.immortal)
         {
             switch(collision.gameObject.tag)
             {

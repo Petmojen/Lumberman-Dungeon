@@ -70,21 +70,21 @@ public class InventorySystem:MonoBehaviour
     void AddSeed()
     {
         seedInt++;
-        seedText.text = seedInt.ToString();
+        seedText.text = string.Format("{0:0}", seedInt);
         Destroy(holdResource);
     }
 
     void AddVine()
     {
         vineInt++;
-        vineText.text = vineInt.ToString();
+        vineText.text = string.Format("{0:0}", vineInt);
         Destroy(holdResource);
     }
 
     void AddTorch()
     {
         torchInt++;
-        torchText.text = torchInt.ToString();
+        torchText.text = string.Format("{0:0}", torchInt);
         Destroy(holdResource);
     }
 

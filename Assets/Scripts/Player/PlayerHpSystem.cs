@@ -28,7 +28,7 @@ public class PlayerHpSystem:MonoBehaviour
         {
             isDead = true;
         }
-        Invoke(nameof(Vincible), 0.2f);
+        Invoke(nameof(Vincible), 2f);
     }
 
     public void UpdateArmor()

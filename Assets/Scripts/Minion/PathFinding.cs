@@ -8,7 +8,7 @@ public class PathFinding : MonoBehaviour
     GameObject[] holdConnectedGridPointData;
     Rigidbody2D rgbd2D;
 
-    float angele, speed = 5;
+    float angele, speed = 2;
     bool attackingPlayer, findGridPoint = true;
     CircleCollider2D detectGridPoint;
     

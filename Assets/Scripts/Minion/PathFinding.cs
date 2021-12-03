@@ -25,6 +25,7 @@ public class PathFinding : MonoBehaviour
     {
         Debug.DrawLine(transform.position, playerPosition.transform.position, Color.blue);
 
+        Debug.Log(detectGridPoint.enabled);
         detectGridPoint.enabled = findGridPoint;
 
         if(Vector3.Distance(transform.position, playerPosition.transform.position) < 9f)

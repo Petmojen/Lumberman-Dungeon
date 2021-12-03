@@ -23,9 +23,8 @@ public class PathFinding : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawLine(transform.position, playerPosition.transform.position, Color.blue);
+        //Debug.DrawLine(transform.position, playerPosition.transform.position, Color.blue);
 
-        Debug.Log(detectGridPoint.enabled);
         detectGridPoint.enabled = findGridPoint;
 
         if(Vector3.Distance(transform.position, playerPosition.transform.position) < 9f)
@@ -37,10 +36,10 @@ public class PathFinding : MonoBehaviour
         {
             ChangeTarget();
         } else if(!attackingPlayer) {
-            for(int i = 0; i < holdConnectedGridPointData.Length; i++)
-            {
-                Debug.DrawLine(holdConnectedGridPointData[i].transform.position, playerPosition.transform.position, Color.green);
-            }
+            //for(int i = 0; i < holdConnectedGridPointData.Length; i++)
+            //{
+            //    Debug.DrawLine(holdConnectedGridPointData[i].transform.position, playerPosition.transform.position, Color.green);
+            //}
             MoveTo(currentGridPoint);
         } else {
             AttackPlayer();

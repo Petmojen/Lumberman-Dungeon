@@ -30,5 +30,3 @@ public class Timer : MonoBehaviour
         
     }
 }
-
-//string.Format("{0}", i); string.Format("{00}", (Mathf.Floor(timeLeft % 60)));

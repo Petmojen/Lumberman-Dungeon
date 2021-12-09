@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathFinding:MonoBehaviour
+public class PathFinding : MonoBehaviour
 {
     GameObject playerPosition, currentGridPoint, newGridPoint;
     GameObject[] holdConnectedGridPointData;
@@ -11,7 +11,7 @@ public class PathFinding:MonoBehaviour
     float angele, speed = 2;
     bool attackingPlayer, findGridPoint = true;
     CircleCollider2D detectGridPoint;
-
+    
     GridPointData gridPointDataScript;
 
     void Start()
@@ -36,28 +36,27 @@ public class PathFinding:MonoBehaviour
         {
             ChangeTarget();
         } else if(!attackingPlayer) {
-            for(int i = 0; i < holdConnectedGridPointData.Length; i++)
-            {
-                Debug.DrawLine(holdConnectedGridPointData[i].transform.position, playerPosition.transform.position, Color.green);
-            }
+            //for(int i = 0; i < holdConnectedGridPointData.Length; i++)
+            //{
+            //    Debug.DrawLine(holdConnectedGridPointData[i].transform.position, playerPosition.transform.position, Color.green);
+            //}
             MoveTo(currentGridPoint);
         } else {
             AttackPlayer();
         }
-
+        
     }
 
     void MoveTo(GameObject target)
     {
-        Vector2 lookDirection = (Vector2)target.transform.position - (Vector2)transform.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-        rgbd2D.velocity = transform.right * speed;
+            Vector2 lookDirection = (Vector2)target.transform.position - (Vector2)transform.position;
+            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            rgbd2D.velocity = transform.right * speed;
     }
 
     void AttackPlayer()
     {
-        //Add raycast
         if(Vector3.Distance(transform.position, playerPosition.transform.position) < 9f)
         {
             Vector2 lookDirection = (Vector2)playerPosition.transform.position - (Vector2)transform.position;
@@ -73,24 +72,21 @@ public class PathFinding:MonoBehaviour
     void ChangeTarget()
     {
         holdConnectedGridPointData = gridPointDataScript.connectedGridPoints;
-        newGridPoint = holdConnectedGridPointData[0];
-
-        if(holdConnectedGridPointData.Length != 1)
+        float[] distance = new float[holdConnectedGridPointData.Length];
+        for(int i = 0; i < holdConnectedGridPointData.Length; i++)
         {
-            float[] distance = new float[holdConnectedGridPointData.Length];
-            for(int i = 0; i < holdConnectedGridPointData.Length; i++)
-            {
-                distance[i] = Vector2.Distance(playerPosition.transform.position, holdConnectedGridPointData[i].transform.position);
-            }
+            distance[i] = Vector2.Distance(playerPosition.transform.position, holdConnectedGridPointData[i].transform.position);
+        }
 
-            float holdDistance = distance[0];
-            for(int x = 1; x < distance.Length; x++)
+        newGridPoint = holdConnectedGridPointData[0];
+        float holdDistance = distance[0];
+
+        for(int x = 1; x < distance.Length; x++)
+        {
+            if(holdDistance > distance[x])
             {
-                if(holdDistance > distance[x])
-                {
-                    holdDistance = distance[x];
-                    newGridPoint = holdConnectedGridPointData[x];
-                }
+                holdDistance = distance[x];
+                newGridPoint = holdConnectedGridPointData[x];
             }
         }
 

@@ -70,9 +70,6 @@ public class PlayerHpSystem:MonoBehaviour
                 case "Leaf":
                     TakeDamage(10);
                     break;
-                case "Minion":
-                    TakeDamage(10);
-                    break;
             }
         }
     }

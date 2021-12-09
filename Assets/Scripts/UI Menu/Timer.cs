@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public static float timeLeft = 10f;
+    public static float timeLeft = 120f;
+	public bool timeOut = false;
     Text text;
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,11 @@ public class Timer : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
+		{
             timeLeft = 0;
-        text.text = "Timer: " + Mathf.Round(timeLeft);
+			timeOut = true;
+		}
+        text.text = "Timer: " + Mathf.Floor(timeLeft / 60f) + ":" + Mathf.Round(timeLeft % 60);
         
     }
 }

@@ -25,7 +25,7 @@ public class DeathMenu : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Map");
         Time.timeScale = 1f;
     }
     public void LoadMenu()

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour
 {
-	bool dashCooldown = false, bossCollide = false;
+	bool dashCooldown = false, bossCollide = false, moveToBoss = true;
 
-	float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
+	float dashTime = 0.2f, dashCooldownTime = 2f, dashSpeed = 2;
     float movementSpeed = 5, angle;
     Vector2 playerPosition;
     int dashTimer;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
 	public Attack axeAttack;
     Rigidbody2D rgbd2D;
+	Timer timerScript;
 
     //temp until we gen animations
     [SerializeField] Sprite spriteRight, spriteLeft, spriteUp, spriteDown;
@@ -25,6 +26,7 @@ public class PlayerMovement:MonoBehaviour
         rgbd2D = GetComponent<Rigidbody2D>();
         dashTimer = 0;
 		axeAttack = Attack.Idle;
+		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
     void Update()
@@ -34,7 +36,11 @@ public class PlayerMovement:MonoBehaviour
             LookAtMouse();
         }
 
-
+		if (timerScript.timeOut && moveToBoss)
+		{
+			transform.position = new Vector3(58f, -110f, 0f);
+			moveToBoss = false;
+		}
 
         if(axeAttack != Attack.Melee)
         {
@@ -66,6 +72,7 @@ public class PlayerMovement:MonoBehaviour
 			if (bossCollide == true)
 			{
 				rgbd2D.velocity = -rgbd2D.velocity;
+				dashCooldown = true;
 			}
         }
     }

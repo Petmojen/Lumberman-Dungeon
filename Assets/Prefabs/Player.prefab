@@ -367,6 +367,6 @@ MonoBehaviour:
   immortal: 0
   instaDeath: 0
   addInventoryTorch: 0
-  addInventoryVines: 0
-  addInventoryLog: 0
+  addInventoryVine: 0
+  addInventorySeed: 0
   addInventoryEarthMound: 0

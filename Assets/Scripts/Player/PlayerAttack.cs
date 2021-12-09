@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerAttack:MonoBehaviour
 {
-	PlayerMovement playerMovementScript;
     [SerializeField] GameObject axePrefab, axeOffset;
 	[SerializeField] GameObject axeAttackPrefab;
+	PlayerMovement playerMovementScript;
     float axeThrowForce = 20;
     Rigidbody2D rgbd2D;
 	
@@ -47,6 +47,10 @@ public class PlayerAttack:MonoBehaviour
     {
 		playerMovementScript.axeAttack = PlayerMovement.Attack.Throw;
         GameObject axe = Instantiate(axePrefab, axeOffset.transform.position, axeOffset.transform.rotation);
+        if(angle > 90 || angle < -90)
+        {
+            axe.GetComponent<AxeMovement>().flipSpriteBool = true;
+        }
         rgbd2D = axe.GetComponent<Rigidbody2D>();
         rgbd2D.AddForce(axe.transform.right * axeThrowForce, ForceMode2D.Impulse);
     }

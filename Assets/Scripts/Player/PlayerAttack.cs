@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerAttack:MonoBehaviour
 {
-	PlayerMovement playerMovementScript;
     [SerializeField] GameObject axePrefab, axeOffset;
 	[SerializeField] GameObject axeAttackPrefab;
+	PlayerMovement playerMovementScript;
     float axeThrowForce = 20;
     Rigidbody2D rgbd2D;
-
+	
 	void Start()
 	{
 		playerMovementScript = GameObject.FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
@@ -20,15 +20,14 @@ public class PlayerAttack:MonoBehaviour
 
         if(Input.GetMouseButtonDown(0) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle)
         {
-            axeinAttack = true;
-            GetAngle4Attack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0);
 
         } else if(Input.GetMouseButtonDown(1) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle) {
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
     }
 
-    void GetAngle(Vector2 mousePos)
+    void GetAngle(Vector2 mousePos, int mouseInput)
     {
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
@@ -48,17 +47,15 @@ public class PlayerAttack:MonoBehaviour
     {
 		playerMovementScript.axeAttack = PlayerMovement.Attack.Throw;
         GameObject axe = Instantiate(axePrefab, axeOffset.transform.position, axeOffset.transform.rotation);
+        if(angle > 90 || angle < -90)
+        {
+            axe.GetComponent<AxeMovement>().flipSpriteBool = true;
+        }
         rgbd2D = axe.GetComponent<Rigidbody2D>();
         rgbd2D.AddForce(axe.transform.right * axeThrowForce, ForceMode2D.Impulse);
     }
-	void GetAngle4Attack(Vector2 mousePos)
-    {
-        Vector2 lookDirection = mousePos - (Vector2)transform.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        axeOffset.transform.rotation = Quaternion.Euler(0, 0, angle);
-        Attack(angle);
-    }
-	void Attack(float angle)
+
+	void MeeleAxe(float angle)
 	{
 		playerMovementScript.axeAttack = PlayerMovement.Attack.Melee;
         GameObject axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1, 0, 0), Quaternion.identity);

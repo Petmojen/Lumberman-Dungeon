@@ -13,10 +13,12 @@ public class PlayerHpSystem:MonoBehaviour
     [SerializeField] GameObject[] armorSprite;
     public int armor;
 	Debugger debuggerScript;
+	Timer timerScript;	
 	
 	void Start()
 	{
-		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger; 
+		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
+		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 	}
 	void Update()
 	{
@@ -41,7 +43,7 @@ public class PlayerHpSystem:MonoBehaviour
         {
             isDead = true;
         }
-        Invoke(nameof(Vincible), 2f);
+        Invoke(nameof(Vincible), 1f);
     }
 
     public void UpdateArmor()
@@ -78,6 +80,14 @@ public class PlayerHpSystem:MonoBehaviour
                 case "Leaf":
                     TakeDamage(10);
                     break;
+				case "Blocker":
+					if (timerScript.timeOut)
+					{
+						armor = 0;
+						TakeDamage(50);
+						//isDead = true;
+					}
+					break;
             }
         }
     }

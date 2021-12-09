@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Debugger : MonoBehaviour
 {
-	public bool immortal, instaDeath, addInventoryTorch, addInventoryVine, addInventorySeed, addInventoryEarthMound;
+	public bool immortal, instaDeath, addInventoryTorch, addInventoryVine, addInventorySeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +33,5 @@ public class Debugger : MonoBehaviour
 		{
 			addInventorySeed = !addInventorySeed;
 		}
-		//if(Input.GetKeyDown(KeyCode.Alpha9))
-		//{
-		//	addInventoryEarthMound = !addInventoryEarthMound;
-		//}
     }
 }

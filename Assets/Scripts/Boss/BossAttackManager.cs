@@ -8,7 +8,7 @@ public class BossAttackManager : MonoBehaviour
 	[SerializeField] GameObject leafPrefab;
 	//
 	
-	
+	Timer timerScript;
 	int noofAttacks, attackRandomizer;
 	public string attackType;
 	bool attackCooldown = false;
@@ -19,12 +19,16 @@ public class BossAttackManager : MonoBehaviour
     void Start()
     {
 		noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
+		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-		AttackManager();
+		if (timerScript.timeOut)
+		{
+			AttackManager();
+		}
     }
 	void AttackManager()
 	{

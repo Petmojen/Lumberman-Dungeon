@@ -6,23 +6,22 @@ public class BossAttackManager : MonoBehaviour
 {
 	//Leaf attack stuff
 	[SerializeField] GameObject leafPrefab;
-	//
+
+    MinionSpawning activateMinionSpawning;
 	
 	Timer timerScript;
 	int noofAttacks, attackRandomizer;
 	public string attackType;
 	bool attackCooldown = false;
 	
-	enum Attacks {Leafs, Dummy, Dummy2, Dummy3};
+	enum Attacks {Leafs, Minion, Dummy2, Dummy3};
 	
-    // Start is called before the first frame update
     void Start()
     {
 		noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
-    // Update is called once per frame
     void Update()
     {
 		if (timerScript.timeOut)
@@ -40,7 +39,8 @@ public class BossAttackManager : MonoBehaviour
 			
 			switch (attackType)
 			{
-				case "Dummy":
+				case "Minion":
+                    MinionAttack();
 				break;
 				
 				case "Dummy2":
@@ -54,20 +54,28 @@ public class BossAttackManager : MonoBehaviour
 				break;
 			}
 			Invoke(nameof(SwitchAttack), 4f);
-			
 		}
 	}
-	
+
+    void MinionAttack()
+    {
+        activateMinionSpawning.spawnActivated = true;
+    }
+
 	void SwitchAttack()
 	{
-		attackCooldown = false;
+        activateMinionSpawning.spawnActivated = false;
+        attackCooldown = false;
 		CancelInvoke();
 	}
+
 	// Leaf attack
-		void FireLeaf()
+    void FireLeaf()
 	{
             InvokeRepeating(nameof(Shoot), 0, 1);
 	}
+
+
 	void Shoot()
     {
 		int noofLeafs = 3;
@@ -78,7 +86,7 @@ public class BossAttackManager : MonoBehaviour
 			Destroy(leafinstance, leafLimeTime);
 		}
     }
-	//
+	
 }
 
 

@@ -20,6 +20,7 @@ public class BossAttackManager : MonoBehaviour
     {
 		noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+		activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
     }
 
     void Update()

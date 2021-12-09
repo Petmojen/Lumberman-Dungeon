@@ -42,6 +42,7 @@ public class PlayerHpSystem:MonoBehaviour
         if(health <= 0)
         {
             isDead = true;
+			timerScript.timeOut = false;
         }
         Invoke(nameof(Vincible), 1f);
     }
@@ -71,7 +72,7 @@ public class PlayerHpSystem:MonoBehaviour
         {
             switch(collision.gameObject.tag)
             {
-                case "MinionShot":
+                case "Minion":
                     TakeDamage(10);
                     break;
                 case "Boss":

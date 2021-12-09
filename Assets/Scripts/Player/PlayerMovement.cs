@@ -38,7 +38,7 @@ public class PlayerMovement:MonoBehaviour
 
 		if (timerScript.timeOut && moveToBoss)
 		{
-			transform.position = new Vector3(58f, -110f, 0f);
+			transform.position = new Vector3(11f, -16f, 0f);
 			moveToBoss = false;
 		}
 

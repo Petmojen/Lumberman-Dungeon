@@ -17,6 +17,7 @@ TagManager:
   - Boss
   - Leaf
   - GridPoint
+  - Blocker
   layers:
   - Default
   - TransparentFX

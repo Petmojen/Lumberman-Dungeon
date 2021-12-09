@@ -1044,6 +1044,7 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 1528656597205333818, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
       propertyPath: armor
       value: 3
@@ -1070,6 +1071,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
 >>>>>>> parent of 8be191c (Merge branch 'oskars-Branch')
+=======
+    - target: {fileID: 1528656597205333820, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+>>>>>>> parent of 8be191c (Merge branch 'oskars-Branch')
     - target: {fileID: 1528656597205333821, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1077,17 +1084,23 @@ PrefabInstance:
     - target: {fileID: 1528656597205333821, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
       propertyPath: m_LocalPosition.x
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: -3.6
       objectReference: {fileID: 0}
     - target: {fileID: 1528656597205333821, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
       propertyPath: m_LocalPosition.y
       value: -73.7
 =======
+=======
+>>>>>>> parent of 8be191c (Merge branch 'oskars-Branch')
       value: 41.65765
       objectReference: {fileID: 0}
     - target: {fileID: 1528656597205333821, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
       propertyPath: m_LocalPosition.y
       value: -167.31758
+<<<<<<< HEAD
+>>>>>>> parent of 8be191c (Merge branch 'oskars-Branch')
+=======
 >>>>>>> parent of 8be191c (Merge branch 'oskars-Branch')
       objectReference: {fileID: 0}
     - target: {fileID: 1528656597205333821, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
@@ -1122,6 +1135,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
     - target: {fileID: 4193985152638803630, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
       propertyPath: seedText
@@ -1186,6 +1200,10 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
+>>>>>>> parent of 8be191c (Merge branch 'oskars-Branch')
 =======
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}

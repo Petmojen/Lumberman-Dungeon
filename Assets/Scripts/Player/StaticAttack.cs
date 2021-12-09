@@ -6,12 +6,6 @@ public class StaticAttack : MonoBehaviour
 {
 	PlayerMovement playerMovementScript;
 	float rotateSpeed = 3f;
-	GameObject findPlayer;
-	[SerializeField] Transform rotateSprite2;
-	float rotateSpeed = 4f;
-	int rotateSteps = 100;
-	public int i = 0;
-	int rotateDirection = 1;
     Rigidbody2D rgbd2D;
 
     // Start is called before the first frame update

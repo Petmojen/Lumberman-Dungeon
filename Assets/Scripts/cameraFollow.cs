@@ -7,31 +7,26 @@ public class cameraFollow : MonoBehaviour
     [SerializeField] GameObject player;
     public bool followPlayerX = true, followPlayerY = true;
 	public LayerMask mask;
-	float cameraSpeed = 20f;
 	
 	void Start()
 	{
 		mask = LayerMask.GetMask("WallOutline");
-		transform.position = player.transform.position;
 	}
 	
 	
 
     void Update()
     {
-		float edgeDistanceX = 8.9f;
-		float edgeDistanceY = 5.4f;
-		float step =  cameraSpeed * Time.deltaTime;
+		float edgeDistanceX = 6f;
+		float edgeDistanceY = 4f;
 		
 		if(followPlayerX)
         {
-			Vector3 tempVector3X = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-            transform.position =  Vector3.MoveTowards(transform.position, tempVector3X, step);
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
         }
 		if(followPlayerY)
-		{
-			Vector3 tempVector3Y = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
-            transform.position =  Vector3.MoveTowards(transform.position, tempVector3Y, step);
+        {
+            transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
         }
 		
 		RaycastHit2D hitRight = Physics2D.Raycast(player.transform.position, player.transform.right, edgeDistanceX, mask);

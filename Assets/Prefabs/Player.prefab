@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a3444fb3b9a183459b6e22b1c7f4fd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   axeAttack: 0
   spriteRight: {fileID: 21300000, guid: 0760f862282e5964589c652092d959d7, type: 3}
   spriteLeft: {fileID: 21300000, guid: cb080bc30b4470f44b42ec8cbbc63845, type: 3}
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be725cc68ac0cd0409f31a7f1962dedb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   axePrefab: {fileID: 8587911366970735423, guid: 24e2f04f563932d43ab8be712459bdee, type: 3}
   axeOffset: {fileID: 1528656595461053803}
   axeAttackPrefab: {fileID: 4033656446156202671, guid: 61456c609fcd6944d836d38213921498, type: 3}
@@ -281,8 +281,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 990340ecdb9928d4085c5404945c43ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   playerSFX:
   - {fileID: 8300000, guid: 05132306181bcb440a5d8d305803703c, type: 3}
 --- !u!114 &1528656597205333818
@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0c03f87a1297c64f88bd6a8129ea496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   sliderHealth: {fileID: 0}
   isDead: 0
   armorSprite:
@@ -346,8 +346,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70b484daabdccfa429b3448b10c63055, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   seedText: {fileID: 0}
   vineText: {fileID: 0}
   torchText: {fileID: 0}
@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ab4c991897cf54b99a3f59a4e8da8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   immortal: 0
   instaDeath: 0
   addInventoryTorch: 0

@@ -8,6 +8,7 @@ public class PlayerMovement:MonoBehaviour
 
 	float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
     float movementSpeed = 5, angle;
+    float dashTime = 0.1f, dashCooldownTime = 2f, dashSpeed = 4;
     Vector2 playerPosition;
     int dashTimer;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
@@ -38,7 +39,6 @@ public class PlayerMovement:MonoBehaviour
 
         if(axeAttack != Attack.Melee)
         {
-
             playerPosition.x = Input.GetAxis("Horizontal");
             playerPosition.y = Input.GetAxis("Vertical");
 
@@ -89,12 +89,28 @@ public class PlayerMovement:MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Axe") && !attacking)
+        {
+            Destroy(collision.gameObject);
+            playerAttackScript.axeInAir = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Axe") && !attacking)
+        {
+            Destroy(collision.gameObject);
+            playerAttackScript.axeInAir = false;
+        }
+    }
 	void Dashing()
 	{
 		dashCooldown = true;
 		CancelInvoke();
 	}
-
 	void DashCooldown()
 	{
 		dashCooldown = false;

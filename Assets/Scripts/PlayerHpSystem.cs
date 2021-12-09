@@ -13,10 +13,10 @@ public class PlayerHpSystem:MonoBehaviour
     [SerializeField] GameObject[] armorSprite;
     public int armor;
 	Debugger debuggerScript;
-	
+
 	void Start()
 	{
-		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger; 
+		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 	}
 	void Update()
 	{
@@ -46,15 +46,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     public void UpdateArmor()
     {
-        for(int i = 0; i < armorSprite.Length; i++)
-        {
-            if(i < armor)
-            {
-                armorSprite[i].SetActive(true);
-            } else {
-                armorSprite[i].SetActive(false);
-            }
-        }
+
     }
 
     void Vincible()

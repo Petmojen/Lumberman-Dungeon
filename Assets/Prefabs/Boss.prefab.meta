@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Boss.prefab.meta
 guid: 5561c94e2775f7b4e865d1e657a91f3a
 PrefabImporter:
+=======
+guid: 437c371d0de1e114d88d79cc0a31a3f5
+DefaultImporter:
+>>>>>>> Jack:Assets/Scenes/Test.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

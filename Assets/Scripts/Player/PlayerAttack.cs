@@ -65,4 +65,5 @@ public class PlayerAttack:MonoBehaviour
         rgbd2D = axeAttack.GetComponent<Rigidbody2D>();
         axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
     }
+
 }

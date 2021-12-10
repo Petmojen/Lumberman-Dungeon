@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da5a6b0167159c489e18c560731cd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 20
+  timeLeft: 180
   timeOut: 0
 --- !u!222 &763312425
 CanvasRenderer:

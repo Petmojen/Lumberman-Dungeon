@@ -44,8 +44,8 @@ public class PlayerMovement:MonoBehaviour
 
         if(axeAttack != Attack.Melee)
         {
-            playerPosition.x = Input.GetAxis("Horizontal");
-            playerPosition.y = Input.GetAxis("Vertical");
+            playerPosition.x = Input.GetAxisRaw("Horizontal");
+            playerPosition.y = Input.GetAxisRaw("Vertical");
 
             if(playerPosition.x > 0)
             {

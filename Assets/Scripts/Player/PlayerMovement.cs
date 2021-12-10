@@ -35,7 +35,10 @@ public class PlayerMovement:MonoBehaviour
         {
             LookAtMouse();
         }
-
+		if (Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
+		{
+			Debug.Log ("attack");
+		}
 		if (timerScript.timeOut && moveToBoss)
 		{
 			transform.position = new Vector3(11f, -16f, 0f);

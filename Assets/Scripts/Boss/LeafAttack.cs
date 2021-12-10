@@ -5,7 +5,7 @@ using UnityEngine;
 public class LeafAttack : MonoBehaviour
 {
 	[SerializeField] Rigidbody2D rbd;
-	float speed = 2f;
+	float speed = 3f;
     // Start is called before the first frame update
     void Start()
     {

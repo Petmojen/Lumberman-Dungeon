@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
 	bool hitCooldown = false;
-    int bossHp = 100;
+    public int bossHp = 100;
 	Timer timerScript;
     void Start()
     {

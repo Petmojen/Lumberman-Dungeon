@@ -80,7 +80,7 @@ public class BossAttackManager : MonoBehaviour
 	void Shoot()
     {
 		int noofLeafs = 3;
-		float leafLimeTime = 2f;
+		float leafLimeTime = 4f;
 		for (float i = 0; i < noofLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);

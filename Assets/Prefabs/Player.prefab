@@ -110,7 +110,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 0760f862282e5964589c652092d959d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -349,6 +349,8 @@ MonoBehaviour:
   vineText: {fileID: 0}
   torchText: {fileID: 0}
   bonFirePrefab: {fileID: 752441669965792434, guid: 2722b4108ca7f1a48b0c8ba56475ad0c, type: 3}
+  torchPrefab: {fileID: 0}
+  treePrefab: {fileID: 0}
 --- !u!114 &-477536822230207967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,3 +368,5 @@ MonoBehaviour:
   addInventoryTorch: 0
   addInventoryVine: 0
   addInventorySeed: 0
+  toggleMiniMap: 0
+  timerZero: 0

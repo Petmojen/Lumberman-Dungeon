@@ -117,11 +117,12 @@ public class InventorySystem:MonoBehaviour
     }
 	void PlaceBonFire()
 	{
-		if (torchInt > 0)
+		if (vineInt > 0)
 		{
-			torchInt--;
-			torchText.text = torchInt.ToString();
+			vineInt--;
+			vineText.text = vineInt.ToString();
 			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
 		}
 	}
+
 }

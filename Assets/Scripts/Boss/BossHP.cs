@@ -5,8 +5,9 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
 	bool hitCooldown = false;
-    public int bossHp = 100;
+    public int bossHp = 20;
 	Timer timerScript;
+
     void Start()
     {
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;

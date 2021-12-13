@@ -25,11 +25,13 @@ public class PlayerHpSystem:MonoBehaviour
 
 	void Update()
 	{
+        //Debug
 		if(debuggerScript.instaDeath)
         {
             isDead = true;
 			debuggerScript.instaDeath = !debuggerScript.instaDeath;
         }
+
         sliderHealth.value = health / 100;
         if(health <= 0)
         {
@@ -53,7 +55,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void Poison()
     {
-        health -= Random.Range(2, 8);
+        health -= Random.Range(25, 30);
         CancelInvoke(nameof(Poison));
     }
 
@@ -104,14 +106,9 @@ public class PlayerHpSystem:MonoBehaviour
                 case "Leaf":
                     TakeDamage(10);
                     break;
-				//case "Blocker":
-				//	if (timerScript.timeOut)
-				//	{
-				//		armor = 0;
-				//		TakeDamage(50);
-				//		//isDead = true;
-				//	}
-				//	break;
+                case "Branch":
+                    TakeDamage(25);
+                    break;
                 case "Light":
                     lightCounter++;
                     break;

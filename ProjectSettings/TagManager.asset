@@ -22,6 +22,8 @@ TagManager:
   - Blocker
   - Light
   - Heal
+  - BossRoom
+  - Branch
   layers:
   - Default
   - TransparentFX

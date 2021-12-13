@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topLeft: {fileID: 2073387630669875965}
   bottomRight: {fileID: 2073387632182645908}
-  minionPrefab: {fileID: 595144141996821844, guid: 3f02a7a165c29e242a85416a017dcdc6, type: 3}
+  minionPrefab: {fileID: 595144141996821844, guid: 1c3d21ed24575e14cb592054fbe248ef, type: 3}
   spawnActivated: 0
 --- !u!1 &2073387632182645908
 GameObject:

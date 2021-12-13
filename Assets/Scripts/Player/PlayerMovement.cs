@@ -6,8 +6,8 @@ public class PlayerMovement:MonoBehaviour
 {
 	bool dashCooldown = false, bossCollide = false, moveToBoss = true;
 
-	float dashTime = 0.2f, dashCooldownTime = 2f, dashSpeed = 2;
-    float movementSpeed = 5, angle;
+	float dashTime = 0.4f, dashCooldownTime = 2f, dashSpeed = 2;
+    float movementSpeed = 7.5f, angle;
     Vector2 playerPosition;
     int dashTimer;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
@@ -21,7 +21,7 @@ public class PlayerMovement:MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
         dashTimer = 0;
@@ -61,7 +61,7 @@ public class PlayerMovement:MonoBehaviour
                 changeSprite.sprite = spriteDown;
             }
 
-            if ((Input.GetKey("space") || Input.GetKey(KeyCode.LeftShift)) && !dashCooldown)
+            if ((Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift)) && !dashCooldown)
             {
 				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed * dashSpeed, playerPosition.y * movementSpeed * dashSpeed);
 				Invoke ("Dashing", dashTime);

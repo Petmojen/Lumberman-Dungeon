@@ -7,7 +7,8 @@ public class cameraFollow : MonoBehaviour
     [SerializeField] GameObject player;
     public bool followPlayerX = true, followPlayerY = true;
 	public LayerMask mask;
-	float cameraSpeed = 40f;
+	float cameraSpeedX = 150f, cameraSpeedY = 150f;
+	
 	
 	void Start()
 	{
@@ -21,18 +22,33 @@ public class cameraFollow : MonoBehaviour
     {
 		float edgeDistanceX = 9.0f;
 		float edgeDistanceY = 5.4f;
-		float step =  cameraSpeed * Time.deltaTime;
+		float stepX =  cameraSpeedX * Time.deltaTime;
+		float stepY =  cameraSpeedY * Time.deltaTime;
 		
 		if(followPlayerX)
         {
 			Vector3 tempVector3X = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-            transform.position =  Vector3.MoveTowards(transform.position, tempVector3X, step);
+            transform.position =  Vector3.MoveTowards(transform.position, tempVector3X, stepX);
         }
+		if (transform.position.x > player.transform.position.x + 0.1f || transform.position.x < player.transform.position.x - 0.1f)
+		{
+			cameraSpeedX = 15f;
+		} else {
+			cameraSpeedX = 150f;
+		}
+		
 		if(followPlayerY)
 		{
 			Vector3 tempVector3Y = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
-            transform.position =  Vector3.MoveTowards(transform.position, tempVector3Y, step);
+            transform.position =  Vector3.MoveTowards(transform.position, tempVector3Y, stepY);
         }
+		if (transform.position.y > player.transform.position.y + 0.1f || transform.position.y < player.transform.position.y - 0.1f)
+		{
+			cameraSpeedY = 15f;
+		} else {
+			cameraSpeedY = 150f;
+		}
+		
 			
 		
 		RaycastHit2D hitRight = Physics2D.Raycast(player.transform.position, player.transform.right, edgeDistanceX, mask);

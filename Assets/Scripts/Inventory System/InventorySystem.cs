@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class InventorySystem:MonoBehaviour
 {
     [SerializeField] Text seedText, vineText, torchText;
-	[SerializeField] GameObject bonFirePrefab;
+	[SerializeField] GameObject bonFirePrefab, torchPrefab, treePrefab;
     bool seedBool, vineBool, torchBool, logBool;
     int seedInt, vineInt, torchInt;
+	float bonFireTimer = 10, torchTimer = 5;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
 	Debugger debuggerScript;
@@ -34,15 +35,24 @@ public class InventorySystem:MonoBehaviour
                 AddArmor();
             }
         }
+		
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			PlaceBonFire();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			PlaceTorch();
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			PlaceTree();
 		}
 		// Debug code
 		if (debuggerScript.addInventorySeed)
 		{
 			AddSeed();
-			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed ;
+			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed;
 		}
 		if (debuggerScript.addInventoryVine)
 		{
@@ -121,8 +131,28 @@ public class InventorySystem:MonoBehaviour
 		{
 			vineInt--;
 			vineText.text = vineInt.ToString();
-			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
+			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
+			Destroy(bonFireinstance, bonFireTimer);
 		}
 	}
-
+	void PlaceTorch()
+	{
+		if (torchInt > 0)
+		{
+			torchInt--;
+			torchText.text = torchInt.ToString();
+			GameObject torchinstance = Instantiate(torchPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
+			Destroy(torchinstance, torchTimer);
+		}
+	}
+		void PlaceTree()
+	{
+		if (seedInt > 0)
+		{
+			seedInt--;
+			seedText.text = seedInt.ToString();
+			GameObject treeinstance = Instantiate(treePrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z),  Quaternion.identity);
+			//Destroy(treeinstance, treeeTimer);
+		}
+	}
 }

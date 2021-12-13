@@ -36,16 +36,16 @@ public class PlayerMovement:MonoBehaviour
             LookAtMouse();
         }
 
-		if (timerScript.timeOut && moveToBoss)
-		{
-			transform.position = new Vector3(11f, -16f, 0f);
-			moveToBoss = false;
-		}
+		//if (timerScript.timeOut && moveToBoss)
+		//{
+		//	transform.position = new Vector3(11f, -16f, 0f);
+		//	moveToBoss = false;
+		//}
 
         if(axeAttack != Attack.Melee)
         {
-            playerPosition.x = Input.GetAxis("Horizontal");
-            playerPosition.y = Input.GetAxis("Vertical");
+            playerPosition.x = Input.GetAxisRaw("Horizontal");
+            playerPosition.y = Input.GetAxisRaw("Vertical");
 
             if(playerPosition.x > 0)
             {

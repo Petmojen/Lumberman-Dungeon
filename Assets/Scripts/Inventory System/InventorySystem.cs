@@ -34,21 +34,25 @@ public class InventorySystem:MonoBehaviour
                 AddArmor();
             }
         }
+
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			PlaceBonFire();
 		}
+
 		// Debug code
 		if (debuggerScript.addInventorySeed)
 		{
 			AddSeed();
 			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed ;
 		}
+
 		if (debuggerScript.addInventoryVine)
 		{
 			AddVine();
 			debuggerScript.addInventoryVine = !debuggerScript.addInventoryVine;
 		}
+
 		if (debuggerScript.addInventoryTorch)
 		{
 			AddTorch();
@@ -115,6 +119,7 @@ public class InventorySystem:MonoBehaviour
             playerHpScript.UpdateArmor();
         }
     }
+
 	void PlaceBonFire()
 	{
 		if (torchInt > 0)

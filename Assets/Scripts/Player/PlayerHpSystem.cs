@@ -7,19 +7,22 @@ using UnityEngine.SceneManagement;
 public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
-    bool invincible = false;
-    float health = 100;
     public bool isDead = false;
+    bool invincible = false, noPoison, healing;
+    int lightCounter = 0;
+    float health = 100;
+
     [SerializeField] GameObject[] armorSprite;
-    public int armor;
 	Debugger debuggerScript;
 	Timer timerScript;	
+    public int armor;
 	
 	void Start()
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 	}
+
 	void Update()
 	{
 		if(debuggerScript.instaDeath)
@@ -27,7 +30,33 @@ public class PlayerHpSystem:MonoBehaviour
             isDead = true;
 			debuggerScript.instaDeath = !debuggerScript.instaDeath;
         }
-	}
+        sliderHealth.value = health / 100;
+        if(health <= 0)
+        {
+            isDead = true;
+            timerScript.timeOut = false;
+        }
+
+        if(lightCounter == 0) Invoke(nameof(Poison), 1f);
+        if(healing) Invoke(nameof(Heal), 0.2f);
+    }
+
+    void Heal()
+    {
+        if(health < 100)
+        {
+            health += 2;
+        }
+        CancelInvoke(nameof(Heal));
+
+    }
+
+    void Poison()
+    {
+        health -= Random.Range(2, 8);
+        CancelInvoke(nameof(Poison));
+    }
+
     public void TakeDamage(float damage)
     {
         invincible = true;
@@ -37,14 +66,8 @@ public class PlayerHpSystem:MonoBehaviour
             UpdateArmor();
         } else {
             health -= damage;
-            sliderHealth.value = health / 100;
         }
-        if(health <= 0)
-        {
-            isDead = true;
-			timerScript.timeOut = false;
-        }
-        Invoke(nameof(Vincible), 1f);
+        Invoke(nameof(Vincible), 0.2f);
     }
 
     public void UpdateArmor()
@@ -81,15 +104,34 @@ public class PlayerHpSystem:MonoBehaviour
                 case "Leaf":
                     TakeDamage(10);
                     break;
-				case "Blocker":
-					if (timerScript.timeOut)
-					{
-						armor = 0;
-						TakeDamage(50);
-						//isDead = true;
-					}
-					break;
+				//case "Blocker":
+				//	if (timerScript.timeOut)
+				//	{
+				//		armor = 0;
+				//		TakeDamage(50);
+				//		//isDead = true;
+				//	}
+				//	break;
+                case "Light":
+                    lightCounter++;
+                    break;
+                case "Heal":
+                    healing = true;
+                    break;
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        switch(collision.gameObject.tag)
+        {
+            case "Light":
+                lightCounter--;
+                break;
+            case "Heal":
+                healing = false;
+                break;
         }
     }
 }

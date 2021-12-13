@@ -18,10 +18,10 @@ public class MinionSpawning:MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(topLeft.transform.position, transform.right * 19, Color.blue);
-        Debug.DrawRay(topLeft.transform.position, -transform.up * 11, Color.blue);
-        Debug.DrawRay(bottomRight.transform.position, -transform.right * 19, Color.blue);
-        Debug.DrawRay(bottomRight.transform.position, transform.up * 11, Color.blue);
+        //Debug.DrawRay(topLeft.transform.position, transform.right * 19, Color.blue);
+        //Debug.DrawRay(topLeft.transform.position, -transform.up * 11, Color.blue);
+        //Debug.DrawRay(bottomRight.transform.position, -transform.right * 19, Color.blue);
+        //Debug.DrawRay(bottomRight.transform.position, transform.up * 11, Color.blue);
 
 
         if(spawnActivated)

@@ -20,6 +20,8 @@ TagManager:
   - Leaf
   - GridPoint
   - Blocker
+  - Light
+  - Heal
   layers:
   - Default
   - TransparentFX

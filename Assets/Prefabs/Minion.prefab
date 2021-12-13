@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 595144141996821846}
   - component: {fileID: 595144141996821847}
   - component: {fileID: 1002684226}
+  - component: {fileID: -3887200558533117279}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Minion
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 053a2df4092993d4181d2a66fa4bff0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -184,3 +185,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7906d0bb0e5dd7541b1726165aa3756c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3887200558533117279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595144141996821844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.138126, y: 0.0077342805, z: 0}
+  - {x: -0.13660203, y: -0.0455311, z: 0}
+  - {x: -0.11009704, y: -0.13072702, z: 0}
+  - {x: 0.0697584, y: -0.12883341, z: 0}
+  - {x: 0.09580525, y: -0.06982767, z: 0}
+  - {x: 0.1350744, y: -0.01902811, z: 0}
+  - {x: 0.13602103, y: 0.019782621, z: 0}
+  - {x: 0.08984898, y: 0.122373566, z: 0}
+  - {x: 0.051772866, y: 0.12864341, z: 0}
+  - {x: -0.096649855, y: 0.111843474, z: 0}
+  m_ShapePathHash: 1247319473
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -25250

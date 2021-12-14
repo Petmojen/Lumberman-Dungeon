@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement:MonoBehaviour
 {
-	bool dashCooldown = false, bossCollide = false, moveToBoss = true;
+    BossAttackManager activateBossScript;
+
+    bool dashCooldown = false, bossCollide = false;
 
 	float dashTime = 0.4f, dashCooldownTime = 2f, dashSpeed = 2;
     float movementSpeed = 7.5f, angle;
@@ -24,7 +26,8 @@ public class PlayerMovement:MonoBehaviour
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
 		axeAttack = Attack.Idle;
-		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+        activateBossScript = GameObject.FindObjectOfType(typeof(BossAttackManager)) as BossAttackManager;
+        timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
     void Update()
@@ -33,17 +36,11 @@ public class PlayerMovement:MonoBehaviour
         {
             LookAtMouse();
         }
-		
-		if (Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
-		{
-			Debug.Log ("attack");
-		}
-		
-		if (timerScript.timeOut && moveToBoss)
-		{
-			transform.position = new Vector3(31f, -39f, 0f);
-			moveToBoss = false;
-		}
+
+        if(Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
+        {
+            Debug.Log("attack");
+        }
 
         if(axeAttack != Attack.Melee)
         {
@@ -120,17 +117,30 @@ public class PlayerMovement:MonoBehaviour
 			Destroy(collision.gameObject);
 	    }
 	}
-	
-	private void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Boss") && !bossCollide)
+        if(collision.CompareTag("Boss") && !bossCollide)
         {
-			bossCollide = true;
-			Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
+            bossCollide = true;
+            Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
+        }
+
+        if(collision.CompareTag("BossRoom"))
+        {
+            activateBossScript.bossAwake = true;
         }
     }
 
-	void PlayerBossCollisionCooldown()
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.CompareTag("BossRoom"))
+        {
+            activateBossScript.bossAwake = false;
+        }
+    }
+
+    void PlayerBossCollisionCooldown()
 	{
 		bossCollide = false;
 		CancelInvoke();

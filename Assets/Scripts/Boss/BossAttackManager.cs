@@ -5,77 +5,100 @@ using UnityEngine;
 public class BossAttackManager : MonoBehaviour
 {
 	//Leaf attack stuff
-	[SerializeField] GameObject leafPrefab;
+	[SerializeField] GameObject leafPrefab, branchPrefab;
+    GameObject bossPositionOffset;
 
-    MinionSpawning activateMinionSpawning;
-	
-	Timer timerScript;
+    [SerializeField] MinionSpawning activateMinionSpawning;
+
+    ForceToBossDarkness darknessScript;
+
 	int noofAttacks, attackRandomizer;
-	public string attackType;
+    public bool bossAwake = false;
 	bool attackCooldown = false;
+	public string attackType;
+	Timer timerScript;
 	
-	enum Attacks {Leafs, Minion, Dummy2, Dummy3};
-	
+	public enum Attacks {Leafs, Minion, Darkness, BranchSweep};
+
     void Start()
     {
-		noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
+        bossPositionOffset = GameObject.Find("BossOffset");
+        noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-		activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
+        darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
     }
 
     void Update()
     {
-		if (timerScript.timeOut)
-		{
-			AttackManager();
-		}
+        if(timerScript.timeOut)
+        {
+            AttackManager();
+        }
     }
+
 	void AttackManager()
 	{
 		if (!attackCooldown)
 		{
-			attackCooldown = true;
-			attackRandomizer = Random.Range(0, noofAttacks);
-			attackType = System.Enum.GetName(typeof(Attacks), attackRandomizer);
-			
+            if(bossAwake)
+            {
+                attackCooldown = true;
+                attackRandomizer = Random.Range(0, noofAttacks);
+                attackType = System.Enum.GetName(typeof(Attacks), attackRandomizer);
+            } else {
+                attackType = "";
+            }
+        
 			switch (attackType)
 			{
 				case "Minion":
                     MinionAttack();
-				break;
-				
-				case "Dummy2":
-				break;
-				
-				case "Dummy3":
-				break;
-				
+				    break;
+				case "Darkness":
+                    Darkness();
+                    break;
+				case "BranchSweep":
+                    BranchSweepAttack();
+                    break;
 				case "Leafs":
-				FireLeaf();
-				break;
+				    FireLeaf();
+                    Invoke(nameof(SwitchAttack), 5f);
+                    break;
 			}
-			Invoke(nameof(SwitchAttack), 4f);
 		}
 	}
+
+    void BranchSweepAttack()
+    {
+        Instantiate(branchPrefab, bossPositionOffset.transform.position + new Vector3(0, -8, 0), Quaternion.identity);
+        Invoke(nameof(SwitchAttack), 5f);
+    }
 
     void MinionAttack()
     {
         activateMinionSpawning.spawnActivated = true;
+        Invoke(nameof(SwitchAttack), 4f);
     }
 
-	void SwitchAttack()
-	{
-        activateMinionSpawning.spawnActivated = false;
-        attackCooldown = false;
-		CancelInvoke();
-	}
+    void Darkness()
+    {
+        darknessScript.ability = true;
+        Invoke(nameof(SwitchAttack), 4f);
+    }
 
 	// Leaf attack
     void FireLeaf()
 	{
-            InvokeRepeating(nameof(Shoot), 0, 1);
-	}
+        InvokeRepeating(nameof(Shoot), 0, 1);
+    }
 
+    void SwitchAttack()
+	{
+        activateMinionSpawning.spawnActivated = false;
+        darknessScript.ability = false;
+        attackCooldown = false;
+		CancelInvoke();
+	}
 
 	void Shoot()
     {

@@ -9,14 +9,13 @@ public class Timer : MonoBehaviour
 	public bool timeOut = false;
 	Debugger debuggerScript;
     Text text;
-    // Start is called before the first frame update
+
     void Start()
     {
         debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		text = GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         timeLeft -= Time.deltaTime;

@@ -49,7 +49,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.09
 --- !u!50 &-2698155506758463363
 Rigidbody2D:
   serializedVersion: 4
@@ -83,8 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179143b9e93df1f4eba4ae11ff7a89f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSprite2: {fileID: 2656971056520529487}
-  i: 0
 --- !u!212 &-5445499469919067674
 SpriteRenderer:
   m_ObjectHideFlags: 0

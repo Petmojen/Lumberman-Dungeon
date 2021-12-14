@@ -40,14 +40,17 @@ public class InventorySystem:MonoBehaviour
 		{
 			PlaceBonFire();
 		}
+		
 		if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			PlaceTorch();
 		}
+		
 		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 			PlaceTree();
 		}
+		
 		// Debug code
 		if (debuggerScript.addInventorySeed)
 		{
@@ -125,6 +128,7 @@ public class InventorySystem:MonoBehaviour
             playerHpScript.UpdateArmor();
         }
     }
+	
 	void PlaceBonFire()
 	{
 		if (vineInt > 0)
@@ -135,6 +139,7 @@ public class InventorySystem:MonoBehaviour
 			Destroy(bonFireinstance, bonFireTimer);
 		}
 	}
+	
 	void PlaceTorch()
 	{
 		if (torchInt > 0)
@@ -145,6 +150,7 @@ public class InventorySystem:MonoBehaviour
 			Destroy(torchinstance, torchTimer);
 		}
 	}
+	
 		void PlaceTree()
 	{
 		if (seedInt > 0)

@@ -5,17 +5,12 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
 	bool hitCooldown = false;
-    public int bossHp = 20;
+    public int bossHp = 50;
 	Timer timerScript;
-
+	
     void Start()
     {
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 	
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +21,6 @@ public class BossHP : MonoBehaviour
 			{
 				bossHp--;
 				hitCooldown = true;
-				Debug.Log(bossHp);
 				if (bossHp == 0)
 				{
 					Destroy(gameObject);
@@ -35,9 +29,9 @@ public class BossHP : MonoBehaviour
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}
     }
+	
 	void BossHitCooldown()
 	{
 		hitCooldown = false;
-	}
-	
+	}	
 }

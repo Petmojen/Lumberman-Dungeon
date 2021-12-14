@@ -9,7 +9,6 @@ public class PlayerMovement:MonoBehaviour
 	float dashTime = 0.4f, dashCooldownTime = 2f, dashSpeed = 2;
     float movementSpeed = 7.5f, angle;
     Vector2 playerPosition;
-    int dashTimer;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
 	public Attack axeAttack;
     Rigidbody2D rgbd2D;
@@ -24,7 +23,6 @@ public class PlayerMovement:MonoBehaviour
         Time.timeScale = 1;
         changeSprite = GetComponent<SpriteRenderer>();
         rgbd2D = GetComponent<Rigidbody2D>();
-        dashTimer = 0;
 		axeAttack = Attack.Idle;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
@@ -35,10 +33,12 @@ public class PlayerMovement:MonoBehaviour
         {
             LookAtMouse();
         }
+		
 		if (Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
 		{
 			Debug.Log ("attack");
 		}
+		
 		if (timerScript.timeOut && moveToBoss)
 		{
 			transform.position = new Vector3(31f, -39f, 0f);
@@ -72,6 +72,7 @@ public class PlayerMovement:MonoBehaviour
 				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed, playerPosition.y * movementSpeed);
 				Invoke ("DashCooldown", dashCooldownTime);
             }
+			
 			if (bossCollide == true)
 			{
 				rgbd2D.velocity = -rgbd2D.velocity;
@@ -86,6 +87,7 @@ public class PlayerMovement:MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+		
         if(angle < 45 && angle > -45)
         {
             changeSprite.sprite = spriteRight;
@@ -103,6 +105,7 @@ public class PlayerMovement:MonoBehaviour
 		dashCooldown = true;
 		CancelInvoke();
 	}
+	
 	void DashCooldown()
 	{
 		dashCooldown = false;
@@ -117,12 +120,13 @@ public class PlayerMovement:MonoBehaviour
 			Destroy(collision.gameObject);
 	    }
 	}
+	
 	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Boss") && !bossCollide)
         {
 			bossCollide = true;
-		Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
+			Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
         }
     }
 

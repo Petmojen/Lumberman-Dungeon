@@ -27,9 +27,10 @@ public class cameraFollow : MonoBehaviour
 		
 		if(followPlayerX)
         {
-			Vector3 tempVector3X = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-            transform.position =  Vector3.MoveTowards(transform.position, tempVector3X, stepX);
+			//Vector3 tempVector3X = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            transform.position =  Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x, transform.position.y, transform.position.z), stepX);
         }
+		
 		if (transform.position.x > player.transform.position.x + 0.1f || transform.position.x < player.transform.position.x - 0.1f)
 		{
 			cameraSpeedX = 15f;
@@ -39,17 +40,16 @@ public class cameraFollow : MonoBehaviour
 		
 		if(followPlayerY)
 		{
-			Vector3 tempVector3Y = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
-            transform.position =  Vector3.MoveTowards(transform.position, tempVector3Y, stepY);
+			//Vector3 tempVector3Y = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+            transform.position =  Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, player.transform.position.y, transform.position.z), stepY);
         }
+		
 		if (transform.position.y > player.transform.position.y + 0.1f || transform.position.y < player.transform.position.y - 0.1f)
 		{
 			cameraSpeedY = 15f;
 		} else {
 			cameraSpeedY = 150f;
 		}
-		
-			
 		
 		RaycastHit2D hitRight = Physics2D.Raycast(player.transform.position, player.transform.right, edgeDistanceX, mask);
 		RaycastHit2D hitUp = Physics2D.Raycast(player.transform.position, player.transform.up, edgeDistanceY, mask);
@@ -60,14 +60,17 @@ public class cameraFollow : MonoBehaviour
 		{
 			followPlayerX = false;
 		}
+		
 		if (hitUp.collider != null || hitDown.collider != null)
 		{
 			followPlayerY = false;
 		}
+		
 		if (hitRight.collider == null && hitLeft.collider == null)
 		{
 			followPlayerX = true;
 		}
+		
 		if (hitUp.collider == null && hitDown.collider == null)
 		{
 			followPlayerY = true;

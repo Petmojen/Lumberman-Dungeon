@@ -10,7 +10,7 @@ public class BossAttackManager : MonoBehaviour
     MinionSpawning activateMinionSpawning;
 	
 	Timer timerScript;
-	int noofAttacks, attackRandomizer;
+	int numberOfAttacks, attackRandomizer;
 	public string attackType;
 	bool attackCooldown = false;
 	
@@ -18,7 +18,7 @@ public class BossAttackManager : MonoBehaviour
 	
     void Start()
     {
-		noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
+		numberOfAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 		activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
     }
@@ -35,7 +35,7 @@ public class BossAttackManager : MonoBehaviour
 		if (!attackCooldown)
 		{
 			attackCooldown = true;
-			attackRandomizer = Random.Range(0, noofAttacks);
+			attackRandomizer = Random.Range(0, numberOfAttacks);
 			attackType = System.Enum.GetName(typeof(Attacks), attackRandomizer);
 			
 			switch (attackType)
@@ -79,9 +79,9 @@ public class BossAttackManager : MonoBehaviour
 
 	void Shoot()
     {
-		int noofLeafs = 3;
+		int numberOfLeafs = 3;
 		float leafLimeTime = 4f;
-		for (float i = 0; i < noofLeafs; i++)
+		for (float i = 0; i < numberOfLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
 			Destroy(leafinstance, leafLimeTime);

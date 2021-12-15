@@ -6,9 +6,11 @@ public class MinionSpawning:MonoBehaviour
 {
     [SerializeField] GameObject topLeft, bottomRight, minionPrefab;
     float minionSpawnPadding = 1, randomPointX, randomPointY;
-    bool spawnMinionCycle, spawnPointCleared;
+    bool spawnMinionCycle, spawnPointCleared, ;
+    GameObject[] holdAliveMinions;
     public bool spawnActivated;
     GameObject playerPosition;
+    int numberOfMinions, numberOfDead;
 
     void Start()
     {
@@ -26,9 +28,11 @@ public class MinionSpawning:MonoBehaviour
 
         if(spawnActivated)
         {
-            if(spawnMinionCycle)
+            if(spawnMinionCycle && numberOfDead == numberOfMinions)
             {
-                for(int i = 0; i <= Random.Range(3, 5); i++)
+                numberOfMinions = Random.Range(3, 5);
+                holdAliveMinions = new GameObject[numberOfMinions];
+                for(int i = 0; i <= numberOfMinions; i++)
                 {
                     spawnPointCleared = false;
                     CreateSpawnPoint();
@@ -43,15 +47,18 @@ public class MinionSpawning:MonoBehaviour
     {
         while(!spawnPointCleared)
         {
-            randomPointY = Random.Range(bottomRight.transform.position.y + minionSpawnPadding, topLeft.transform.position.y - minionSpawnPadding);
-            randomPointX = Random.Range(bottomRight.transform.position.x - minionSpawnPadding, topLeft.transform.position.x + minionSpawnPadding);
-
-            Vector3 checkSpawnPos = new Vector3(randomPointX, randomPointY, 0);
-
-            if(Vector3.Distance(checkSpawnPos, playerPosition.transform.position) > 3)
+            for(int i = 0; i < numberOfMinions; i++)
             {
-                Instantiate(minionPrefab, new Vector3(randomPointX, randomPointY, 0), Quaternion.identity);
-                spawnPointCleared = true;
+                randomPointY = Random.Range(bottomRight.transform.position.y + minionSpawnPadding, topLeft.transform.position.y - minionSpawnPadding);
+                randomPointX = Random.Range(bottomRight.transform.position.x - minionSpawnPadding, topLeft.transform.position.x + minionSpawnPadding);
+
+                Vector3 checkSpawnPos = new Vector3(randomPointX, randomPointY, 0);
+
+                if(Vector3.Distance(checkSpawnPos, playerPosition.transform.position) > 3)
+                {
+                    holdAliveMinions[i] = Instantiate(minionPrefab, new Vector3(randomPointX, randomPointY, 0), Quaternion.identity);
+                    spawnPointCleared = true;
+                }
             }
         }
     }

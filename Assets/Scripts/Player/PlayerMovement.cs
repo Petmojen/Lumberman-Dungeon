@@ -16,14 +16,18 @@ public class PlayerMovement:MonoBehaviour
     Rigidbody2D rgbd2D;
 	Timer timerScript;
 
-    //temp until we gen animations
-    [SerializeField] Sprite spriteRight, spriteLeft, spriteUp, spriteDown;
-    SpriteRenderer changeSprite;
+    SpriteRenderer flipSprite;
+    string currentState;
+    Animator animator;
+
+    //Animation States
+    string holdIdleState, walkingState;
 
     void Start()
     {
         Time.timeScale = 1;
-        changeSprite = GetComponent<SpriteRenderer>();
+        flipSprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         rgbd2D = GetComponent<Rigidbody2D>();
 		axeAttack = Attack.Idle;
         activateBossScript = GameObject.FindObjectOfType(typeof(BossAttackManager)) as BossAttackManager;
@@ -49,33 +53,57 @@ public class PlayerMovement:MonoBehaviour
 
             if(playerPosition.x > 0)
             {
-                changeSprite.sprite = spriteRight;
+                walkingState = "walking_Side";
+                holdIdleState = "idle_Side";
+                flipSprite.flipX = false;
             } else if(playerPosition.x < 0) {
-                changeSprite.sprite = spriteLeft;
-            }
-
-            if(playerPosition.y > 0)
-            {
-                changeSprite.sprite = spriteUp;
+                walkingState = "walking_Side";
+                holdIdleState = "idle_Side";
+                flipSprite.flipX = true;
+            } else if(playerPosition.y > 0) {
+                walkingState = "walking_Up";
+                holdIdleState = "idle_Up";
             } else if(playerPosition.y < 0) {
-                changeSprite.sprite = spriteDown;
+                walkingState = "walking_Down";
+                holdIdleState = "idle_Down";
             }
 
-            if ((Input.GetButton("Dash") || Input.GetKey(KeyCode.LeftShift)) && !dashCooldown)
+            if(playerPosition.magnitude != 0)
             {
-				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed * dashSpeed, playerPosition.y * movementSpeed * dashSpeed);
+                ChangeAnimationState("Walking");
+            } else {
+                ChangeAnimationState("Idle");
+            }
+
+            if ((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown)
+            {
+                movementSpeed *= dashSpeed;
 				Invoke ("Dashing", dashTime);
 			} else {
-				rgbd2D.velocity = new Vector2(playerPosition.x * movementSpeed, playerPosition.y * movementSpeed);
 				Invoke ("DashCooldown", dashCooldownTime);
             }
-			
-			if (bossCollide == true)
+
+            rgbd2D.velocity = playerPosition * movementSpeed;
+
+            if (bossCollide == true)
 			{
 				rgbd2D.velocity = -rgbd2D.velocity;
 				dashCooldown = true;
 			}
         }
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        if(currentState == newState) return;
+        if(newState == "Walking")
+        {
+            animator.Play(walkingState);
+        } else if(newState == "Idle") {
+            animator.Play(holdIdleState);
+        }
+
+        currentState = newState;
     }
 
     void LookAtMouse()
@@ -87,25 +115,27 @@ public class PlayerMovement:MonoBehaviour
 		
         if(angle < 45 && angle > -45)
         {
-            changeSprite.sprite = spriteRight;
+            //flipSprite.sprite = spriteRight;
         } else if(angle > 45 && angle < 135) {
-            changeSprite.sprite = spriteUp;
+            //flipSprite.sprite = spriteUp;
         } else if(angle < -45 && angle > -135) {
-            changeSprite.sprite = spriteDown;
+            //flipSprite.sprite = spriteDown;
         } else if(angle > 135 || angle < -135) {
-            changeSprite.sprite = spriteLeft;
+            //flipSprite.sprite = spriteLeft;
         }
     }
 
 	void Dashing()
 	{
-		dashCooldown = true;
+        movementSpeed = 7.5f;
+        dashCooldown = true;
 		CancelInvoke();
 	}
 	
 	void DashCooldown()
 	{
-		dashCooldown = false;
+        movementSpeed = 7.5f;
+        dashCooldown = false;
 		CancelInvoke();
 	}
 

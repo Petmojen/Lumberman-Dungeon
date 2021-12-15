@@ -30,7 +30,7 @@ public class BossAttackManager : MonoBehaviour
 
     void Update()
     {
-        if(timerScript.timeOut)
+        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f)
         {
             AttackManager();
         }

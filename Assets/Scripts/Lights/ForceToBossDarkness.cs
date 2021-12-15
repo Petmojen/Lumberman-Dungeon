@@ -8,6 +8,7 @@ public class ForceToBossDarkness : MonoBehaviour
 {
     [SerializeField] GameObject bossRoomLighting;
     [SerializeField] Timer timerScript;
+    public float radiusOfLight = 92f;
     CircleCollider2D circleOfDeath;
     Light2D lightScript;
     public bool ability;
@@ -32,7 +33,8 @@ public class ForceToBossDarkness : MonoBehaviour
 
         if(timerScript.timeOut && !ability && lightScript.pointLightOuterRadius > 13.5f)
         {
-            lightScript.pointLightOuterRadius -= Time.deltaTime * speed;
+            radiusOfLight -= Time.deltaTime * speed;
+            lightScript.pointLightOuterRadius = radiusOfLight;
             circleOfDeath.radius -= Time.deltaTime * speed;
         }
 

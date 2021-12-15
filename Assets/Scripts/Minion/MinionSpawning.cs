@@ -6,7 +6,7 @@ public class MinionSpawning:MonoBehaviour
 {
     [SerializeField] GameObject topLeft, bottomRight, minionPrefab;
     float minionSpawnPadding = 1, randomPointX, randomPointY;
-    bool spawnMinionCycle, spawnPointCleared, ;
+    bool spawnMinionCycle, spawnPointCleared ;
     GameObject[] holdAliveMinions;
     public bool spawnActivated;
     GameObject playerPosition;

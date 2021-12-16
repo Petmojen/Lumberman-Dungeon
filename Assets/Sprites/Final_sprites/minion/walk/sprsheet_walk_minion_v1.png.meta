@@ -1,37 +1,43 @@
 fileFormatVersion: 2
-guid: be9aabb2faf3dab4fa78e01ff7577941
+guid: 1be1d3e72643a06419761d05c53bccf3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6821790129055965914
-    second: sprsheet_death_player_side_v1_0
+      213: -7131764001846076741
+    second: sprsheet_walk_minion_v1_0
   - first:
-      213: 4644832081966097403
-    second: sprsheet_death_player_side_v1_1
+      213: 8514011333691639953
+    second: sprsheet_walk_minion_v1_1
   - first:
-      213: 2308840644126117443
-    second: sprsheet_death_player_side_v1_2
+      213: 2879044073462553804
+    second: sprsheet_walk_minion_v1_3
   - first:
-      213: -4160610199856070370
-    second: sprsheet_death_player_side_v1_3
+      213: 1347056888101131592
+    second: sprsheet_walk_minion_v1_4
   - first:
-      213: -3328400859306520751
-    second: sprsheet_death_player_side_v1_4
+      213: -3858521121772244866
+    second: sprsheet_walk_minion_v1_6
   - first:
-      213: -8128770401892923392
-    second: sprsheet_death_player_side_v1_5
+      213: -6079894625655761538
+    second: sprsheet_walk_minion_v1_8
   - first:
-      213: -7846075304491634955
-    second: sprsheet_death_player_side_v1_6
+      213: -2849800493417203882
+    second: sprsheet_walk_minion_v1_9
   - first:
-      213: -4457213985840230255
-    second: sprsheet_death_player_side_v1_7
+      213: -1777083758019131194
+    second: sprsheet_walk_minion_v1_10
   - first:
-      213: 9030099687348054125
-    second: sprsheet_death_player_side_v1_8
+      213: -1572053701354156428
+    second: sprsheet_walk_minion_v1_12
   - first:
-      213: -7758155674629484953
-    second: sprsheet_death_player_side_v1_9
+      213: -6137257093130785028
+    second: sprsheet_walk_minion_v1_2
+  - first:
+      213: 6417211166304802326
+    second: sprsheet_walk_minion_v1_5
+  - first:
+      213: -6834236566647350671
+    second: sprsheet_walk_minion_v1_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,11 +139,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_0
+      name: sprsheet_walk_minion_v1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 16
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -147,39 +153,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad2a5ae9afddbae50800000000000000
-      internalID: 6821790129055965914
+      spriteID: bbadb001d62e60d90800000000000000
+      internalID: -7131764001846076741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf36dee4b22c57040800000000000000
-      internalID: 4644832081966097403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_2
+      name: sprsheet_walk_minion_v1_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -189,60 +174,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34e0f144556aa0020800000000000000
-      internalID: 2308840644126117443
+      spriteID: 1980756e238d72670800000000000000
+      internalID: 8514011333691639953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1146bc211b8246c0800000000000000
-      internalID: -4160610199856070370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15f0ee69d052fc1d0800000000000000
-      internalID: -3328400859306520751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_5
+      name: sprsheet_walk_minion_v1_3
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -252,18 +195,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0088676336ec03f80800000000000000
-      internalID: -8128770401892923392
+      spriteID: cccdd6bb45b64f720800000000000000
+      internalID: 2879044073462553804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_6
+      name: sprsheet_walk_minion_v1_4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
+        x: 208
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -273,18 +216,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5feafc2b4142d1390800000000000000
-      internalID: -7846075304491634955
+      spriteID: 845d28b4a15b1b210800000000000000
+      internalID: 1347056888101131592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_7
+      name: sprsheet_walk_minion_v1_6
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
+        x: 304
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -294,18 +237,60 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1901716ce7bc422c0800000000000000
-      internalID: -4457213985840230255
+      spriteID: e707c6aab77c37ac0800000000000000
+      internalID: -3858521121772244866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_8
+      name: sprsheet_walk_minion_v1_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e755bf5fc00ef9ba0800000000000000
+      internalID: -6079894625655761538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_walk_minion_v1_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe61bcb03514daa0800000000000000
+      internalID: -6137257093130785028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_walk_minion_v1_5
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -315,18 +300,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d682fb672db515d70800000000000000
-      internalID: 9030099687348054125
+      spriteID: 61694405e838e0950800000000000000
+      internalID: 6417211166304802326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_death_player_side_v1_9
+      name: sprsheet_walk_minion_v1_7
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
+        x: 352
+        y: 16
         width: 32
         height: 32
       alignment: 0
@@ -336,8 +321,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e4785b48e755490800000000000000
-      internalID: -7758155674629484953
+      spriteID: 17adffd4d0ae721a0800000000000000
+      internalID: -6834236566647350671
       vertices: []
       indices: 
       edges: []

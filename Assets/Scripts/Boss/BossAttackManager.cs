@@ -18,7 +18,7 @@ public class BossAttackManager : MonoBehaviour
 	public string attackType;
 	Timer timerScript;
 	
-	public enum Attacks {Leafs, Minion, Darkness, BranchSweep};
+	public enum Attacks {Leafs, Minion, BranchSweep /*, RootSnare*/};
 
     void Start()
     {
@@ -54,9 +54,6 @@ public class BossAttackManager : MonoBehaviour
 				case "Minion":
                     MinionAttack();
 				    break;
-				case "Darkness":
-                    Darkness();
-                    break;
 				case "BranchSweep":
                     BranchSweepAttack();
                     break;
@@ -76,14 +73,8 @@ public class BossAttackManager : MonoBehaviour
 
     void MinionAttack()
     {
-        activateMinionSpawning.spawnActivated = true;
-        Invoke(nameof(SwitchAttack), 4f);
-    }
-
-    void Darkness()
-    {
-        darknessScript.ability = true;
-        Invoke(nameof(SwitchAttack), 4f);
+        //Fixa kod här
+        activateMinionSpawning.spawnActive = true;
     }
 
 	// Leaf attack
@@ -94,8 +85,6 @@ public class BossAttackManager : MonoBehaviour
 
     void SwitchAttack()
 	{
-        activateMinionSpawning.spawnActivated = false;
-        darknessScript.ability = false;
         attackCooldown = false;
 		CancelInvoke();
 	}

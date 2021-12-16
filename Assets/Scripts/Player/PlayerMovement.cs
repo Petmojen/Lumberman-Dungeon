@@ -16,12 +16,11 @@ public class PlayerMovement:MonoBehaviour
     Rigidbody2D rgbd2D;
 	Timer timerScript;
 
+    //Animation States
+    string currentState, holdIdleState, walkingState;
     SpriteRenderer flipSprite;
-    string currentState;
     Animator animator;
 
-    //Animation States
-    string holdIdleState, walkingState;
 
     void Start()
     {
@@ -60,12 +59,14 @@ public class PlayerMovement:MonoBehaviour
                 walkingState = "walking_Side";
                 holdIdleState = "idle_Side";
                 flipSprite.flipX = true;
-            } else if(playerPosition.y > 0) {
+            } else if(playerPosition.y > 0 && playerPosition.x == 0) {
                 walkingState = "walking_Up";
                 holdIdleState = "idle_Up";
-            } else if(playerPosition.y < 0) {
+                flipSprite.flipX = false;
+            } else if(playerPosition.y < 0 && playerPosition.x == 0) {
                 walkingState = "walking_Down";
                 holdIdleState = "idle_Down";
+                flipSprite.flipX = false;
             }
 
             if(playerPosition.magnitude != 0)
@@ -95,7 +96,7 @@ public class PlayerMovement:MonoBehaviour
 
     void ChangeAnimationState(string newState)
     {
-        if(currentState == newState) return;
+        //if(currentState == newState) return;
         if(newState == "Walking")
         {
             animator.Play(walkingState);

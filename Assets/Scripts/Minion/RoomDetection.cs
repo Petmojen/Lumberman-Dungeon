@@ -10,7 +10,7 @@ public class RoomDetection : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            spawnMinionsScript.spawnActivated = true;
+            spawnMinionsScript.spawnActive = true;
         }
     }
 
@@ -18,7 +18,7 @@ public class RoomDetection : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            spawnMinionsScript.spawnActivated = false;
+            spawnMinionsScript.spawnActive = false;
         }
     }
 }

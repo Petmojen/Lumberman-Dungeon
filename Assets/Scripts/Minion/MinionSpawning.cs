@@ -5,49 +5,51 @@ using UnityEngine;
 public class MinionSpawning:MonoBehaviour
 {
     [SerializeField] GameObject topLeft, bottomRight, minionPrefab;
-    float minionSpawnPadding = 1, randomPointX, randomPointY;
-    bool spawnMinionCycle, spawnPointCleared ;
-    GameObject[] holdAliveMinions;
-    public bool spawnActivated;
+    public GameObject[] holdAliveMinions = new GameObject[5];
     GameObject playerPosition;
+
+    float minionSpawnPadding = 1, randomPointX, randomPointY;
     int numberOfMinions, numberOfDead;
+
+    public bool bossInvicible, spawnActive;
+    bool spawnChecked;
 
     void Start()
     {
-        spawnMinionCycle = true;
         playerPosition = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        //Debug.DrawRay(topLeft.transform.position, transform.right * 19, Color.blue);
-        //Debug.DrawRay(topLeft.transform.position, -transform.up * 11, Color.blue);
-        //Debug.DrawRay(bottomRight.transform.position, -transform.right * 19, Color.blue);
-        //Debug.DrawRay(bottomRight.transform.position, transform.up * 11, Color.blue);
-
-
-        if(spawnActivated)
+        if(spawnActive && !bossInvicible)
         {
-            if(spawnMinionCycle && numberOfDead == numberOfMinions)
+            CreateSpawnPoint();
+        }
+
+        if(numberOfDead != numberOfMinions)
+        {
+            numberOfDead = 0;
+            for(int i = 0; i < numberOfMinions; i++)
             {
-                numberOfMinions = Random.Range(3, 5);
-                holdAliveMinions = new GameObject[numberOfMinions];
-                for(int i = 0; i <= numberOfMinions; i++)
+                if(holdAliveMinions[i] == null)
                 {
-                    spawnPointCleared = false;
-                    CreateSpawnPoint();
+                    Debug.Log("Num:" + i + " is Empty");
+                    holdAliveMinions[i] = null;
+                    numberOfDead++;
                 }
-                spawnMinionCycle = false;
-                Invoke(nameof(SpawnCycle), 5);
             }
+        } else {
+            bossInvicible = false;
         }
     }
 
     void CreateSpawnPoint()
     {
-        while(!spawnPointCleared)
+        numberOfMinions = Random.Range(3, 5);
+        for(int i = 0; i < numberOfMinions; i++)
         {
-            for(int i = 0; i < numberOfMinions; i++)
+            spawnChecked = false;
+            while(!spawnChecked)
             {
                 randomPointY = Random.Range(bottomRight.transform.position.y + minionSpawnPadding, topLeft.transform.position.y - minionSpawnPadding);
                 randomPointX = Random.Range(bottomRight.transform.position.x - minionSpawnPadding, topLeft.transform.position.x + minionSpawnPadding);
@@ -57,15 +59,10 @@ public class MinionSpawning:MonoBehaviour
                 if(Vector3.Distance(checkSpawnPos, playerPosition.transform.position) > 3)
                 {
                     holdAliveMinions[i] = Instantiate(minionPrefab, new Vector3(randomPointX, randomPointY, 0), Quaternion.identity);
-                    spawnPointCleared = true;
+                    spawnChecked = true;
                 }
             }
         }
-    }
-
-    void SpawnCycle()
-    {
-        spawnMinionCycle = true;
-        CancelInvoke(nameof(SpawnCycle));
+        bossInvicible = true;
     }
 }

@@ -142,10 +142,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 0
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 32
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 16
+        x: 96
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_4
       rect:
         serializedVersion: 2
-        x: 208
-        y: 16
+        x: 128
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_6
       rect:
         serializedVersion: 2
-        x: 304
-        y: 16
+        x: 192
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +247,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_8
       rect:
         serializedVersion: 2
-        x: 400
-        y: 16
+        x: 256
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +268,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
+        x: 64
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 16
+        x: 160
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +310,10 @@ TextureImporter:
       name: sprsheet_walk_minion_v1_7
       rect:
         serializedVersion: 2
-        x: 352
-        y: 16
+        x: 224
+        y: 0
         width: 32
-        height: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

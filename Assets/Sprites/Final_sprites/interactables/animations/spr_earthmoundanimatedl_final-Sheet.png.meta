@@ -1,37 +1,28 @@
 fileFormatVersion: 2
-guid: eaa0c390b416b8c469abd69d25358b54
+guid: 70cc68baf03afd544b50763aa0930dd6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2547500017834345928
-    second: sprsheet_dash_player_side_v1_0
+      213: 1149948592641388079
+    second: spr_earthmoundanimatedl_final-Sheet_0
   - first:
-      213: 3917235606477687593
-    second: sprsheet_dash_player_side_v1_1
+      213: 6740918712038765567
+    second: spr_earthmoundanimatedl_final-Sheet_1
   - first:
-      213: 5038925230565036264
-    second: sprsheet_dash_player_side_v1_2
+      213: -6838791721229922425
+    second: spr_earthmoundanimatedl_final-Sheet_2
   - first:
-      213: -1561044191824233705
-    second: sprsheet_dash_player_side_v1_3
+      213: 8797537375730533911
+    second: spr_earthmoundanimatedl_final-Sheet_3
   - first:
-      213: -4345285043717027458
-    second: sprsheet_dash_player_side_v1_4
+      213: 7400145240201807239
+    second: spr_earthmoundanimatedl_final-Sheet_4
   - first:
-      213: -4826550720138690776
-    second: sprsheet_dash_player_side_v1_5
+      213: -6681306859424571272
+    second: spr_earthmoundanimatedl_final-Sheet_5
   - first:
-      213: 4016025070361844381
-    second: sprsheet_dash_player_side_v1_6
-  - first:
-      213: -2161967243115054366
-    second: sprsheet_dash_player_side_v1_7
-  - first:
-      213: -8799245609323933598
-    second: sprsheet_dash_player_side_v1_8
-  - first:
-      213: 2532784255671336147
-    second: sprsheet_dash_player_side_v1_9
+      213: 6638017301996421065
+    second: spr_earthmoundanimatedl_final-Sheet_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,7 +124,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_0
+      name: spr_earthmoundanimatedl_final-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c5415cd4c98a5320800000000000000
-      internalID: 2547500017834345928
+      spriteID: f2ea95ef62075ff00800000000000000
+      internalID: 1149948592641388079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_1
+      name: spr_earthmoundanimatedl_final-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -168,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92b4d999701dc5630800000000000000
-      internalID: 3917235606477687593
+      spriteID: ff3bada8add8c8d50800000000000000
+      internalID: 6740918712038765567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_2
+      name: spr_earthmoundanimatedl_final-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -189,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e01591cccbdde540800000000000000
-      internalID: 5038925230565036264
+      spriteID: 78f453bb92bb711a0800000000000000
+      internalID: -6838791721229922425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_3
+      name: spr_earthmoundanimatedl_final-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -210,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71b31ab049e065ae0800000000000000
-      internalID: -1561044191824233705
+      spriteID: 71604a2c1a1271a70800000000000000
+      internalID: 8797537375730533911
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_4
+      name: spr_earthmoundanimatedl_final-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -231,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e79cd69664272b3c0800000000000000
-      internalID: -4345285043717027458
+      spriteID: 785c68863e892b660800000000000000
+      internalID: 7400145240201807239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_5
+      name: spr_earthmoundanimatedl_final-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
@@ -252,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82f3ab331b5a40db0800000000000000
-      internalID: -4826550720138690776
+      spriteID: 8702e987fca3743a0800000000000000
+      internalID: -6681306859424571272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_6
+      name: spr_earthmoundanimatedl_final-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
@@ -273,71 +264,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a1bff0689cbb730800000000000000
-      internalID: 4016025070361844381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2eab81a3f362ff1e0800000000000000
-      internalID: -2161967243115054366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 260d4dc1dbcc2e580800000000000000
-      internalID: -8799245609323933598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_dash_player_side_v1_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dcfdfb7cd1462320800000000000000
-      internalID: 2532784255671336147
+      spriteID: 9cfb4620199fe1c50800000000000000
+      internalID: 6638017301996421065
       vertices: []
       indices: 
       edges: []

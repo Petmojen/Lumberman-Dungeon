@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 3218432094223406992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 2774888423335101752}
   - {fileID: 9038005304762248369}
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -159,8 +159,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
-  m_Sprite: {fileID: -407774699277236136, guid: e32cbfdc2d05f87499bb88414d9c20b4, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: e89762572e86a314baa663935ce247c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,18 +184,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00814271}
+  m_Offset: {x: -0.027732477, y: 0.03253162}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.61, y: 0.64}
+    border: {x: 0.68, y: 1.93, z: 1.4499999, w: 0.12}
+    pivot: {x: 0.42293108, y: 0.7544803}
+    oldSize: {x: 4.5, y: 3.54}
     newSize: {x: 0.61, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7077111, y: 0.75399625}
+  m_Size: {x: 0.5561068, y: 0.6726476}
   m_EdgeRadius: 0
 --- !u!114 &409643090245139338
 MonoBehaviour:
@@ -257,7 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leafPrefab: {fileID: 4238247389329539731, guid: 1cd6ae7666cfd7340921e6d77a126178, type: 3}
-  branchPrefab: {fileID: 0}
+  branchPrefab: {fileID: 3860672431122482715, guid: 2c11cd173ffc7e14ca43bd24089842e6, type: 3}
+  activateMinionSpawning: {fileID: 0}
   bossAwake: 0
   attackType: 
 --- !u!1 &4775340267654933262
@@ -284,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4775340267654933262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.042, y: -0.224, z: 0}
+  m_LocalPosition: {x: 0.058, y: -0.241, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4771124559879932124}

@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class MinionHpSystem : MonoBehaviour
 {
-    int minionHp = 2;
+    //3hp = 2 hp because it enters and reenters before coming back to the player.
+    int minionHp = 3;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Axe"))
         {
             minionHp--;
-            if (minionHp == 0)
-                Destroy(gameObject);
+            if(minionHp == 0) Destroy(gameObject);
         }
     }
 }

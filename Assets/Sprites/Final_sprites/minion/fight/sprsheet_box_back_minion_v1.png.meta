@@ -1,34 +1,40 @@
 fileFormatVersion: 2
-guid: f56854070a0efa342b1b2a5451bb7379
+guid: 2102b91355d3c5b4ea9e6a0233a64853
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5498738541313273078
-    second: sprsheet_front_minion_v1_0
+      213: -7079280876976327505
+    second: sprsheet_box_back_minion_v1_0
   - first:
-      213: -1379590711706902830
-    second: sprsheet_front_minion_v1_1
+      213: -3544752964391438367
+    second: sprsheet_box_back_minion_v1_1
   - first:
-      213: -6525623126381379221
-    second: sprsheet_front_minion_v1_2
+      213: 2844079070547299598
+    second: sprsheet_box_back_minion_v1_2
   - first:
-      213: -6859400221378271787
-    second: sprsheet_front_minion_v1_3
+      213: 8583632293164706050
+    second: sprsheet_box_back_minion_v1_3
   - first:
-      213: -1796306030594204574
-    second: sprsheet_front_minion_v1_4
+      213: 6237473091143546907
+    second: sprsheet_box_back_minion_v1_4
   - first:
-      213: 2211535297303896924
-    second: sprsheet_front_minion_v1_5
+      213: 6725489508713086549
+    second: sprsheet_box_back_minion_v1_5
   - first:
-      213: 4421720855571996021
-    second: sprsheet_front_minion_v1_6
+      213: -5176146732255251886
+    second: sprsheet_box_back_minion_v1_6
   - first:
-      213: -5034379164803204395
-    second: sprsheet_front_minion_v1_7
+      213: 9220696155583834167
+    second: sprsheet_box_back_minion_v1_7
   - first:
-      213: -3759870273530082702
-    second: sprsheet_front_minion_v1_8
+      213: -1962741620936876622
+    second: sprsheet_box_back_minion_v1_8
+  - first:
+      213: 1087285734245410170
+    second: sprsheet_box_back_minion_v1_9
+  - first:
+      213: 530972678741722054
+    second: sprsheet_box_back_minion_v1_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -114,27 +120,15 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_0
+      name: sprsheet_box_back_minion_v1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -144,18 +138,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a03d5442e6e80b3b0800000000000000
-      internalID: -5498738541313273078
+      spriteID: fa43c9ecc8751cd90800000000000000
+      internalID: -7079280876976327505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_1
+      name: sprsheet_box_back_minion_v1_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -165,18 +159,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2de184d9e85badce0800000000000000
-      internalID: -1379590711706902830
+      spriteID: 1e77fe4b5f18ecec0800000000000000
+      internalID: -3544752964391438367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_2
+      name: sprsheet_box_back_minion_v1_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -186,18 +180,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b61c6fd37545075a0800000000000000
-      internalID: -6525623126381379221
+      spriteID: e0d481998d2387720800000000000000
+      internalID: 2844079070547299598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_3
+      name: sprsheet_box_back_minion_v1_3
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -207,18 +201,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d5238067d38ec0a0800000000000000
-      internalID: -6859400221378271787
+      spriteID: 20967a4b7103f1770800000000000000
+      internalID: 8583632293164706050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_4
+      name: sprsheet_box_back_minion_v1_4
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -228,18 +222,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26c5a82be2d3217e0800000000000000
-      internalID: -1796306030594204574
+      spriteID: b183ba59ab4ff8650800000000000000
+      internalID: 6237473091143546907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_5
+      name: sprsheet_box_back_minion_v1_5
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -249,18 +243,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c53690cb2a3f0be10800000000000000
-      internalID: 2211535297303896924
+      spriteID: 55eb573331db55d50800000000000000
+      internalID: 6725489508713086549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_6
+      name: sprsheet_box_back_minion_v1_6
       rect:
         serializedVersion: 2
         x: 192
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -270,18 +264,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57d1e4cd0bb1d5d30800000000000000
-      internalID: 4421720855571996021
+      spriteID: 25270aea8f1aa28b0800000000000000
+      internalID: -5176146732255251886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_7
+      name: sprsheet_box_back_minion_v1_7
       rect:
         serializedVersion: 2
         x: 224
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -291,18 +285,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5daf649a2da422ab0800000000000000
-      internalID: -5034379164803204395
+      spriteID: 7386267dc4e76ff70800000000000000
+      internalID: 9220696155583834167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_front_minion_v1_8
+      name: sprsheet_box_back_minion_v1_8
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 12
         width: 32
         height: 36
       alignment: 0
@@ -312,8 +306,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a40b828e142dbc0800000000000000
-      internalID: -3759870273530082702
+      spriteID: 2bdde2215e0f2c4e0800000000000000
+      internalID: -1962741620936876622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_box_back_minion_v1_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 12
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a752c075d90d61f00800000000000000
+      internalID: 1087285734245410170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_box_back_minion_v1_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 12
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c386dd86d46e5700800000000000000
+      internalID: 530972678741722054
       vertices: []
       indices: 
       edges: []

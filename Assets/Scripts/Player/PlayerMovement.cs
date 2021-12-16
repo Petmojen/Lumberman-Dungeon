@@ -8,25 +8,27 @@ public class PlayerMovement:MonoBehaviour
 
     bool dashCooldown = false, bossCollide = false;
 
-    float dashTime = 0.4f, dashCooldownTime = 2f, dashSpeed = 2;
+	float dashTime = 0.4f, dashCooldownTime = 2f, dashSpeed = 2;
     float movementSpeed = 7.5f, angle;
     Vector2 playerPosition;
-
-    public enum Attack {Idle, Throw, AxeReturning, Melee};
-    public Attack axeAttack;
+	public enum Attack {Idle, Throw, AxeReturning, Melee};
+	public Attack axeAttack;
     Rigidbody2D rgbd2D;
-    Timer timerScript;
+	Timer timerScript;
 
-    //temp until we gen animations
-    [SerializeField] Sprite spriteRight, spriteLeft, spriteUp, spriteDown;
-    SpriteRenderer changeSprite;
+    //Animation States
+    string currentState, holdIdleState, walkingState;
+    SpriteRenderer flipSprite;
+    Animator animator;
+
 
     void Start()
     {
         Time.timeScale = 1;
-        changeSprite = GetComponent<SpriteRenderer>();
+        flipSprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         rgbd2D = GetComponent<Rigidbody2D>();
-        axeAttack = Attack.Idle;
+		axeAttack = Attack.Idle;
         activateBossScript = GameObject.FindObjectOfType(typeof(BossAttackManager)) as BossAttackManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
@@ -38,6 +40,11 @@ public class PlayerMovement:MonoBehaviour
             LookAtMouse();
         }
 
+        if(Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
+        {
+            Debug.Log("attack");
+        }
+
         if(axeAttack != Attack.Melee)
         {
             playerPosition.x = Input.GetAxisRaw("Horizontal");
@@ -45,35 +52,59 @@ public class PlayerMovement:MonoBehaviour
 
             if(playerPosition.x > 0)
             {
-                changeSprite.sprite = spriteRight;
+                walkingState = "walking_Side";
+                holdIdleState = "idle_Side";
+                flipSprite.flipX = false;
             } else if(playerPosition.x < 0) {
-                changeSprite.sprite = spriteLeft;
+                walkingState = "walking_Side";
+                holdIdleState = "idle_Side";
+                flipSprite.flipX = true;
+            } else if(playerPosition.y > 0 && playerPosition.x == 0) {
+                walkingState = "walking_Up";
+                holdIdleState = "idle_Up";
+                flipSprite.flipX = false;
+            } else if(playerPosition.y < 0 && playerPosition.x == 0) {
+                walkingState = "walking_Down";
+                holdIdleState = "idle_Down";
+                flipSprite.flipX = false;
             }
 
-            if(playerPosition.y > 0)
+            if(playerPosition.magnitude != 0)
             {
-                changeSprite.sprite = spriteUp;
-            } else if(playerPosition.y < 0) {
-                changeSprite.sprite = spriteDown;
+                ChangeAnimationState("Walking");
+            } else {
+                ChangeAnimationState("Idle");
             }
 
-            if((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown)
+            if ((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown)
             {
                 movementSpeed *= dashSpeed;
-                Invoke("Dashing", dashTime);
-            } else {
-                movementSpeed /= dashSpeed;
-                Invoke("DashCooldown", dashCooldownTime);
+				Invoke ("Dashing", dashTime);
+			} else {
+				Invoke ("DashCooldown", dashCooldownTime);
             }
 
             rgbd2D.velocity = playerPosition * movementSpeed;
 
-            if(bossCollide == true)
-            {
-                rgbd2D.velocity = -rgbd2D.velocity;
-                dashCooldown = true;
-            }
+            if (bossCollide == true)
+			{
+				rgbd2D.velocity = -rgbd2D.velocity;
+				dashCooldown = true;
+			}
         }
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        //if(currentState == newState) return;
+        if(newState == "Walking")
+        {
+            animator.Play(walkingState);
+        } else if(newState == "Idle") {
+            animator.Play(holdIdleState);
+        }
+
+        currentState = newState;
     }
 
     void LookAtMouse()
@@ -82,44 +113,41 @@ public class PlayerMovement:MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+		
         if(angle < 45 && angle > -45)
         {
-            changeSprite.sprite = spriteRight;
+            //flipSprite.sprite = spriteRight;
         } else if(angle > 45 && angle < 135) {
-            changeSprite.sprite = spriteUp;
+            //flipSprite.sprite = spriteUp;
         } else if(angle < -45 && angle > -135) {
-            changeSprite.sprite = spriteDown;
+            //flipSprite.sprite = spriteDown;
         } else if(angle > 135 || angle < -135) {
-            changeSprite.sprite = spriteLeft;
+            //flipSprite.sprite = spriteLeft;
         }
     }
 
-    void Dashing()
-    {
+	void Dashing()
+	{
+        movementSpeed = 7.5f;
         dashCooldown = true;
-        CancelInvoke();
-    }
-
-    void DashCooldown()
-    {
+		CancelInvoke();
+	}
+	
+	void DashCooldown()
+	{
+        movementSpeed = 7.5f;
         dashCooldown = false;
-        CancelInvoke();
-    }
+		CancelInvoke();
+	}
 
-    void PlayerBossCollisionCooldown()
-    {
-        bossCollide = false;
-        CancelInvoke();
-    }
-
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Axe") && axeAttack == Attack.AxeReturning)
-        {
-            axeAttack = Attack.Idle;
-            Destroy(collision.gameObject);
-        }
-    }
+	 private void OnTriggerStay2D(Collider2D collision)
+	{
+	    if(collision.CompareTag("Axe") && axeAttack == Attack.AxeReturning)
+	    {
+			axeAttack = Attack.Idle;
+			Destroy(collision.gameObject);
+	    }
+	}
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -143,4 +171,9 @@ public class PlayerMovement:MonoBehaviour
         }
     }
 
+    void PlayerBossCollisionCooldown()
+	{
+		bossCollide = false;
+		CancelInvoke();
+	}
 }

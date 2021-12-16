@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: 0c5dcd493fada9342b03dc63a85ed96d
+guid: 8a1f28d80e2fafa4b95f8ceb20e9cedc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7062109745724816416
-    second: sprsheet_idle_player_right_v1_0
+      213: -5617298767597187282
+    second: sprsheet_back_minion_v1_0
   - first:
-      213: 3282734948137387519
-    second: sprsheet_idle_player_right_v1_1
+      213: -6453413977349855738
+    second: sprsheet_back_minion_v1_1
   - first:
-      213: -4089052697284426714
-    second: sprsheet_idle_player_right_v1_2
+      213: 1818359050180479657
+    second: sprsheet_back_minion_v1_2
   - first:
-      213: -1791395183096056266
-    second: sprsheet_idle_player_right_v1_3
+      213: -5354611864352793506
+    second: sprsheet_back_minion_v1_3
   - first:
-      213: 7106170064439993002
-    second: sprsheet_idle_player_right_v1_4
+      213: -3973387150238802290
+    second: sprsheet_back_minion_v1_4
   - first:
-      213: -4184426885985592841
-    second: sprsheet_idle_player_right_v1_5
+      213: 3177319725284383953
+    second: sprsheet_back_minion_v1_5
   - first:
-      213: -8468299881838135668
-    second: sprsheet_idle_player_right_v1_6
+      213: 4895948241540417009
+    second: sprsheet_back_minion_v1_6
   - first:
-      213: 2468357318565385587
-    second: sprsheet_idle_player_right_v1_7
+      213: -1212314464882818738
+    second: sprsheet_back_minion_v1_7
+  - first:
+      213: -7425105601848279814
+    second: sprsheet_back_minion_v1_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,11 +130,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_0
+      name: sprsheet_back_minion_v1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 17
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -141,18 +144,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02c70c6a567a10260800000000000000
-      internalID: 7062109745724816416
+      spriteID: e2f412858885b02b0800000000000000
+      internalID: -5617298767597187282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_1
+      name: sprsheet_back_minion_v1_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 65
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -162,18 +165,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff54d7bea0e9e8d20800000000000000
-      internalID: 3282734948137387519
+      spriteID: 6066583ed2ed076a0800000000000000
+      internalID: -6453413977349855738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_2
+      name: sprsheet_back_minion_v1_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 113
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -183,18 +186,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 624428e8c34c047c0800000000000000
-      internalID: -4089052697284426714
+      spriteID: 9aacf1c0ceb1c3910800000000000000
+      internalID: 1818359050180479657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_3
+      name: sprsheet_back_minion_v1_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 161
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -204,18 +207,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 636b63b729fa327e0800000000000000
-      internalID: -1791395183096056266
+      spriteID: e5cd82b11e890b5b0800000000000000
+      internalID: -5354611864352793506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_4
+      name: sprsheet_back_minion_v1_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 209
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -225,18 +228,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa2e57406003e9260800000000000000
-      internalID: 7106170064439993002
+      spriteID: e8e1ae25071bbd8c0800000000000000
+      internalID: -3973387150238802290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_5
+      name: sprsheet_back_minion_v1_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
+        x: 257
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -246,18 +249,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f91c30daedede5c0800000000000000
-      internalID: -4184426885985592841
+      spriteID: 1dcda6bb47b181c20800000000000000
+      internalID: 3177319725284383953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_6
+      name: sprsheet_back_minion_v1_6
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
+        x: 305
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -267,18 +270,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c863e8bdf1e8a7a80800000000000000
-      internalID: -8468299881838135668
+      spriteID: 1f507bf5cf6e1f340800000000000000
+      internalID: 4895948241540417009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_idle_player_right_v1_7
+      name: sprsheet_back_minion_v1_7
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
+        x: 353
+        y: 18
         width: 32
         height: 32
       alignment: 0
@@ -288,8 +291,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37553df37ed514220800000000000000
-      internalID: 2468357318565385587
+      spriteID: e418794da6efc2fe0800000000000000
+      internalID: -1212314464882818738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_back_minion_v1_8
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 18
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcf1168bc9b4f890800000000000000
+      internalID: -7425105601848279814
       vertices: []
       indices: 
       edges: []

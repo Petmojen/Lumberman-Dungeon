@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MinionHpSystem : MonoBehaviour
 {
-    int minionHp = 1;
+    int minionHp = 2;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

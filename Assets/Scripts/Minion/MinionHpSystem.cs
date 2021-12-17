@@ -15,5 +15,10 @@ public class MinionHpSystem : MonoBehaviour
             minionHp--;
             if(minionHp == 0) Destroy(gameObject);
         }
+		if (collision.CompareTag("Melee"))
+        {
+            minionHp = minionHp - 5;
+            if(minionHp == 0) Destroy(gameObject);
+        }
     }
 }

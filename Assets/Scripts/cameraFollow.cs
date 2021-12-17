@@ -50,6 +50,12 @@ public class cameraFollow : MonoBehaviour
 		} else {
 			cameraSpeedY = 150f;
 		}
+		if (Vector2.Distance(player.transform.position, new Vector3(0f, 9f, 0f)) < 5)
+		{
+			cameraSpeedY = 15f;
+			cameraSpeedX = 15f;
+			transform.position =  Vector3.MoveTowards(transform.position, new Vector3(0f, 9f, 0f), stepX);
+		}			
 		
 		RaycastHit2D hitRight = Physics2D.Raycast(player.transform.position, player.transform.right, edgeDistanceX, mask);
 		RaycastHit2D hitUp = Physics2D.Raycast(player.transform.position, player.transform.up, edgeDistanceY, mask);

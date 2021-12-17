@@ -124,6 +124,7 @@ public class PlayerHpSystem:MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Light":
+				if (!debuggerScript.immortal || timerScript.timeOut)
                 lightCounter--;
                 break;
             case "Heal":

@@ -6,9 +6,9 @@ public class PlayerMovement:MonoBehaviour
 {
     BossAttackManager activateBossScript;
 
-    bool dashCooldown = false, bossCollide = false;
+    bool dashCooldown, dashing, bossCollide;
 
-	float dashTime = 0.4f, dashCooldownTime = 2f, dashSpeed = 2;
+	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10;
     float movementSpeed = 7.5f, angle;
     Vector2 playerPosition;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
@@ -17,7 +17,7 @@ public class PlayerMovement:MonoBehaviour
 	Timer timerScript;
 
     //Animation States
-    string currentState, holdIdleState, walkingState;
+    string currentState, holdIdleState, holdDashState, walkingState;
     SpriteRenderer flipSprite;
     Animator animator;
 
@@ -54,42 +54,47 @@ public class PlayerMovement:MonoBehaviour
             {
                 walkingState = "walking_Side";
                 holdIdleState = "idle_Side";
+                holdDashState = "dash_Side";
                 flipSprite.flipX = false;
             } else if(playerPosition.x < 0) {
                 walkingState = "walking_Side";
                 holdIdleState = "idle_Side";
+                holdDashState = "dash_Side";
                 flipSprite.flipX = true;
             } else if(playerPosition.y > 0 && playerPosition.x == 0) {
                 walkingState = "walking_Up";
                 holdIdleState = "idle_Up";
+                holdDashState = "dash_Up";
                 flipSprite.flipX = false;
             } else if(playerPosition.y < 0 && playerPosition.x == 0) {
                 walkingState = "walking_Down";
                 holdIdleState = "idle_Down";
+                holdDashState = "dash_Down";
                 flipSprite.flipX = false;
             }
 
-            if(playerPosition.magnitude != 0)
+
+            if((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown && playerPosition.magnitude != 0)
+            {
+                dashCooldown = true;
+                dashing = true;
+                rgbd2D.AddForce(playerPosition.normalized * dashSpeed, ForceMode2D.Impulse);
+                ChangeAnimationState("Dash");
+                Invoke(nameof(DashLength), dashTime);
+            }
+
+            if(!dashing) rgbd2D.velocity = playerPosition.normalized * movementSpeed;
+
+            if(playerPosition.magnitude > 0)
             {
                 ChangeAnimationState("Walking");
-            } else {
+            } else if(playerPosition.magnitude == 0) {
                 ChangeAnimationState("Idle");
             }
 
-            if ((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown)
-            {
-                movementSpeed *= dashSpeed;
-				Invoke ("Dashing", dashTime);
-			} else {
-				Invoke ("DashCooldown", dashCooldownTime);
-            }
-
-            rgbd2D.velocity = playerPosition * movementSpeed;
-
             if (bossCollide == true)
 			{
-				rgbd2D.velocity = -rgbd2D.velocity;
-				dashCooldown = true;
+                rgbd2D.AddForce(-playerPosition.normalized * (dashSpeed * 4), ForceMode2D.Impulse);
 			}
         }
     }
@@ -97,11 +102,13 @@ public class PlayerMovement:MonoBehaviour
     void ChangeAnimationState(string newState)
     {
         //if(currentState == newState) return;
-        if(newState == "Walking")
+        if(newState == "Walking" && !dashing)
         {
             animator.Play(walkingState);
-        } else if(newState == "Idle") {
+        } else if(newState == "Idle" && !dashing) {
             animator.Play(holdIdleState);
+        } else if(newState == "Dash") {
+            animator.Play(holdDashState);
         }
 
         currentState = newState;
@@ -116,29 +123,35 @@ public class PlayerMovement:MonoBehaviour
 		
         if(angle < 45 && angle > -45)
         {
-            //flipSprite.sprite = spriteRight;
+            //Right
+            flipSprite.flipX = false;
+            animator.Play("fight_Side");
         } else if(angle > 45 && angle < 135) {
-            //flipSprite.sprite = spriteUp;
+            //Up
+            flipSprite.flipX = false;
+            animator.Play("fight_Up");
         } else if(angle < -45 && angle > -135) {
-            //flipSprite.sprite = spriteDown;
+            //Down
+            flipSprite.flipX = false;
+            animator.Play("fight_Down");
         } else if(angle > 135 || angle < -135) {
-            //flipSprite.sprite = spriteLeft;
+            //Left
+            flipSprite.flipX = true;
+            animator.Play("fight_Side");
         }
     }
-
-	void Dashing()
-	{
-        movementSpeed = 7.5f;
-        dashCooldown = true;
-		CancelInvoke();
-	}
 	
-	void DashCooldown()
+	void DashLength()
 	{
-        movementSpeed = 7.5f;
-        dashCooldown = false;
-		CancelInvoke();
+        dashing = false;
+        rgbd2D.velocity = Vector2.zero;
+        Invoke(nameof(DashCooldown), dashCooldownTime);
 	}
+
+    void DashCooldown()
+    {
+        dashCooldown = false;
+    }
 
 	 private void OnTriggerStay2D(Collider2D collision)
 	{

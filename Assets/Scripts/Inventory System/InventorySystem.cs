@@ -38,7 +38,7 @@ public class InventorySystem:MonoBehaviour
                 AddVine();
             } else if(torchBool) {
                 AddTorch();
-            } else if(logBool && !logScript.taken) {
+            } else if(logBool) {
                 AddArmor();
             }
         }
@@ -133,7 +133,7 @@ public class InventorySystem:MonoBehaviour
 
     void AddArmor()
     {
-        if(playerHpScript.armor < 3)
+        if(playerHpScript.armor < 3 && !logScript.taken)
         {
             playerHpScript.armor++;
             logScript.taken = true;
@@ -144,7 +144,7 @@ public class InventorySystem:MonoBehaviour
 	
 	void PlaceBonfire()
 	{
-		if (vineInt == 4)
+		if (vineInt >= 4)
 		{
 			vineInt -= 4;
 			vineText.text = vineInt.ToString();

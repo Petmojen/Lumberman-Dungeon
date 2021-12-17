@@ -78,7 +78,7 @@ public class cameraFollow : MonoBehaviour
 			followPlayerY = true;
 		}
 		
-		if (Vector2.Distance(player.transform.position, new Vector2(11f, -5f)) < 12)
+		if (Vector2.Distance(new Vector2(player.transform.position.x, transform.position.y), new Vector2(11f, -5f)) < 12 && Vector2.Distance(new Vector2(transform.position.x, player.transform.position.y), new Vector2(11f, -5f)) < 12)
 		{
 			cameraSpeedY = 15f;
 			cameraSpeedX = 15f;

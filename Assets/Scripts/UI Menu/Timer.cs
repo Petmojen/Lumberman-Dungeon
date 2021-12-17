@@ -25,6 +25,11 @@ public class Timer : MonoBehaviour
 			timeOut = true;
 			debuggerScript.timerZero = false;
 		}
+		if (timeLeft <= 30)
+		{
+			text.color = Color.red;
+			text.fontSize = 30;
+		}
 		string secwithTwoDigits;
 		float seconds = Mathf.Floor(timeLeft % 60);
 		secwithTwoDigits = seconds.ToString("00");

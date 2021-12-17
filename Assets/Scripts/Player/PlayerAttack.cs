@@ -73,7 +73,7 @@ public class PlayerAttack:MonoBehaviour
 
         axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
-        Invoke(nameof(EndMelee), 0.5f);
+        Invoke(nameof(EndMelee), 0.3f);
     }
 
     void EndMelee()

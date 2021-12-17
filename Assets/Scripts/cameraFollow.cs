@@ -8,10 +8,12 @@ public class cameraFollow : MonoBehaviour
     public bool followPlayerX = true, followPlayerY = true;
 	public LayerMask mask;
 	float cameraSpeedX = 150f, cameraSpeedY = 150f;
+	float cameraSize;
 	
 	
 	void Start()
 	{
+		cameraSize = Camera.main.orthographicSize;
 		mask = LayerMask.GetMask("WallOutline");
 		transform.position = player.transform.position;
 	}
@@ -49,12 +51,6 @@ public class cameraFollow : MonoBehaviour
 			cameraSpeedY = 15f;
 		} else {
 			cameraSpeedY = 150f;
-		}
-		if (Vector2.Distance(player.transform.position, new Vector3(0f, 9f, 0f)) < 5)
-		{
-			cameraSpeedY = 15f;
-			cameraSpeedX = 15f;
-			transform.position =  Vector3.MoveTowards(transform.position, new Vector3(0f, 9f, 0f), stepX);
 		}			
 		
 		RaycastHit2D hitRight = Physics2D.Raycast(player.transform.position, player.transform.right, edgeDistanceX, mask);
@@ -80,6 +76,19 @@ public class cameraFollow : MonoBehaviour
 		if (hitUp.collider == null && hitDown.collider == null)
 		{
 			followPlayerY = true;
+		}
+		
+		if (Vector2.Distance(player.transform.position, new Vector2(11f, -5f)) < 12)
+		{
+			cameraSpeedY = 15f;
+			cameraSpeedX = 15f;
+			followPlayerX = false;
+			followPlayerY = false;
+			stepX =  cameraSpeedX * Time.deltaTime;
+			transform.position =  Vector3.MoveTowards(transform.position, new Vector3(11f, -7.5f), stepX);
+			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, 10f, 5f * Time.deltaTime);
+		} else {
+			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, cameraSize, 5f * Time.deltaTime);
 		}
     }
 }

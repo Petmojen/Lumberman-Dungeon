@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
-    public bool isDead = false;
-    bool invincible = false, noPoison, healing;
+    public bool isDead = false, healing;
+    bool invincible = false, noPoison;
     int lightCounter = 0;
     float health = 100;
 

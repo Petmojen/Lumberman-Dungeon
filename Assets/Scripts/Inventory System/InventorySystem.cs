@@ -150,9 +150,16 @@ public class InventorySystem:MonoBehaviour
 			vineText.text = vineInt.ToString();
 			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
 			Destroy(bonFireinstance, bonFireTimer);
+            Invoke(nameof(DestroyBon), bonFireTimer);
 		}
 	}
 	
+    void DestroyBon()
+    {
+        playerHpScript.healing = false;
+        CancelInvoke(nameof(DestroyBon));
+    }
+
 	void PlaceTorch()
 	{
 		if (torchInt > 0)
@@ -163,7 +170,8 @@ public class InventorySystem:MonoBehaviour
 			Destroy(torchinstance, torchTimer);
 		}
 	}
-	
+
+
     void PlaceTree()
 	{
 		if (seedInt > 0)

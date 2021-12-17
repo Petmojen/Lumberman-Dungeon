@@ -79,6 +79,7 @@ public class PlayerMovement:MonoBehaviour
                 dashCooldown = true;
                 dashing = true;
                 rgbd2D.AddForce(playerPosition.normalized * dashSpeed, ForceMode2D.Impulse);
+				rgbd2D.AddForce(new Vector2(0f, 0f), ForceMode2D.Impulse);
                 ChangeAnimationState("Dash");
                 Invoke(nameof(DashLength), dashTime);
             }
@@ -95,7 +96,10 @@ public class PlayerMovement:MonoBehaviour
             if (bossCollide == true)
 			{
                 rgbd2D.AddForce(-playerPosition.normalized * (dashSpeed * 4), ForceMode2D.Impulse);
-			}
+				rgbd2D.AddForce(new Vector2(0f, 0f), ForceMode2D.Impulse);
+				dashCooldown = false;
+				dashing = false;
+			}		
         }
     }
 

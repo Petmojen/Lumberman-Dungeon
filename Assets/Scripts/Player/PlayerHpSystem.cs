@@ -39,7 +39,7 @@ public class PlayerHpSystem:MonoBehaviour
             timerScript.timeOut = false;
         }
 
-        if(lightCounter == 0) Invoke(nameof(Poison), 1f);
+        if(lightCounter == 0 && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
         if(healing) Invoke(nameof(Heal), 0.2f);
     }
 

@@ -25,6 +25,7 @@ public class PlayerAttack:MonoBehaviour
         } else if(Input.GetMouseButtonDown(1) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle) {
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
+
 		if(Input.GetAxisRaw("Melee") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle)
         {
 			Vector2 cAim = transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0);

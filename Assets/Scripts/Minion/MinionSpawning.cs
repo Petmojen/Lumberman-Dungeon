@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinionSpawning:MonoBehaviour
 {
     [SerializeField] GameObject topLeft, bottomRight, minionPrefab;
-    public GameObject[] holdAliveMinions = new GameObject[5];
+    GameObject[] holdAliveMinions;
     GameObject playerPosition;
 
     float minionSpawnPadding = 1, randomPointX, randomPointY;
@@ -16,6 +16,7 @@ public class MinionSpawning:MonoBehaviour
 
     void Start()
     {
+        holdAliveMinions = new GameObject[6];
         playerPosition = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -26,25 +27,27 @@ public class MinionSpawning:MonoBehaviour
             CreateSpawnPoint();
         }
 
-        if(numberOfDead != numberOfMinions)
+        if(bossInvicible && numberOfDead != numberOfMinions)
         {
-            numberOfDead = 0;
-            for(int i = 0; i < numberOfMinions; i++)
+            for(int x = 0; x < numberOfMinions; x++)
             {
-                if(holdAliveMinions[i] == null)
+                if(holdAliveMinions[x] == null)
                 {
-                    Debug.Log("Num:" + i + " is Empty");
-                    holdAliveMinions[i] = null;
                     numberOfDead++;
-                }
+                } 
             }
-        } else {
-            bossInvicible = false;
+
+            if(numberOfDead == numberOfMinions)
+            {
+                bossInvicible = false;
+            }
+            numberOfDead = 0;
         }
     }
 
     void CreateSpawnPoint()
     {
+        bossInvicible = true;
         numberOfMinions = Random.Range(3, 5);
         for(int i = 0; i < numberOfMinions; i++)
         {
@@ -63,6 +66,5 @@ public class MinionSpawning:MonoBehaviour
                 }
             }
         }
-        bossInvicible = true;
     }
 }

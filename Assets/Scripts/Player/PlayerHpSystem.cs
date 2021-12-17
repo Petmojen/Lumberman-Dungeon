@@ -55,7 +55,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void Poison()
     {
-        health -= Random.Range(25, 30);
+        health -= Random.Range(15, 20);
         CancelInvoke(nameof(Poison));
     }
 

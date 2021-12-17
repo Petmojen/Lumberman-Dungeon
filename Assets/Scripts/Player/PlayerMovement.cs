@@ -98,7 +98,7 @@ public class PlayerMovement:MonoBehaviour
 				rgbd2D.AddForce(Vector2.zero, ForceMode2D.Impulse);
 				dashCooldown = false;
 				dashing = false;
-			}		
+			}
         }
     }
 
@@ -122,9 +122,9 @@ public class PlayerMovement:MonoBehaviour
         rgbd2D.velocity = Vector2.zero;
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
-        rgbd2D.AddForce(lookDirection.normalized * 7, ForceMode2D.Impulse);
+        rgbd2D.AddForce(lookDirection.normalized * 6, ForceMode2D.Impulse);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-		
+
         if(angle < 45 && angle > -45)
         {
             //Right
@@ -144,7 +144,7 @@ public class PlayerMovement:MonoBehaviour
             animator.Play("melee_Side");
         }
     }
-	
+
 	void DashLength()
 	{
         dashing = false;

@@ -125,19 +125,19 @@ public class PlayerMovement:MonoBehaviour
         {
             //Right
             flipSprite.flipX = false;
-            animator.Play("fight_Side");
+            animator.Play("melee_Side");
         } else if(angle > 45 && angle < 135) {
             //Up
             flipSprite.flipX = false;
-            animator.Play("fight_Up");
+            animator.Play("melee_Up");
         } else if(angle < -45 && angle > -135) {
             //Down
             flipSprite.flipX = false;
-            animator.Play("fight_Down");
+            animator.Play("melee_Down");
         } else if(angle > 135 || angle < -135) {
             //Left
             flipSprite.flipX = true;
-            animator.Play("fight_Side");
+            animator.Play("melee_Side");
         }
     }
 	

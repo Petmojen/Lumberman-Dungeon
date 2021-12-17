@@ -5,17 +5,17 @@ using UnityEngine;
 public class LeafAttack : MonoBehaviour
 {
 	[SerializeField] Rigidbody2D rbd;
-	float speed = 3f;
+	float speed = 4f;
     // Start is called before the first frame update
     void Start()
     {
-		int randomDirection = Random.Range(-1, 2);
+		int randomDirection = Random.Range(-3, 4);
 		rbd.velocity = new Vector3((randomDirection * speed) / 3, -speed, 0);
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Wall"))
 		{
 			Destroy(gameObject);
 		}

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerAttack:MonoBehaviour
 {
-    [SerializeField] GameObject axePrefab, axeOffset;
-	[SerializeField] GameObject axeAttackPrefab;
-	PlayerMovement playerMovementScript;
+    [SerializeField] GameObject axePrefab, axeOffset, axeAttackPrefab;
+    PlayerMovement playerMovementScript;
     float axeThrowForce = 20;
+    GameObject axeAttack;
     Rigidbody2D rgbd2D;
 	
 	void Start()
@@ -25,6 +25,7 @@ public class PlayerAttack:MonoBehaviour
         } else if(Input.GetMouseButtonDown(1) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle) {
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
+
 		if(Input.GetAxisRaw("Melee") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle)
         {
 			Vector2 cAim = transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0);
@@ -67,8 +68,18 @@ public class PlayerAttack:MonoBehaviour
 	void MeeleAxe(float angle)
 	{
 		playerMovementScript.axeAttack = PlayerMovement.Attack.Melee;
-        GameObject axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
-        rgbd2D = axeAttack.GetComponent<Rigidbody2D>();
+
+
+
+        axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
+        Invoke(nameof(EndMelee), 0.5f);
+    }
+
+    void EndMelee()
+    {
+        Destroy(axeAttack);
+        playerMovementScript.axeAttack = PlayerMovement.Attack.Idle;
+        CancelInvoke();
     }
 }

@@ -12,25 +12,25 @@ public class BossAttackManager : MonoBehaviour
 
     ForceToBossDarkness darknessScript;
 
-	int noofAttacks, attackRandomizer;
+	int numOfAttacks, attackRandomizer;
     public bool bossAwake = false;
 	bool attackCooldown = false;
 	public string attackType;
 	Timer timerScript;
 	
-	public enum Attacks {Leafs, Minion, Darkness, BranchSweep};
+	public enum Attacks {Leafs, Minion, BranchSweep /*, RootSnare*/};
 
     void Start()
     {
         bossPositionOffset = GameObject.Find("BossOffset");
-        noofAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
+        numOfAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
         darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
     }
 
     void Update()
     {
-        if(timerScript.timeOut)
+        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible)
         {
             AttackManager();
         }
@@ -38,12 +38,12 @@ public class BossAttackManager : MonoBehaviour
 
 	void AttackManager()
 	{
-		if (!attackCooldown)
+		if(!attackCooldown)
 		{
             if(bossAwake)
             {
                 attackCooldown = true;
-                attackRandomizer = Random.Range(0, noofAttacks);
+                attackRandomizer = Random.Range(0, numOfAttacks);
                 attackType = System.Enum.GetName(typeof(Attacks), attackRandomizer);
             } else {
                 attackType = "";
@@ -54,9 +54,6 @@ public class BossAttackManager : MonoBehaviour
 				case "Minion":
                     MinionAttack();
 				    break;
-				case "Darkness":
-                    Darkness();
-                    break;
 				case "BranchSweep":
                     BranchSweepAttack();
                     break;
@@ -76,17 +73,11 @@ public class BossAttackManager : MonoBehaviour
 
     void MinionAttack()
     {
-        activateMinionSpawning.spawnActivated = true;
-        Invoke(nameof(SwitchAttack), 4f);
+        activateMinionSpawning.spawnActive = true;
+        Invoke(nameof(SwitchAttack), 5f);
     }
 
-    void Darkness()
-    {
-        darknessScript.ability = true;
-        Invoke(nameof(SwitchAttack), 4f);
-    }
-
-	// Leaf attack
+    // Leaf attack
     void FireLeaf()
 	{
         InvokeRepeating(nameof(Shoot), 0, 1);
@@ -94,17 +85,16 @@ public class BossAttackManager : MonoBehaviour
 
     void SwitchAttack()
 	{
-        activateMinionSpawning.spawnActivated = false;
-        darknessScript.ability = false;
+        activateMinionSpawning.spawnActive = false;
         attackCooldown = false;
 		CancelInvoke();
 	}
 
 	void Shoot()
     {
-		int noofLeafs = 3;
-		float leafLimeTime = 4f;
-		for (float i = 0; i < noofLeafs; i++)
+		int numOfLeafs = 6;
+		float leafLimeTime = 3f;
+		for (float i = 0; i < numOfLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
 			Destroy(leafinstance, leafLimeTime);

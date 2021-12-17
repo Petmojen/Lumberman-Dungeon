@@ -5,17 +5,24 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-    [SerializeField] Text seedText, vineText, torchText;
 	[SerializeField] GameObject bonFirePrefab, torchPrefab, treePrefab;
+    [SerializeField] Text seedText, vineText, torchText;
     bool seedBool, vineBool, torchBool, logBool;
-    int seedInt, vineInt, torchInt;
 	float bonFireTimer = 10, torchTimer = 5;
+    public bool maxCapacity = false;
+    int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
 	Debugger debuggerScript;
 
+
+    EarthMound earthMoundScript;
+    Vine vineScript;
+    Log logScript;
+
     void Start()
     {
+
         playerHpScript = GetComponent<PlayerHpSystem>();
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
     }
@@ -24,10 +31,10 @@ public class InventorySystem:MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            if(seedBool)
+            if(seedBool && !earthMoundScript.taken)
             {
                 AddSeed();
-            } else if(vineBool) {
+            } else if(vineBool && !vineScript.taken) {
                 AddVine();
             } else if(torchBool) {
                 AddTorch();
@@ -38,17 +45,17 @@ public class InventorySystem:MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			PlaceBonFire();
-		}
-		
-		if (Input.GetKeyDown(KeyCode.Alpha2))
+            PlaceTorch();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
-			PlaceTorch();
+            PlaceTree();
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
-			PlaceTree();
+            PlaceBonfire();
 		}
 		
 		// Debug code
@@ -76,15 +83,18 @@ public class InventorySystem:MonoBehaviour
         {
             case "Seed":
                 seedBool = true;
+                earthMoundScript = collision.GetComponent<EarthMound>();
                 break;
             case "Vine":
                 vineBool = true;
+                vineScript = collision.GetComponent<Vine>();
                 break;
             case "Tourch":
                 torchBool = true;
                 break;
             case "Log":
                 logBool = true;
+                logScript = collision.GetComponent<Log>();
                 break;
         }
     }
@@ -100,16 +110,18 @@ public class InventorySystem:MonoBehaviour
 
     void AddSeed()
     {
-        seedInt++;
+        if(Random.Range(0, 100) > 50) seedInt++;
+        earthMoundScript.taken = true;
+        earthMoundScript.ChangeSprite();
         seedText.text = string.Format("{0:0}", seedInt);
-        Destroy(holdResource);
     }
 
     void AddVine()
     {
         vineInt++;
+        vineScript.taken = true;
+        vineScript.ChangeSprite();
         vineText.text = string.Format("{0:0}", vineInt);
-        Destroy(holdResource);
     }
 
     void AddTorch()
@@ -121,25 +133,33 @@ public class InventorySystem:MonoBehaviour
 
     void AddArmor()
     {
-        if(playerHpScript.armor < 3)
+        if(playerHpScript.armor < 3 && !logScript.taken)
         {
             playerHpScript.armor++;
-            Destroy(holdResource);
+            logScript.taken = true;
+            logScript.ChangeSprite();
             playerHpScript.UpdateArmor();
         }
     }
 	
-	void PlaceBonFire()
+	void PlaceBonfire()
 	{
-		if (vineInt > 0)
+		if (vineInt >= 4)
 		{
-			vineInt--;
+			vineInt -= 4;
 			vineText.text = vineInt.ToString();
 			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
 			Destroy(bonFireinstance, bonFireTimer);
+            Invoke(nameof(DestroyBon), bonFireTimer);
 		}
 	}
 	
+    void DestroyBon()
+    {
+        playerHpScript.healing = false;
+        CancelInvoke(nameof(DestroyBon));
+    }
+
 	void PlaceTorch()
 	{
 		if (torchInt > 0)
@@ -150,15 +170,15 @@ public class InventorySystem:MonoBehaviour
 			Destroy(torchinstance, torchTimer);
 		}
 	}
-	
-		void PlaceTree()
+
+
+    void PlaceTree()
 	{
 		if (seedInt > 0)
 		{
 			seedInt--;
 			seedText.text = seedInt.ToString();
 			GameObject treeinstance = Instantiate(treePrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z),  Quaternion.identity);
-			//Destroy(treeinstance, treeeTimer);
 		}
 	}
 }

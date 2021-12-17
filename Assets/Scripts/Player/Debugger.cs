@@ -33,7 +33,7 @@ public class Debugger : MonoBehaviour
 		{
 			addInventorySeed = !addInventorySeed;
 		}
-				if(Input.GetKeyDown(KeyCode.Alpha9))
+	    if(Input.GetKeyDown(KeyCode.Alpha9))
 		{
 			timerZero = !timerZero;
 		}

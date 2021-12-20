@@ -40,7 +40,7 @@ public class PlayerMovement:MonoBehaviour
             LookAtMouse(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
-        if(Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
+        if(Input.GetAxisRaw("Melee") > 0.1f || Input.GetAxisRaw("Throw") > 0.1f)
         {
 			LookAtMouse(transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0));
         }

@@ -121,7 +121,6 @@ public class PlayerMovement:MonoBehaviour
         rgbd2D.velocity = Vector2.zero;
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         rgbd2D.AddForce(lookDirection.normalized * 6, ForceMode2D.Impulse);
-		Debug.Log(lookDirection.normalized * 6);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         if(angle < 45 && angle > -45)

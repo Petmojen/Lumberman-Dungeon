@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: d83a47e26243de744aa9d9c53d9fad35
+guid: a2c1b9fb0b8d18040b1654905dfce5e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5153315424751535534
-    second: sprsheet_primary_attack_player_front_v1_0
+      213: 3322559931451045943
+    second: sprsheet_throw_player_side_v1_0
   - first:
-      213: -4405788876684803051
-    second: sprsheet_primary_attack_player_front_v1_1
+      213: -5233777028307337759
+    second: sprsheet_throw_player_side_v1_1
   - first:
-      213: 3084177453744349176
-    second: sprsheet_primary_attack_player_front_v1_2
+      213: -2441252480107277003
+    second: sprsheet_throw_player_side_v1_2
   - first:
-      213: 2998942577301500621
-    second: sprsheet_primary_attack_player_front_v1_3
+      213: -7406896882719913714
+    second: sprsheet_throw_player_side_v1_3
   - first:
-      213: -3338734125848133212
-    second: sprsheet_primary_attack_player_front_v1_4
+      213: -7640475524417928561
+    second: sprsheet_throw_player_side_v1_4
   - first:
-      213: -1983027315333359204
-    second: sprsheet_primary_attack_player_front_v1_5
+      213: 7843369355696407338
+    second: sprsheet_throw_player_side_v1_5
   - first:
-      213: -1150435839790120966
-    second: sprsheet_primary_attack_player_front_v1_6
-  - first:
-      213: -8955965963389408468
-    second: sprsheet_primary_attack_player_front_v1_7
+      213: -5591392237542927723
+    second: sprsheet_throw_player_side_v1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_0
+      name: sprsheet_throw_player_side_v1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 36
+        width: 39
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ab424bceebb78b0800000000000000
-      internalID: -5153315424751535534
+      spriteID: 738f51b67aa1c1e20800000000000000
+      internalID: 3322559931451045943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_1
+      name: sprsheet_throw_player_side_v1_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 39
         y: 0
-        width: 26
-        height: 36
+        width: 39
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,41 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 514c5d90c5e7bd2c0800000000000000
-      internalID: -4405788876684803051
+      spriteID: 1ed3422c583ed57b0800000000000000
+      internalID: -5233777028307337759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_2
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 0
-        width: 26
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ff53b2bd033dca20800000000000000
-      internalID: 3084177453744349176
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_3
+      name: sprsheet_throw_player_side_v1_2
       rect:
         serializedVersion: 2
         x: 78
         y: 0
-        width: 26
-        height: 36
+        width: 39
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2b9dd82626e9920800000000000000
-      internalID: 2998942577301500621
+      spriteID: 5351a2cbdcdee1ed0800000000000000
+      internalID: -2441252480107277003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_4
+      name: sprsheet_throw_player_side_v1_3
       rect:
         serializedVersion: 2
-        x: 104
+        x: 117
         y: 0
-        width: 26
-        height: 36
+        width: 39
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,41 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a1095d700f6aa1d0800000000000000
-      internalID: -3338734125848133212
+      spriteID: e090881578a653990800000000000000
+      internalID: -7406896882719913714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_5
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 0
-        width: 26
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9998a9c92fda74e0800000000000000
-      internalID: -1983027315333359204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_6
+      name: sprsheet_throw_player_side_v1_4
       rect:
         serializedVersion: 2
         x: 156
         y: 0
-        width: 26
-        height: 36
+        width: 39
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aff7e60f2b4d800f0800000000000000
-      internalID: -1150435839790120966
+      spriteID: f82c004ddf397f590800000000000000
+      internalID: -7640475524417928561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_front_v1_7
+      name: sprsheet_throw_player_side_v1_5
       rect:
         serializedVersion: 2
-        x: 182
+        x: 195
         y: 0
-        width: 26
-        height: 36
+        width: 39
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,8 +231,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b6fa3386406b380800000000000000
-      internalID: -8955965963389408468
+      spriteID: a2308708fde39dc60800000000000000
+      internalID: 7843369355696407338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_throw_player_side_v1_6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 39
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592906962626762b0800000000000000
+      internalID: -5591392237542927723
       vertices: []
       indices: 
       edges: []

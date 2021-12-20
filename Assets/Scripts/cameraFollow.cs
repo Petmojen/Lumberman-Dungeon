@@ -7,6 +7,7 @@ public class cameraFollow : MonoBehaviour
     [SerializeField] GameObject player;
     public bool followPlayerX = true, followPlayerY = true;
 	public LayerMask mask;
+	public Vector2 bossRoomCenter;
 	float cameraSpeedX = 150f, cameraSpeedY = 150f;
 	float cameraSize;
 	
@@ -22,8 +23,8 @@ public class cameraFollow : MonoBehaviour
 
     void Update()
     {
-		float edgeDistanceX = 9.0f;
-		float edgeDistanceY = 5.4f;
+		float edgeDistanceX = 12.8f;
+		float edgeDistanceY = 7.5f;
 		float stepX =  cameraSpeedX * Time.deltaTime;
 		float stepY =  cameraSpeedY * Time.deltaTime;
 		
@@ -78,15 +79,15 @@ public class cameraFollow : MonoBehaviour
 			followPlayerY = true;
 		}
 		
-		if (Vector2.Distance(new Vector2(player.transform.position.x, transform.position.y), new Vector2(11f, -5f)) < 12 && Vector2.Distance(new Vector2(transform.position.x, player.transform.position.y), new Vector2(11f, -5f)) < 12)
+		if (Vector2.Distance(new Vector2(player.transform.position.x, transform.position.y), bossRoomCenter) < 12 && Vector2.Distance(new Vector2(transform.position.x, player.transform.position.y), bossRoomCenter) < 12)
 		{
 			cameraSpeedY = 15f;
 			cameraSpeedX = 15f;
 			followPlayerX = false;
 			followPlayerY = false;
 			stepX =  cameraSpeedX * Time.deltaTime;
-			transform.position =  Vector3.MoveTowards(transform.position, new Vector3(11f, -7.5f), stepX);
-			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, 10f, 5f * Time.deltaTime);
+			transform.position =  Vector3.MoveTowards(transform.position, bossRoomCenter + new Vector2(0f, -2.5f), stepX);
+			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, 10.5f, 5f * Time.deltaTime);
 		} else {
 			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, cameraSize, 5f * Time.deltaTime);
 		}

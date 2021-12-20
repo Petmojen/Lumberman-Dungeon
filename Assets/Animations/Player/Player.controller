@@ -26,18 +26,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-6866508544540959812
+--- !u!1102 &-7222488321022332819
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_Name: throw_Side
-=======
-  m_Name: melee_Up
->>>>>>> parent of 3b3a257 (Added animations for axe throw and spinning axe)
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -50,7 +46,6 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 180385138df20714c99c577f8ffbc672, type: 2}
   m_Tag: 
   m_SpeedParameter: 
@@ -78,9 +73,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: afffdbece3d281f4c851049e803e74b2, type: 2}
-=======
-  m_Motion: {fileID: 7400000, guid: e17750a3213a102499951a1b4362ef8f, type: 2}
->>>>>>> parent of 3b3a257 (Added animations for axe throw and spinning axe)
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -133,6 +125,58 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 4d3829d93c3ed6b419655abc307e44c7, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1886217413311293994
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: melee_Up
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e17750a3213a102499951a1b4362ef8f, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1580376778869367683
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: melee_Down
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: df3e2b1993a8bac469814a1c8b7a31ff, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -224,20 +268,20 @@ AnimatorStateMachine:
     m_State: {fileID: 8051139581832814435}
     m_Position: {x: -10, y: 140, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 498801622087707993}
+    m_State: {fileID: 3065608201528232515}
+    m_Position: {x: -10, y: 360, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1580376778869367683}
     m_Position: {x: -10, y: 190, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -6866508544540959812}
+    m_State: {fileID: -1886217413311293994}
     m_Position: {x: -10, y: 240, z: 0}
-<<<<<<< HEAD
   - serializedVersion: 1
     m_State: {fileID: 3305421823894209472}
     m_Position: {x: -10, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6944704771210525844}
     m_Position: {x: -10, y: 410, z: 0}
-=======
->>>>>>> parent of 3b3a257 (Added animations for axe throw and spinning axe)
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -270,22 +314,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
-<<<<<<< HEAD
 --- !u!1102 &3065608201528232515
-=======
---- !u!1102 &498801622087707993
->>>>>>> parent of 3b3a257 (Added animations for axe throw and spinning axe)
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_Name: throwing_Axe_Side
-=======
-  m_Name: melee_Down
->>>>>>> parent of 3b3a257 (Added animations for axe throw and spinning axe)
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -298,7 +334,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: df3e2b1993a8bac469814a1c8b7a31ff, type: 2}
+  m_Motion: {fileID: 7400000, guid: 41e6f9f8db300c64fa5a8c7bcc5db1e2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -325,6 +361,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: a8383f231734b5c4697bdb9d241261a0, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &3305421823894209472
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: throwing_Axe_Up
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 6be6533db8adaf044ac3251d897dc8e5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

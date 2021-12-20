@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: 3293533829745584ca1bdb2418afb76f
+guid: 14cf6eb1a92ff5d4a88e2104b9ff8018
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8005231150518638133
-    second: sprsheet_primary_attack_player_back_v1_0
+      213: -554228026601587931
+    second: sprsheet_throw_player_back_v1_0
   - first:
-      213: 6838520498745469652
-    second: sprsheet_primary_attack_player_back_v1_1
+      213: -6156465637276559236
+    second: sprsheet_throw_player_back_v1_1
   - first:
-      213: -2289173639907950674
-    second: sprsheet_primary_attack_player_back_v1_2
+      213: -4351420919795484746
+    second: sprsheet_throw_player_back_v1_2
   - first:
-      213: 6564310561238115448
-    second: sprsheet_primary_attack_player_back_v1_3
+      213: 5351497953491285993
+    second: sprsheet_throw_player_back_v1_3
   - first:
-      213: -5270320803613121815
-    second: sprsheet_primary_attack_player_back_v1_4
+      213: 5902711136560945737
+    second: sprsheet_throw_player_back_v1_4
   - first:
-      213: -743756893210062245
-    second: sprsheet_primary_attack_player_back_v1_5
+      213: 7546694480717145150
+    second: sprsheet_throw_player_back_v1_5
   - first:
-      213: 5656482270984114554
-    second: sprsheet_primary_attack_player_back_v1_6
-  - first:
-      213: 2055104359729695756
-    second: sprsheet_primary_attack_player_back_v1_7
+      213: 694958949186290914
+    second: sprsheet_throw_player_back_v1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_0
+      name: sprsheet_throw_player_back_v1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc9e170aea4b7e090800000000000000
-      internalID: -8005231150518638133
+      spriteID: 52bb8d5db8cfe48f0800000000000000
+      internalID: -554228026601587931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_1
+      name: sprsheet_throw_player_back_v1_1
       rect:
         serializedVersion: 2
-        x: 26
+        x: 21
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4da63fc592e47ee50800000000000000
-      internalID: 6838520498745469652
+      spriteID: c785b3a0f17df8aa0800000000000000
+      internalID: -6156465637276559236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_2
+      name: sprsheet_throw_player_back_v1_2
       rect:
         serializedVersion: 2
-        x: 52
+        x: 42
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eaf391cf3b83b30e0800000000000000
-      internalID: -2289173639907950674
+      spriteID: 6b7f26f6ab5ac93c0800000000000000
+      internalID: -4351420919795484746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_3
+      name: sprsheet_throw_player_back_v1_3
       rect:
         serializedVersion: 2
-        x: 78
+        x: 63
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87461fd1dad191b50800000000000000
-      internalID: 6564310561238115448
+      spriteID: 9e7f3160907544a40800000000000000
+      internalID: 5351497953491285993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_4
+      name: sprsheet_throw_player_back_v1_4
       rect:
         serializedVersion: 2
-        x: 104
+        x: 84
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e2e948072f0cd6b0800000000000000
-      internalID: -5270320803613121815
+      spriteID: 94a157a3184aae150800000000000000
+      internalID: 5902711136560945737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_5
+      name: sprsheet_throw_player_back_v1_5
       rect:
         serializedVersion: 2
-        x: 130
+        x: 105
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5257f4db05ada5f0800000000000000
-      internalID: -743756893210062245
+      spriteID: e34eb8765ae3bb860800000000000000
+      internalID: 7546694480717145150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_6
+      name: sprsheet_throw_player_back_v1_6
       rect:
         serializedVersion: 2
-        x: 156
+        x: 126
         y: 0
-        width: 26
-        height: 32
+        width: 21
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,29 +252,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a719d48f7acdf7e40800000000000000
-      internalID: 5656482270984114554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprsheet_primary_attack_player_back_v1_7
-      rect:
-        serializedVersion: 2
-        x: 182
-        y: 0
-        width: 26
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0c8b0ad682358c10800000000000000
-      internalID: 2055104359729695756
+      spriteID: 2e44ab37b7df4a900800000000000000
+      internalID: 694958949186290914
       vertices: []
       indices: 
       edges: []

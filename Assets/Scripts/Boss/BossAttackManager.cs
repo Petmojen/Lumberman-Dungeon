@@ -10,6 +10,7 @@ public class BossAttackManager : MonoBehaviour
 
     [SerializeField] MinionSpawning activateMinionSpawning;
 
+    RootSnare snareActive;
     ForceToBossDarkness darknessScript;
 
 	int numOfAttacks, attackRandomizer;
@@ -18,10 +19,11 @@ public class BossAttackManager : MonoBehaviour
 	public string attackType;
 	Timer timerScript;
 	
-	public enum Attacks {Leafs, Minion, BranchSweep /*, RootSnare*/};
+	public enum Attacks {Leafs, Minion, BranchSweep, RootSnare};
 
     void Start()
     {
+        snareActive = GetComponent<RootSnare>();
         bossPositionOffset = GameObject.Find("BossOffset");
         numOfAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
@@ -61,9 +63,18 @@ public class BossAttackManager : MonoBehaviour
 				    FireLeaf();
                     Invoke(nameof(SwitchAttack), 5f);
                     break;
+                case "RootSnare":
+                    RootSnareAttack();
+                    break;
 			}
 		}
 	}
+
+    void RootSnareAttack()
+    {
+        snareActive.snareActivated = true;
+        Invoke(nameof(SwitchAttack), 10f);
+    }
 
     void BranchSweepAttack()
     {
@@ -86,6 +97,7 @@ public class BossAttackManager : MonoBehaviour
     void SwitchAttack()
 	{
         activateMinionSpawning.spawnActive = false;
+        snareActive.snareActivated = false;
         attackCooldown = false;
 		CancelInvoke();
 	}

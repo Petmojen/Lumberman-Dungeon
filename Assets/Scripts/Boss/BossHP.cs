@@ -6,8 +6,8 @@ public class BossHP : MonoBehaviour
 {
     [SerializeField] MinionSpawning minionInvincibleScript;
     public bool bossDead, healing;
+    public float bossHp = 100;
 	bool hitCooldown = false;
-    public int bossHp = 40;
 	Timer timerScript;
 	
     void Start()

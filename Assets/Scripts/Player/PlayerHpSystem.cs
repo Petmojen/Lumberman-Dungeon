@@ -8,7 +8,7 @@ public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
     public bool isDead = false, healing;
-    bool invincible = false, noPoison;
+    bool invincible = false, noPoison, lifeSteal;
     int lightCounter = 0;
     float health = 100;
 
@@ -41,6 +41,7 @@ public class PlayerHpSystem:MonoBehaviour
 
         if(lightCounter == 0 && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
         if(healing) Invoke(nameof(Heal), 0.2f);
+        if(lifeSteal) Invoke(nameof(LifeSteal), 1f);
     }
 
     void Heal()
@@ -51,6 +52,12 @@ public class PlayerHpSystem:MonoBehaviour
         }
         CancelInvoke(nameof(Heal));
 
+    }
+
+    void LifeSteal()
+    {
+        health -= 1.6f;
+        CancelInvoke();
     }
 
     void Poison()
@@ -115,6 +122,9 @@ public class PlayerHpSystem:MonoBehaviour
                 case "Heal":
                     healing = true;
                     break;
+                case "Snare":
+                    lifeSteal = true;
+                    break;
             }
         }
     }
@@ -129,6 +139,9 @@ public class PlayerHpSystem:MonoBehaviour
                 break;
             case "Heal":
                 healing = false;
+                break;
+            case "Snare":
+                lifeSteal = false;
                 break;
         }
     }

@@ -7,10 +7,11 @@ public class PlayerMovement:MonoBehaviour
     BossAttackManager activateBossScript;
 
     bool dashCooldown, dashing, bossCollide;
+    public bool rootSnared;
 
 	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10;
     float movementSpeed = 7.5f, angle;
-    Vector2 playerPosition;
+    public Vector2 playerPosition;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
 	public Attack axeAttack;
     Rigidbody2D rgbd2D;
@@ -74,7 +75,7 @@ public class PlayerMovement:MonoBehaviour
             }
 
 
-            if((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown && playerPosition.magnitude != 0)
+            if((Input.GetButtonDown("Dash") || Input.GetKeyDown(KeyCode.LeftShift)) && !dashCooldown && playerPosition.magnitude != 0 && !rootSnared)
             {
                 dashCooldown = true;
                 dashing = true;
@@ -83,13 +84,15 @@ public class PlayerMovement:MonoBehaviour
                 Invoke(nameof(DashLength), dashTime);
             }
 
-            if(!dashing) rgbd2D.velocity = playerPosition.normalized * movementSpeed;
+            if(!dashing && !rootSnared) rgbd2D.velocity = playerPosition.normalized * movementSpeed;
 
-            if(playerPosition.magnitude > 0)
+            if(playerPosition.magnitude > 0) 
             {
                 ChangeAnimationState("Walking");
-            } else if(playerPosition.magnitude == 0) {
+            } else if(playerPosition.magnitude == 0 && !rootSnared) {
                 ChangeAnimationState("Idle");
+            } else if(rootSnared) {
+                ChangeAnimationState("Snared");
             }
         }
 		if (bossCollide == true)
@@ -111,9 +114,11 @@ public class PlayerMovement:MonoBehaviour
             animator.Play(holdIdleState);
         } else if(newState == "Dash") {
             animator.Play(holdDashState);
+        } else if(newState == "Snared") {
+            //Snared Animation
         }
 
-        currentState = newState;
+        //currentState = newState;
     }
 
     void LookAtMouse(Vector2 mousePos)
@@ -177,6 +182,14 @@ public class PlayerMovement:MonoBehaviour
         {
             activateBossScript.bossAwake = true;
         }
+
+        if(collision.CompareTag("Snare"))
+        {
+            rootSnared = true;
+            rgbd2D.velocity = Vector3.zero;
+            BossHP healBoss = GameObject.FindObjectOfType(typeof(BossHP)) as BossHP;
+            healBoss.healing = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -184,6 +197,13 @@ public class PlayerMovement:MonoBehaviour
         if(collision.CompareTag("BossRoom"))
         {
             activateBossScript.bossAwake = false;
+        }
+
+        if(collision.CompareTag("Snare"))
+        {
+            rootSnared = false;
+            BossHP healBoss = GameObject.FindObjectOfType(typeof(BossHP)) as BossHP;
+            healBoss.healing = false;
         }
     }
 

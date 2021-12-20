@@ -7,7 +7,7 @@ public class InventorySystem:MonoBehaviour
 {
 	[SerializeField] GameObject bonFirePrefab, torchPrefab, treePrefab;
     [SerializeField] Text seedText, vineText, torchText;
-    bool seedBool, vineBool, torchBool, logBool;
+    public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
     public bool maxCapacity = false;
     int seedInt, vineInt, torchInt;
@@ -15,14 +15,12 @@ public class InventorySystem:MonoBehaviour
     GameObject holdResource;
 	Debugger debuggerScript;
 
-
     EarthMound earthMoundScript;
     Vine vineScript;
     Log logScript;
 
     void Start()
     {
-
         playerHpScript = GetComponent<PlayerHpSystem>();
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
     }

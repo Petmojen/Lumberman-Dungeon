@@ -30,7 +30,6 @@ public class PlayerAttack:MonoBehaviour
         {
 			Vector2 cAim = transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0);
             GetAngle(cAim, 0);
-
         } else if(Input.GetAxisRaw("Throw") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle) {
 			Vector2 cAim = transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0);
             GetAngle(cAim, 1);
@@ -73,7 +72,7 @@ public class PlayerAttack:MonoBehaviour
 
         axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
-        Invoke(nameof(EndMelee), 0.3f);
+        Invoke(nameof(EndMelee), 0.1f);
     }
 
     void EndMelee()

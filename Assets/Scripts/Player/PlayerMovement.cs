@@ -37,12 +37,12 @@ public class PlayerMovement:MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            LookAtMouse();
+            LookAtMouse(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
 
         if(Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
         {
-            Debug.Log("attack");
+			LookAtMouse(transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0));
         }
 
         if(axeAttack != Attack.Melee)
@@ -91,15 +91,14 @@ public class PlayerMovement:MonoBehaviour
             } else if(playerPosition.magnitude == 0) {
                 ChangeAnimationState("Idle");
             }
-
-            if (bossCollide == true)
-			{
-                rgbd2D.AddForce(-playerPosition.normalized * (dashSpeed * 4), ForceMode2D.Impulse);
-				rgbd2D.AddForce(Vector2.zero, ForceMode2D.Impulse);
-				dashCooldown = false;
-				dashing = false;
-			}
         }
+		if (bossCollide == true)
+		{
+			rgbd2D.AddForce(-playerPosition.normalized * (dashSpeed * 2), ForceMode2D.Impulse);
+			rgbd2D.AddForce(Vector2.zero, ForceMode2D.Impulse);
+			dashCooldown = false;
+			dashing = false;
+		}
     }
 
     void ChangeAnimationState(string newState)
@@ -117,12 +116,12 @@ public class PlayerMovement:MonoBehaviour
         currentState = newState;
     }
 
-    void LookAtMouse()
+    void LookAtMouse(Vector2 mousePos)
     {
         rgbd2D.velocity = Vector2.zero;
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         rgbd2D.AddForce(lookDirection.normalized * 6, ForceMode2D.Impulse);
+		Debug.Log(lookDirection.normalized * 6);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         if(angle < 45 && angle > -45)
@@ -171,7 +170,7 @@ public class PlayerMovement:MonoBehaviour
         if(collision.CompareTag("Boss") && !bossCollide)
         {
             bossCollide = true;
-            Invoke(nameof(PlayerBossCollisionCooldown), 0.1f);
+            Invoke(nameof(PlayerBossCollisionCooldown), 0.2f);
         }
 
         if(collision.CompareTag("BossRoom"))

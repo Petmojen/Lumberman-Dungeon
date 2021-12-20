@@ -13,12 +13,12 @@ public class MinionHpSystem : MonoBehaviour
         if (collision.CompareTag("Axe"))
         {
             minionHp--;
-            if(minionHp == 0) Destroy(gameObject);
+            if(minionHp <= 0) Destroy(gameObject);
         }
 		if (collision.CompareTag("Melee"))
         {
             minionHp = minionHp - 5;
-            if(minionHp == 0) Destroy(gameObject);
+            if(minionHp <= 0) Destroy(gameObject);
         }
     }
 }

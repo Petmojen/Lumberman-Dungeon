@@ -6,8 +6,7 @@ public class PlayerMovement:MonoBehaviour
 {
     BossAttackManager activateBossScript;
 
-    bool dashCooldown, dashing, bossCollide;
-    public bool rootSnared;
+    public bool dashCooldown, dashing, bossCollide, rootSnared;
 
 	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10;
     float movementSpeed = 7.5f, angle;
@@ -95,6 +94,7 @@ public class PlayerMovement:MonoBehaviour
                 ChangeAnimationState("Snared");
             }
         }
+
 		if (bossCollide == true)
 		{
 			rgbd2D.AddForce(-playerPosition.normalized * (dashSpeed * 2), ForceMode2D.Impulse);
@@ -126,7 +126,6 @@ public class PlayerMovement:MonoBehaviour
         rgbd2D.velocity = Vector2.zero;
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         rgbd2D.AddForce(lookDirection.normalized * 6, ForceMode2D.Impulse);
-		Debug.Log(lookDirection.normalized * 6);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         if(angle < 45 && angle > -45)

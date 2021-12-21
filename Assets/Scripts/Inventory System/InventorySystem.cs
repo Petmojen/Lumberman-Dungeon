@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-	[SerializeField] GameObject bonFirePrefab, torchPrefab, treePrefab;
+	[SerializeField] GameObject bonFirePrefab, treePrefab, holdingTorch;
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
@@ -43,7 +43,7 @@ public class InventorySystem:MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
-            PlaceTorch();
+            UseTorch();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -158,17 +158,21 @@ public class InventorySystem:MonoBehaviour
         CancelInvoke(nameof(DestroyBon));
     }
 
-	void PlaceTorch()
+	void UseTorch()
 	{
 		if (torchInt > 0)
 		{
 			torchInt--;
 			torchText.text = torchInt.ToString();
-			GameObject torchinstance = Instantiate(torchPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
-			Destroy(torchinstance, torchTimer);
+            holdingTorch.SetActive(true);
+            Invoke(nameof(TorchInactive), torchTimer);
 		}
 	}
 
+    void TorchInactive()
+    {
+        holdingTorch.SetActive(false);
+    }
 
     void PlaceTree()
 	{

@@ -27,11 +27,11 @@ public class Debugger : MonoBehaviour
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha7))
 		{
-			addInventoryVine = !addInventoryVine;
+			addInventorySeed = !addInventorySeed;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha8))
 		{
-			addInventorySeed = !addInventorySeed;
+			addInventoryVine = !addInventoryVine;
 		}
 	    if(Input.GetKeyDown(KeyCode.Alpha9))
 		{

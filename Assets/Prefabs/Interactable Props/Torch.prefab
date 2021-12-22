@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3931664727912528742}
   - component: {fileID: 2562185638904074726}
   - component: {fileID: 8015229255014497068}
+  - component: {fileID: 5432984489165559141}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Tourch
@@ -73,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -7450669156800766785, guid: e32cbfdc2d05f87499bb88414d9c20b4, type: 3}
+  m_Sprite: {fileID: -3184527907981433777, guid: ed58a98c579c75645858e0c25f2bb847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.15, y: 0.12}
+  m_Size: {x: 0.07, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,7 +103,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.07, y: 0.16}
-    newSize: {x: 0.15, y: 0.12}
+    newSize: {x: 0.07, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -110,6 +111,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18818569, y: 0.35903358}
   m_EdgeRadius: 0
+--- !u!95 &5432984489165559141
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517372162427779725}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 822b3ebbfca3d9947b14ed915831e10f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6559187260141673497
 GameObject:
   m_ObjectHideFlags: 0

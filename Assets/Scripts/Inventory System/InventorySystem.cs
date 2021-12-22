@@ -9,7 +9,7 @@ public class InventorySystem:MonoBehaviour
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
-    public bool maxCapacity = false;
+    public bool maxCapacity = false, torchUsing;
     int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
@@ -164,14 +164,15 @@ public class InventorySystem:MonoBehaviour
 		{
 			torchInt--;
 			torchText.text = torchInt.ToString();
-            holdingTorch.SetActive(true);
-            Invoke(nameof(TorchInactive), torchTimer);
+            torchUsing = true;
+            //Invoke(nameof(TorchInactive), torchTimer);
 		}
 	}
 
     void TorchInactive()
     {
-        holdingTorch.SetActive(false);
+        torchUsing = false;
+        CancelInvoke();
     }
 
     void PlaceTree()

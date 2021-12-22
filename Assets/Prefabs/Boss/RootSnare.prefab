@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5624707243605820688}
   - component: {fileID: 4116869213922210957}
-  - component: {fileID: 6048172882861390809}
   - component: {fileID: 8449845690447958950}
+  - component: {fileID: 8896275969527447509}
   m_Layer: 0
   m_Name: RootSnare
   m_TagString: Snare
@@ -84,14 +84,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6048172882861390809
+--- !u!114 &8449845690447958950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035318159359877082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb15b45f2baf314bafeda8ee85f39bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &8896275969527447509
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6035318159359877082}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -108,17 +120,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.15, y: 0.14}
   m_EdgeRadius: 0
---- !u!114 &8449845690447958950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6035318159359877082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb15b45f2baf314bafeda8ee85f39bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

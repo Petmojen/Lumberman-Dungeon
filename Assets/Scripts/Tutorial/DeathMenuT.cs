@@ -25,13 +25,13 @@ public class DeathMenuT : MonoBehaviour
         }
 		if (bossHealth.bossHp <= 0)
 		{
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene("Map");
 		}
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1f;
     }
     public void LoadMenu()

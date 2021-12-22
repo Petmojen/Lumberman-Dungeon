@@ -41,17 +41,17 @@ public class TutorialInventorySystem:MonoBehaviour
             }
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetButtonDown("UseTorch"))
+		if (Input.GetKeyDown(KeyCode.Alpha1))// || Input.GetButtonDown("UseTorch"))
 		{
             PlaceTorch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)|| Input.GetButtonDown("Placetree"))
+        if (Input.GetKeyDown(KeyCode.Alpha2))// || Input.GetButtonDown("Placetree"))
 		{
             PlaceTree();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("PlaceBonFire"))
+		if (Input.GetKeyDown(KeyCode.Alpha3))// || Input.GetButtonDown("PlaceBonFire"))
 		{
             PlaceBonfire();
 		}

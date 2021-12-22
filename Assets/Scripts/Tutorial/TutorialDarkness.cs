@@ -9,10 +9,10 @@ public class TutorialDarkness : MonoBehaviour
     [SerializeField] GameObject bossRoomLighting;
     [SerializeField] Timer timerScript;
 	TutorialTextScript tutorialTextScript;
-    public float radiusOfLight = 13.5f, testTY;
+    public float radiusOfLight = 13.5f;
     CircleCollider2D circleOfDeath;
     Light2D lightScript;
-    float speed = 4f;
+    float speed = 4f, darknessPosition = -111.5f;
 
 
     void Start()
@@ -30,8 +30,8 @@ public class TutorialDarkness : MonoBehaviour
             lightScript.pointLightOuterRadius -= Time.deltaTime * speed;
             circleOfDeath.radius = lightScript.pointLightOuterRadius;
         }
-
-		if (tutorialTextScript.tutorialStep == 1 && transform.position.y <= -111.5f)
+		
+		if (tutorialTextScript.tutorialStep == 1 && transform.position.y <= darknessPosition)
 		{
 			if (lightScript.pointLightOuterRadius < 21f)
 			{
@@ -43,7 +43,7 @@ public class TutorialDarkness : MonoBehaviour
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 3 && transform.position.y <= -90.5f)
+		if (tutorialTextScript.tutorialStep == 3 && transform.position.y <= darknessPosition +21f)
 		{
 			lightScript.pointLightOuterRadius = 21f;
 			circleOfDeath.radius = 21f;
@@ -51,19 +51,19 @@ public class TutorialDarkness : MonoBehaviour
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 5 && transform.position.y <= -69f)
+		if (tutorialTextScript.tutorialStep == 5 && transform.position.y <= darknessPosition +42f)
 		{
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 
-		if (tutorialTextScript.tutorialStep == 7 && transform.position.y <= -48f)
+		if (tutorialTextScript.tutorialStep == 7 && transform.position.y <= darknessPosition + 63f)
 		{
 			tutorialTextScript.roomFive = true;
 
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 9 && transform.position.y <= -17f)
+		if (tutorialTextScript.tutorialStep == 9 && transform.position.y <= darknessPosition + 84f)
 		{
 			tutorialTextScript.bossRoom = true;
 

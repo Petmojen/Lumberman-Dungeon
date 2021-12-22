@@ -148,7 +148,7 @@ public class TutorialTextScript : MonoBehaviour
 			
 			if (roomFive)
 			{
-				tutorialTextInput.text = "Please kill the monster in the next room.\n\nUse LMB/LB to Melee or RMB/RB to throw axe.\n\nAim with mouse or right analog stick.";
+				tutorialTextInput.text = "Please kill the monster in the next room.\n\nUse LMB/LT to Melee or RMB/RT to throw axe.\n\nAim with mouse or right analog stick.";
 				this.gameObject.GetComponent<Image>().enabled = true;
 				textActiveTimer = 10f;
 				roomFive = false;

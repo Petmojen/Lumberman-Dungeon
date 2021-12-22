@@ -165,7 +165,7 @@ public class InventorySystem:MonoBehaviour
 			torchInt--;
 			torchText.text = torchInt.ToString();
             torchUsing = true;
-            //Invoke(nameof(TorchInactive), torchTimer);
+            Invoke(nameof(TorchInactive), torchTimer);
 		}
 	}
 

@@ -21,7 +21,7 @@ public class PlayerHpSystem:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-	}
+    }
 
 	void Update()
 	{
@@ -39,7 +39,7 @@ public class PlayerHpSystem:MonoBehaviour
             timerScript.timeOut = false;
         }
 
-        if(lightCounter == 0 && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
+        if(lightCounter == 0 && !debuggerScript.immortal && !GetComponent<InventorySystem>().torchUsing) Invoke(nameof(Poison), 1f);
         if(healing) Invoke(nameof(Heal), 0.2f);
         if(lifeSteal) Invoke(nameof(LifeSteal), 1f);
     }
@@ -62,7 +62,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void Poison()
     {
-        health -= Random.Range(15, 20);
+        health -= Random.Range(2, 8);
         CancelInvoke(nameof(Poison));
     }
 

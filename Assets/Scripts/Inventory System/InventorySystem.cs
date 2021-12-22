@@ -46,12 +46,12 @@ public class InventorySystem:MonoBehaviour
             UseTorch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Placetree"))
+        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Debug Validate"))
 		{
             PlaceTree();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("PlaceBonFire"))
+		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("Debug Reset"))
 		{
             PlaceBonfire();
 		}
@@ -59,17 +59,20 @@ public class InventorySystem:MonoBehaviour
 		// Debug code
 		if (debuggerScript.addInventorySeed)
 		{
-			AddSeed();
+			seedInt++;
+			seedText.text = string.Format("{0:0}", seedInt);
 			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed;
 		}
 		if (debuggerScript.addInventoryVine)
 		{
-			AddVine();
+			vineInt++;
+			vineText.text = string.Format("{0:0}", vineInt);
 			debuggerScript.addInventoryVine = !debuggerScript.addInventoryVine;
 		}
 		if (debuggerScript.addInventoryTorch)
 		{
-			AddTorch();
+			torchInt++;
+			torchText.text = string.Format("{0:0}", torchInt);
 			debuggerScript.addInventoryTorch = !debuggerScript.addInventoryTorch;
 		}
     }

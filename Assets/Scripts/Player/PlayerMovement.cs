@@ -11,7 +11,7 @@ public class PlayerMovement:MonoBehaviour
 	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10, movementSpeed = 7.5f;
     public float angle;
     public Vector2 playerPosition;
-	public enum Attack {Idle, Throw, AxeReturning, Melee};
+	public enum Attack {Idle, Throw, AxeReturning, Melee, Dashing};
 	public Attack axeAttack;
     Rigidbody2D rgbd2D;
 	Timer timerScript;
@@ -46,6 +46,7 @@ public class PlayerMovement:MonoBehaviour
             {
                 dashCooldown = true;
                 dashing = true;
+				axeAttack = Attack.Dashing;
                 rgbd2D.AddForce(playerPosition.normalized * dashSpeed, ForceMode2D.Impulse);
                 Invoke(nameof(DashLength), dashTime);
             }
@@ -80,6 +81,7 @@ public class PlayerMovement:MonoBehaviour
     void DashCooldown()
     {
         dashCooldown = false;
+		axeAttack = Attack.Idle;
     }
 
 	 private void OnTriggerStay2D(Collider2D collision)

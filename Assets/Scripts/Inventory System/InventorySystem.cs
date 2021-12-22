@@ -41,17 +41,17 @@ public class InventorySystem:MonoBehaviour
             }
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha1))
+		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetButtonDown("UseTorch"))
 		{
             UseTorch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Placetree"))
 		{
             PlaceTree();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Alpha3))
+		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("PlaceBonFire"))
 		{
             PlaceBonfire();
 		}

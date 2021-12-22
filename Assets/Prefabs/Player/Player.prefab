@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: -477536822230207967}
   - component: {fileID: 964773179}
   - component: {fileID: 964773178}
+  - component: {fileID: 2468712789074781348}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -388,6 +389,7 @@ MonoBehaviour:
   sliderHealth: {fileID: 0}
   isDead: 0
   healing: 0
+  health: 0
   armorSprite:
   - {fileID: 0}
   - {fileID: 0}
@@ -514,7 +516,19 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: 89268
+  m_InstanceId: 443166
+--- !u!114 &2468712789074781348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528656597205333762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39cae60bbdcd09049bd5298cf11dffea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7598442832460730571
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1950007597948372766
 Transform:
   m_ObjectHideFlags: 0

@@ -8,8 +8,10 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
-  missingFiles: []
-  errors: []
+  missingFiles:
+  - Assets/SuperTiled2Unity/Import/tutorial_map/atlas_map_ld.tsx
+  errors:
+  - 'Missing tileset asset: atlas_map_ld.tsx'
   warnings: []
   missingSortingLayers: []
   missingLayers: []

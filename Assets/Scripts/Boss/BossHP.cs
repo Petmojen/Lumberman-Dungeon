@@ -1,23 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHP : MonoBehaviour
 {
     [SerializeField] MinionSpawning minionInvincibleScript;
+    ForceToBossDarkness darknessScript;
+    [SerializeField] Slider healthBar;
     public bool bossDead, healing;
+    public float bossHp = 100;
 	bool hitCooldown = false;
-    public int bossHp = 40;
 	Timer timerScript;
 	
     void Start()
     {
+        darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
     void Update()
     {
         if(healing) HealBoss();
+        healthBar.value = bossHp / 100;
     }
 
     public void HealBoss()
@@ -28,7 +33,7 @@ public class BossHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (timerScript.timeOut)
+		if (timerScript.timeOut && darknessScript.radiusOfLight < 13.51f)
 		{
 			if (collision.CompareTag("Axe") && !hitCooldown && !minionInvincibleScript.bossInvicible)
 			{
@@ -39,13 +44,11 @@ public class BossHP : MonoBehaviour
                     bossDead = true;
 				}
 			}
+
 			if (collision.CompareTag("Melee"))
 			{
 				bossHp = bossHp - 5;
-				if(bossHp == 0)
-				{
-					Destroy(gameObject);
-				}
+				if(bossHp == 0) Destroy(gameObject);
 			}
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-	[SerializeField] GameObject bonFirePrefab, torchPrefab, treePrefab;
+	[SerializeField] GameObject bonFirePrefab, treePrefab, holdingTorch;
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
-    public bool maxCapacity = false;
+    public bool maxCapacity = false, torchUsing;
     int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
     GameObject holdResource;
@@ -27,7 +27,7 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Pickup"))
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Pickup"))
         {
             if(seedBool && !earthMoundScript.taken)
             {
@@ -41,17 +41,17 @@ public class InventorySystem:MonoBehaviour
             }
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha1)|| Input.GetButtonDown("UseTorch"))
+		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
-            PlaceTorch();
+            UseTorch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)|| Input.GetButtonDown("Placetree"))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
             PlaceTree();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("PlaceBonFire"))
+		if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
             PlaceBonfire();
 		}
@@ -158,17 +158,22 @@ public class InventorySystem:MonoBehaviour
         CancelInvoke(nameof(DestroyBon));
     }
 
-	void PlaceTorch()
+	void UseTorch()
 	{
 		if (torchInt > 0)
 		{
 			torchInt--;
 			torchText.text = torchInt.ToString();
-			GameObject torchinstance = Instantiate(torchPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
-			Destroy(torchinstance, torchTimer);
+            torchUsing = true;
+            Invoke(nameof(TorchInactive), torchTimer);
 		}
 	}
 
+    void TorchInactive()
+    {
+        torchUsing = false;
+        CancelInvoke();
+    }
 
     void PlaceTree()
 	{

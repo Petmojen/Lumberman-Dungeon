@@ -67,15 +67,11 @@ public class PlayerAttack:MonoBehaviour
 	void MeeleAxe(float angle)
 	{
 		playerMovementScript.axeAttack = PlayerMovement.Attack.Melee;
-
-
-
         axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
-        Invoke(nameof(EndMelee), 0.1f);
     }
 
-    void EndMelee()
+    public void EndMelee()
     {
         Destroy(axeAttack);
         playerMovementScript.axeAttack = PlayerMovement.Attack.Idle;

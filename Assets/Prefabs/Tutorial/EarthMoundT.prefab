@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5931798029746650574}
   - component: {fileID: 1435868990985611677}
   - component: {fileID: 5358783002478645698}
-  - component: {fileID: 7064938300727812972}
+  - component: {fileID: 7012352767550701183}
   m_Layer: 0
   m_Name: EarthMoundT
   m_TagString: Seed
@@ -164,7 +164,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7064938300727812972
+--- !u!114 &7012352767550701183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1494264819182344085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9798748bab875d0459134a72310ba63f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f6e514906e6a4f438cca2641a1a031e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   taken: 0

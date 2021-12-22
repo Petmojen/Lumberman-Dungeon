@@ -11,7 +11,7 @@ public class TutorialInventorySystem:MonoBehaviour
 	float bonFireTimer = 10, torchTimer = 5;
     public bool maxCapacity = false;
     public int seedInt, vineInt, torchInt;
-    PlayerHpSystem playerHpScript;
+    PlayerHpSystemT playerHpScript;
     GameObject holdResource;
 	Debugger debuggerScript;
 
@@ -21,7 +21,7 @@ public class TutorialInventorySystem:MonoBehaviour
 
     void Start()
     {
-        playerHpScript = GetComponent<PlayerHpSystem>();
+        playerHpScript = GetComponent<PlayerHpSystemT>();
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
     }
 

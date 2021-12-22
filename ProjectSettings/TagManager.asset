@@ -25,6 +25,7 @@ TagManager:
   - BossRoom
   - Branch
   - Snare
+  - Melee
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Map
   - 
   - 
   - 

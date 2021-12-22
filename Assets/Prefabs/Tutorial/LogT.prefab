@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35377c8ca2777449b259bf6c32fb702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takenLog: {fileID: 0}
+  takenLog: {fileID: 21300000, guid: 708db18405288334eaf1153f1e5f21ec, type: 3}
   taken: 0
 --- !u!1 &5644689209583993536
 GameObject:

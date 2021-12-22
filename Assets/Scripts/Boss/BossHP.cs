@@ -42,7 +42,10 @@ public class BossHP : MonoBehaviour
 			if (collision.CompareTag("Melee"))
 			{
 				bossHp = bossHp - 5;
-				if(bossHp == 0) Destroy(gameObject);
+				if(bossHp == 0)
+				{
+					Destroy(gameObject);
+				}
 			}
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}

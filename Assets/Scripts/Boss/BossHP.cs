@@ -18,7 +18,6 @@ public class BossHP : MonoBehaviour
     void Update()
     {
         if(healing) HealBoss();
-        Debug.Log(bossHp);
     }
 
     public void HealBoss()

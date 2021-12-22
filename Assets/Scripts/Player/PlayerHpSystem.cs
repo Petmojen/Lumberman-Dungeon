@@ -10,7 +10,7 @@ public class PlayerHpSystem:MonoBehaviour
     public bool isDead = false, healing;
     bool invincible = false, noPoison, lifeSteal;
     int lightCounter = 0;
-    float health = 100;
+    public float health;
 
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;

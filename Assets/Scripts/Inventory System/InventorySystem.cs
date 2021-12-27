@@ -157,7 +157,7 @@ public class InventorySystem:MonoBehaviour
 	
     void DestroyBon()
     {
-        playerHpScript.healing = false;
+        playerHpScript.bonfire = false;
         CancelInvoke(nameof(DestroyBon));
     }
 

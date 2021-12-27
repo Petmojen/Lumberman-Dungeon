@@ -7,7 +7,7 @@ public class EarthMound:MonoBehaviour
 	InventorySystem inventorySystemScript;
 	SpriteRenderer earthMoundRenderer;
     Animator animator;
-    public bool taken;
+    public bool taken, seedFull;
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class EarthMound:MonoBehaviour
 		earthMoundRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
+
 	void Update()
 	{
 		if (inventorySystemScript.seedBool)
@@ -25,8 +26,8 @@ public class EarthMound:MonoBehaviour
 		}
 	}
 
-    public void ChangeSprite()
+    public void ChangeSprite(string animationName)
     {
-        animator.Play("taken");
+        animator.Play(animationName);
     }
 }

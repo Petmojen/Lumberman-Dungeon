@@ -7,6 +7,12 @@ public class MinionHpSystem : MonoBehaviour
 {
     //3hp = 2 hp because it enters and reenters before coming back to the player.
     int minionHp = 3;
+	//TutorialTextScript tutorialTextScript;
+
+	//void Start()
+	//{
+	//	tutorialTextScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
+	//}
 	
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +22,7 @@ public class MinionHpSystem : MonoBehaviour
             if(minionHp <= 0)
 			{	
 				Destroy(gameObject);
+				//tutorialTextScript.tutorialStep++;
 			}
         }
 		if (collision.CompareTag("Melee"))
@@ -24,6 +31,7 @@ public class MinionHpSystem : MonoBehaviour
             if(minionHp <= 0) 
 			{	
 				Destroy(gameObject);
+				//tutorialTextScript.tutorialStep++;
 			}
         }
     }

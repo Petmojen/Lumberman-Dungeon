@@ -37,7 +37,7 @@ public class PlayerMovement:MonoBehaviour
 			LookAtMouse(transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0));
         }
 
-        if(axeAttack != Attack.Melee)
+        if(axeAttack != Attack.Melee && axeAttack != Attack.Throw && axeAttack != Attack.AxeReturning)
         {
             playerPosition.x = Input.GetAxisRaw("Horizontal");
             playerPosition.y = Input.GetAxisRaw("Vertical");
@@ -56,8 +56,8 @@ public class PlayerMovement:MonoBehaviour
 		if (bossCollide == true)
 		{
 			rgbd2D.velocity = Vector2.zero;
-			rgbd2D.AddForce(-playerPosition.normalized * dashSpeed * 2, ForceMode2D.Impulse);
-			Vector2 test2 = -playerPosition.normalized * dashSpeed * 2;
+            rgbd2D.AddForce(-playerPosition.normalized * dashSpeed * 2, ForceMode2D.Impulse);
+            Vector2 test2 = -playerPosition.normalized * dashSpeed * 2;
 			dashCooldown = false;
 			dashing = false;
 		}
@@ -67,7 +67,7 @@ public class PlayerMovement:MonoBehaviour
     {
         rgbd2D.velocity = Vector2.zero;
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
-        rgbd2D.AddForce(lookDirection.normalized * 3, ForceMode2D.Impulse);
+        rgbd2D.AddForce(lookDirection.normalized * 2, ForceMode2D.Impulse);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
     }
 

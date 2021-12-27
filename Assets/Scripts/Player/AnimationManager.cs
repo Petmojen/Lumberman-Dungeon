@@ -82,14 +82,14 @@ public class AnimationManager:MonoBehaviour
             }
 
 
-            if(movementScript.playerPosition.magnitude > 0 && !movementScript.rootSnared)
+            if(movementScript.playerPosition.magnitude > 0 && !movementScript.rootSnared && !movementScript.dashing)
             {
                 ChangeAnimationState("Walking");
-            } else if(movementScript.playerPosition.magnitude == 0 && !movementScript.rootSnared && !melee)
-            {
+            } else if(movementScript.playerPosition.magnitude == 0 && !movementScript.rootSnared && !melee) {
                 ChangeAnimationState("Idle");
-            } else if(movementScript.rootSnared)
-            {
+            } else if(movementScript.dashing && !movementScript.rootSnared && !melee) {
+                ChangeAnimationState("Dash");
+            } else if(movementScript.rootSnared) {
                 ChangeAnimationState("Snared");
             }
         }

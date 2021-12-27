@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2666286955272348344}
   - component: {fileID: 7617252811525130354}
   - component: {fileID: 9033157584771151060}
+  - component: {fileID: 4777216718861534860}
   m_Layer: 0
   m_Name: TorchT
   m_TagString: Tourch
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -7450669156800766785, guid: e32cbfdc2d05f87499bb88414d9c20b4, type: 3}
+  m_Sprite: {fileID: -3184527907981433777, guid: ed58a98c579c75645858e0c25f2bb847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 0.07, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7617252811525130354
@@ -124,6 +125,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f162e7af9f493a48b2a7b8483bb4d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4777216718861534860
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052911549307079123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 822b3ebbfca3d9947b14ed915831e10f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6739867289387740999
 GameObject:
   m_ObjectHideFlags: 0

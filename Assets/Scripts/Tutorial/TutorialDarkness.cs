@@ -31,7 +31,7 @@ public class TutorialDarkness : MonoBehaviour
             circleOfDeath.radius = lightScript.pointLightOuterRadius;
         }
 		
-		if (tutorialTextScript.tutorialStep == 1 && transform.position.y <= darknessPosition)
+		if (tutorialTextScript.tutorialStep >= 1 && transform.position.y <= darknessPosition)
 		{
 			if (lightScript.pointLightOuterRadius < 21f)
 			{
@@ -43,7 +43,7 @@ public class TutorialDarkness : MonoBehaviour
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 3 && transform.position.y <= darknessPosition +21f)
+		if (tutorialTextScript.tutorialStep >= 3 && transform.position.y <= darknessPosition +21f)
 		{
 			lightScript.pointLightOuterRadius = 21f;
 			circleOfDeath.radius = 21f;
@@ -51,19 +51,19 @@ public class TutorialDarkness : MonoBehaviour
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 5 && transform.position.y <= darknessPosition +42f)
+		if (tutorialTextScript.tutorialStep >= 5 && transform.position.y <= darknessPosition +42f)
 		{
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 
-		if (tutorialTextScript.tutorialStep == 7 && transform.position.y <= darknessPosition + 63f)
+		if (tutorialTextScript.tutorialStep >= 7 && transform.position.y <= darknessPosition + 63f)
 		{
 			tutorialTextScript.roomFive = true;
 
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 9 && transform.position.y <= darknessPosition + 84f)
+		if (tutorialTextScript.tutorialStep >= 9 && transform.position.y <= darknessPosition + 84f)
 		{
 			tutorialTextScript.bossRoom = true;
 

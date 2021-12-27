@@ -7,13 +7,13 @@ public class DeathMenuT : MonoBehaviour
     GameObject player;
     public GameObject deathMenuUI;
     PlayerHpSystemT getHealth;
-	BossHP bossHealth;
+	BossHPT bossHealth;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         getHealth = player.GetComponent<PlayerHpSystemT>();
-		bossHealth = GameObject.FindObjectOfType(typeof(BossHP)) as BossHP;
+		bossHealth = GameObject.FindObjectOfType(typeof(BossHPT)) as BossHPT;
     }
     // Update is called once per frame
     void Update()

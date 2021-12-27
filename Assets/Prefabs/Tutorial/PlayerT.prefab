@@ -19,8 +19,8 @@ GameObject:
   - component: {fileID: 6606237109652783252}
   - component: {fileID: 6606237109652783253}
   - component: {fileID: 1090756164327585185}
-  - component: {fileID: 622922686633631227}
   - component: {fileID: 6608636535083123849}
+  - component: {fileID: 6246108097575001659}
   m_Layer: 0
   m_Name: PlayerT
   m_TagString: Player
@@ -271,8 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonFirePrefab: {fileID: 752441669965792434, guid: 2722b4108ca7f1a48b0c8ba56475ad0c, type: 3}
-  torchPrefab: {fileID: 4517372162427779725, guid: fa919a169f4f3c540978e3174f3c6a5c, type: 3}
   treePrefab: {fileID: 6580774895706669026, guid: 2384ef7f2b1e2b74fb81b6e8c14d5f72, type: 3}
+  holdingTorch: {fileID: 0}
   seedText: {fileID: 0}
   vineText: {fileID: 0}
   torchText: {fileID: 0}
@@ -281,6 +281,7 @@ MonoBehaviour:
   torchBool: 0
   logBool: 0
   maxCapacity: 0
+  torchUsing: 0
 --- !u!114 &2517902982865385358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +347,7 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2530
+  m_InstanceId: 102868
 --- !u!114 &1090756164327585185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,21 +363,6 @@ MonoBehaviour:
   rootSnared: 0
   playerPosition: {x: 0, y: 0}
   axeAttack: 0
---- !u!114 &622922686633631227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5663541191944303277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 721fa084591bbd641b5ecf991540e11a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axePrefab: {fileID: 8587911366970735423, guid: 24e2f04f563932d43ab8be712459bdee, type: 3}
-  axeOffset: {fileID: 1528656595461053803, guid: 8c0abddd0c4b0f84e920dc0bf52751de, type: 3}
-  axeAttackPrefab: {fileID: 4033656446156202671, guid: 61456c609fcd6944d836d38213921498, type: 3}
 --- !u!114 &6608636535083123849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +381,21 @@ MonoBehaviour:
   health: 0
   armorSprite: []
   armor: 0
+--- !u!114 &6246108097575001659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663541191944303277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12322408630706d4b886b91bc513522b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axePrefab: {fileID: 7436240153361574615, guid: e28a82379307d854fb7e5c66592394d9, type: 3}
+  axeOffset: {fileID: 5663541193399163076}
+  axeAttackPrefab: {fileID: 6297499269579357233, guid: eb2b6b2c1088b594598b3f68930ffa48, type: 3}
 --- !u!1 &5663541193399163076
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +505,6 @@ SpriteRenderer:
   m_Size: {x: 0.25, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

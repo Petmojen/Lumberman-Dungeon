@@ -109,7 +109,7 @@ SpriteRenderer:
   m_Size: {x: 0.25, y: 0.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7582619689839983556
@@ -123,9 +123,9 @@ GameObject:
   - component: {fileID: 551332637057574024}
   - component: {fileID: 1022500920835796499}
   - component: {fileID: 831687902463933872}
-  - component: {fileID: 4629580186389403614}
   - component: {fileID: 340313460469800596}
   - component: {fileID: 225929173697921301}
+  - component: {fileID: -4478193234286104506}
   m_Layer: 0
   m_Name: BossT
   m_TagString: Boss
@@ -226,22 +226,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5202874, y: 0.7829413}
   m_EdgeRadius: 0
---- !u!114 &4629580186389403614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7582619689839983556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50746470602d31a4c99da07a64ebd323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minionInvincibleScript: {fileID: 0}
-  bossDead: 0
-  healing: 0
-  bossHp: 50
 --- !u!50 &340313460469800596
 Rigidbody2D:
   serializedVersion: 4
@@ -280,3 +264,20 @@ MonoBehaviour:
   activateMinionSpawning: {fileID: 0}
   bossAwake: 0
   attackType: 
+--- !u!114 &-4478193234286104506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7582619689839983556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c848716890e1243a2c6014bd33273a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionInvincibleScript: {fileID: 0}
+  healthBar: {fileID: 1584350445, guid: 5561c94e2775f7b4e865d1e657a91f3a, type: 3}
+  bossDead: 0
+  healing: 0
+  bossHp: 100

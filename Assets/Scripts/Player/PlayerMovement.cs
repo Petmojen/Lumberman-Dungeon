@@ -69,6 +69,7 @@ public class PlayerMovement:MonoBehaviour
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
         rgbd2D.AddForce(lookDirection.normalized * 2, ForceMode2D.Impulse);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        
     }
 
 	void DashLength()

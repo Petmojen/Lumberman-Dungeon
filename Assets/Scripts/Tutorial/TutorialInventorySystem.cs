@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TutorialInventorySystem:MonoBehaviour
 {
-	[SerializeField] GameObject bonFirePrefab, torchPrefab, treePrefab;
+	[SerializeField] GameObject bonFirePrefab, treePrefab, holdingTorch;
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
-    public bool maxCapacity = false;
+    public bool maxCapacity = false, torchUsing;
     public int seedInt, vineInt, torchInt;
     PlayerHpSystemT playerHpScript;
     GameObject holdResource;
@@ -27,7 +27,7 @@ public class TutorialInventorySystem:MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Pickup"))
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Pickup"))
         {
             if(seedBool && !earthMoundScript.taken)
             {
@@ -41,17 +41,17 @@ public class TutorialInventorySystem:MonoBehaviour
             }
         }
 		
-		if (Input.GetKeyDown(KeyCode.Alpha1))// || Input.GetButtonDown("UseTorch"))
+		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetButtonDown("UseTorch"))
 		{
-            PlaceTorch();
+            UseTorch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))// || Input.GetButtonDown("Placetree"))
+        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Debug Validate"))
 		{
             PlaceTree();
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Alpha3))// || Input.GetButtonDown("PlaceBonFire"))
+		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("Debug Reset"))
 		{
             PlaceBonfire();
 		}
@@ -59,17 +59,20 @@ public class TutorialInventorySystem:MonoBehaviour
 		// Debug code
 		if (debuggerScript.addInventorySeed)
 		{
-			AddSeed();
+			seedInt++;
+			seedText.text = string.Format("{0:0}", seedInt);
 			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed;
 		}
 		if (debuggerScript.addInventoryVine)
 		{
-			AddVine();
+			vineInt++;
+			vineText.text = string.Format("{0:0}", vineInt);
 			debuggerScript.addInventoryVine = !debuggerScript.addInventoryVine;
 		}
 		if (debuggerScript.addInventoryTorch)
 		{
-			AddTorch();
+			torchInt++;
+			torchText.text = string.Format("{0:0}", torchInt);
 			debuggerScript.addInventoryTorch = !debuggerScript.addInventoryTorch;
 		}
     }
@@ -154,21 +157,26 @@ public class TutorialInventorySystem:MonoBehaviour
 	
     void DestroyBon()
     {
-        playerHpScript.healing = false;
+        playerHpScript.bonfire = false;
         CancelInvoke(nameof(DestroyBon));
     }
 
-	void PlaceTorch()
+	void UseTorch()
 	{
 		if (torchInt > 0)
 		{
 			torchInt--;
 			torchText.text = torchInt.ToString();
-			GameObject torchinstance = Instantiate(torchPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
-			Destroy(torchinstance, torchTimer);
+            torchUsing = true;
+            Invoke(nameof(TorchInactive), torchTimer);
 		}
 	}
 
+    void TorchInactive()
+    {
+        torchUsing = false;
+        CancelInvoke();
+    }
 
     void PlaceTree()
 	{

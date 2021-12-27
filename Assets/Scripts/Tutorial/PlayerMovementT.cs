@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerMovementT:MonoBehaviour
 {
     BossAttackManagerT activateBossScript;
-
-    bool dashCooldown, dashing, bossCollide;
+    public bool dashCooldown, dashing, bossCollide;
     public bool rootSnared;
 
 	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10;
-    float movementSpeed = 7.5f, angle;
+    public float movementSpeed = 7.5f, angle;
     public Vector2 playerPosition;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
 	public Attack axeAttack;

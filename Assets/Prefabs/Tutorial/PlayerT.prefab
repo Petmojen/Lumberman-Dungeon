@@ -14,13 +14,13 @@ GameObject:
   - component: {fileID: 5663541191944303254}
   - component: {fileID: 5663541191944303255}
   - component: {fileID: 5663541191944303252}
-  - component: {fileID: 7032958923566390017}
   - component: {fileID: 2517902982865385358}
   - component: {fileID: 6606237109652783252}
   - component: {fileID: 6606237109652783253}
   - component: {fileID: 1090756164327585185}
-  - component: {fileID: 6608636535083123849}
   - component: {fileID: 6246108097575001659}
+  - component: {fileID: 4519853727404514567}
+  - component: {fileID: 6186047604685482075}
   m_Layer: 0
   m_Name: PlayerT
   m_TagString: Player
@@ -258,30 +258,6 @@ PolygonCollider2D:
       - {x: 0.02708975, y: -0.009781741}
       - {x: 0.024459198, y: 0.07628245}
       - {x: -0.013026103, y: 0.12624896}
---- !u!114 &7032958923566390017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5663541191944303277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b484daabdccfa429b3448b10c63055, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bonFirePrefab: {fileID: 752441669965792434, guid: 2722b4108ca7f1a48b0c8ba56475ad0c, type: 3}
-  treePrefab: {fileID: 6580774895706669026, guid: 2384ef7f2b1e2b74fb81b6e8c14d5f72, type: 3}
-  holdingTorch: {fileID: 0}
-  seedText: {fileID: 0}
-  vineText: {fileID: 0}
-  torchText: {fileID: 0}
-  seedBool: 0
-  vineBool: 0
-  torchBool: 0
-  logBool: 0
-  maxCapacity: 0
-  torchUsing: 0
 --- !u!114 &2517902982865385358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +323,7 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: 102868
+  m_InstanceId: 407802
 --- !u!114 &1090756164327585185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,27 +336,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6a68e77e4b2d04683ac70c2e17add0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashCooldown: 0
+  dashing: 0
+  bossCollide: 0
   rootSnared: 0
+  movementSpeed: 7.5
+  angle: 0
   playerPosition: {x: 0, y: 0}
   axeAttack: 0
---- !u!114 &6608636535083123849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5663541191944303277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b9e34d0072d334b920822c35f736ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sliderHealth: {fileID: 0}
-  isDead: 0
-  healing: 0
-  health: 0
-  armorSprite: []
-  armor: 0
 --- !u!114 &6246108097575001659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +359,51 @@ MonoBehaviour:
   axePrefab: {fileID: 7436240153361574615, guid: e28a82379307d854fb7e5c66592394d9, type: 3}
   axeOffset: {fileID: 5663541193399163076}
   axeAttackPrefab: {fileID: 6297499269579357233, guid: eb2b6b2c1088b594598b3f68930ffa48, type: 3}
+--- !u!114 &4519853727404514567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663541191944303277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31925b1f7abb4f1428071caff98ec932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonFirePrefab: {fileID: 752441669965792434, guid: 2722b4108ca7f1a48b0c8ba56475ad0c, type: 3}
+  treePrefab: {fileID: 6580774895706669026, guid: 2384ef7f2b1e2b74fb81b6e8c14d5f72, type: 3}
+  holdingTorch: {fileID: 0}
+  seedText: {fileID: 0}
+  vineText: {fileID: 0}
+  torchText: {fileID: 0}
+  seedBool: 0
+  vineBool: 0
+  torchBool: 0
+  logBool: 0
+  maxCapacity: 0
+  torchUsing: 0
+  seedInt: 0
+  vineInt: 0
+  torchInt: 0
+--- !u!114 &6186047604685482075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663541191944303277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d184349ba3e1344d86ea174194b9ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderHealth: {fileID: 0}
+  isDead: 0
+  bonfire: 0
+  health: 0
+  armorSprite: []
+  armor: 0
 --- !u!1 &5663541193399163076
 GameObject:
   m_ObjectHideFlags: 0

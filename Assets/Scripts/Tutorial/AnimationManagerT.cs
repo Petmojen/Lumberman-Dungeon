@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AnimationManagerT:MonoBehaviour
 {
-    InventorySystem inventoryScript;
-    PlayerMovement movementScript;
-    PlayerHpSystem healthScript;
-    PlayerAttack attackScript;
+    TutorialInventorySystem inventoryScriptT;
+    PlayerMovementT movementScriptT;
+    PlayerHpSystemT healthScriptT;
+    PlayerAttackT attackScriptT;
 
     string currentState, holdIdleState = "idle_Side", holdDashState = "dash_Side", walkingState = "walking_Side", meleeHoldState = "melee_Side", holdDeathState = "death";
     SpriteRenderer flipSprite;
@@ -20,22 +20,22 @@ public class AnimationManagerT:MonoBehaviour
         flipSprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
-        inventoryScript = GetComponent<InventorySystem>();
-        movementScript = GetComponent<PlayerMovement>();
-        healthScript = GetComponent<PlayerHpSystem>();
-        attackScript = GetComponent<PlayerAttack>();
+        inventoryScriptT = GetComponent<TutorialInventorySystem>();
+        movementScriptT = GetComponent<PlayerMovementT>();
+        healthScriptT = GetComponent<PlayerHpSystemT>();
+        attackScriptT = GetComponent<PlayerAttackT>();
     }
 
     void Update()
     {
 
-        if(healthScript.isDead)
+        if(healthScriptT.isDead)
         {
             ChangeAnimationState("Death");
         } else
         {
 
-            if(movementScript.axeAttack == PlayerMovement.Attack.Throw || movementScript.axeAttack == PlayerMovement.Attack.AxeReturning)
+            if(movementScriptT.axeAttack == PlayerMovementT.Attack.Throw || movementScriptT.axeAttack == PlayerMovementT.Attack.AxeReturning)
             {
                 noAxe = true;
             } else
@@ -43,7 +43,7 @@ public class AnimationManagerT:MonoBehaviour
                 noAxe = false;
             }
 
-            if(movementScript.axeAttack == PlayerMovement.Attack.Melee)
+            if(movementScriptT.axeAttack == PlayerMovementT.Attack.Melee)
             {
                 melee = true;
                 MeleeAngle();
@@ -51,29 +51,29 @@ public class AnimationManagerT:MonoBehaviour
 
             if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && melee)
             {
-                attackScript.EndMelee();
+                attackScriptT.EndMelee();
                 melee = false;
             }
 
-            if(movementScript.playerPosition.x > 0 && !melee)
+            if(movementScriptT.playerPosition.x > 0 && !melee)
             {
                 walkingState = "walking_Side";
                 holdIdleState = "idle_Side";
                 holdDashState = "dash_Side";
                 flipSprite.flipX = false;
-            } else if(movementScript.playerPosition.x < 0 && !movementScript.rootSnared && !melee)
+            } else if(movementScriptT.playerPosition.x < 0 && !movementScriptT.rootSnared && !melee)
             {
                 walkingState = "walking_Side";
                 holdIdleState = "idle_Side";
                 holdDashState = "dash_Side";
                 flipSprite.flipX = true;
-            } else if(movementScript.playerPosition.y > 0 && movementScript.playerPosition.x == 0 && !melee)
+            } else if(movementScriptT.playerPosition.y > 0 && movementScriptT.playerPosition.x == 0 && !melee)
             {
                 walkingState = "walking_Up";
                 holdIdleState = "idle_Up";
                 holdDashState = "dash_Up";
                 flipSprite.flipX = false;
-            } else if(movementScript.playerPosition.y < 0 && movementScript.playerPosition.x == 0 && !melee)
+            } else if(movementScriptT.playerPosition.y < 0 && movementScriptT.playerPosition.x == 0 && !melee)
             {
                 walkingState = "walking_Down";
                 holdIdleState = "idle_Down";
@@ -82,13 +82,13 @@ public class AnimationManagerT:MonoBehaviour
             }
 
 
-            if(movementScript.playerPosition.magnitude > 0 && !movementScript.rootSnared)
+            if(movementScriptT.playerPosition.magnitude > 0 && !movementScriptT.rootSnared)
             {
                 ChangeAnimationState("Walking");
-            } else if(movementScript.playerPosition.magnitude == 0 && !movementScript.rootSnared && !melee)
+            } else if(movementScriptT.playerPosition.magnitude == 0 && !movementScriptT.rootSnared && !melee)
             {
                 ChangeAnimationState("Idle");
-            } else if(movementScript.rootSnared)
+            } else if(movementScriptT.rootSnared)
             {
                 ChangeAnimationState("Snared");
             }
@@ -99,13 +99,13 @@ public class AnimationManagerT:MonoBehaviour
     {
         string undoWalkState = walkingState, undoIdleState = holdIdleState, undoDashState = holdDashState;
 
-        if(currentState == newState && movementScript.rootSnared)
+        if(currentState == newState && movementScriptT.rootSnared)
             return;
 
         //Check two factor authentication for valid animation
-        //Debug.Log(noAxe + " | " + inventoryScript.torchUsing);
+        //Debug.Log(noAxe + " | " + inventoryScriptT.torchUsing);
 
-        if(!noAxe && inventoryScript.torchUsing)
+        if(!noAxe && inventoryScriptT.torchUsing)
         {
             //Axe & Torch
             string addToState = "_Torch";
@@ -113,14 +113,14 @@ public class AnimationManagerT:MonoBehaviour
             holdIdleState += addToState;
             holdDashState += addToState;
             holdDeathState += addToState;
-        } else if(noAxe && inventoryScript.torchUsing)
+        } else if(noAxe && inventoryScriptT.torchUsing)
         {
             //No axe & Torch
             string addToState = "_Torch_Noaxe";
             walkingState += addToState;
             holdIdleState += addToState;
             holdDashState += addToState;
-        } else if(noAxe && !inventoryScript.torchUsing)
+        } else if(noAxe && !inventoryScriptT.torchUsing)
         {
             //No axe & no Torch
             string addToState = "_Noaxe_Notorch";
@@ -130,10 +130,10 @@ public class AnimationManagerT:MonoBehaviour
         }
 
 
-        if(newState == "Walking" && !movementScript.dashing && !melee)
+        if(newState == "Walking" && !movementScriptT.dashing && !melee)
         {
             animator.Play(walkingState);
-        } else if(newState == "Idle" && !movementScript.dashing && !melee)
+        } else if(newState == "Idle" && !movementScriptT.dashing && !melee)
         {
             animator.Play(holdIdleState);
         } else if(newState == "Dash" && !melee)
@@ -160,44 +160,44 @@ public class AnimationManagerT:MonoBehaviour
 
     public void MeleeAngle()
     {
-        if(movementScript.angle < 45 && movementScript.angle > -45)
+        if(movementScriptT.angle < 45 && movementScriptT.angle > -45)
         {
             //Right
             flipSprite.flipX = false;
-            if(inventoryScript.torchUsing)
+            if(inventoryScriptT.torchUsing)
             {
                 meleeHoldState = "melee_Side_Torch";
             } else
             {
                 meleeHoldState = "melee_Side";
             }
-        } else if(movementScript.angle > 45 && movementScript.angle < 135)
+        } else if(movementScriptT.angle > 45 && movementScriptT.angle < 135)
         {
             //Up
             flipSprite.flipX = false;
-            if(inventoryScript.torchUsing)
+            if(inventoryScriptT.torchUsing)
             {
                 meleeHoldState = "melee_Up_Torch";
             } else
             {
                 meleeHoldState = "melee_Up";
             }
-        } else if(movementScript.angle < -45 && movementScript.angle > -135)
+        } else if(movementScriptT.angle < -45 && movementScriptT.angle > -135)
         {
             //Down
             flipSprite.flipX = false;
-            if(inventoryScript.torchUsing)
+            if(inventoryScriptT.torchUsing)
             {
                 meleeHoldState = "melee_Down_Torch";
             } else
             {
                 meleeHoldState = "melee_Down";
             }
-        } else if(movementScript.angle > 135 || movementScript.angle < -135)
+        } else if(movementScriptT.angle > 135 || movementScriptT.angle < -135)
         {
             //Left
             flipSprite.flipX = true;
-            if(inventoryScript.torchUsing)
+            if(inventoryScriptT.torchUsing)
             {
                 meleeHoldState = "melee_Side_Torch";
             } else

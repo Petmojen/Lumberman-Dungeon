@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 3544641069423485056}
   - component: {fileID: 6841381310571013607}
   - component: {fileID: 3627682143498694405}
-  - component: {fileID: 3627682143498694404}
   - component: {fileID: 4186797075493018897}
   - component: {fileID: 8077098652621510898}
   - component: {fileID: 4267669482650638238}
+  - component: {fileID: 8204522061531228611}
   m_Layer: 0
   m_Name: MinionT
   m_TagString: Minion
@@ -162,18 +162,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24769992, y: 0.31918067}
   m_EdgeRadius: 0
---- !u!114 &3627682143498694404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3627682143498694407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be7cf06a4cfbd94f85e10b2740bd756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4186797075493018897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +225,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8204522061531228611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3627682143498694407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcaf7667983ee5c4e8292c0731be9af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerHpSystemT:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
-    public bool isDead = false, healing;
-    bool invincible = false, noPoison, lifeSteal;
-    int lightCounter = 0;
+    bool invincible, noPoison, lifeSteal, darkness;
+    public bool isDead, bonfire;
     public float health;
 
     [SerializeField] GameObject[] armorSprite;
@@ -21,10 +20,11 @@ public class PlayerHpSystemT:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-	}
+    }
 
 	void Update()
 	{
+
         //Debug
 		if(debuggerScript.instaDeath)
         {
@@ -39,8 +39,8 @@ public class PlayerHpSystemT:MonoBehaviour
             timerScript.timeOut = false;
         }
 
-        if(lightCounter == 0 && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
-        if(healing) Invoke(nameof(Heal), 0.2f);
+        if(!bonfire && !darkness && !GetComponent<TutorialInventorySystem>().torchUsing && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
+        if(bonfire) Invoke(nameof(Heal), 0.2f);
         if(lifeSteal) Invoke(nameof(LifeSteal), 1f);
     }
 
@@ -62,7 +62,7 @@ public class PlayerHpSystemT:MonoBehaviour
 
     void Poison()
     {
-        health -= Random.Range(15, 20);
+        health -= Random.Range(2, 8);
         CancelInvoke(nameof(Poison));
     }
 
@@ -117,10 +117,10 @@ public class PlayerHpSystemT:MonoBehaviour
                     TakeDamage(25);
                     break;
                 case "Light":
-                    lightCounter++;
+                    darkness = true;
                     break;
                 case "Heal":
-                    healing = true;
+                    bonfire = true;
                     break;
                 case "Snare":
                     lifeSteal = true;
@@ -134,11 +134,11 @@ public class PlayerHpSystemT:MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Light":
-				if (!debuggerScript.immortal || timerScript.timeOut)
-                lightCounter--;
+                if(!debuggerScript.immortal || timerScript.timeOut)
+                darkness = false;
                 break;
             case "Heal":
-                healing = false;
+                bonfire = false;
                 break;
             case "Snare":
                 lifeSteal = false;

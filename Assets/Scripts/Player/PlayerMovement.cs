@@ -56,8 +56,7 @@ public class PlayerMovement:MonoBehaviour
 		if (bossCollide == true)
 		{
 			rgbd2D.velocity = Vector2.zero;
-            rgbd2D.AddForce(-playerPosition.normalized * dashSpeed * 2, ForceMode2D.Impulse);
-            Vector2 test2 = -playerPosition.normalized * dashSpeed * 2;
+            rgbd2D.AddForce(new Vector2(0f, -6f), ForceMode2D.Impulse);
 			dashCooldown = false;
 			dashing = false;
 		}

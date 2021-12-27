@@ -60,7 +60,6 @@ public class TutorialTextScript : MonoBehaviour
 					case 9:
 					tutorialTextInput.text = "Time to move on to the next room.\n\nBeware of the darkness\n\nPress E/LB to continue";
 					this.gameObject.GetComponent<Image>().enabled = true;
-
 					itemTutorialActive = false;
 					tutorialStep++;
 					break;
@@ -143,7 +142,7 @@ public class TutorialTextScript : MonoBehaviour
 				this.gameObject.GetComponent<Image>().enabled = true;
 				roomFive = false;
 				itemTutorialActive = false;
-				textStacker++;
+				textStacker = 0;
 			}
 			
 			if (bossRoom)
@@ -153,7 +152,7 @@ public class TutorialTextScript : MonoBehaviour
 				bossRoom = false;
 				itemTutorialActive = false;
 				tutorialStep++;
-				textStacker++;
+				textStacker = 0;
 				timerScript.timeLeft = 0f;
 			}
 			

@@ -58,7 +58,7 @@ public class PlayerAttackT:MonoBehaviour
         GameObject axe = Instantiate(axePrefab, axeOffset.transform.position, axeOffset.transform.rotation);
         if(angle > 90 || angle < -90)
         {
-            axe.GetComponent<AxeMovement>().flipSpriteBool = true;
+            axe.GetComponent<AxeMovementT>().flipSpriteBool = true;
         }
         rgbd2D = axe.GetComponent<Rigidbody2D>();
         rgbd2D.AddForce(axe.transform.right * axeThrowForce, ForceMode2D.Impulse);

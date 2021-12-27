@@ -63,7 +63,7 @@ public class TutorialDarkness : MonoBehaviour
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep >= 9 && transform.position.y <= darknessPosition + 84f)
+		if (tutorialTextScript.tutorialStep >= 9 && transform.position.y <= darknessPosition + 94f)
 		{
 			tutorialTextScript.bossRoom = true;
 

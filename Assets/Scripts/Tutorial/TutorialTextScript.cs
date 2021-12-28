@@ -54,14 +54,14 @@ public class TutorialTextScript : MonoBehaviour
 					tutorialTextInput.text = "Time to move on to the next room.\n\nBeware of the darkness\n\nPress E/LB to continue";
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
-					tutorialStep++;
+					//tutorialStep++;
 					break;
 					
 					case 9:
 					tutorialTextInput.text = "Time to move on to the next room.\n\nBeware of the darkness\n\nPress E/LB to continue";
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
-					tutorialStep++;
+					//tutorialStep++;
 					break;
 			}
 		
@@ -136,16 +136,17 @@ public class TutorialTextScript : MonoBehaviour
 				textStacker++;
 			}
 			
-			if (roomFive)
+			if (roomFive && tutorialStep == 7)
 			{
 				tutorialTextInput.text = "Please kill the monster in the next room.\n\nUse LMB/LT to Melee or RMB/RT to throw axe.\n\nAim with mouse or right analog stick.\n\nPPress E/LB to continue";
 				this.gameObject.GetComponent<Image>().enabled = true;
 				roomFive = false;
 				itemTutorialActive = false;
+				tutorialStep++;
 				textStacker = 0;
 			}
 			
-			if (bossRoom)
+			if (bossRoom && tutorialStep >= 12)
 			{
 				tutorialTextInput.text = "Are you ready for the boss?\n\nTry killing it but don't get too close...\n\nPress E/LB to continue";
 				this.gameObject.GetComponent<Image>().enabled = true;

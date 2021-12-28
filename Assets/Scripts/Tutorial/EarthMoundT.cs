@@ -5,11 +5,13 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class EarthMoundT:MonoBehaviour
 {
+	TutorialInventorySystem inventorySystemScript;
 	TutorialTextScript textScript;
+	SpriteRenderer earthMoundRenderer;
 	Light2D lightSource;
 	
     Animator animator;
-    public bool taken;
+    public bool taken, seedFull;
 
     void Start()
     {
@@ -17,13 +19,25 @@ public class EarthMoundT:MonoBehaviour
 		
 		lightSource = gameObject.GetComponentInChildren<Light2D>();
 		textScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
+		inventorySystemScript = GameObject.FindObjectOfType(typeof(TutorialInventorySystem)) as TutorialInventorySystem;
+		earthMoundRenderer = GetComponent<SpriteRenderer>();
+    }
+		void Update()
+	{
+		if (inventorySystemScript.seedBool)
+		{
+			earthMoundRenderer.color = Color.yellow;
+		} else {
+			earthMoundRenderer.color = Color.white;
+		}
+	}
+
+    public void ChangeSprite(string animationName)
+    {
+        animator.Play(animationName);
     }
 
-    public void ChangeSprite()
-    {
-        animator.Play("taken");
-    }
-	
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 

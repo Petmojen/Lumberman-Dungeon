@@ -141,7 +141,6 @@ GameObject:
   - component: {fileID: 5118793141703944116}
   - component: {fileID: 379144692267862387}
   - component: {fileID: 1011905684457021431}
-  - component: {fileID: 2378335135507056374}
   m_Layer: 0
   m_Name: Parametric Light 2D
   m_TagString: Untagged
@@ -216,19 +215,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5560ca46b5ae3b4469665d5a68519805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &2378335135507056374
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6559187260141673497}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.83

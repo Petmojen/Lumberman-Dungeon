@@ -9,7 +9,7 @@ public class AnimationManager:MonoBehaviour
     PlayerHpSystem healthScript;
     PlayerAttack attackScript;
 
-    string currentState, holdIdleState = "idle_Side", holdDashState = "dash_Side", walkingState = "walking_Side", meleeHoldState = "melee_Side", holdDeathState = "death";
+    string currentState, holdIdleState = "idle_Side", holdDashState = "dash_Side", walkingState = "walking_Side", meleeHoldState = "melee_Side", holdDeathState = "death", holdThrowState = "throwing_Axe_Side";
     SpriteRenderer flipSprite;
     Animator animator;
 
@@ -38,6 +38,7 @@ public class AnimationManager:MonoBehaviour
             if(movementScript.axeAttack == PlayerMovement.Attack.Throw || movementScript.axeAttack == PlayerMovement.Attack.AxeReturning)
             {
                 noAxe = true;
+                AttackAngle();
             } else
             {
                 noAxe = false;
@@ -46,7 +47,7 @@ public class AnimationManager:MonoBehaviour
             if(movementScript.axeAttack == PlayerMovement.Attack.Melee)
             {
                 melee = true;
-                MeleeAngle();
+                AttackAngle();
             }
 
             if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && melee)
@@ -142,7 +143,9 @@ public class AnimationManager:MonoBehaviour
         } else if(newState == "Melee")
         {
             animator.Play(meleeHoldState);
-        } else if(newState == "Snared")
+        } else if(newState == "") {
+        }
+        else if(newState == "Snared")
         {
             animator.Play("snare_Start");
             Invoke(nameof(SnareIdle), 1f);
@@ -158,8 +161,9 @@ public class AnimationManager:MonoBehaviour
         holdDashState = undoDashState;
     }
 
-    public void MeleeAngle()
+    public void AttackAngle()
     {
+        string newState = "";
         if(movementScript.angle < 45 && movementScript.angle > -45)
         {
             //Right
@@ -205,7 +209,7 @@ public class AnimationManager:MonoBehaviour
                 meleeHoldState = "melee_Side";
             }
         }
-        ChangeAnimationState("Melee");
+        ChangeAnimationState(newState);
     }
 
     void SnareIdle()

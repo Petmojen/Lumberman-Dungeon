@@ -9,7 +9,7 @@ public class TutorialInventorySystem:MonoBehaviour
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
-    public bool maxCapacity = false, torchUsing;
+    public bool maxCapacity, torchUsing;
     public int seedInt, vineInt, torchInt;
     PlayerHpSystemT playerHpScript;
     GameObject holdResource;
@@ -31,7 +31,12 @@ public class TutorialInventorySystem:MonoBehaviour
         {
             if(seedBool && !earthMoundScript.taken)
             {
-                AddSeed();
+                if(!earthMoundScript.seedFull)
+                {
+                    SeedChanse();
+                } else {
+                    AddSeed();
+                }
             } else if(vineBool && !vineScript.taken) {
                 AddVine();
             } else if(torchBool) {
@@ -109,11 +114,24 @@ public class TutorialInventorySystem:MonoBehaviour
         logBool = false;
     }
 
+    void SeedChanse()
+    {
+        if(Random.Range(0, 100) > 20)
+        {
+            earthMoundScript.ChangeSprite("seedFull");
+            earthMoundScript.seedFull = true;
+        } else {
+            earthMoundScript.ChangeSprite("empty");
+            earthMoundScript.taken = true;
+        }
+    }
+
     void AddSeed()
     {
-        if(Random.Range(0, 100) > 50) seedInt++;
+        seedInt++;
+        earthMoundScript.ChangeSprite("empty");
+        earthMoundScript.seedFull = false;
         earthMoundScript.taken = true;
-        earthMoundScript.ChangeSprite();
         seedText.text = string.Format("{0:0}", seedInt);
     }
 

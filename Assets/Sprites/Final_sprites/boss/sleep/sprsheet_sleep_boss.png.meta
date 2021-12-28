@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 432efea6ce8ab8c45b6b83c02f5f1461
+guid: e673113f12d2fad4bbccbfb05977a157
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 476974125836219701
-    second: sprsheet_hit_front_minion_v1_0
+      213: -7394816615346361395
+    second: sprsheet_sleep_boss_0
   - first:
-      213: -526650050305326242
-    second: sprsheet_hit_front_minion_v1_1
+      213: 7436612748951522366
+    second: sprsheet_sleep_boss_1
   - first:
-      213: 8684075914365486808
-    second: sprsheet_hit_front_minion_v1_2
+      213: -6676488122366897299
+    second: sprsheet_sleep_boss_2
   - first:
-      213: 7086371186093522414
-    second: sprsheet_hit_front_minion_v1_3
+      213: 2581430441000542544
+    second: sprsheet_sleep_boss_3
+  - first:
+      213: -3924169618551929530
+    second: sprsheet_sleep_boss_4
+  - first:
+      213: 1427785924815896864
+    second: sprsheet_sleep_boss_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sprsheet_hit_front_minion_v1_0
+      name: sprsheet_sleep_boss_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 36
+        width: 237
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5353589b07d8e9600800000000000000
-      internalID: 476974125836219701
+      spriteID: dcbaf1fb775506990800000000000000
+      internalID: -7394816615346361395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_hit_front_minion_v1_1
+      name: sprsheet_sleep_boss_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 237
         y: 0
-        width: 32
-        height: 36
+        width: 237
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e530c9ec196f0b8f0800000000000000
-      internalID: -526650050305326242
+      spriteID: e3c8561f4e7243760800000000000000
+      internalID: 7436612748951522366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_hit_front_minion_v1_2
+      name: sprsheet_sleep_boss_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 474
         y: 0
-        width: 32
-        height: 36
+        width: 237
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d6c74ea809048870800000000000000
-      internalID: 8684075914365486808
+      spriteID: d63d43f1d695853a0800000000000000
+      internalID: -6676488122366897299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sprsheet_hit_front_minion_v1_3
+      name: sprsheet_sleep_boss_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 711
         y: 0
-        width: 32
-        height: 36
+        width: 237
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +198,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eedfaad6c09d75260800000000000000
-      internalID: 7086371186093522414
+      spriteID: 051a7302f4513d320800000000000000
+      internalID: 2581430441000542544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_sleep_boss_4
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 0
+        width: 237
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64505d7e58c8a89c0800000000000000
+      internalID: -3924169618551929530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_sleep_boss_5
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 0
+        width: 237
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02144ffdbb380d310800000000000000
+      internalID: 1427785924815896864
       vertices: []
       indices: 
       edges: []

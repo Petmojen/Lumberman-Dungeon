@@ -522,7 +522,7 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: -369200
+  m_InstanceId: 577814
 --- !u!114 &2081954071932872388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,14 +565,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8898283400247681213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6a68e77e4b2d04683ac70c2e17add0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ba26a548b8bc4041bf1bd044214b0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dashCooldown: 0
   dashing: 0
   bossCollide: 0
   rootSnared: 0
-  movementSpeed: 7.5
   angle: 0
   playerPosition: {x: 0, y: 0}
   axeAttack: 0

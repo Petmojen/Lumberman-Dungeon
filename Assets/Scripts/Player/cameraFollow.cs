@@ -5,8 +5,8 @@ using UnityEngine;
 public class cameraFollow : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    public bool followPlayerX = true, followPlayerY = true;
-	public LayerMask mask;
+    bool followPlayerX = true, followPlayerY = true;
+	LayerMask mask;
 	public Vector2 bossRoomCenter;
 	public float cameraSpeedX = 150f, cameraSpeedY = 150f;
 	public float cameraSize;

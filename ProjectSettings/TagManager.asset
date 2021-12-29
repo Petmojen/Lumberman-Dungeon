@@ -60,6 +60,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Void
+    uniqueID: 1011126543
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map Layer
+    uniqueID: 923331029
+    locked: 0
+  - name: Dust
+    uniqueID: 1154938361
     locked: 0

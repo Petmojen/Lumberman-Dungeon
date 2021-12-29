@@ -8,8 +8,8 @@ public class cameraFollow : MonoBehaviour
     public bool followPlayerX = true, followPlayerY = true;
 	public LayerMask mask;
 	public Vector2 bossRoomCenter;
-	float cameraSpeedX = 150f, cameraSpeedY = 150f;
-	float cameraSize;
+	public float cameraSpeedX = 150f, cameraSpeedY = 150f;
+	public float cameraSize;
 	
 	
 	void Start()

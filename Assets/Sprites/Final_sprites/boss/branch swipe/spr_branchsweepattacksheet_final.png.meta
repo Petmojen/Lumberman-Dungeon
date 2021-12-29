@@ -1,0 +1,804 @@
+fileFormatVersion: 2
+guid: 1dc11b29c3ff0ef4088e3c31bb788453
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5322273860555338747
+    second: spr_branchsweepattacksheet_final_0
+  - first:
+      213: -6428194191204427689
+    second: spr_branchsweepattacksheet_final_1
+  - first:
+      213: 2787400887610488846
+    second: spr_branchsweepattacksheet_final_2
+  - first:
+      213: 6597506976207579615
+    second: spr_branchsweepattacksheet_final_3
+  - first:
+      213: -6781048590156650350
+    second: spr_branchsweepattacksheet_final_4
+  - first:
+      213: -3445526802514654
+    second: spr_branchsweepattacksheet_final_5
+  - first:
+      213: 1846158435398870343
+    second: spr_branchsweepattacksheet_final_6
+  - first:
+      213: 6224726185608688745
+    second: spr_branchsweepattacksheet_final_7
+  - first:
+      213: 4839328720736989541
+    second: spr_branchsweepattacksheet_final_8
+  - first:
+      213: -2691861802035694788
+    second: spr_branchsweepattacksheet_final_9
+  - first:
+      213: -6461086390178824977
+    second: spr_branchsweepattacksheet_final_10
+  - first:
+      213: 8537549285186924018
+    second: spr_branchsweepattacksheet_final_11
+  - first:
+      213: 8149610482788730097
+    second: spr_branchsweepattacksheet_final_12
+  - first:
+      213: -4704421116350982930
+    second: spr_branchsweepattacksheet_final_13
+  - first:
+      213: 8302884862814321722
+    second: spr_branchsweepattacksheet_final_14
+  - first:
+      213: 6798801134703672414
+    second: spr_branchsweepattacksheet_final_15
+  - first:
+      213: -8603931820667491095
+    second: spr_branchsweepattacksheet_final_16
+  - first:
+      213: -6043393840625443267
+    second: spr_branchsweepattacksheet_final_17
+  - first:
+      213: -9212182336738356664
+    second: spr_branchsweepattacksheet_final_18
+  - first:
+      213: -1706822815956830380
+    second: spr_branchsweepattacksheet_final_19
+  - first:
+      213: -4179387512662458659
+    second: spr_branchsweepattacksheet_final_20
+  - first:
+      213: 8031262129765313464
+    second: spr_branchsweepattacksheet_final_21
+  - first:
+      213: 8191322425213100744
+    second: spr_branchsweepattacksheet_final_22
+  - first:
+      213: -2139105703536826533
+    second: spr_branchsweepattacksheet_final_23
+  - first:
+      213: -2206166270195290600
+    second: spr_branchsweepattacksheet_final_24
+  - first:
+      213: -7488821264658281885
+    second: spr_branchsweepattacksheet_final_25
+  - first:
+      213: -6734154828200833355
+    second: spr_branchsweepattacksheet_final_26
+  - first:
+      213: -8065948018291813142
+    second: spr_branchsweepattacksheet_final_27
+  - first:
+      213: -3840652699251791112
+    second: spr_branchsweepattacksheet_final_28
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 992
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c80485f1c7326b0800000000000000
+      internalID: -5322273860555338747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_1
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 992
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758d70ee0777ac6a0800000000000000
+      internalID: -6428194191204427689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_2
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 992
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08b1a8c656dea620800000000000000
+      internalID: 2787400887610488846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_3
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 992
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9a308c3ad0f8b50800000000000000
+      internalID: 6597506976207579615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_4
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 992
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298ac0b1c30e4e1a0800000000000000
+      internalID: -6781048590156650350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_5
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 992
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d3fd6cf42c3fff0800000000000000
+      internalID: -3445526802514654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 744
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7456a0dc05fde9910800000000000000
+      internalID: 1846158435398870343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_7
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 744
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964374d5c7ba26650800000000000000
+      internalID: 6224726185608688745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_8
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 744
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561bfd6e4dfb82340800000000000000
+      internalID: 4839328720736989541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_9
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 744
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33383104f594aad0800000000000000
+      internalID: -2691861802035694788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_10
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 744
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecb742192c9556a0800000000000000
+      internalID: -6461086390178824977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_11
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 744
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fde4fb47d77b7670800000000000000
+      internalID: 8537549285186924018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f40c6c3e8b391170800000000000000
+      internalID: 8149610482788730097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_13
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 496
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee49d067be986beb0800000000000000
+      internalID: -4704421116350982930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_14
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 496
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3cf30bcac5c93370800000000000000
+      internalID: 8302884862814321722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_15
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 496
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cf8844c913a5e50800000000000000
+      internalID: 6798801134703672414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_16
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 496
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec2f6d3891b89880800000000000000
+      internalID: -8603931820667491095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_17
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 496
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e9cbb325d812ca0800000000000000
+      internalID: -6043393840625443267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 248
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842159419f0c72080800000000000000
+      internalID: -9212182336738356664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_19
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 248
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4577c5821b52058e0800000000000000
+      internalID: -1706822815956830380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_20
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 248
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddefc095335dff5c0800000000000000
+      internalID: -4179387512662458659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_21
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 248
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb65b60b56c47f60800000000000000
+      internalID: 8031262129765313464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_22
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 248
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2a483a85c6da170800000000000000
+      internalID: 8191322425213100744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_23
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 248
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57eca332be5052e0800000000000000
+      internalID: -2139105703536826533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81eaf8d477f1261e0800000000000000
+      internalID: -2206166270195290600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_25
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 0
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ac6adbcbc521890800000000000000
+      internalID: -7488821264658281885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_26
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be8b92ecd97b82a0800000000000000
+      internalID: -6734154828200833355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_27
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 0
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae453f8330fff0090800000000000000
+      internalID: -8065948018291813142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_branchsweepattacksheet_final_28
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 0
+        width: 346
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8faa37bf7b243bac0800000000000000
+      internalID: -3840652699251791112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

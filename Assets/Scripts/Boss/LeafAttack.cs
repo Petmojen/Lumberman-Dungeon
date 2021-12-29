@@ -11,6 +11,7 @@ public class LeafAttack : MonoBehaviour
     {
 		int randomDirection = Random.Range(-3, 4);
 		rbd.velocity = new Vector3((randomDirection * speed) / 3, -speed, 0);
+		BossSFX.PlaySound("LeafAttack");
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)

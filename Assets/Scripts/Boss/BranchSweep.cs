@@ -34,6 +34,7 @@ public class BranchSweep : MonoBehaviour
             if (getAngle <= 30)
             {
                 maxAttackRange = true;
+                BossSFX.PlaySound("BranchSwipe");
             }
         }else{
             angle = speed;

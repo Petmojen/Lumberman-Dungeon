@@ -689,7 +689,7 @@
   <object id="15" x="1939.34" y="84.8464" width="2" height="663.333"/>
   <object id="17" x="1939.34" y="746.18" width="138.667" height="6"/>
   <object id="165" x="106.667" y="970.667" width="16" height="312"/>
-  <object id="166" x="142.667" y="1294.67" width="16" height="202.667"/>
+  <object id="166" x="106.667" y="1283.33" width="16" height="202.667"/>
   <object id="169" x="304.667" y="1550" width="14.6667" height="309.333"/>
   <object id="172" x="1584" y="988" width="492" height="29.3333"/>
   <object id="173" x="1585.33" y="929.333" width="10.6667" height="52"/>
@@ -702,8 +702,6 @@
   <object id="188" x="1936" y="1418" width="25.3333" height="465.333"/>
   <object id="189" x="2076" y="1014.67" width="5.33333" height="306"/>
   <object id="191" x="527.333" y="0" width="14.6667" height="220"/>
-  <object id="192" x="370" y="216" width="153.333" height="4"/>
-  <object id="193" x="466.667" y="42.6667" width="8" height="171.333"/>
   <object id="194" x="159.333" y="37.3333" width="16" height="182.667"/>
   <object id="195" x="-2" y="183.333" width="160.667" height="4"/>
   <object id="196" x="1714.67" y="90.6667" width="14" height="168.667"/>

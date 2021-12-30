@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossSFX : MonoBehaviour
 {
 
-    public static AudioClip BranchSound, DarknessSound, LeafSound, SpiritMinionSound, RootSnareSound;
+    static AudioClip BranchSound, DarknessSound, LeafSound, SpiritMinionSound, RootSnareSound;
     static AudioSource audioSrc;
 
     void Start()

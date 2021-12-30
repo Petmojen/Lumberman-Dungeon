@@ -15,7 +15,7 @@ public class PlayerMovement:MonoBehaviour
 	public Attack axeAttack;
     Rigidbody2D rgbd2D;
 	Timer timerScript;
-	public GameObject arrow, boss;
+	public GameObject arrow, boss, cameraColliderObject;
 	Vector3 arrowDirection;
 
     void Start()
@@ -25,6 +25,7 @@ public class PlayerMovement:MonoBehaviour
 		axeAttack = Attack.Idle;
         activateBossScript = GameObject.FindObjectOfType(typeof(BossAttackManager)) as BossAttackManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+		//Physics.IgnoreLayerCollision(0, 7);
     }
 
     void Update()

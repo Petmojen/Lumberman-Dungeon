@@ -44,7 +44,6 @@ public class cameraFollow : MonoBehaviour
 		
 		if(followPlayerY)
 		{
-			//Vector3 tempVector3Y = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
             transform.position =  Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, player.transform.position.y, transform.position.z), stepY);
         }
 		

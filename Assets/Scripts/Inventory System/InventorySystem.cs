@@ -12,7 +12,7 @@ public class InventorySystem:MonoBehaviour
     public bool maxCapacity, torchUsing;
     int seedInt, vineInt, torchInt;
     PlayerHpSystem playerHpScript;
-    GameObject holdResource;
+    public GameObject holdResource;
 	Debugger debuggerScript;
 
     EarthMound earthMoundScript;
@@ -147,11 +147,7 @@ public class InventorySystem:MonoBehaviour
     {
         torchInt++;
         torchText.text = string.Format("{0:0}", torchInt);
-		if (holdResource != null)
-		{
-			Destroy(holdResource);
-		}
-        
+		Destroy(holdResource); 
     }
 
     void AddArmor()

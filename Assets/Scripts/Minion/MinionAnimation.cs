@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MinionAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Animator animator;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

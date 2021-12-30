@@ -18,19 +18,18 @@ public class PlayerAttack:MonoBehaviour
     void Update()
     {
 
-        if(Input.GetMouseButtonDown(0) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle)
+        if(Input.GetMouseButtonDown(0) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle && !playerMovementScript.rootSnared)
         {
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0);
-
-        } else if(Input.GetMouseButtonDown(1) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle) {
+        } else if(Input.GetMouseButtonDown(1) && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle && !playerMovementScript.rootSnared) {
             GetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 1);
         }
 
-		if(Input.GetAxisRaw("Melee") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle)
+		if(Input.GetAxisRaw("Melee") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle && !playerMovementScript.rootSnared)
         {
 			Vector2 cAim = transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0);
             GetAngle(cAim, 0);
-        } else if(Input.GetAxisRaw("Throw") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle) {
+        } else if(Input.GetAxisRaw("Throw") > 0f && playerMovementScript.axeAttack == PlayerMovement.Attack.Idle && !playerMovementScript.rootSnared) {
 			Vector2 cAim = transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0);
             GetAngle(cAim, 1);
         }

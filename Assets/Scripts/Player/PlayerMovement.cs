@@ -25,7 +25,6 @@ public class PlayerMovement:MonoBehaviour
 		axeAttack = Attack.Idle;
         activateBossScript = GameObject.FindObjectOfType(typeof(BossAttackManager)) as BossAttackManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-		//Physics.IgnoreLayerCollision(0, 7);
     }
 
     void Update()

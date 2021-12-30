@@ -5,11 +5,12 @@ using UnityEngine;
 public class cameraFollow : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    public bool followPlayerX = true, followPlayerY = true;
-	public LayerMask mask;
+    bool followPlayerX = true, followPlayerY = true;
+	LayerMask mask;
 	public Vector2 bossRoomCenter;
-	public float cameraSpeedX = 150f, cameraSpeedY = 150f;
-	public float cameraSize;
+	public GameObject bossRoom;
+	float cameraSpeedX = 150f, cameraSpeedY = 150f;
+	float cameraSize;
 	
 	
 	void Start()
@@ -43,7 +44,6 @@ public class cameraFollow : MonoBehaviour
 		
 		if(followPlayerY)
 		{
-			//Vector3 tempVector3Y = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
             transform.position =  Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, player.transform.position.y, transform.position.z), stepY);
         }
 		
@@ -79,14 +79,14 @@ public class cameraFollow : MonoBehaviour
 			followPlayerY = true;
 		}
 		
-		if (Vector2.Distance(new Vector2(player.transform.position.x, transform.position.y), bossRoomCenter) < 12 && Vector2.Distance(new Vector2(transform.position.x, player.transform.position.y), bossRoomCenter) < 12)
+		if (Vector2.Distance(new Vector2(player.transform.position.x, transform.position.y), new Vector2(bossRoom.transform.position.x, transform.position.y)) < 10f && Vector2.Distance(new Vector2(transform.position.x, player.transform.position.y), new Vector2(transform.position.x, bossRoom.transform.position.y)) < 6f)
 		{
 			cameraSpeedY = 15f;
 			cameraSpeedX = 15f;
 			followPlayerX = false;
 			followPlayerY = false;
 			stepX =  cameraSpeedX * Time.deltaTime;
-			transform.position =  Vector3.MoveTowards(transform.position, bossRoomCenter + new Vector2(0f, -2.5f), stepX);
+			transform.position =  Vector3.MoveTowards(transform.position, bossRoom.transform.position + new Vector3(0f, 3.5f, 0f), stepX);
 			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, 10.5f, 5f * Time.deltaTime);
 		} else {
 			Camera.main.orthographicSize = Mathf.MoveTowards(Camera.main.orthographicSize, cameraSize, 5f * Time.deltaTime);

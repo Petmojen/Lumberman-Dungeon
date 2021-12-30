@@ -20,6 +20,7 @@ public class RootSnare : MonoBehaviour
     {
         if(snareActivated && !snareCycle)
         {
+            BossSFX.PlaySound("RootSnare");
             snareCycle = true;
             if(Random.Range(0, 100) > snareChance)
             {

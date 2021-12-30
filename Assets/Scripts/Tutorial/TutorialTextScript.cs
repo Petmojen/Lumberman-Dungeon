@@ -154,7 +154,7 @@ public class TutorialTextScript : MonoBehaviour
 				itemTutorialActive = false;
 				tutorialStep++;
 				textStacker = 0;
-				timerScript.timeLeft = 0f;
+				timerScript.timeLeft = 10f;
 			}
 			
 		}

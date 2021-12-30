@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossSFX : MonoBehaviour
 {
 
-    public static AudioClip BranchSound, DarknessSound, LeafSound;
+    static AudioClip BranchSound, DarknessSound, LeafSound, SpiritMinionSound, RootSnareSound;
     static AudioSource audioSrc;
 
     void Start()
@@ -13,16 +13,11 @@ public class BossSFX : MonoBehaviour
         BranchSound = Resources.Load<AudioClip>("BranchSwipe");
         DarknessSound = Resources.Load<AudioClip>("DarknessAbility");
         LeafSound = Resources.Load<AudioClip>("LeafAttack");
+        SpiritMinionSound = Resources.Load<AudioClip>("SpiritMinion");
+        RootSnareSound = Resources.Load<AudioClip>("RootSnare");
 
         audioSrc = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public static void PlaySound(string clip)
     {
         switch (clip)
@@ -35,6 +30,12 @@ public class BossSFX : MonoBehaviour
                 break;
             case "LeafSound":
                 audioSrc.PlayOneShot(LeafSound);
+                break;
+            case "SpiritMinionSound":
+                audioSrc.PlayOneShot(SpiritMinionSound);
+                break;
+            case "RootSnareSound":
+                audioSrc.PlayOneShot(RootSnareSound);
                 break;
         }
     }

@@ -59,7 +59,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: taking_Damage_Down_Noaxe
+  m_Name: taking_Damage_Down_Torch_Noaxe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -85,7 +85,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: walking_Down_Noaxe
+  m_Name: walking_Down_Torch_Noaxe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -839,7 +839,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: walking_Side_Noaxe
+  m_Name: walking_Side_Torch_Noaxe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -943,7 +943,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: walking_Up_Noaxe
+  m_Name: walking_Up_Torch_Noaxe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1743,7 +1743,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: taking_Damage_Side_Noaxe
+  m_Name: taking_Damage_Side_Torch_Noaxe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -2185,7 +2185,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: taking_Damage_Up_Noaxe
+  m_Name: taking_Damage_Up_Torch_Noaxe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

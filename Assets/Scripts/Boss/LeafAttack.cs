@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class LeafAttack : MonoBehaviour
 {
-	[SerializeField] Rigidbody2D rbd;
+	Rigidbody2D rgbd2D;
 	float speed = 4f;
-    // Start is called before the first frame update
+
     void Start()
     {
+        rgbd2D = GetComponent<Rigidbody2D>();
 		int randomDirection = Random.Range(-3, 4);
-		rbd.velocity = new Vector3((randomDirection * speed) / 3, -speed, 0);
+		rgbd2D.velocity = new Vector2((randomDirection * speed) / 3, -speed);
     }
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Wall"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Wall") || collision.CompareTag("PlantedTree"))
 		{
 			Destroy(gameObject);
 		}

@@ -119,6 +119,7 @@ public class AnimationManager:MonoBehaviour
             undoIdleState = holdIdleState, 
             undoDashState = holdDashState,
             undoDeathState = holdDeathState,
+            undoThrowState = holdThrowState,
             undoKnockState = holdTakeDamageState;
 
         if(currentState == newState && movementScript.rootSnared)
@@ -196,7 +197,7 @@ public class AnimationManager:MonoBehaviour
             //Down
             flipSprite.flipX = false;
             holdTakeDamageState = "taking_Damage_Down";
-        } else if(movementScript.angle > 135 || movementScript.angle < -135) {
+        } else if(movementScript.knockAngle > 135 || movementScript.knockAngle < -135) {
             //Left
             flipSprite.flipX = true;
             holdTakeDamageState = "taking_Damage_Side";

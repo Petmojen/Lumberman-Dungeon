@@ -15,10 +15,35 @@ public class Tree : MonoBehaviour
 
     void TakeDamage(float amount)
     {
+        GetComponent<SpriteRenderer>().color = Color.red;
         health -= amount;
+        Invoke(nameof(ColorCorrection), 0.05f);
+    }
+
+    void ColorCorrection()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
+        CancelInvoke();
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        
+        switch(collision.gameObject.tag)
+        {
+            case "Axe":
+                TakeDamage(25);
+                break;
+            case "Minion":
+                TakeDamage(25);
+                break;
+            case "Leaf":
+                TakeDamage(25);
+                break;
+            case "Branch":
+                TakeDamage(25);
+                break;
+            case "Melee":
+                TakeDamage(25);
+                break;
+        }
     }
 }

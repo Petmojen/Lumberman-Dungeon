@@ -35,7 +35,6 @@ public class PlayerMovement:MonoBehaviour
             dashCooldown = false;
             dashing = false;
         }
-        Debug.DrawLine(transform.position, (Vector2)transform.position + (knockDirection * 3), Color.green);
 
         if(Input.GetMouseButtonDown(0))
         {
@@ -136,7 +135,6 @@ public class PlayerMovement:MonoBehaviour
         {
             knockDirection = collision.GetComponent<MinionMovement>().punchDirection;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
             Vector2 lookDirection = (Vector2)collision.transform.position - (Vector2)transform.position;
             knockAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         }

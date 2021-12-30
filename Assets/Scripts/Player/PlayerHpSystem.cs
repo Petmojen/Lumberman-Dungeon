@@ -24,7 +24,6 @@ public class PlayerHpSystem:MonoBehaviour
 
 	void Update()
 	{
-
         //Debug
 		if(debuggerScript.instaDeath)
         {

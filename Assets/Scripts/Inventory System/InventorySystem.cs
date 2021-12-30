@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-	[SerializeField] GameObject bonFirePrefab, treePrefab, holdingTorch;
+	[SerializeField] GameObject bonFirePrefab, treePrefab, itemPlacementOffset;
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
@@ -15,14 +15,16 @@ public class InventorySystem:MonoBehaviour
     GameObject holdResource;
 	Debugger debuggerScript;
 
+    PlayerMovement movementScript;
     EarthMound earthMoundScript;
     Vine vineScript;
     Log logScript;
 
     void Start()
     {
+        debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
         playerHpScript = GetComponent<PlayerHpSystem>();
-		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
+        movementScript = GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -44,6 +46,21 @@ public class InventorySystem:MonoBehaviour
             } else if(logBool) {
                 AddArmor();
             }
+        }
+
+        if(movementScript.playerPosition.x > 0)
+        {
+            //Right
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else if(movementScript.playerPosition.x < 0) {
+            //Left
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, 180);
+        } else if(movementScript.playerPosition.y > 0 && movementScript.playerPosition.x == 0) {
+            //Up
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, 90);
+        } else if(movementScript.playerPosition.y < 0 && movementScript.playerPosition.x == 0) {
+            //Down
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, -90);
         }
 		
 		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetButtonDown("UseTorch"))
@@ -167,7 +184,7 @@ public class InventorySystem:MonoBehaviour
 		{
 			vineInt -= 4;
 			vineText.text = vineInt.ToString();
-			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
+			GameObject bonFireinstance = Instantiate(bonFirePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 1.5f,  Quaternion.identity);
 			Destroy(bonFireinstance, bonFireTimer);
             Invoke(nameof(DestroyBon), bonFireTimer);
 		}
@@ -202,7 +219,7 @@ public class InventorySystem:MonoBehaviour
 		{
 			seedInt--;
 			seedText.text = seedInt.ToString();
-			GameObject treeinstance = Instantiate(treePrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z),  Quaternion.identity);
+			Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2f,  Quaternion.identity);
 		}
 	}
 }

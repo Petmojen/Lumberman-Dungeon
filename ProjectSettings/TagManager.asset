@@ -26,6 +26,7 @@ TagManager:
   - Branch
   - Snare
   - Melee
+  - PlantedTree
   layers:
   - Default
   - TransparentFX

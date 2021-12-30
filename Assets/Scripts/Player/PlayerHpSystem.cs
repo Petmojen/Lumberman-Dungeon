@@ -8,7 +8,7 @@ public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
     bool invincible, noPoison, lifeSteal, darkness;
-    public bool isDead, bonfire;
+    public bool isDead, bonfire, knockback;
     public float health;
 
     [SerializeField] GameObject[] armorSprite;
@@ -69,6 +69,7 @@ public class PlayerHpSystem:MonoBehaviour
     public void TakeDamage(float damage)
     {
         invincible = true;
+        knockback = true;
         if(armor > 0)
         {
             armor--;
@@ -76,7 +77,7 @@ public class PlayerHpSystem:MonoBehaviour
         } else {
             health -= damage;
         }
-        Invoke(nameof(Vincible), 0.2f);
+        Invoke(nameof(Vincible), 0.1f);
     }
 
     public void UpdateArmor()

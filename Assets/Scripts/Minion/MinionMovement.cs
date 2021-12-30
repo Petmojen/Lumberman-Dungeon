@@ -5,10 +5,10 @@ using UnityEngine;
 public class MinionMovement:MonoBehaviour
 {
     string currentState, holdFightState, walkingState;
+    public Vector2 punchDirection;
     SpriteRenderer flipSprite;
     GameObject playerPosition;
     float speed = 3, angle;
-    Vector2 punchDirection;
     Rigidbody2D rgbd2D;
     Animator animator;
     bool punching;
@@ -84,7 +84,7 @@ public class MinionMovement:MonoBehaviour
 
     void Punch()
     {
-        rgbd2D.AddForce(punchDirection * 150);
+        rgbd2D.velocity = punchDirection * 5;
         Invoke(nameof(Idle), 0.5f);
     }
 

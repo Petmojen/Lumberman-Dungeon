@@ -20,7 +20,7 @@ public class DeathMenu : MonoBehaviour
     {
         if (getHealth.isDead)
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0.75f;
             deathMenuUI.SetActive(true);
         }
 		if (bossHealth.bossHp <= 0)

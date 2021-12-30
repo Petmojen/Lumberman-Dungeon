@@ -147,7 +147,11 @@ public class InventorySystem:MonoBehaviour
     {
         torchInt++;
         torchText.text = string.Format("{0:0}", torchInt);
-        Destroy(holdResource);
+		if (holdResource != null)
+		{
+			Destroy(holdResource);
+		}
+        
     }
 
     void AddArmor()

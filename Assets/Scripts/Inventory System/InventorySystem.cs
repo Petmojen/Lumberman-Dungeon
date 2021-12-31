@@ -102,7 +102,7 @@ public class InventorySystem:MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         holdResource = collision.gameObject;
-        switch(collision.gameObject.tag)
+        switch(holdResource.tag)
         {
             case "Seed":
                 seedBool = true;

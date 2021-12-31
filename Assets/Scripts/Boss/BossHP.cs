@@ -9,7 +9,7 @@ public class BossHP : MonoBehaviour
     ForceToBossDarkness darknessScript;
     [SerializeField] Slider healthBar;
     public bool bossDead, healing;
-    public float bossHp = 100;
+    public float bossHp = 100, maxHp = 100;
 	bool hitCooldown = false;
 	Timer timerScript;
 	
@@ -22,7 +22,7 @@ public class BossHP : MonoBehaviour
     void Update()
     {
         if(healing) HealBoss();
-        healthBar.value = bossHp / 100;
+        healthBar.value = bossHp / maxHp;
     }
 
     public void HealBoss()
@@ -56,7 +56,7 @@ public class BossHP : MonoBehaviour
 
     void Heal()
     {
-        if(bossHp < 50)
+        if(bossHp < maxHp)
         {
             bossHp += 1;
         }

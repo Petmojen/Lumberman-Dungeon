@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1002684226}
   - component: {fileID: -3887200558533117279}
   - component: {fileID: 82106070944642509}
+  - component: {fileID: 5423804676965638415}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Minion
@@ -186,6 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7906d0bb0e5dd7541b1726165aa3756c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchDirection: {x: 0, y: 0}
+  punching: 0
 --- !u!114 &-3887200558533117279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,3 +240,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5423804676965638415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595144141996821844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5eedf8e542a7e64fa201d66c6e2b447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

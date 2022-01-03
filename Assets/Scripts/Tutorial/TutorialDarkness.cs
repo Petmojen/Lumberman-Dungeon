@@ -9,7 +9,7 @@ public class TutorialDarkness : MonoBehaviour
     [SerializeField] GameObject bossRoomLighting;
     [SerializeField] Timer timerScript;
 	TutorialTextScript tutorialTextScript;
-    public float radiusOfLight = 13.5f;
+    public float radiusOfLight = 15.5f;
     CircleCollider2D circleOfDeath;
     Light2D lightScript;
     float speed = 4f, darknessPosition = -111.5f;
@@ -67,7 +67,7 @@ public class TutorialDarkness : MonoBehaviour
 		{
 			tutorialTextScript.bossRoom = true;
 		}
-		if (transform.position.y <= darknessPosition + 94f && tutorialTextScript.tutorialStep >= 12)
+		if (transform.position.y <= darknessPosition + 98f && tutorialTextScript.tutorialStep >= 12)
 		{
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}

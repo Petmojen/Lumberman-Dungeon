@@ -54,14 +54,12 @@ public class TutorialTextScript : MonoBehaviour
 					tutorialTextInput.text = "Time to move on to the next room.\n\nBeware of the darkness\n\nPress E/RB to continue";
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
-					//tutorialStep++;
 					break;
 					
 					case 9:
 					tutorialTextInput.text = "Time to move on to the next room.\n\nBeware of the darkness\n\nPress E/RB to continue";
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
-					//tutorialStep++;
 					break;
 			}
 		

@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
 		string secwithTwoDigits;
 		float seconds = Mathf.Floor(timeLeft % 60);
 		secwithTwoDigits = seconds.ToString("00");
-        text.text = "Timer: " + Mathf.Floor(timeLeft / 60f) + ":" + secwithTwoDigits;
+        text.text = Mathf.Floor(timeLeft / 60f) + ":" + secwithTwoDigits;
         
     }
 }

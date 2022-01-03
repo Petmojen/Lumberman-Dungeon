@@ -40,7 +40,7 @@ public class AxeMovement:MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Wall") || collision.CompareTag("Boss"))
+        if(collision.CompareTag("Wall") || collision.CompareTag("Boss") || collision.CompareTag("PlantedTree"))
         {
             backToPlayer = true;
 			playerMovementScript.axeAttack = PlayerMovement.Attack.AxeReturning;

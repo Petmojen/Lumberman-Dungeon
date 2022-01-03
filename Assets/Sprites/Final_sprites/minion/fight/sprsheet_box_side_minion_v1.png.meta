@@ -128,11 +128,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 37
-        height: 36
+        y: 14
+        width: 35
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 0
+        x: 46
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 0
+        x: 94
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_3
       rect:
         serializedVersion: 2
-        x: 111
-        y: 0
+        x: 142
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,12 +211,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_4
       rect:
         serializedVersion: 2
-        x: 148
-        y: 0
+        x: 190
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -232,12 +232,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_5
       rect:
         serializedVersion: 2
-        x: 185
-        y: 0
+        x: 240
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,12 +253,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_6
       rect:
         serializedVersion: 2
-        x: 222
-        y: 0
+        x: 288
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,12 +274,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_7
       rect:
         serializedVersion: 2
-        x: 259
-        y: 0
+        x: 335
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_8
       rect:
         serializedVersion: 2
-        x: 296
-        y: 0
+        x: 386
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -316,12 +316,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_9
       rect:
         serializedVersion: 2
-        x: 333
-        y: 0
+        x: 432
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,12 +337,12 @@ TextureImporter:
       name: sprsheet_box_side_minion_v1_10
       rect:
         serializedVersion: 2
-        x: 370
-        y: 0
+        x: 480
+        y: 12
         width: 37
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

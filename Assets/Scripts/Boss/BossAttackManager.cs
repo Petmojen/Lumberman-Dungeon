@@ -4,38 +4,51 @@ using UnityEngine;
 
 public class BossAttackManager : MonoBehaviour
 {
-	//Leaf attack stuff
 	[SerializeField] GameObject leafPrefab, branchPrefab;
+    MinionSpawning activateMinionSpawning;
+    BossAnimationManager animationScript;
+    DificultyManager dificultyScript;
     GameObject bossPositionOffset;
-
-    [SerializeField] MinionSpawning activateMinionSpawning;
-
     RootSnare snareActive;
-    ForceToBossDarkness darknessScript;
 
 	int numOfAttacks, attackRandomizer;
-    public bool bossAwake = false;
-	bool attackCooldown = false;
-	public string attackType;
-	Timer timerScript;
+    public bool bossAwake, wokenUp;
+	bool attackCooldown;
 	
-	public enum Attacks {Leafs, Minion, BranchSweep, RootSnare};
+	public enum State {Leafs, BranchSweep, Minion, RootSnare, Death};
+    public System.Object current;
 
     void Start()
     {
-        snareActive = GetComponent<RootSnare>();
+        activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
+        dificultyScript = GameObject.FindObjectOfType(typeof(DificultyManager)) as DificultyManager;
+        //numOfAttacks = System.Enum.GetNames(typeof(State)).Length;
+        animationScript = GetComponent<BossAnimationManager>();
         bossPositionOffset = GameObject.Find("BossOffset");
-        numOfAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
-		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-        darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
+        snareActive = GetComponent<RootSnare>();
     }
 
     void Update()
     {
-        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible)
+        if(wokenUp)
         {
+            switch(dificultyScript.dificultyLevel)
+            {
+                case 0:
+                    numOfAttacks = 1;
+                    break;
+                case 1:
+                    numOfAttacks = 2;
+                    break;
+                case 2: 
+                    numOfAttacks = 3;
+                    break;
+            }
+
+
             AttackManager();
         }
+
     }
 
 	void AttackManager()
@@ -46,24 +59,23 @@ public class BossAttackManager : MonoBehaviour
             {
                 attackCooldown = true;
                 attackRandomizer = Random.Range(0, numOfAttacks);
-                attackType = System.Enum.GetName(typeof(Attacks), attackRandomizer);
-            } else {
-                attackType = "";
+                current = (State)System.Enum.ToObject(typeof(State), numOfAttacks);
+                
             }
         
-			switch (attackType)
+			switch (current)
 			{
-				case "Minion":
+				case State.Minion:
                     MinionAttack();
 				    break;
-				case "BranchSweep":
+				case State.BranchSweep:
                     BranchSweepAttack();
                     break;
-				case "Leafs":
+				case State.Leafs:
 				    FireLeaf();
                     Invoke(nameof(SwitchAttack), 5f);
                     break;
-                case "RootSnare":
+                case State.RootSnare:
                     RootSnareAttack();
                     break;
 			}
@@ -78,7 +90,6 @@ public class BossAttackManager : MonoBehaviour
 
     void BranchSweepAttack()
     {
-        Instantiate(branchPrefab, bossPositionOffset.transform.position + new Vector3(0, -8, 0), Quaternion.identity);
         Invoke(nameof(SwitchAttack), 5f);
     }
 
@@ -105,11 +116,11 @@ public class BossAttackManager : MonoBehaviour
 	void Shoot()
     {
 		int numOfLeafs = 6;
-		float leafLimeTime = 3f;
+		float leafLiveTime = 3f;
 		for (float i = 0; i < numOfLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
-			Destroy(leafinstance, leafLimeTime);
+			Destroy(leafinstance, leafLiveTime);
 		}
     }
 	

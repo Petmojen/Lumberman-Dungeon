@@ -5,28 +5,41 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
-	[SerializeField] GameObject bonFirePrefab, treePrefab, holdingTorch;
+	[SerializeField] GameObject bonFirePrefab, treePrefab, itemPlacementOffset;
     [SerializeField] Text seedText, vineText, torchText;
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
     public bool maxCapacity, torchUsing;
+	bool brightToDarkText;
     int seedInt, vineInt, torchInt;
+	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
     public GameObject holdResource;
 	Debugger debuggerScript;
 
+    PlayerMovement movementScript;
     EarthMound earthMoundScript;
     Vine vineScript;
     Log logScript;
 
     void Start()
     {
+        debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
         playerHpScript = GetComponent<PlayerHpSystem>();
-		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
+        movementScript = GetComponent<PlayerMovement>();
+		
+		seedText.fontStyle = FontStyle.Bold;
+		seedText.color = Color.white;
+		vineText.fontStyle = FontStyle.Bold;
+		vineText.color = Color.white;
+		torchText.fontStyle = FontStyle.Bold;
+		torchText.color = Color.white;
     }
 
     void Update()
     {
+		FadeText();
+		
         if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Pickup"))
         {
             if(seedBool && !earthMoundScript.taken)
@@ -44,6 +57,21 @@ public class InventorySystem:MonoBehaviour
             } else if(logBool) {
                 AddArmor();
             }
+        }
+
+        if(movementScript.playerPosition.x > 0)
+        {
+            //Right
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else if(movementScript.playerPosition.x < 0) {
+            //Left
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, 180);
+        } else if(movementScript.playerPosition.y > 0 && movementScript.playerPosition.x == 0) {
+            //Up
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, 90);
+        } else if(movementScript.playerPosition.y < 0 && movementScript.playerPosition.x == 0) {
+            //Down
+            itemPlacementOffset.transform.rotation = Quaternion.Euler(0, 0, -90);
         }
 		
 		if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetButtonDown("UseTorch"))
@@ -85,7 +113,7 @@ public class InventorySystem:MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         holdResource = collision.gameObject;
-        switch(collision.gameObject.tag)
+        switch(holdResource.tag)
         {
             case "Seed":
                 seedBool = true;
@@ -170,7 +198,7 @@ public class InventorySystem:MonoBehaviour
 		{
 			vineInt -= 4;
 			vineText.text = vineInt.ToString();
-			GameObject bonFireinstance = Instantiate(bonFirePrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z),  Quaternion.identity);
+			GameObject bonFireinstance = Instantiate(bonFirePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 1.5f,  Quaternion.identity);
 			Destroy(bonFireinstance, bonFireTimer);
             Invoke(nameof(DestroyBon), bonFireTimer);
 		}
@@ -205,7 +233,36 @@ public class InventorySystem:MonoBehaviour
 		{
 			seedInt--;
 			seedText.text = seedInt.ToString();
-			GameObject treeinstance = Instantiate(treePrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z),  Quaternion.identity);
+			Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2f,  Quaternion.identity);
 		}
+	}
+	void FadeText()
+	{
+		if (fadeOutTextColor <= 1f && !brightToDarkText)
+		{
+			fadeOutTextColor += Time.deltaTime * 2;
+			vineText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+			torchText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+			seedText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+		} else {
+			brightToDarkText = true;
+		}
+		if (fadeOutTextColor > 0f && brightToDarkText) 
+		{
+			fadeOutTextColor -= Time.deltaTime * 2;
+			vineText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+			torchText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+			seedText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+		}
+		if (fadeOutTextColor <= 0f && brightToDarkText)
+		{
+			torchText.fontStyle = FontStyle.Normal;
+			seedText.fontStyle = FontStyle.Normal;
+			vineText.fontStyle = FontStyle.Normal;
+			seedText.color = new Color(1f, 1f, 1f, 0.8f);
+			vineText.color = new Color(1f, 1f, 1f, 0.8f);
+			torchText.color = new Color(1f, 1f, 1f, 0.8f);
+		}
+		
 	}
 }

@@ -8,12 +8,13 @@ public class PlayerHpSystem:MonoBehaviour
 {
     [SerializeField] Slider sliderHealth;
     bool invincible, noPoison, lifeSteal, darkness;
-    public bool isDead, bonfire;
+    public bool isDead, bonfire, knockback;
     public float health;
 
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
-	Timer timerScript;	
+	Timer timerScript;
+	
     public int armor;
 	public GameObject miniMap;
 	
@@ -21,11 +22,11 @@ public class PlayerHpSystem:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-    }
+	}
+		
 
 	void Update()
 	{
-
         //Debug
 		if(debuggerScript.instaDeath)
         {
@@ -72,18 +73,20 @@ public class PlayerHpSystem:MonoBehaviour
         health -= Random.Range(2, 8);
         CancelInvoke(nameof(Poison));
     }
-
+	
     public void TakeDamage(float damage)
     {
         invincible = true;
+        knockback = true;
         if(armor > 0)
         {
             armor--;
             UpdateArmor();
+			
         } else {
             health -= damage;
         }
-        Invoke(nameof(Vincible), 0.2f);
+        Invoke(nameof(Vincible), 0.1f);
     }
 
     public void UpdateArmor()
@@ -95,6 +98,7 @@ public class PlayerHpSystem:MonoBehaviour
                 armorSprite[i].SetActive(true);
             } else {
                 armorSprite[i].SetActive(false);
+				
             }
         }
     }

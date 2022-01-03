@@ -8,21 +8,42 @@ public class BossHP : MonoBehaviour
     [SerializeField] MinionSpawning minionInvincibleScript;
     ForceToBossDarkness darknessScript;
     [SerializeField] Slider healthBar;
+    DificultyManager dificultyScript;
     public bool bossDead, healing;
-    public float bossHp = 100;
+    public float bossHp = 100, maxHp = 100;
 	bool hitCooldown = false;
 	Timer timerScript;
 	
     void Start()
     {
         darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
+        dificultyScript = GameObject.FindObjectOfType(typeof(DificultyManager)) as DificultyManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
     void Update()
     {
         if(healing) HealBoss();
-        healthBar.value = bossHp / 100;
+        healthBar.value = bossHp / maxHp;
+    }
+
+    public void NextHealthLevel()
+    {
+        switch(dificultyScript.dificultyLevel)
+        {
+                case 0:
+                    maxHp = 100;
+                    bossHp = maxHp;
+                    break;
+                case 1:
+                    maxHp = 200;
+                    bossHp = maxHp;
+                    break;
+                case 2: 
+                    maxHp = 300;
+                    bossHp = maxHp;
+                    break;
+        }
     }
 
     public void HealBoss()
@@ -31,7 +52,7 @@ public class BossHP : MonoBehaviour
         InvokeRepeating(nameof(Heal), 0, 1f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
 		if (timerScript.timeOut && darknessScript.radiusOfLight < 13.51f)
 		{
@@ -56,7 +77,7 @@ public class BossHP : MonoBehaviour
 
     void Heal()
     {
-        if(bossHp < 50)
+        if(bossHp < maxHp)
         {
             bossHp += 1;
         }

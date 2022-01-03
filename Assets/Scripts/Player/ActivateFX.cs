@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateSFX : MonoBehaviour
+public class ActivateFX : MonoBehaviour
 {
 	ParticleSystem particleSystem;
 	PlayerHpSystem playerHPSystemScript;
 	float checkForDamage;
-    // Start is called before the first frame update
+
     void Start()
     {
 		playerHPSystemScript = GameObject.FindObjectOfType(typeof(PlayerHpSystem)) as PlayerHpSystem;
@@ -16,18 +16,19 @@ public class ActivateSFX : MonoBehaviour
 		checkForDamage = playerHPSystemScript.health;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerHPSystemScript.health < checkForDamage)
 		{
-			particleSystem.startLifetime = 1f;
-			Invoke(nameof(sfxTimer), 0.5f);
+			var main = particleSystem.main;
+			main.startLifetime = 1f;
+			Invoke(nameof(fxTimer), 0.5f);
 		}
     }
-	void sfxTimer()
+	void fxTimer()
 	{
-		particleSystem.startLifetime = 0f;
+		var main = particleSystem.main;
+		main.startLifetime = 0f;
 		checkForDamage = playerHPSystemScript.health;
 	}
 }

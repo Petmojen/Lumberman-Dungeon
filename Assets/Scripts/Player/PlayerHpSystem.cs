@@ -14,6 +14,7 @@ public class PlayerHpSystem:MonoBehaviour
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
 	Timer timerScript;
+	
     public int armor;
 	public GameObject miniMap;
 	
@@ -21,7 +22,8 @@ public class PlayerHpSystem:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-    }
+	}
+		
 
 	void Update()
 	{
@@ -71,7 +73,7 @@ public class PlayerHpSystem:MonoBehaviour
         health -= Random.Range(2, 8);
         CancelInvoke(nameof(Poison));
     }
-
+	
     public void TakeDamage(float damage)
     {
         invincible = true;
@@ -80,6 +82,7 @@ public class PlayerHpSystem:MonoBehaviour
         {
             armor--;
             UpdateArmor();
+			
         } else {
             health -= damage;
         }
@@ -95,6 +98,7 @@ public class PlayerHpSystem:MonoBehaviour
                 armorSprite[i].SetActive(true);
             } else {
                 armorSprite[i].SetActive(false);
+				
             }
         }
     }

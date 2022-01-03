@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 4876168755051033358}
+  - {fileID: 7078020894897386653}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,3 +203,97 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1001 &7560602817961044862
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4974514786500465327}
+    m_Modifications:
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.288365
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: lengthInSec
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687548, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 780959694209687550, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+      propertyPath: m_Name
+      value: SmokeForge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+--- !u!4 &7078020894897386653 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 780959694209687523, guid: 9c93ee2e35f42ea4f98536abf9fd34b0, type: 3}
+  m_PrefabInstance: {fileID: 7560602817961044862}
+  m_PrefabAsset: {fileID: 0}

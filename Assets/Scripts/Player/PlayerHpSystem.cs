@@ -13,7 +13,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
-	Timer timerScript;	
+	Timer timerScript;
     public int armor;
 	public GameObject miniMap;
 	

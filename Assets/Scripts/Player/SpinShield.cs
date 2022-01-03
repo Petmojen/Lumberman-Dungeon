@@ -14,7 +14,7 @@ public class SpinShield : MonoBehaviour
 
     void Update()
     {
-		if (rotateTimer < 0.9f)
+		if (rotateTimer < 1f)
 		{
 			rectTransform.Rotate(0f, 2f, 0.0f, Space.Self);
 			rotateTimer += Time.deltaTime;

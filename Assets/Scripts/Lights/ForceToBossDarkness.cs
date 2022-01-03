@@ -12,7 +12,7 @@ public class ForceToBossDarkness : MonoBehaviour
     Light2D lightScript, minimapLightScript;
     CircleCollider2D circleOfDeath;
     public float radiusOfLight = 92f;
-    float speed = 4f;
+    float speed = 50f;
 
 
     void Start()

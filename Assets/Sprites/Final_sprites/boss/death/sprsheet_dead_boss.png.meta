@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: 2b8ea901050cd5f4f907bdf1b8003f7b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5705022879324670089
+    second: sprsheet_dead_boss_0
+  - first:
+      213: 7246091343314848556
+    second: sprsheet_dead_boss_1
+  - first:
+      213: -4734056549573328125
+    second: sprsheet_dead_boss_2
+  - first:
+      213: 7498226190611709494
+    second: sprsheet_dead_boss_3
+  - first:
+      213: -3278926726222511859
+    second: sprsheet_dead_boss_4
+  - first:
+      213: 3331449020198004288
+    second: sprsheet_dead_boss_5
+  - first:
+      213: -1638658661459525566
+    second: sprsheet_dead_boss_6
+  - first:
+      213: 2585804186291360508
+    second: sprsheet_dead_boss_7
+  - first:
+      213: 7737006784549937641
+    second: sprsheet_dead_boss_8
+  - first:
+      213: 2312642569254904192
+    second: sprsheet_dead_boss_9
+  - first:
+      213: -435656135956919394
+    second: sprsheet_dead_boss_10
+  - first:
+      213: -2869509599394891793
+    second: sprsheet_dead_boss_11
+  - first:
+      213: -8786354401213118828
+    second: sprsheet_dead_boss_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +80,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +114,306 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9888f9d05105c2f40800000000000000
+      internalID: 5705022879324670089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_1
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b80507fa94f8460800000000000000
+      internalID: 7246091343314848556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_2
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303021876a04d4eb0800000000000000
+      internalID: -4734056549573328125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_3
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ef0f83efc0f0860800000000000000
+      internalID: 7498226190611709494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_4
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0109f6d389ee72d0800000000000000
+      internalID: -3278926726222511859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_5
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046a93cab3fab3e20800000000000000
+      internalID: 3331449020198004288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_6
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 240869f11a05249e0800000000000000
+      internalID: -1638658661459525566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_7
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf25d9e053f92e320800000000000000
+      internalID: 2585804186291360508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_8
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1e2e99dae5f5b60800000000000000
+      internalID: 7737006784549937641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_9
+      rect:
+        serializedVersion: 2
+        x: 2133
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081a2e0f928281020800000000000000
+      internalID: 2312642569254904192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_10
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b81147d0d34f9f0800000000000000
+      internalID: -435656135956919394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_11
+      rect:
+        serializedVersion: 2
+        x: 2607
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe77e7009347d28d0800000000000000
+      internalID: -2869509599394891793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprsheet_dead_boss_12
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 0
+        width: 237
+        height: 151
+      alignment: 9
+      pivot: {x: 0.5, y: 0.514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49680056939901680800000000000000
+      internalID: -8786354401213118828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -39,7 +39,7 @@ public class MinionMovement:MonoBehaviour
             }
         } else if(healthScript.knockBack || healthScript.isDead) {
             rgbd2D.velocity = Vector2.zero;
-            rgbd2D.velocity = healthScript.knockDirection.normalized * 5;
+            rgbd2D.velocity = healthScript.knockDirection.normalized * 6;
         }
     }
 

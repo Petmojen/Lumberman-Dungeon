@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4116869213922210957}
   - component: {fileID: 8449845690447958950}
   - component: {fileID: 8896275969527447509}
+  - component: {fileID: -3996761437934229152}
   m_Layer: 0
   m_Name: RootSnare
   m_TagString: Snare
@@ -122,3 +123,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.14}
   m_EdgeRadius: 0
+--- !u!95 &-3996761437934229152
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035318159359877082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53c3ebb571d7f164689ffba00fdadc42, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -259,9 +259,9 @@ public class InventorySystem:MonoBehaviour
 			torchText.fontStyle = FontStyle.Normal;
 			seedText.fontStyle = FontStyle.Normal;
 			vineText.fontStyle = FontStyle.Normal;
-			seedText.color = Color.white;
-			vineText.color = Color.white;
-			torchText.color = Color.white;
+			seedText.color = new Color(1f, 1f, 1f, 0.8f);
+			vineText.color = new Color(1f, 1f, 1f, 0.8f);
+			torchText.color = new Color(1f, 1f, 1f, 0.8f);
 		}
 		
 	}

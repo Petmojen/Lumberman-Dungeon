@@ -238,15 +238,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 9063d0020477bd840b34a024d5094e2b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 1e6c8ddbfdd581c449b79fe17b333493, type: 3}
   m_Color: {r: 0.12400607, g: 0.8962264, b: 0.2841162, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.25, y: 0.25}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8898283398149966548
@@ -605,7 +605,7 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1864858
+  m_InstanceId: 464386
 --- !u!114 &2081954071932872388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +639,7 @@ MonoBehaviour:
   health: 0
   armorSprite: []
   armor: 0
+  miniMap: {fileID: 0}
 --- !u!114 &729586768193878028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +659,8 @@ MonoBehaviour:
   angle: 0
   playerPosition: {x: 0, y: 0}
   axeAttack: 0
+  arrow: {fileID: 0}
+  boss: {fileID: 0}
 --- !u!114 &7457462533387852254
 MonoBehaviour:
   m_ObjectHideFlags: 0

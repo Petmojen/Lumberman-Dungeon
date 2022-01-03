@@ -58,8 +58,7 @@ public class PlayerMovement:MonoBehaviour
 			MeleeLookAt(transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0));
         }
 
-        //if(axeAttack != Attack.Melee && axeAttack != Attack.Throw && !GetComponent<PlayerHpSystem>().isDead && !GetComponent<PlayerHpSystem>().knockback)
-		if(axeAttack != Attack.Melee && !GetComponent<PlayerHpSystem>().isDead && !GetComponent<PlayerHpSystem>().knockback)
+        if(axeAttack != Attack.Melee && axeAttack != Attack.Throw && !GetComponent<PlayerHpSystem>().isDead && !GetComponent<PlayerHpSystem>().knockback)
         {
             playerPosition.x = Input.GetAxisRaw("Horizontal");
             playerPosition.y = Input.GetAxisRaw("Vertical");

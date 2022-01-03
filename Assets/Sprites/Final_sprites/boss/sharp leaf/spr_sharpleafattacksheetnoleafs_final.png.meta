@@ -1,0 +1,516 @@
+fileFormatVersion: 2
+guid: 49f4b9581754df04ebde6afa2e51b884
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4101547953451376706
+    second: spr_sharpleafattacksheetnoleafs_final_0
+  - first:
+      213: 3256244851293962317
+    second: spr_sharpleafattacksheetnoleafs_final_1
+  - first:
+      213: -5730852755724938152
+    second: spr_sharpleafattacksheetnoleafs_final_2
+  - first:
+      213: 5854648030922745549
+    second: spr_sharpleafattacksheetnoleafs_final_3
+  - first:
+      213: 1866220081866587887
+    second: spr_sharpleafattacksheetnoleafs_final_4
+  - first:
+      213: 1431420283570167173
+    second: spr_sharpleafattacksheetnoleafs_final_5
+  - first:
+      213: 7374315046627159006
+    second: spr_sharpleafattacksheetnoleafs_final_6
+  - first:
+      213: 7592256146345050979
+    second: spr_sharpleafattacksheetnoleafs_final_7
+  - first:
+      213: 3212917969008434362
+    second: spr_sharpleafattacksheetnoleafs_final_8
+  - first:
+      213: -8760258513780052923
+    second: spr_sharpleafattacksheetnoleafs_final_9
+  - first:
+      213: -4876540954856346357
+    second: spr_sharpleafattacksheetnoleafs_final_10
+  - first:
+      213: -6867624997798625188
+    second: spr_sharpleafattacksheetnoleafs_final_11
+  - first:
+      213: 5645938655529768580
+    second: spr_sharpleafattacksheetnoleafs_final_12
+  - first:
+      213: 3539493566976464421
+    second: spr_sharpleafattacksheetnoleafs_final_13
+  - first:
+      213: -3404833541692988569
+    second: spr_sharpleafattacksheetnoleafs_final_14
+  - first:
+      213: 6095647446223512406
+    second: spr_sharpleafattacksheetnoleafs_final_15
+  - first:
+      213: 7241388836028766180
+    second: spr_sharpleafattacksheetnoleafs_final_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 477
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24023baf120abe830800000000000000
+      internalID: 4101547953451376706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 477
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40421f9071803d20800000000000000
+      internalID: 3256244851293962317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 477
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85452f238cbe770b0800000000000000
+      internalID: -5730852755724938152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_3
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 477
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc627186d53ef3150800000000000000
+      internalID: 5854648030922745549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_4
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 477
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feebb5cd64526e910800000000000000
+      internalID: 1866220081866587887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 318
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d1d76f92d6dd310800000000000000
+      internalID: 1431420283570167173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_6
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 318
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edba700d674d65660800000000000000
+      internalID: 7374315046627159006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_7
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 318
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3634ca65dbc1d5960800000000000000
+      internalID: 7592256146345050979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_8
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 318
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc973bbed3969c20800000000000000
+      internalID: 3212917969008434362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_9
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 318
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c6c89ab4f4d6680800000000000000
+      internalID: -8760258513780052923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 159
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0da42da6db035cb0800000000000000
+      internalID: -4876540954856346357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_11
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 159
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50ce93637b41b0a0800000000000000
+      internalID: -6867624997798625188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_12
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 159
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4869f723b476a5e40800000000000000
+      internalID: 5645938655529768580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_13
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 159
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526996865aece1130800000000000000
+      internalID: 3539493566976464421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_14
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 159
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763ed04fee99fb0d0800000000000000
+      internalID: -3404833541692988569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6536b246e07189450800000000000000
+      internalID: 6095647446223512406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_sharpleafattacksheetnoleafs_final_16
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 0
+        width: 236
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e759f3a7c49e7460800000000000000
+      internalID: 7241388836028766180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

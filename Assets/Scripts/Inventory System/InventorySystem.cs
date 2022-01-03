@@ -10,7 +10,7 @@ public class InventorySystem:MonoBehaviour
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
     public bool maxCapacity, torchUsing;
-	bool goNoBold;
+	bool brightToDarkText;
     int seedInt, vineInt, torchInt;
 	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
@@ -238,26 +238,31 @@ public class InventorySystem:MonoBehaviour
 	}
 	void FadeText()
 	{
-		if (fadeOutTextColor <= 1f)
+		if (fadeOutTextColor <= 1f && !brightToDarkText)
 		{
-			fadeOutTextColor += Time.deltaTime;
+			fadeOutTextColor += Time.deltaTime * 2;
 			vineText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
 			torchText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
 			seedText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
-		} else if (!goNoBold) {
-			Invoke(nameof(BoldShortPause), 1f);
+		} else {
+			brightToDarkText = true;
 		}
-		
-	}
-	void BoldShortPause()
-	{
+		if (fadeOutTextColor > 0f && brightToDarkText) 
+		{
+			fadeOutTextColor -= Time.deltaTime * 2;
+			vineText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+			torchText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+			seedText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
+		}
+		if (fadeOutTextColor <= 0f && brightToDarkText)
+		{
 			torchText.fontStyle = FontStyle.Normal;
 			seedText.fontStyle = FontStyle.Normal;
 			vineText.fontStyle = FontStyle.Normal;
 			seedText.color = Color.white;
 			vineText.color = Color.white;
 			torchText.color = Color.white;
-			goNoBold = true;
-			CancelInvoke();
+		}
+		
 	}
 }

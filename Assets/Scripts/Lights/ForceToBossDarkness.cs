@@ -6,10 +6,10 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class ForceToBossDarkness : MonoBehaviour
 {
-    [SerializeField] GameObject minimapCircle;
+    //[SerializeField] GameObject minimapCircle;
     [SerializeField] Timer timerScript;
 
-    Light2D lightScript, minimapLightScript;
+    Light2D lightScript;//, minimapLightScript;
     CircleCollider2D circleOfDeath;
     public float radiusOfLight = 92f;
     float speed = 50f;
@@ -19,7 +19,7 @@ public class ForceToBossDarkness : MonoBehaviour
     {
         circleOfDeath = GetComponent<CircleCollider2D>();
         lightScript = GetComponent<Light2D>();
-        minimapLightScript = minimapCircle.GetComponent<Light2D>();
+        //minimapLightScript = minimapCircle.GetComponent<Light2D>();
     }
 
     void Update()
@@ -29,7 +29,7 @@ public class ForceToBossDarkness : MonoBehaviour
         {
             radiusOfLight -= Time.deltaTime * speed;
             lightScript.pointLightOuterRadius = radiusOfLight;
-            minimapLightScript.pointLightOuterRadius = radiusOfLight;
+            //minimapLightScript.pointLightOuterRadius = radiusOfLight;
             circleOfDeath.radius = radiusOfLight;
         }
     }

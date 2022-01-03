@@ -15,6 +15,7 @@ public class PlayerHpSystemT:MonoBehaviour
 	Debugger debuggerScript;
 	Timer timerScript;	
     public int armor;
+	public GameObject miniMap;
 	
 	void Start()
 	{
@@ -39,7 +40,14 @@ public class PlayerHpSystemT:MonoBehaviour
             timerScript.timeOut = false;
         }
 
-        if(!bonfire && !darkness && !GetComponent<TutorialInventorySystem>().torchUsing && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
+        if(!bonfire && !darkness && !GetComponent<TutorialInventorySystem>().torchUsing && !debuggerScript.immortal)
+		{
+			miniMap.SetActive(false);
+			Invoke(nameof(Poison), 1f);
+		} else {
+			miniMap.SetActive(true);
+		}
+			
         if(bonfire) Invoke(nameof(Heal), 0.2f);
         if(lifeSteal) Invoke(nameof(LifeSteal), 1f);
     }

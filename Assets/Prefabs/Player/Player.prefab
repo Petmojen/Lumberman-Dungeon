@@ -260,6 +260,8 @@ MonoBehaviour:
   knockAngle: 0
   playerPosition: {x: 0, y: 0}
   axeAttack: 0
+  arrow: {fileID: 216588195400179880, guid: 33f145f309708ea4db7cea27e7dff50f, type: 3}
+  boss: {fileID: 0}
 --- !u!114 &1528656597205333823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +429,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  miniMap: {fileID: 0}
   armor: 3
 --- !u!60 &1528656597205333819
 PolygonCollider2D:
@@ -484,7 +487,9 @@ MonoBehaviour:
   logBool: 0
   maxCapacity: 0
   torchUsing: 0
+  fadeOutTextColor: 0
   holdResource: {fileID: 0}
+  miniMap: {fileID: 0}
 --- !u!114 &-477536822230207967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +555,7 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30816
+  m_InstanceId: 631974
 --- !u!114 &2468712789074781348
 MonoBehaviour:
   m_ObjectHideFlags: 0

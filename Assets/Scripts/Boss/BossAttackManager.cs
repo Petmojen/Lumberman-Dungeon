@@ -52,7 +52,6 @@ public class BossAttackManager : MonoBehaviour
             }
 
             attackRandomizer = Random.Range(0, 3);
-            Debug.Log(attackRandomizer);
         }
 
     }

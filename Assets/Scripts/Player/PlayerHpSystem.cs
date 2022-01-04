@@ -22,6 +22,7 @@ public class PlayerHpSystem:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+		Invoke(nameof(Vincible), 1f);
 	}
 		
 
@@ -31,6 +32,7 @@ public class PlayerHpSystem:MonoBehaviour
 		if(debuggerScript.instaDeath)
         {
             isDead = true;
+			health = 0f;
 			debuggerScript.instaDeath = !debuggerScript.instaDeath;
         }
 

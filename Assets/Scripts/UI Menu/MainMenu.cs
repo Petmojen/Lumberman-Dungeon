@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+	public GameObject FadeToBlackForMenuUI;
+	FadeToBlackForMenu fadeToBlackForMenu;
+	
+	void Start()
+	{
+		fadeToBlackForMenu = GameObject.FindObjectOfType(typeof(FadeToBlackForMenu)) as FadeToBlackForMenu;
+	}
+	
+	void Update()
+	{
+		fadeToBlackForMenu.Fade(true);
+		Invoke(nameof(EnableButtons), 2f);
+	}
 	
     public void PlayGame()
     {
@@ -17,4 +30,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit");
     }
+	
+	void EnableButtons()
+	{
+		FadeToBlackForMenuUI.SetActive(false);
+		CancelInvoke(nameof(EnableButtons));
+	}
 }

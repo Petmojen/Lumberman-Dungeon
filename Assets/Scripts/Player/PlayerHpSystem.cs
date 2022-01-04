@@ -10,6 +10,7 @@ public class PlayerHpSystem:MonoBehaviour
     bool invincible, noPoison, lifeSteal, darkness;
     public bool isDead, bonfire, knockback;
     public float health;
+    static float maxHealth;
 
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
@@ -34,7 +35,7 @@ public class PlayerHpSystem:MonoBehaviour
 			debuggerScript.instaDeath = !debuggerScript.instaDeath;
         }
 
-        sliderHealth.value = health / 100;
+        sliderHealth.value = health / maxHealth;
         if(health <= 0)
         {
             isDead = true;

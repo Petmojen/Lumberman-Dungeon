@@ -5,14 +5,12 @@ using UnityEngine;
 public class BossSFX : MonoBehaviour
 {
 
-    [SerializeField] AudioClip BranchSound;
-    AudioClip DarknessSound, LeafSound, SpiritMinionSound, RootSnareSound;
+    AudioClip DarknessSound, LeafSound, SpiritMinionSound, RootSnareSound, BranchSound;
     AudioSource audioSrc;
 
     void Start()
     {
-        //BranchSound = Resources.Load<AudioClip>("BranchSwipe");
-        //Debug.Log(Resources.Load<AudioClip>("Music_SoundFX/BranchSwipe"));
+        BranchSound = Resources.Load<AudioClip>("BranchSwipe");
         DarknessSound = Resources.Load<AudioClip>("DarknessAbility");
         LeafSound = Resources.Load<AudioClip>("LeafAttack");
         SpiritMinionSound = Resources.Load<AudioClip>("SpiritMinion");
@@ -27,7 +25,6 @@ public class BossSFX : MonoBehaviour
         {
             case "BranchSound":
                 audioSrc.PlayOneShot(BranchSound);
-                Debug.Log(BranchSound);
                 break;
             case "DarknessSound":
                 audioSrc.PlayOneShot(DarknessSound);

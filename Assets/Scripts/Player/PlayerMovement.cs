@@ -8,7 +8,7 @@ public class PlayerMovement:MonoBehaviour
 
     public bool dashCooldown, dashing, bossCollide, rootSnared;
 
-	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10, movementSpeed = 7.5f;
+	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10, movementSpeed = 7.5f, rotateArrow ,arrowAngle, relativeAngle;
     public float angle, knockAngle;
     public Vector2 playerPosition;
 	public enum Attack {Idle, Throw, AxeReturning, Melee};
@@ -16,6 +16,8 @@ public class PlayerMovement:MonoBehaviour
     Vector2 knockDirection;
     Rigidbody2D rgbd2D;
 	Timer timerScript;
+	public GameObject arrow, boss;
+	Vector3 arrowDirection;
 
     void Start()
     {
@@ -28,6 +30,14 @@ public class PlayerMovement:MonoBehaviour
 
     void Update()
     {
+		if (timerScript.timeLeft <= 0f && (transform.position - boss.transform.position).magnitude > 17f)
+		{
+			arrow.SetActive(true);
+			DirectionArrow();
+		} else {
+			arrow.SetActive(false);
+		}
+		
         if(GetComponent<PlayerHpSystem>().knockback)
         {
             rgbd2D.velocity = Vector2.zero;
@@ -159,5 +169,28 @@ public class PlayerMovement:MonoBehaviour
 	{
 		bossCollide = false;
 		CancelInvoke();
+	}
+	
+		void DirectionArrow()
+	{
+		arrowDirection = transform.position - boss.transform.position;
+		arrowAngle = Mathf.Atan2(arrowDirection.y, arrowDirection.x) * Mathf.Rad2Deg;
+		relativeAngle = arrow.transform.eulerAngles.z;
+		
+		if (relativeAngle - 180f > arrowAngle)
+		{
+			rotateArrow = -0.01f;
+			
+		} else {
+			rotateArrow = 0.01f;
+		}
+		
+		float arrowAngleDeadZone = Mathf.Abs(relativeAngle - 180f - arrowAngle);
+		if (arrowAngleDeadZone < 1f)
+		{
+			rotateArrow = 0f;
+		}
+		
+		arrow.transform.RotateAround (transform.position, new Vector3(0f, 0f, 1f), rotateArrow * Time.deltaTime * 5000f);	
 	}
 }

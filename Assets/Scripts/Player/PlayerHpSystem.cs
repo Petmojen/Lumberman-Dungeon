@@ -13,14 +13,17 @@ public class PlayerHpSystem:MonoBehaviour
 
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
-	Timer timerScript;	
+	Timer timerScript;
+	
     public int armor;
+	public GameObject miniMap;
 	
 	void Start()
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-    }
+	}
+		
 
 	void Update()
 	{
@@ -38,7 +41,13 @@ public class PlayerHpSystem:MonoBehaviour
             timerScript.timeOut = false;
         }
 
-        if(!bonfire && !darkness && !GetComponent<InventorySystem>().torchUsing && !debuggerScript.immortal) Invoke(nameof(Poison), 1f);
+        if(!bonfire && !darkness && !GetComponent<InventorySystem>().torchUsing && !debuggerScript.immortal)
+		{
+			miniMap.SetActive(false);
+			Invoke(nameof(Poison), 1f);
+		} else {
+			miniMap.SetActive(true);
+		}
         if(bonfire) Invoke(nameof(Heal), 0.2f);
         if(lifeSteal) Invoke(nameof(LifeSteal), 1f);
     }
@@ -64,7 +73,7 @@ public class PlayerHpSystem:MonoBehaviour
         health -= Random.Range(2, 8);
         CancelInvoke(nameof(Poison));
     }
-
+	
     public void TakeDamage(float damage)
     {
         invincible = true;
@@ -73,6 +82,7 @@ public class PlayerHpSystem:MonoBehaviour
         {
             armor--;
             UpdateArmor();
+			
         } else {
             health -= damage;
         }
@@ -88,6 +98,7 @@ public class PlayerHpSystem:MonoBehaviour
                 armorSprite[i].SetActive(true);
             } else {
                 armorSprite[i].SetActive(false);
+				
             }
         }
     }

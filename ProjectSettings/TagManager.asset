@@ -26,7 +26,7 @@ TagManager:
   - Branch
   - Snare
   - Melee
-  - PlantedTree
+  - MiniMap
   layers:
   - Default
   - TransparentFX
@@ -36,7 +36,7 @@ TagManager:
   - UI
   - Map
   - Camera
-  - 
+  - FXLayer
   - 
   - WallOutline
   - MiniMap

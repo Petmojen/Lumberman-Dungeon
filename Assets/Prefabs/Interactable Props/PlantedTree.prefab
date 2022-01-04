@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8379388771356090415}
   - component: {fileID: 3843300021722705440}
   - component: {fileID: -3763251209624199709}
+  - component: {fileID: 5329789243646419051}
+  - component: {fileID: 8956742569315309859}
   m_Layer: 0
   m_Name: PlantedTree
   m_TagString: Untagged
@@ -109,3 +111,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21712826, y: 0.20791472}
   m_EdgeRadius: 0
+--- !u!95 &5329789243646419051
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580774895706669026}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d3e8e711ef59284d9567874fbd2fb3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8956742569315309859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580774895706669026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f519256561010c84e846c88b085c4847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

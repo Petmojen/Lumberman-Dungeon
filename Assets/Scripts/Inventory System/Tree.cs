@@ -18,6 +18,8 @@ public class Tree : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.red;
         health -= amount;
         Invoke(nameof(ColorCorrection), 0.05f);
+
+
     }
 
     void ColorCorrection()

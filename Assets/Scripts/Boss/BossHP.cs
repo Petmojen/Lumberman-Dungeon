@@ -9,7 +9,7 @@ public class BossHP : MonoBehaviour
     ForceToBossDarkness darknessScript;
     [SerializeField] Slider healthBar;
     DifficultyManager difficultyScript;
-    public bool bossDead, healing;
+    public bool bossDead, healing, takeHit;
     public float bossHp = 100;
     static float maxHp = 100;
 	bool hitCooldown = false;
@@ -59,18 +59,18 @@ public class BossHP : MonoBehaviour
 		{
 			if (collision.CompareTag("Axe") && !hitCooldown && !minionInvincibleScript.bossInvicible)
 			{
-				bossHp--;
+				bossHp -= 2;
 				hitCooldown = true;
-				if (bossHp == 0)
-				{
-                    bossDead = true;
-				}
+                takeHit = true;
+				if (bossHp == 0) bossDead = true;
 			}
 
-			if (collision.CompareTag("Melee"))
+			if (collision.CompareTag("Melee") && !hitCooldown && !minionInvincibleScript.bossInvicible)
 			{
-				bossHp = bossHp - 5;
-				if(bossHp == 0) Destroy(gameObject);
+				bossHp -= 5;
+                hitCooldown = true;
+                takeHit = true;
+                if(bossHp == 0) bossDead = true;
 			}
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}

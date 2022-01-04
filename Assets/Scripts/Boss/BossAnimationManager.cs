@@ -7,9 +7,11 @@ public class BossAnimationManager:MonoBehaviour
     MinionSpawning activateMinionSpawning;
     ForceToBossDarkness darknessScript;
     BossAttackManager managerScript;
+    SpriteRenderer changeColor;
     BossHP healthScript;
     Animator animator;
     Timer timerScript;
+    BossSFX soundFX;
 
     public bool wakingUp, idle;
     bool wakeOnce;
@@ -21,8 +23,10 @@ public class BossAnimationManager:MonoBehaviour
         activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
         managerScript = GetComponent<BossAttackManager>();
+        changeColor = GetComponent<SpriteRenderer>();
         healthScript = GetComponent<BossHP>();
         animator = GetComponent<Animator>();
+        soundFX = GetComponent<BossSFX>();
     }
 
     void Update()
@@ -30,6 +34,12 @@ public class BossAnimationManager:MonoBehaviour
         if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible && !wakeOnce)
         {
             wakingUp = true;
+        }
+
+        if(healthScript.takeHit)
+        {
+            changeColor.color = Color.red;
+            Invoke(nameof(CancleRed), 0.05f);
         }
 
         if(healthScript.bossDead)
@@ -40,8 +50,10 @@ public class BossAnimationManager:MonoBehaviour
             {
                 ChangeAnimation("waking_Up");
                 Invoke(nameof(DeactivateWake), 1.4f);
-            } else if(idle) {
+            } else if(idle && !healthScript.healing) {
                 ChangeAnimation("idle");
+            } else if(healthScript.healing) {
+                ChangeAnimation("healing");
             } else if((BossAttackManager.State)managerScript.current == BossAttackManager.State.Leafs) {
                 ChangeAnimation("leaf");
             } else if((BossAttackManager.State)managerScript.current == BossAttackManager.State.BranchSweep) {
@@ -49,6 +61,7 @@ public class BossAnimationManager:MonoBehaviour
             }
         }
     }
+
 
     void ChangeAnimation(string newState)
     {
@@ -65,9 +78,17 @@ public class BossAnimationManager:MonoBehaviour
             animator.Play("branch_swipe");
         } else if(newState == "dead") {
             animator.Play("death");
+        } else if(newState == "healing") {
+            animator.Play("healing");
         }
 
         currentState = newState;
+    }
+
+    void CancleRed()
+    {
+        changeColor.color = Color.white;
+        healthScript.takeHit = false;
     }
 
     void DeactivateWake()

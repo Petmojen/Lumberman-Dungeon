@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAttackManager : MonoBehaviour
 {
-	[SerializeField] GameObject leafPrefab, branchPrefab;
+	[SerializeField] GameObject leafPrefab;
     MinionSpawning activateMinionSpawning;
     BossAnimationManager animationScript;
     DifficultyManager dificultyScript;
@@ -51,7 +51,7 @@ public class BossAttackManager : MonoBehaviour
                 Invoke(nameof(AttackManager), 3f);
             }
 
-            attackRandomizer = Random.Range(0, 3);
+            attackRandomizer = Random.Range(0, numOfAttacks);
         }
 
     }

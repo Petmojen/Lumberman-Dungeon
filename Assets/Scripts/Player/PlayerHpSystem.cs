@@ -27,7 +27,6 @@ public class PlayerHpSystem:MonoBehaviour
         isDead = false;
 	}
 		
-
 	void Update()
 	{
         //Debug

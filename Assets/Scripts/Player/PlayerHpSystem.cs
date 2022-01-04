@@ -24,6 +24,7 @@ public class PlayerHpSystem:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+        isDead = false;
 	}
 		
 

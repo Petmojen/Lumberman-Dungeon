@@ -7,7 +7,7 @@ public class BossAttackManager : MonoBehaviour
 	[SerializeField] GameObject leafPrefab, branchPrefab;
     MinionSpawning activateMinionSpawning;
     BossAnimationManager animationScript;
-    DificultyManager dificultyScript;
+    DifficultyManager dificultyScript;
     GameObject bossPositionOffset;
     RootSnare snareActive;
 
@@ -15,24 +15,25 @@ public class BossAttackManager : MonoBehaviour
     public bool bossAwake, wokenUp;
 	bool attackCooldown;
 	
-	public enum State {Leafs, BranchSweep, Minion, RootSnare, Death};
+	public enum State {Leafs, BranchSweep, Minion, RootSnare, Death, Idle};
     public System.Object current;
 
     void Start()
     {
         activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
-        dificultyScript = GameObject.FindObjectOfType(typeof(DificultyManager)) as DificultyManager;
+        dificultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
         //numOfAttacks = System.Enum.GetNames(typeof(State)).Length;
         animationScript = GetComponent<BossAnimationManager>();
         bossPositionOffset = GameObject.Find("BossOffset");
         snareActive = GetComponent<RootSnare>();
+        current = State.Idle;
     }
 
     void Update()
     {
-        if(wokenUp)
+        if(wokenUp && !activateMinionSpawning.bossInvicible)
         {
-            switch(dificultyScript.dificultyLevel)
+            switch(DifficultyManager.difficultyLevel)
             {
                 case 0:
                     numOfAttacks = 1;
@@ -45,8 +46,12 @@ public class BossAttackManager : MonoBehaviour
                     break;
             }
 
+            if((State)current == State.Idle)
+            {
+                Invoke(nameof(AttackManager), 3f);
+            }
 
-            AttackManager();
+            attackRandomizer = Random.Range(0, 3);
         }
 
     }
@@ -58,9 +63,7 @@ public class BossAttackManager : MonoBehaviour
             if(bossAwake)
             {
                 attackCooldown = true;
-                attackRandomizer = Random.Range(0, numOfAttacks);
-                current = (State)System.Enum.ToObject(typeof(State), numOfAttacks);
-                
+                current = (State)System.Enum.ToObject(typeof(State), attackRandomizer);
             }
         
 			switch (current)
@@ -73,7 +76,6 @@ public class BossAttackManager : MonoBehaviour
                     break;
 				case State.Leafs:
 				    FireLeaf();
-                    Invoke(nameof(SwitchAttack), 5f);
                     break;
                 case State.RootSnare:
                     RootSnareAttack();
@@ -90,7 +92,8 @@ public class BossAttackManager : MonoBehaviour
 
     void BranchSweepAttack()
     {
-        Invoke(nameof(SwitchAttack), 5f);
+        animationScript.idle = false;
+        Invoke(nameof(SwitchAttack), 3.1f);
     }
 
     void MinionAttack()
@@ -99,9 +102,10 @@ public class BossAttackManager : MonoBehaviour
         Invoke(nameof(SwitchAttack), 5f);
     }
 
-    // Leaf attack
     void FireLeaf()
 	{
+        animationScript.idle = false;
+        Invoke(nameof(SwitchAttack), 5f);
         InvokeRepeating(nameof(Shoot), 0, 1);
     }
 
@@ -109,8 +113,10 @@ public class BossAttackManager : MonoBehaviour
 	{
         activateMinionSpawning.spawnActive = false;
         snareActive.snareActivated = false;
+        animationScript.idle = true;
         attackCooldown = false;
-		CancelInvoke();
+        current = State.Idle;
+        CancelInvoke();
 	}
 
 	void Shoot()

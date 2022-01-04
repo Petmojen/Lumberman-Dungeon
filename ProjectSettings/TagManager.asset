@@ -27,40 +27,40 @@ TagManager:
   - Snare
   - Melee
   - MiniMap
-  - FadeToBlack
+  - PlantedTree
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  -
   - Water
   - UI
   - Map
   - Camera
   - FXLayer
-  - 
+  -
   - WallOutline
   - MiniMap
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
   m_SortingLayers:
   - name: Void
     uniqueID: 1011126543

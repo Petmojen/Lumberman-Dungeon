@@ -14,17 +14,19 @@ public class PlayerHpSystem:MonoBehaviour
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
 	Timer timerScript;
-	
-    public int armor;
+
 	public GameObject miniMap;
-	
+    public int armor;
+
+    static float minionDamage = 5, bossDamage = 15, leafDamage = 8, branchDamage = 12;
+
 	void Start()
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 		Invoke(nameof(Vincible), 1f);
 	}
-		
+
 
 	void Update()
 	{
@@ -75,7 +77,7 @@ public class PlayerHpSystem:MonoBehaviour
         health -= Random.Range(2, 8);
         CancelInvoke(nameof(Poison));
     }
-	
+
     public void TakeDamage(float damage)
     {
         invincible = true;
@@ -84,7 +86,7 @@ public class PlayerHpSystem:MonoBehaviour
         {
             armor--;
             UpdateArmor();
-			
+
         } else {
             health -= damage;
         }
@@ -100,7 +102,7 @@ public class PlayerHpSystem:MonoBehaviour
                 armorSprite[i].SetActive(true);
             } else {
                 armorSprite[i].SetActive(false);
-				
+
             }
         }
     }
@@ -118,16 +120,16 @@ public class PlayerHpSystem:MonoBehaviour
             switch(collision.gameObject.tag)
             {
                 case "Minion":
-                    TakeDamage(10);
+                    TakeDamage(minionDamage);
                     break;
                 case "Boss":
-                    TakeDamage(25);
+                    TakeDamage(bossDamage);
                     break;
                 case "Leaf":
-                    TakeDamage(10);
+                    TakeDamage(leafDamage);
                     break;
                 case "Branch":
-                    TakeDamage(25);
+                    TakeDamage(branchDamage);
                     break;
                 case "Light":
                     darkness = true;

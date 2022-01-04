@@ -12,6 +12,7 @@ public class BossAnimationManager:MonoBehaviour
     Timer timerScript;
 
     public bool wakingUp, idle;
+    bool wakeOnce;
     string currentState;
 
     void Start()
@@ -26,7 +27,7 @@ public class BossAnimationManager:MonoBehaviour
 
     void Update()
     {
-        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible && !wakingUp && !idle)
+        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible && !wakeOnce)
         {
             wakingUp = true;
         }
@@ -41,8 +42,10 @@ public class BossAnimationManager:MonoBehaviour
                 Invoke(nameof(DeactivateWake), 1.4f);
             } else if(idle) {
                 ChangeAnimation("idle");
-            } else if(managerScript.current == (System.Object)BossAttackManager.State.Leafs) {
+            } else if((BossAttackManager.State)managerScript.current == BossAttackManager.State.Leafs) {
                 ChangeAnimation("leaf");
+            } else if((BossAttackManager.State)managerScript.current == BossAttackManager.State.BranchSweep) {
+                ChangeAnimation("branch");
             }
         }
     }
@@ -58,6 +61,10 @@ public class BossAnimationManager:MonoBehaviour
             animator.Play("idle");
         } else if(newState == "leaf") {
             animator.Play("leaf");
+        } else if(newState == "branch") {
+            animator.Play("branch_swipe");
+        } else if(newState == "dead") {
+            animator.Play("death");
         }
 
         currentState = newState;
@@ -65,8 +72,10 @@ public class BossAnimationManager:MonoBehaviour
 
     void DeactivateWake()
     {
-        managerScript.bossAwake = true;
+        managerScript.wokenUp = true;
         wakingUp = false;
         idle = true;
+        wakeOnce = true;
+        CancelInvoke();
     }
 }

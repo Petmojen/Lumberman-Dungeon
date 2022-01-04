@@ -8,7 +8,7 @@ public class BossAnimationManagerT:MonoBehaviour
     TutorialDarkness darknessScript;
     BossAttackManager managerScript;
     SpriteRenderer changeColor;
-    BossHP healthScript;
+    BossHPT healthScript;
     Animator animator;
     Timer timerScript;
     BossSFX soundFX;
@@ -24,7 +24,7 @@ public class BossAnimationManagerT:MonoBehaviour
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
         managerScript = GetComponent<BossAttackManager>();
         changeColor = GetComponent<SpriteRenderer>();
-        healthScript = GetComponent<BossHP>();
+        healthScript = GetComponent<BossHPT>();
         animator = GetComponent<Animator>();
         soundFX = GetComponent<BossSFX>();
     }

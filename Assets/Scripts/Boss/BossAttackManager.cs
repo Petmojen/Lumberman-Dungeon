@@ -15,7 +15,7 @@ public class BossAttackManager : MonoBehaviour
     public bool bossAwake, wokenUp;
 	bool attackCooldown;
 	
-	public enum State {Leafs, BranchSweep, Minion, RootSnare, Death, Idle};
+	public enum State {NoAttacks, Leafs, BranchSweep, Minion, RootSnare, Death, Idle};
     public System.Object current;
 
     void Start()
@@ -36,12 +36,15 @@ public class BossAttackManager : MonoBehaviour
             switch(DifficultyManager.difficultyLevel)
             {
                 case 0:
-                    numOfAttacks = 1;
+                    numOfAttacks = 0;
                     break;
                 case 1:
-                    numOfAttacks = 2;
+                    numOfAttacks = 1;
                     break;
                 case 2: 
+                    numOfAttacks = 2;
+                    break;
+				case 3: 
                     numOfAttacks = 3;
                     break;
             }
@@ -80,6 +83,11 @@ public class BossAttackManager : MonoBehaviour
                 case State.RootSnare:
                     RootSnareAttack();
                     break;
+				case State.NoAttacks:
+				    break;
+				case State.Death:
+					Shoot(false);
+				    break;
 			}
 		}
 	}
@@ -119,15 +127,22 @@ public class BossAttackManager : MonoBehaviour
         CancelInvoke();
 	}
 
-	void Shoot()
+	void Shoot(bool noShoot)
     {
 		int numOfLeafs = 6;
 		float leafLiveTime = 3f;
 		for (float i = 0; i < numOfLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
-			Destroy(leafinstance, leafLiveTime);
-		}
+			if (!noShoot)
+			{	
+				Destroy(leafinstance, leafLiveTime);
+			} else {
+				Destroy(leafinstance, 0f);
+			}
+		} 
+			
+			
     }
 	
 }

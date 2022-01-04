@@ -14,7 +14,7 @@ public class InventorySystem:MonoBehaviour
     int seedInt, vineInt, torchInt;
 	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
-    public GameObject holdResource;
+    public GameObject holdResource, miniMap;
 	Debugger debuggerScript;
 
     PlayerMovement movementScript;
@@ -39,7 +39,8 @@ public class InventorySystem:MonoBehaviour
     void Update()
     {
 		FadeText();
-		
+		if (miniMap.activeSelf)
+		{
         if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Pickup"))
         {
             if(seedBool && !earthMoundScript.taken)
@@ -58,6 +59,7 @@ public class InventorySystem:MonoBehaviour
                 AddArmor();
             }
         }
+		}
 
         if(movementScript.playerPosition.x > 0)
         {

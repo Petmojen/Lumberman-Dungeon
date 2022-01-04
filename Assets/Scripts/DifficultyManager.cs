@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DificultyManager : MonoBehaviour
+public class DifficultyManager : MonoBehaviour
 {
-    public static int dificultyLevel;
+    public static int difficultyLevel;
 
     void Start()
     {

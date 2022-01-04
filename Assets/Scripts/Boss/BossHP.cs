@@ -8,16 +8,17 @@ public class BossHP : MonoBehaviour
     [SerializeField] MinionSpawning minionInvincibleScript;
     ForceToBossDarkness darknessScript;
     [SerializeField] Slider healthBar;
-    DificultyManager dificultyScript;
+    DifficultyManager difficultyScript;
     public bool bossDead, healing;
-    public float bossHp = 100, maxHp = 100;
+    public float bossHp = 100;
+    static float maxHp = 100;
 	bool hitCooldown = false;
 	Timer timerScript;
 	
     void Start()
     {
         darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
-        dificultyScript = GameObject.FindObjectOfType(typeof(DificultyManager)) as DificultyManager;
+        difficultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
@@ -29,7 +30,7 @@ public class BossHP : MonoBehaviour
 
     public void NextHealthLevel()
     {
-        switch(DificultyManager.dificultyLevel)
+        switch(DifficultyManager.difficultyLevel)
         {
                 case 0:
                     maxHp = 100;
@@ -79,7 +80,7 @@ public class BossHP : MonoBehaviour
     {
         if(bossHp < maxHp)
         {
-            bossHp += 1;
+            bossHp += 0.25f;
         }
         CancelInvoke();
     }

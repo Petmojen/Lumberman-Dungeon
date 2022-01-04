@@ -42,9 +42,10 @@ public class BossAnimationManager:MonoBehaviour
                 Invoke(nameof(DeactivateWake), 1.4f);
             } else if(idle) {
                 ChangeAnimation("idle");
-            } else if(managerScript.current == (System.Object)BossAttackManager.State.Leafs) {
-                Debug.Log("leaf animation");
+            } else if((BossAttackManager.State)managerScript.current == BossAttackManager.State.Leafs) {
                 ChangeAnimation("leaf");
+            } else if((BossAttackManager.State)managerScript.current == BossAttackManager.State.BranchSweep) {
+                ChangeAnimation("branch");
             }
         }
     }
@@ -60,6 +61,10 @@ public class BossAnimationManager:MonoBehaviour
             animator.Play("idle");
         } else if(newState == "leaf") {
             animator.Play("leaf");
+        } else if(newState == "branch") {
+            animator.Play("branch_swipe");
+        } else if(newState == "dead") {
+            animator.Play("death");
         }
 
         currentState = newState;

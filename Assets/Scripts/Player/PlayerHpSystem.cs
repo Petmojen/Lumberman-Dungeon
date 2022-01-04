@@ -10,15 +10,16 @@ public class PlayerHpSystem:MonoBehaviour
     bool invincible, noPoison, lifeSteal, darkness;
     public bool isDead, bonfire, knockback;
     public float health;
-    static float maxHealth;
 
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
 	Timer timerScript;
 	
-    public int armor;
 	public GameObject miniMap;
+    public int armor;
 	
+    static float minionDamage = 5, bossDamage = 15, leafDamage = 8, branchDamage = 12;
+
 	void Start()
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
@@ -35,7 +36,7 @@ public class PlayerHpSystem:MonoBehaviour
 			debuggerScript.instaDeath = !debuggerScript.instaDeath;
         }
 
-        sliderHealth.value = health / maxHealth;
+        sliderHealth.value = health / 100;
         if(health <= 0)
         {
             isDead = true;
@@ -117,16 +118,16 @@ public class PlayerHpSystem:MonoBehaviour
             switch(collision.gameObject.tag)
             {
                 case "Minion":
-                    TakeDamage(10);
+                    TakeDamage(minionDamage);
                     break;
                 case "Boss":
-                    TakeDamage(25);
+                    TakeDamage(bossDamage);
                     break;
                 case "Leaf":
-                    TakeDamage(10);
+                    TakeDamage(leafDamage);
                     break;
                 case "Branch":
-                    TakeDamage(25);
+                    TakeDamage(branchDamage);
                     break;
                 case "Light":
                     darkness = true;

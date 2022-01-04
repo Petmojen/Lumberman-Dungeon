@@ -11,4 +11,11 @@ public class ButtonSFX : MonoBehaviour
     {
         audioSrc.PlayOneShot(clickFx);
     }
+
+    public void ClickSoundChangeScene()
+    {
+        audioSrc.PlayOneShot(clickFx);
+        DontDestroyOnLoad(gameObject);
+        Destroy(gameObject, clickFx.length + 1);
+    }
 }

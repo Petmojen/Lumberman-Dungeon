@@ -7,12 +7,16 @@ public class HighlightItem : MonoBehaviour
 {
 	TutorialTextScript textScript;
 	Light2D lightSource;
+	Vine vineScript;
+	EarthMound earthMoundScript;
 
 
     void Start()
     {
 		lightSource = gameObject.GetComponentInChildren<Light2D>();
 		textScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
+		vineScript = GameObject.FindObjectOfType(typeof(Vine)) as Vine;
+		earthMoundScript = GameObject.FindObjectOfType(typeof(EarthMound)) as EarthMound;
 
     }
 
@@ -27,11 +31,11 @@ public class HighlightItem : MonoBehaviour
 		
 		if (transform.CompareTag("Seed"))
 		{
-		//	if (!earthMoundScript.taken)
-		//	{
+			if (!earthMoundScript.taken)
+			{
 				lightSource.intensity = 2f;
 				textScript.typeOfItem = transform.tag;
-		//	}
+			}
 		}
 			
 				if (transform.CompareTag("Log"))
@@ -41,6 +45,14 @@ public class HighlightItem : MonoBehaviour
 				lightSource.intensity = 2f;
 				textScript.typeOfItem = transform.tag;
 		//	}
+		}
+		if (transform.CompareTag("Vine"))
+		{
+		if (!vineScript.taken)
+		{
+			lightSource.intensity = 2f;
+			textScript.typeOfItem = transform.tag;
+		}
 		}
     }
     

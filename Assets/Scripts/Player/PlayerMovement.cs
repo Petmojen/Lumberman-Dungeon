@@ -35,7 +35,8 @@ public class PlayerMovement:MonoBehaviour
 			arrow.SetActive(true);
 			DirectionArrow();
 		} else {
-			arrow.SetActive(false);
+			arrow.SetActive(true);
+			DirectionArrow();
 		}
 		
         if(GetComponent<PlayerHpSystem>().knockback)
@@ -177,7 +178,7 @@ public class PlayerMovement:MonoBehaviour
 		arrowAngle = Mathf.Atan2(arrowDirection.y, arrowDirection.x) * Mathf.Rad2Deg;
 		relativeAngle = arrow.transform.eulerAngles.z;
 		
-		if (relativeAngle - 180f > arrowAngle)
+		if (relativeAngle  > arrowAngle + 180f || relativeAngle < arrowAngle)
 		{
 			rotateArrow = -0.01f;
 			

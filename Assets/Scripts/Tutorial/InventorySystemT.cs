@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventorySystem:MonoBehaviour
+public class InventorySystemT:MonoBehaviour
 {
 	[SerializeField] GameObject bonFirePrefab, treePrefab, itemPlacementOffset;
     [SerializeField] Text seedText, vineText, torchText;
@@ -18,9 +18,9 @@ public class InventorySystem:MonoBehaviour
 	Debugger debuggerScript;
 
     PlayerMovement movementScript;
-    EarthMound earthMoundScript;
-    Vine vineScript;
-    Log logScript;
+    EarthMoundT earthMoundScript;
+    VineT vineScript;
+    LogT logScript;
 
     void Start()
     {
@@ -123,18 +123,18 @@ public class InventorySystem:MonoBehaviour
         {
             case "Seed":
                 seedBool = true;
-                earthMoundScript = collision.GetComponent<EarthMound>();
+                earthMoundScript = collision.GetComponent<EarthMoundT>();
                 break;
             case "Vine":
                 vineBool = true;
-                vineScript = collision.GetComponent<Vine>();
+                vineScript = collision.GetComponent<VineT>();
                 break;
             case "Tourch":
                 torchBool = true;
                 break;
             case "Log":
                 logBool = true;
-                logScript = collision.GetComponent<Log>();
+                logScript = collision.GetComponent<LogT>();
                 break;
         }
     }
@@ -200,7 +200,7 @@ public class InventorySystem:MonoBehaviour
     {
         if(playerHpScript.armor < 3 && !logScript.taken)
         {
-            playerHpScript.armor++;
+            //playerHpScript.armor++;
             logScript.taken = true;
             logScript.ChangeSprite();
             playerHpScript.UpdateArmor();

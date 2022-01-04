@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
 		if (timeLeft <= 30)
 		{
 			text.color = Color.red;
-			text.fontSize = 30;
+			text.fontSize = 25;
 		}
 		string secwithTwoDigits;
 		float seconds = Mathf.Floor(timeLeft % 60);

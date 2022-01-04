@@ -34,7 +34,7 @@ public class BossHPT : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-		if (timerScript.timeOut && darknessScript.radiusOfLight < 13.51f)
+		if (timerScript.timeOut)// && darknessScript.radiusOfLight < 13.51f)
 		{
 			if (collision.CompareTag("Axe") && !hitCooldown)
 			{

@@ -38,7 +38,7 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-		FadeText();
+		FadeTextTimer();
 		if (miniMap.activeSelf)
 		{
         if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Pickup"))
@@ -265,6 +265,10 @@ public class InventorySystem:MonoBehaviour
 			vineText.color = new Color(1f, 1f, 1f, 0.8f);
 			torchText.color = new Color(1f, 1f, 1f, 0.8f);
 		}
-		
+	}
+	
+	void FadeTextTimer()
+	{
+		Invoke(nameof(FadeText), 1f);
 	}
 }

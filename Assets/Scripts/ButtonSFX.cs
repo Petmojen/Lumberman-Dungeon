@@ -6,10 +6,11 @@ public class ButtonSFX : MonoBehaviour
 {
     public AudioSource audioSrc;
     public AudioClip clickFx;
+    public AudioClip subClickFx;
 
     public void ClickSound()
     {
-        audioSrc.PlayOneShot(clickFx);
+        audioSrc.PlayOneShot(subClickFx);
     }
 
     public void ClickSoundChangeScene()

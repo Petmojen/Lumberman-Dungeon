@@ -29,7 +29,7 @@ public class BossHP : MonoBehaviour
 
     public void NextHealthLevel()
     {
-        switch(dificultyScript.dificultyLevel)
+        switch(DificultyManager.dificultyLevel)
         {
                 case 0:
                     maxHp = 100;

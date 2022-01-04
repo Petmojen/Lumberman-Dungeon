@@ -32,7 +32,7 @@ public class BossAttackManager : MonoBehaviour
     {
         if(wokenUp)
         {
-            switch(dificultyScript.dificultyLevel)
+            switch(DificultyManager.dificultyLevel)
             {
                 case 0:
                     numOfAttacks = 1;
@@ -44,8 +44,6 @@ public class BossAttackManager : MonoBehaviour
                     numOfAttacks = 3;
                     break;
             }
-
-
             AttackManager();
         }
 
@@ -59,8 +57,8 @@ public class BossAttackManager : MonoBehaviour
             {
                 attackCooldown = true;
                 attackRandomizer = Random.Range(0, numOfAttacks);
-                current = (State)System.Enum.ToObject(typeof(State), numOfAttacks);
-                
+                //current = (State)System.Enum.ToObject(typeof(State), attackRandomizer);
+                current = State.Leafs;
             }
         
 			switch (current)
@@ -73,7 +71,6 @@ public class BossAttackManager : MonoBehaviour
                     break;
 				case State.Leafs:
 				    FireLeaf();
-                    Invoke(nameof(SwitchAttack), 5f);
                     break;
                 case State.RootSnare:
                     RootSnareAttack();
@@ -99,9 +96,9 @@ public class BossAttackManager : MonoBehaviour
         Invoke(nameof(SwitchAttack), 5f);
     }
 
-    // Leaf attack
     void FireLeaf()
 	{
+        animationScript.idle = false;
         InvokeRepeating(nameof(Shoot), 0, 1);
     }
 

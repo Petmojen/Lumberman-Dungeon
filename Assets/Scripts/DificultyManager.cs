@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DificultyManager : MonoBehaviour
 {
-    public int dificultyLevel = 0;
+    public static int dificultyLevel;
 
     void Start()
     {

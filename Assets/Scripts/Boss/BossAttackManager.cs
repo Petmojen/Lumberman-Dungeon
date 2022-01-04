@@ -75,7 +75,8 @@ public class BossAttackManager : MonoBehaviour
                     BranchSweepAttack();
                     break;
 				case State.Leafs:
-				    FireLeaf();
+                    animationScript.idle = false;
+                    Invoke(nameof(FireLeaf), 0.6f);
                     break;
                 case State.RootSnare:
                     RootSnareAttack();
@@ -104,7 +105,6 @@ public class BossAttackManager : MonoBehaviour
 
     void FireLeaf()
 	{
-        animationScript.idle = false;
         Invoke(nameof(SwitchAttack), 5f);
         InvokeRepeating(nameof(Shoot), 0, 1);
     }

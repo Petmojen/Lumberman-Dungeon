@@ -61,8 +61,7 @@ public class BossAnimationManager:MonoBehaviour
             }
         }
     }
-
-
+    
     void ChangeAnimation(string newState)
     {
         if(newState == currentState) return;

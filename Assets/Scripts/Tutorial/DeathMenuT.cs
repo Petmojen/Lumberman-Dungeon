@@ -37,7 +37,7 @@ public class DeathMenuT : MonoBehaviour
     public void Retry()
     {
 		fadeToBlack.startOfScene = true;
-        SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("Tutorial");
         Time.timeScale = 1f;
     }
     public void LoadMenu()

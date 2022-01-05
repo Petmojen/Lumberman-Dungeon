@@ -24,13 +24,14 @@ public class DeathMenu : MonoBehaviour
     {
         if (getHealth.isDead)
         {
+			DifficultyManager.difficultyLevel = 1;
 			Invoke(nameof(FadeOut), 2f);
 			Invoke(nameof(FadeIn), 4f);
             //Time.timeScale = 0.75f;
         }
 		if (bossHealth.bossHp <= 0)
 		{
-			SceneManager.LoadScene("MainMenu");
+			getHealth.health = 100f;
 		}
     }
 

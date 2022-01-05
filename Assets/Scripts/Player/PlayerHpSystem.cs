@@ -14,6 +14,7 @@ public class PlayerHpSystem:MonoBehaviour
     [SerializeField] GameObject[] armorSprite;
 	Debugger debuggerScript;
 	Timer timerScript;
+	BossHP bossHPScript;
 
 	public GameObject miniMap;
     public int armor;
@@ -24,6 +25,7 @@ public class PlayerHpSystem:MonoBehaviour
 	{
 		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+		bossHPScript = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>();
 		Invoke(nameof(Vincible), 1f);
 	}
 
@@ -115,7 +117,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible && !debuggerScript.immortal)
+        if(!invincible && !debuggerScript.immortal && !bossHPScript.bossDead)
         {
             switch(collision.gameObject.tag)
             {

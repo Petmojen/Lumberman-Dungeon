@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TutorialTextScript : MonoBehaviour
 {
-	[SerializeField] Text tutorialTextInput;
 	InventorySystem inventorySystemScript;
 	InventorySystemT inventorySystemScriptT;
 	PlayerHpSystem playerHPSystemscript;
@@ -13,7 +12,8 @@ public class TutorialTextScript : MonoBehaviour
 	Image textImage;
 	
 	public string typeOfItem = "";
-	public int tutorialStep = 0, textStacker = 0;
+	public int tutorialStep = 0; 
+	int textStacker = 0;
 	public bool roomFive, bossRoom;
 	bool itemTutorialActive, pickedUpSeed, pickedUpTorch, pickedUpLog, pickedUpVine, pickedUp4Vines;
 	public Sprite TutorialStart, Torch, TorchPickup, NextRoom, Vine, VinePickup, FourVines, EarthMound, FoundSeed, Log, Armour, Minion, Boss;
@@ -68,7 +68,7 @@ public class TutorialTextScript : MonoBehaviour
 					itemTutorialActive = false;
 					break;
 			}
-		
+			
 			switch(typeOfItem)
 			{
 				case "Seed":
@@ -111,7 +111,7 @@ public class TutorialTextScript : MonoBehaviour
 				textStacker++;
 			}
 			
-			if (inventorySystemScript.torchInt >= 1 && !pickedUpTorch)
+			if (inventorySystemScriptT.torchInt >= 1 && !pickedUpTorch)
 			{
 				textImage.sprite = TorchPickup;
 				this.gameObject.GetComponent<Image>().enabled = true;
@@ -170,7 +170,6 @@ public class TutorialTextScript : MonoBehaviour
 			} else {
 				itemTutorialActive = true;
 				typeOfItem = "";
-				tutorialTextInput.text = "";
 				this.gameObject.GetComponent<Image>().enabled = false;
 			}
 		}

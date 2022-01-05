@@ -10,14 +10,14 @@ public class TutorialTextScript : MonoBehaviour
 	PlayerHpSystem playerHPSystemscript;
 	Timer timerScript;
 	Image textImage;
-	
+
 	public string typeOfItem = "";
-	public int tutorialStep = 0; 
+	public int tutorialStep = 0;
 	int textStacker = 0;
 	public bool roomFive, bossRoom;
 	bool itemTutorialActive, pickedUpSeed, pickedUpTorch, pickedUpLog, pickedUpVine, pickedUp4Vines;
 	public Sprite TutorialStart, Torch, TorchPickup, NextRoom, Vine, VinePickup, FourVines, EarthMound, FoundSeed, Log, Armour, Minion, Boss;
-	
+
 	void Start()
 	{
 		inventorySystemScript = GameObject.FindObjectOfType(typeof(InventorySystem)) as InventorySystem;
@@ -26,72 +26,72 @@ public class TutorialTextScript : MonoBehaviour
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 		textImage = GetComponent<Image>();
 		textImage.sprite = TutorialStart;
-		
+
 	}
-	
+
     void Update()
     {
 		if (itemTutorialActive)
-		{	
+		{
 			switch(tutorialStep)
-			{	
+			{
 				case 1:
 				textImage.sprite = NextRoom;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
 					tutorialStep++;
 					break;
-					
+
 					case 3:
 					textImage.sprite = NextRoom;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
 					tutorialStep++;
 					break;
-					
+
 					case 5:
 					textImage.sprite = NextRoom;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
 					tutorialStep++;
 					break;
-					
+
 					case 7:
 					textImage.sprite = NextRoom;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
 					break;
-					
+
 					case 9:
 					textImage.sprite = NextRoom;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					itemTutorialActive = false;
 					break;
 			}
-			
+
 			switch(typeOfItem)
 			{
 				case "Seed":
 					textImage.sprite = EarthMound;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					break;
-					
+
 				case "Log":
 					textImage.sprite = Log;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					break;
-					
+
 				case "Tourch":
 					textImage.sprite = Torch;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					break;
-					
+
 				case "Vine":
 					textImage.sprite = Vine;
 					this.gameObject.GetComponent<Image>().enabled = true;
 					break;
 			}
-			
+
 			if (inventorySystemScriptT.seedInt >= 1 && !pickedUpSeed)
 			{
 				textImage.sprite = FoundSeed;
@@ -110,7 +110,7 @@ public class TutorialTextScript : MonoBehaviour
 				tutorialStep++;
 				textStacker++;
 			}
-			
+
 			if (inventorySystemScriptT.torchInt >= 1 && !pickedUpTorch)
 			{
 				textImage.sprite = TorchPickup;
@@ -120,7 +120,7 @@ public class TutorialTextScript : MonoBehaviour
 				tutorialStep++;
 				textStacker++;
 			}
-			
+
 			if (inventorySystemScript.vineInt >= 1 && !pickedUpVine)
 			{
 				textImage.sprite = VinePickup;
@@ -129,7 +129,7 @@ public class TutorialTextScript : MonoBehaviour
 				itemTutorialActive = false;
 				textStacker++;
 			}
-			
+
 			if (inventorySystemScript.vineInt >= 4 && !pickedUp4Vines)
 			{
 				textImage.sprite = FourVines;
@@ -139,7 +139,7 @@ public class TutorialTextScript : MonoBehaviour
 				tutorialStep++;
 				textStacker++;
 			}
-			
+
 			if (roomFive && tutorialStep == 7)
 			{
 				textImage.sprite = Minion;
@@ -149,7 +149,7 @@ public class TutorialTextScript : MonoBehaviour
 				tutorialStep++;
 				textStacker = 0;
 			}
-			
+
 			if (bossRoom && tutorialStep >= 10)
 			{
 				textImage.sprite = Boss;
@@ -160,10 +160,10 @@ public class TutorialTextScript : MonoBehaviour
 				textStacker = 0;
 				timerScript.timeLeft = 10f;
 			}
-			
+
 		}
 		if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Pickup"))
-		{	
+		{
 			if (textStacker != 0)
 			{
 				textStacker--;

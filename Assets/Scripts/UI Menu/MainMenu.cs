@@ -22,7 +22,12 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Tutorial");
+		if (DifficultyManager.difficultyLevel < 1)
+		{
+			SceneManager.LoadScene("Tutorial");
+		} else {
+			SceneManager.LoadScene("Map");
+		}
     }
 
     public void QuitGame ()

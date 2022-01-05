@@ -14,7 +14,7 @@ public class WinMenuT : MonoBehaviour
     {
         bossHPScript = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHPT>();
 		fadeToBlack = GameObject.FindObjectOfType(typeof(FadeToBlack)) as FadeToBlack;
-		fadeToBlackForMenu = GameObject.FindObjectOfType(typeof(FadeToBlackForMenu)) as FadeToBlackForMenu;		
+		fadeToBlackForMenu = GameObject.FindObjectOfType(typeof(FadeToBlackForMenu)) as FadeToBlackForMenu;			
     }
 
     void Update()
@@ -23,6 +23,8 @@ public class WinMenuT : MonoBehaviour
 		{
 			Invoke(nameof(FadeOut), 3f);
 			Invoke(nameof(FadeIn), 6f);
+			DifficultyManager.difficultyLevel++;
+			
         }        
     }
 

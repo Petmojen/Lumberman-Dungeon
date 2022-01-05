@@ -10,8 +10,8 @@ public class BossHP : MonoBehaviour
     [SerializeField] Slider healthBar;
     DifficultyManager difficultyScript;
     public bool bossDead, healing, takeHit;
-    public float bossHp = 100;
-    static float maxHp = 100;
+    public float bossHp;
+    static float maxHp;
 	bool hitCooldown = false;
 	Timer timerScript;
 	
@@ -20,6 +20,7 @@ public class BossHP : MonoBehaviour
         darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
         difficultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
+		NextHealthLevel();
     }
 
     void Update()
@@ -33,15 +34,23 @@ public class BossHP : MonoBehaviour
         switch(DifficultyManager.difficultyLevel)
         {
                 case 0:
-                    maxHp = 100;
+                    maxHp = 50;
                     bossHp = maxHp;
                     break;
                 case 1:
-                    maxHp = 200;
+                    maxHp = 100;
                     bossHp = maxHp;
                     break;
                 case 2: 
+                    maxHp = 200;
+                    bossHp = maxHp;
+                    break;
+				case 3: 
                     maxHp = 300;
+                    bossHp = maxHp;
+                    break;
+				case 4: 
+                    maxHp = 500;
                     bossHp = maxHp;
                     break;
         }
@@ -62,7 +71,11 @@ public class BossHP : MonoBehaviour
 				bossHp -= 2;
 				hitCooldown = true;
                 takeHit = true;
-				if (bossHp == 0) bossDead = true;
+				if (bossHp <= 0 && !bossDead)
+				{
+					DifficultyManager.difficultyLevel++;
+					bossDead = true;
+				}
 			}
 
 			if (collision.CompareTag("Melee") && !hitCooldown && !minionInvincibleScript.bossInvicible)
@@ -70,7 +83,11 @@ public class BossHP : MonoBehaviour
 				bossHp -= 5;
                 hitCooldown = true;
                 takeHit = true;
-                if(bossHp == 0) bossDead = true;
+				if (bossHp <= 0 && !bossDead)
+				{
+					DifficultyManager.difficultyLevel++;
+					bossDead = true;
+				}
 			}
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}

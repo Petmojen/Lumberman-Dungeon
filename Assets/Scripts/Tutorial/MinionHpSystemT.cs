@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class MinionHpSystemT : MonoBehaviour
 {
-    //3hp = 2 hp because it enters and reenters before coming back to the player.
-    int minionHp = 3;
+    public Vector2 knockDirection;
+    public bool knockBack, isDead;
+    int minionHp = 4;
 	TutorialTextScript tutorialTextScript;
-
+	
 	void Start()
 	{
 		tutorialTextScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
@@ -16,23 +17,30 @@ public class MinionHpSystemT : MonoBehaviour
 	
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Axe"))
+        if (collision.CompareTag("Axe") && !GetComponent<MinionAnimation>().spawning)
         {
-            minionHp--;
             if(minionHp <= 0)
-			{	
-				Destroy(gameObject);
+            {
+                isDead = true;
 				tutorialTextScript.tutorialStep++;
-			}
+            } else {
+                knockDirection = transform.position - GameObject.FindGameObjectWithTag("Player").transform.position;
+                minionHp--;
+                knockBack = true;
+            }
         }
-		if (collision.CompareTag("Melee"))
+
+		if (collision.CompareTag("Melee") && !GetComponent<MinionAnimation>().spawning)
         {
-            minionHp = minionHp - 5;
-            if(minionHp <= 0) 
-			{	
-				Destroy(gameObject);
+            if(minionHp <= 0)
+            {
+                isDead = true;
 				tutorialTextScript.tutorialStep++;
-			}
+            } else {
+                knockDirection = transform.position - GameObject.FindGameObjectWithTag("Player").transform.position;
+                minionHp -= 2;
+                knockBack = true;
+            }
         }
     }
 }

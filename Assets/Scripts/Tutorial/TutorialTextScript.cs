@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class TutorialTextScript : MonoBehaviour
 {
-	[SerializeField] Text tutorialTextInput;
-	TutorialInventorySystem inventorySystemScript;
-	PlayerHpSystemT playerHPSystemscript;
+	//[SerializeField] Text tutorialTextInput;
+	InventorySystem inventorySystemScript;
+	InventorySystemT inventorySystemScriptT;
+	PlayerHpSystem playerHPSystemscript;
 	Timer timerScript;
 	Image textImage;
 	
@@ -19,8 +20,9 @@ public class TutorialTextScript : MonoBehaviour
 	
 	void Start()
 	{
-		inventorySystemScript = GameObject.FindObjectOfType(typeof(TutorialInventorySystem)) as TutorialInventorySystem;
-		playerHPSystemscript = GameObject.FindObjectOfType(typeof(PlayerHpSystemT)) as PlayerHpSystemT;
+		inventorySystemScript = GameObject.FindObjectOfType(typeof(InventorySystem)) as InventorySystem;
+		inventorySystemScriptT = GameObject.FindObjectOfType(typeof(InventorySystemT)) as InventorySystemT;
+		playerHPSystemscript = GameObject.FindObjectOfType(typeof(PlayerHpSystem)) as PlayerHpSystem;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 		textImage = GetComponent<Image>();
 		textImage.sprite = TutorialStart;
@@ -90,7 +92,7 @@ public class TutorialTextScript : MonoBehaviour
 					break;
 			}
 			
-			if (inventorySystemScript.seedInt >= 1 && !pickedUpSeed)
+			if (inventorySystemScriptT.seedInt >= 1 && !pickedUpSeed)
 			{
 				textImage.sprite = FoundSeed;
 				this.gameObject.GetComponent<Image>().enabled = true;
@@ -148,7 +150,7 @@ public class TutorialTextScript : MonoBehaviour
 				textStacker = 0;
 			}
 			
-			if (bossRoom && tutorialStep >= 12)
+			if (bossRoom && tutorialStep >= 10)
 			{
 				textImage.sprite = Boss;
 				this.gameObject.GetComponent<Image>().enabled = true;
@@ -168,7 +170,7 @@ public class TutorialTextScript : MonoBehaviour
 			} else {
 				itemTutorialActive = true;
 				typeOfItem = "";
-				tutorialTextInput.text = "";
+				//tutorialTextInput.text = "";
 				this.gameObject.GetComponent<Image>().enabled = false;
 			}
 		}

@@ -6,6 +6,8 @@ public class PlayerSFX : MonoBehaviour
 {
     /*The SFX List is as follows
      * 0. PlayerFootsteps
+     * 1. AxeMelee
+     * 2. AxeThrow
      */
     [SerializeField]
     AudioClip[] playerSFX;
@@ -13,7 +15,7 @@ public class PlayerSFX : MonoBehaviour
     bool audioIsLooping = false;
 
     Rigidbody2D rb2d;
-    
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -24,11 +26,13 @@ public class PlayerSFX : MonoBehaviour
     void Update()
     {
         FootstepPlaySequence();
+        AxeMelee();
+        AxeThrow();
     }
     public void PlayFootstepSFX()
     {
         audioSource.clip = playerSFX[0];
-        audioSource.pitch = Random.Range(0.7f,1.4f);
+        audioSource.pitch = Random.Range(0.7f, 1.4f);
         audioSource.Play();
     }
     void FootstepPlaySequence()
@@ -42,6 +46,24 @@ public class PlayerSFX : MonoBehaviour
         {
             CancelInvoke(nameof(PlayFootstepSFX));
             audioIsLooping = false;
+        }
+    }
+
+    void AxeMelee()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            audioSource.clip = playerSFX[1];
+            audioSource.Play();
+        }
+    }
+
+    void AxeThrow()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            audioSource.clip = playerSFX[2];
+            audioSource.Play();
         }
     }
 }

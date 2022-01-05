@@ -10,8 +10,8 @@ public class InventorySystem:MonoBehaviour
     public bool seedBool, vineBool, torchBool, logBool;
 	float bonFireTimer = 10, torchTimer = 5;
     public bool maxCapacity, torchUsing;
-	bool brightToDarkText;
-    int seedInt, vineInt, torchInt;
+	bool brightToDarkText, flashTextAtStart = true;
+    public int seedInt, vineInt, torchInt;
 	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
     public GameObject holdResource, miniMap;
@@ -38,7 +38,11 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-		FadeText();
+		if (flashTextAtStart)
+		{
+			FadeTextTimer();
+		}
+		
 		if (miniMap.activeSelf)
 		{
         if(Input.GetKeyDown(KeyCode.E) || Input.GetButton("Pickup"))
@@ -163,6 +167,9 @@ public class InventorySystem:MonoBehaviour
         earthMoundScript.seedFull = false;
         earthMoundScript.taken = true;
         seedText.text = string.Format("{0:0}", seedInt);
+		seedText.fontStyle = FontStyle.Bold;
+		seedText.color = new Color(0.15f, 0.49f, 0.35f, 1f);
+		Invoke(nameof(HighLightSeed), 0.5f);
     }
 
     void AddVine()
@@ -171,12 +178,18 @@ public class InventorySystem:MonoBehaviour
         vineScript.taken = true;
         vineScript.ChangeSprite();
         vineText.text = string.Format("{0:0}", vineInt);
+		vineText.fontStyle = FontStyle.Bold;
+		vineText.color = new Color(0.15f, 0.49f, 0.35f, 1f);
+		Invoke(nameof(HighLightVine), 0.5f);
     }
 
     void AddTorch()
     {
         torchInt++;
         torchText.text = string.Format("{0:0}", torchInt);
+		torchText.fontStyle = FontStyle.Bold;
+		torchText.color = new Color(0.15f, 0.49f, 0.35f, 1f);
+		Invoke(nameof(HighLightTorch), 0.5f);
 		if (holdResource.tag == "Tourch")
 		{
 			Destroy(holdResource);
@@ -235,6 +248,7 @@ public class InventorySystem:MonoBehaviour
 		{
 			seedInt--;
 			seedText.text = seedInt.ToString();
+			
 			Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2f,  Quaternion.identity);
 		}
 	}
@@ -264,7 +278,33 @@ public class InventorySystem:MonoBehaviour
 			seedText.color = new Color(1f, 1f, 1f, 0.8f);
 			vineText.color = new Color(1f, 1f, 1f, 0.8f);
 			torchText.color = new Color(1f, 1f, 1f, 0.8f);
+			flashTextAtStart = false;
 		}
-		
+	}
+	
+	void FadeTextTimer()
+	{
+		Invoke(nameof(FadeText), 1f);
+	}
+	
+	void HighLightTorch()
+	{
+		torchText.fontStyle = FontStyle.Normal;
+		torchText.color = new Color(1f, 1f, 1f, 0.8f);
+		CancelInvoke();
+	}
+	
+		void HighLightSeed()
+	{
+		seedText.fontStyle = FontStyle.Normal;
+		seedText.color = new Color(1f, 1f, 1f, 0.8f);
+		CancelInvoke();
+	}
+	
+		void HighLightVine()
+	{
+		vineText.fontStyle = FontStyle.Normal;
+		vineText.color = new Color(1f, 1f, 1f, 0.8f);
+		CancelInvoke();
 	}
 }

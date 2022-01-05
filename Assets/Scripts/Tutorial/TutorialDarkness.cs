@@ -20,6 +20,9 @@ public class TutorialDarkness : MonoBehaviour
 		tutorialTextScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
         circleOfDeath = GetComponent<CircleCollider2D>();
         lightScript = GetComponent<Light2D>();
+		lightScript.pointLightOuterRadius = 13.5f;
+		circleOfDeath.radius = lightScript.pointLightOuterRadius;
+		
     }
 
     void Update()
@@ -63,15 +66,15 @@ public class TutorialDarkness : MonoBehaviour
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
 		
-		if (tutorialTextScript.tutorialStep == 12)
+		if (tutorialTextScript.tutorialStep == 10)
 		{
 			tutorialTextScript.bossRoom = true;
 		}
-		if (transform.position.y <= darknessPosition + 98f && tutorialTextScript.tutorialStep >= 12)
+		if (transform.position.y <= darknessPosition + 98f && tutorialTextScript.tutorialStep >= 10)
 		{
 			transform.position = transform.position + new Vector3(0f, 0.04f, 0);
 		}
-		
+		radiusOfLight = circleOfDeath.radius;
         //if(lightScript.pointLightOuterRadius < 13.6f)
         //{
         //    circleOfDeath.enabled = false;

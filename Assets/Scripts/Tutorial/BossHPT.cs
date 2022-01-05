@@ -8,8 +8,8 @@ public class BossHPT : MonoBehaviour
     [SerializeField] MinionSpawning minionInvincibleScript;
     TutorialDarkness darknessScript;
     [SerializeField] Slider healthBar;
-    public bool bossDead, healing;
-    public float bossHp = 100;
+    public bool bossDead, healing, takeHit;
+    public float bossHp = 50;
 	bool hitCooldown = false;
 	Timer timerScript;
 	
@@ -22,8 +22,9 @@ public class BossHPT : MonoBehaviour
     void Update()
     {
         if(healing) HealBoss();
-        healthBar.value = bossHp / 100;
+        healthBar.value = bossHp / 50;
     }
+
 
     public void HealBoss()
     {
@@ -31,24 +32,24 @@ public class BossHPT : MonoBehaviour
         InvokeRepeating(nameof(Heal), 0, 1f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-		if (timerScript.timeOut)
+		if (timerScript.timeOut)// && darknessScript.radiusOfLight < 13.51f)
 		{
 			if (collision.CompareTag("Axe") && !hitCooldown)
 			{
-				bossHp--;
+				bossHp -= 2;
 				hitCooldown = true;
-				if (bossHp == 0)
-				{
-                    bossDead = true;
-				}
+                takeHit = true;
+				if (bossHp <= 0) bossDead = true;
 			}
 
-			if (collision.CompareTag("Melee"))
+			if (collision.CompareTag("Melee") && !hitCooldown)
 			{
-				bossHp = bossHp - 5;
-				if(bossHp == 0) Destroy(gameObject);
+				bossHp -= 5;
+                hitCooldown = true;
+                takeHit = true;
+                if(bossHp <= 0) bossDead = true;
 			}
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}
@@ -56,10 +57,7 @@ public class BossHPT : MonoBehaviour
 
     void Heal()
     {
-        if(bossHp < 50)
-        {
-            bossHp += 1;
-        }
+        bossHp += 0.25f;
         CancelInvoke();
     }
 
@@ -72,5 +70,5 @@ public class BossHPT : MonoBehaviour
 	void BossHitCooldown()
 	{
 		hitCooldown = false;
-	}	
+	}
 }

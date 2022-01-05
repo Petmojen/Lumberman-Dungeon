@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ActivateFX : MonoBehaviour
 {
-	ParticleSystem particleSystem;
+	ParticleSystem pS;
 	PlayerHpSystem playerHPSystemScript;
 	float checkForDamage;
 
     void Start()
     {
 		playerHPSystemScript = GameObject.FindObjectOfType(typeof(PlayerHpSystem)) as PlayerHpSystem;
-		particleSystem = GetComponent<ParticleSystem>();
-        particleSystem.Play();
+		pS = GetComponent<ParticleSystem>();
+        pS.Play();
+		var main = pS.emission;
+		main.enabled = false;
 		checkForDamage = playerHPSystemScript.health;
     }
 
@@ -20,15 +22,15 @@ public class ActivateFX : MonoBehaviour
     {
         if (playerHPSystemScript.health < checkForDamage)
 		{
-			var main = particleSystem.main;
-			main.startLifetime = 1f;
+			var main = pS.emission;
+			main.enabled = true;
 			Invoke(nameof(fxTimer), 0.5f);
 		}
     }
 	void fxTimer()
 	{
-		var main = particleSystem.main;
-		main.startLifetime = 0f;
+		var main = pS.emission;
+		main.enabled = false;
 		checkForDamage = playerHPSystemScript.health;
 	}
 }

@@ -12,7 +12,7 @@ public class BossSFX : MonoBehaviour
     {
         BranchSound = Resources.Load<AudioClip>("BranchSwipe");
         DarknessSound = Resources.Load<AudioClip>("DarknessAbility");
-        LeafSound = Resources.Load<AudioClip>("LeafAttack");
+        LeafSound = Resources.Load<AudioClip>("LeafAttack2");
         SpiritMinionSound = Resources.Load<AudioClip>("SpiritMinion");
         RootSnareSound = Resources.Load<AudioClip>("RootSnare");
 

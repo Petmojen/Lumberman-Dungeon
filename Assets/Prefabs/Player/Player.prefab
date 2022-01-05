@@ -407,7 +407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSFX:
-  - {fileID: 8300000, guid: 05132306181bcb440a5d8d305803703c, type: 3}
+  - {fileID: 8300000, guid: 8c26bc228b3007846849c0bd2b44716d, type: 3}
+  - {fileID: 8300000, guid: 60e89ade781bf1144aced4b3869e5abb, type: 3}
+  - {fileID: 8300000, guid: f6683fbbf2b14e941a04fd3f42ec9c05, type: 3}
 --- !u!114 &1528656597205333818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +489,9 @@ MonoBehaviour:
   logBool: 0
   maxCapacity: 0
   torchUsing: 0
+  seedInt: 0
+  vineInt: 0
+  torchInt: 0
   fadeOutTextColor: 0
   holdResource: {fileID: 0}
   miniMap: {fileID: 0}
@@ -555,7 +560,7 @@ MonoBehaviour:
   - {x: -0.02761979, y: 0.108745545, z: 0}
   m_ShapePathHash: -1163660685
   m_Mesh: {fileID: 0}
-  m_InstanceId: 631974
+  m_InstanceId: 101764
 --- !u!114 &2468712789074781348
 MonoBehaviour:
   m_ObjectHideFlags: 0

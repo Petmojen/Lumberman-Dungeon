@@ -10,6 +10,7 @@ public class BossAttackManager : MonoBehaviour
     DifficultyManager dificultyScript;
     GameObject bossPositionOffset;
     RootSnare snareActive;
+	public int difficultyLevel;
 
 	int numOfAttacks, attackRandomizer;
     public bool bossAwake, wokenUp;
@@ -31,6 +32,8 @@ public class BossAttackManager : MonoBehaviour
 
     void Update()
     {
+		difficultyLevel = DifficultyManager.difficultyLevel;
+		
         if(wokenUp && !activateMinionSpawning.bossInvicible)
         {
             switch(DifficultyManager.difficultyLevel)
@@ -86,7 +89,6 @@ public class BossAttackManager : MonoBehaviour
 				case State.NoAttacks:
 				    break;
 				case State.Death:
-					Shoot(false);
 				    break;
 			}
 		}
@@ -127,19 +129,14 @@ public class BossAttackManager : MonoBehaviour
         CancelInvoke();
 	}
 
-	void Shoot(bool noShoot)
+	void Shoot()
     {
 		int numOfLeafs = 6;
 		float leafLiveTime = 3f;
 		for (float i = 0; i < numOfLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
-			if (!noShoot)
-			{	
-				Destroy(leafinstance, leafLiveTime);
-			} else {
-				Destroy(leafinstance, 0f);
-			}
+			Destroy(leafinstance, leafLiveTime);
 		} 
 			
 			

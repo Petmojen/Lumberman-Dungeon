@@ -15,9 +15,6 @@ public class HighlightItem : MonoBehaviour
     {
 		lightSource = gameObject.GetComponentInChildren<Light2D>();
 		textScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
-		//vineScript = GameObject.FindObjectOfType(typeof(Vine)) as Vine;
-		//earthMoundScript = GameObject.FindObjectOfType(typeof(EarthMound)) as EarthMound;
-		//logScript = GameObject.FindObjectOfType(typeof(Log)) as Log;
     }
 
 	void OnTriggerEnter2D(Collider2D collision)
@@ -32,16 +29,16 @@ public class HighlightItem : MonoBehaviour
 					break;
 					
 				case "Seed":
-				earthMoundScript = GetComponent<EarthMound>();
-				if (!earthMoundScript.taken)
-					{
-						lightSource.intensity = 2f;
-						textScript.typeOfItem = transform.tag;
-					}
+					earthMoundScript = GetComponent<EarthMound>();
+					if (!earthMoundScript.taken)
+						{
+							lightSource.intensity = 2f;
+							textScript.typeOfItem = transform.tag;
+						}
 					break;
 					
 				case "Log":
-				logScript = GetComponent<Log>();
+					logScript = GetComponent<Log>();
 					if (!logScript.taken)
 					{
 						lightSource.intensity = 2f;

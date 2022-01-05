@@ -30,7 +30,7 @@ public class DeathMenuT : MonoBehaviour
         }
 		if (bossHealth.bossHp <= 0)
 		{
-			getHealth.health = 100f;
+			getHealth.health = 10000f;
 		}
     }
 

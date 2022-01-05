@@ -16,7 +16,7 @@ public class BossAttackManager : MonoBehaviour
     public bool bossAwake, wokenUp;
 	bool attackCooldown;
 	
-	public enum State {NoAttacks, Leafs, BranchSweep, Minion, RootSnare, Death, Idle};
+	public enum State {Leafs, BranchSweep, Minion, RootSnare, Death, Idle};
     public System.Object current;
 
     void Start()
@@ -42,13 +42,16 @@ public class BossAttackManager : MonoBehaviour
                     numOfAttacks = 0;
                     break;
                 case 1:
-                    numOfAttacks = 1;
-                    break;
-                case 2: 
                     numOfAttacks = 2;
                     break;
-				case 3: 
+                case 2: 
                     numOfAttacks = 3;
+                    break;
+				case 3: 
+                    numOfAttacks = 4;
+                    break;
+				case 4: 
+                    numOfAttacks = 4;
                     break;
             }
 
@@ -69,7 +72,12 @@ public class BossAttackManager : MonoBehaviour
             if(bossAwake)
             {
                 attackCooldown = true;
-                current = (State)System.Enum.ToObject(typeof(State), attackRandomizer);
+				if (numOfAttacks >= 1)
+				{
+					current = (State)System.Enum.ToObject(typeof(State), attackRandomizer);
+				} else {
+					current = State.Idle;
+				}
             }
         
 			switch (current)
@@ -86,10 +94,6 @@ public class BossAttackManager : MonoBehaviour
                 case State.RootSnare:
                     RootSnareAttack();
                     break;
-				case State.NoAttacks:
-				    break;
-				case State.Death:
-				    break;
 			}
 		}
 	}

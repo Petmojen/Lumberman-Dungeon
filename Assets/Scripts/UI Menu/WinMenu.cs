@@ -23,8 +23,6 @@ public class WinMenu : MonoBehaviour
 		{
 			Invoke(nameof(FadeOut), 3f);
 			Invoke(nameof(FadeIn), 6f);
-			DifficultyManager.difficultyLevel++;
-			
         }        
     }
 

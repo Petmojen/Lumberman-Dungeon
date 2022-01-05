@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-    public GameObject pauseMenuUI;
+    public GameObject pauseMenuUI, FadeToBlackForMenuUI;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+			FadeToBlackForMenuUI.SetActive(false);
             if (gameIsPaused)
             {
                 Resume();
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+		FadeToBlackForMenuUI.SetActive(true);
     }
 
     void Pause()

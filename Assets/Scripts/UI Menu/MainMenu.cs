@@ -15,13 +15,15 @@ public class MainMenu : MonoBehaviour
 	
 	void Update()
 	{
-		fadeToBlackForMenu.Fade(true);
+		FadeToBlackForMenuUI.SetActive(false);
+		//fadeToBlackForMenu.Fade(true);
 		Invoke(nameof(EnableButtons), 2f);
 	}
 	
     public void PlayGame()
     {
         Time.timeScale = 1f;
+		FadeToBlackForMenuUI.SetActive(true);
 		if (DifficultyManager.difficultyLevel < 1)
 		{
 			SceneManager.LoadScene("Tutorial");
@@ -38,7 +40,7 @@ public class MainMenu : MonoBehaviour
 	
 	void EnableButtons()
 	{
-		FadeToBlackForMenuUI.SetActive(false);
+		//FadeToBlackForMenuUI.SetActive(false);
 		CancelInvoke(nameof(EnableButtons));
 	}
 }

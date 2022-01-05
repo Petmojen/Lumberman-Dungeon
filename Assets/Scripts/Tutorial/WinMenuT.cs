@@ -23,8 +23,6 @@ public class WinMenuT : MonoBehaviour
 		{
 			Invoke(nameof(FadeOut), 3f);
 			Invoke(nameof(FadeIn), 6f);
-			DifficultyManager.difficultyLevel++;
-			
         }        
     }
 
@@ -38,6 +36,7 @@ public class WinMenuT : MonoBehaviour
 			{
 				WinText.SetActive(true);
 				FadeToBlackForMenuUI.SetActive(false);
+				DifficultyManager.difficultyLevel++;
 			}
 		}
 	}

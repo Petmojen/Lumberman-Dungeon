@@ -41,7 +41,7 @@ public class BossHPT : MonoBehaviour
 				bossHp -= 2;
 				hitCooldown = true;
                 takeHit = true;
-				if (bossHp == 0) bossDead = true;
+				if (bossHp <= 0) bossDead = true;
 			}
 
 			if (collision.CompareTag("Melee") && !hitCooldown)
@@ -49,7 +49,7 @@ public class BossHPT : MonoBehaviour
 				bossHp -= 5;
                 hitCooldown = true;
                 takeHit = true;
-                if(bossHp == 0) bossDead = true;
+                if(bossHp <= 0) bossDead = true;
 			}
 			Invoke(nameof(BossHitCooldown), 0.5f);
 		}

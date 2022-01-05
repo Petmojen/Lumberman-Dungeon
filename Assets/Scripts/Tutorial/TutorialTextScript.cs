@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TutorialTextScript : MonoBehaviour
 {
 	InventorySystem inventorySystemScript;
-	InventorySystemT inventorySystemScriptT;
+	//InventorySystemT inventorySystemScriptT;
 	PlayerHpSystem playerHPSystemscript;
 	Timer timerScript;
 	Image textImage;
@@ -21,7 +21,7 @@ public class TutorialTextScript : MonoBehaviour
 	void Start()
 	{
 		inventorySystemScript = GameObject.FindObjectOfType(typeof(InventorySystem)) as InventorySystem;
-		inventorySystemScriptT = GameObject.FindObjectOfType(typeof(InventorySystemT)) as InventorySystemT;
+		//inventorySystemScriptT = GameObject.FindObjectOfType(typeof(InventorySystemT)) as InventorySystemT;
 		playerHPSystemscript = GameObject.FindObjectOfType(typeof(PlayerHpSystem)) as PlayerHpSystem;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 		textImage = GetComponent<Image>();
@@ -92,7 +92,7 @@ public class TutorialTextScript : MonoBehaviour
 					break;
 			}
 
-			if (inventorySystemScriptT.seedInt >= 1 && !pickedUpSeed)
+			if (inventorySystemScript.seedInt >= 1 && !pickedUpSeed)
 			{
 				textImage.sprite = FoundSeed;
 				this.gameObject.GetComponent<Image>().enabled = true;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialTextScript : MonoBehaviour
 {
-	[SerializeField] Text tutorialTextInput;
+	//[SerializeField] Text tutorialTextInput;
 	InventorySystem inventorySystemScript;
 	InventorySystemT inventorySystemScriptT;
 	PlayerHpSystem playerHPSystemscript;
@@ -170,7 +170,7 @@ public class TutorialTextScript : MonoBehaviour
 			} else {
 				itemTutorialActive = true;
 				typeOfItem = "";
-				tutorialTextInput.text = "";
+				//tutorialTextInput.text = "";
 				this.gameObject.GetComponent<Image>().enabled = false;
 			}
 		}

@@ -14,7 +14,7 @@ public class TutorialTextScript : MonoBehaviour
 	public string typeOfItem = "";
 	public int tutorialStep = 0;
 	int textStacker = 0;
-	public bool roomFive, bossRoom;
+	public bool roomFive, bossRoom, tutorialHighLight = true;
 	bool itemTutorialActive, pickedUpSeed, pickedUpTorch, pickedUpLog, pickedUpVine, pickedUp4Vines;
 	public Sprite TutorialStart, Torch, TorchPickup, NextRoom, Vine, VinePickup, FourVines, EarthMound, FoundSeed, Log, Armour, Minion, Boss;
 
@@ -159,6 +159,7 @@ public class TutorialTextScript : MonoBehaviour
 				tutorialStep++;
 				textStacker = 0;
 				timerScript.timeLeft = 10f;
+				tutorialHighLight = false;
 			}
 
 		}

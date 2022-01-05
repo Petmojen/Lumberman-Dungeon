@@ -12,8 +12,8 @@ public class TorchLightFlicker:MonoBehaviour
     Light2D getLightScript;
     Animator animator;
 
-    float flickerValue = 1f, topTarget, floorTarget;
-    bool flick, isActive = true;
+    public float flickerValue = 1f, topTarget, floorTarget;
+    public bool flick, isActive = true;
 
     void Start()
     {

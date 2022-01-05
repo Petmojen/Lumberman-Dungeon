@@ -15,23 +15,23 @@ public class Debugger : MonoBehaviour
     {
 		if(Input.GetKeyDown(KeyCode.Alpha4))
 		{
-			immortal = !immortal;
+			//immortal = !immortal;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha5))
 		{
-			instaDeath = !instaDeath;
+			//instaDeath = !instaDeath;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha6))
 		{
-			addInventoryTorch = !addInventoryTorch;
+			//addInventoryTorch = !addInventoryTorch;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha7))
 		{
-			addInventorySeed = !addInventorySeed;
+			//addInventorySeed = !addInventorySeed;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha8))
 		{
-			addInventoryVine = !addInventoryVine;
+			//addInventoryVine = !addInventoryVine;
 		}
 	    if(Input.GetKeyDown(KeyCode.Alpha9))
 		{

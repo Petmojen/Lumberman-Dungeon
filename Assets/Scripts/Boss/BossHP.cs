@@ -74,7 +74,6 @@ public class BossHP : MonoBehaviour
 				if (bossHp <= 0 && !bossDead)
 				{
 					DifficultyManager.difficultyLevel++;
-					//NextHealthLevel();
 					bossDead = true;
 				}
 			}
@@ -87,7 +86,6 @@ public class BossHP : MonoBehaviour
 				if (bossHp <= 0 && !bossDead)
 				{
 					DifficultyManager.difficultyLevel++;
-					//NextHealthLevel();
 					bossDead = true;
 				}
 			}

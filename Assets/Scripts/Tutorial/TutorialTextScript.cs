@@ -111,7 +111,7 @@ public class TutorialTextScript : MonoBehaviour
 				textStacker++;
 			}
 
-			if (inventorySystemScriptT.torchInt >= 1 && !pickedUpTorch)
+			if (inventorySystemScript.torchInt >= 1 && !pickedUpTorch)
 			{
 				textImage.sprite = TorchPickup;
 				this.gameObject.GetComponent<Image>().enabled = true;

@@ -8,37 +8,38 @@ public class PlayerMovement:MonoBehaviour
 
     public bool dashCooldown, dashing, bossCollide, rootSnared;
 
-	float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10, movementSpeed = 7.5f, rotateArrow ,arrowAngle, relativeAngle;
+    float dashTime = 0.4f, dashCooldownTime = 1f, dashSpeed = 10, movementSpeed = 7.5f, rotateArrow, arrowAngle, relativeAngle;
     public float angle, knockAngle;
     public Vector2 playerPosition;
-	public enum Attack {Idle, Throw, AxeReturning, Melee};
-	public Attack axeAttack;
+    public enum Attack { Idle, Throw, AxeReturning, Melee };
+    public Attack axeAttack;
     Vector2 knockDirection;
     Rigidbody2D rgbd2D;
-	Timer timerScript;
-	public GameObject arrow, boss;
-	Vector3 arrowDirection;
+    Timer timerScript;
+    public GameObject arrow, boss;
+    Vector3 arrowDirection;
 
     void Start()
     {
         Time.timeScale = 1;
         rgbd2D = GetComponent<Rigidbody2D>();
-		axeAttack = Attack.Idle;
+        axeAttack = Attack.Idle;
         activateBossScript = GameObject.FindObjectOfType(typeof(BossAttackManager)) as BossAttackManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
     void Update()
     {
-		if (timerScript.timeLeft <= 0f && (transform.position - boss.transform.position).magnitude > 17f)
-		{
-			arrow.SetActive(true);
-			DirectionArrow();
-		} else {
-			arrow.SetActive(false);
-			DirectionArrow();
-		}
-		
+        if(timerScript.timeLeft <= 0f && (transform.position - boss.transform.position).magnitude > 17f)
+        {
+            arrow.SetActive(true);
+            DirectionArrow();
+        } else
+        {
+            arrow.SetActive(false);
+            DirectionArrow();
+        }
+
         if(GetComponent<PlayerHpSystem>().knockback)
         {
             rgbd2D.velocity = Vector2.zero;
@@ -56,7 +57,7 @@ public class PlayerMovement:MonoBehaviour
 
         if(Input.GetAxisRaw("Melee") > 0f || Input.GetAxisRaw("Throw") > 0f)
         {
-			MeleeLookAt(transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0));
+            MeleeLookAt(transform.position + new Vector3(Input.GetAxisRaw("HorizontalAim"), Input.GetAxisRaw("VerticalAim"), 0));
         }
 
         if(axeAttack != Attack.Melee && axeAttack != Attack.Throw && !GetComponent<PlayerHpSystem>().isDead && !GetComponent<PlayerHpSystem>().knockback)
@@ -72,23 +73,23 @@ public class PlayerMovement:MonoBehaviour
                 Invoke(nameof(DashLength), dashTime);
             }
 
-            if(!dashing && !rootSnared && !GetComponent<PlayerHpSystem>().knockback) rgbd2D.velocity = playerPosition.normalized * movementSpeed;
+            if(!dashing && !rootSnared && !GetComponent<PlayerHpSystem>().knockback)
+                rgbd2D.velocity = playerPosition.normalized * movementSpeed;
         }
 
-        if (bossCollide)
-		{
-			rgbd2D.velocity = Vector2.zero;
+        if(bossCollide)
+        {
+            rgbd2D.velocity = Vector2.zero;
             rgbd2D.AddForce(Vector2.down * 6, ForceMode2D.Impulse);
-			dashCooldown = false;
-			dashing = false;
-		}
-	}
+            dashCooldown = false;
+            dashing = false;
+        }
+    }
 
     void MeleeLookAt(Vector2 mousePos)
     {
         rgbd2D.velocity = Vector2.zero;
         Vector2 lookDirection = mousePos - (Vector2)transform.position;
-        //rgbd2D.AddForce(lookDirection.normalized * 2, ForceMode2D.Impulse);
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
     }
 
@@ -100,26 +101,17 @@ public class PlayerMovement:MonoBehaviour
     }
 
     void DashLength()
-	{
+    {
         dashing = false;
-		axeAttack = Attack.Idle;
-		rgbd2D.AddForce(Vector2.zero, ForceMode2D.Impulse);
+        axeAttack = Attack.Idle;
+        rgbd2D.AddForce(Vector2.zero, ForceMode2D.Impulse);
         Invoke(nameof(DashCooldown), dashCooldownTime);
-	}
+    }
 
     void DashCooldown()
     {
         dashCooldown = false;
     }
-
-	 private void OnTriggerStay2D(Collider2D collision)
-	{
-	    if(collision.CompareTag("Axe") && axeAttack == Attack.AxeReturning)
-	    {
-			axeAttack = Attack.Idle;
-			Destroy(collision.gameObject);
-	    }
-	}
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -167,31 +159,31 @@ public class PlayerMovement:MonoBehaviour
     }
 
     void PlayerBossCollisionCooldown()
-	{
-		bossCollide = false;
-		CancelInvoke();
-	}
-	
-		void DirectionArrow()
-	{
-		arrowDirection = transform.position - boss.transform.position;
-		arrowAngle = Mathf.Atan2(arrowDirection.y, arrowDirection.x) * Mathf.Rad2Deg;
-		relativeAngle = arrow.transform.eulerAngles.z;
-		
-		if ((relativeAngle  > arrowAngle + 180f || relativeAngle < arrowAngle)  && !(relativeAngle > arrowAngle + 361f))
-		{
-			rotateArrow = -0.01f;
-			
-		} else {
-			rotateArrow = 0.01f;
-		}
-		
-		float arrowAngleDeadZone = Mathf.Abs(relativeAngle - 180f - arrowAngle);
-		if (arrowAngleDeadZone < 1f)
-		{
-			rotateArrow = 0f;
-		}
-		
-		arrow.transform.RotateAround (transform.position, new Vector3(0f, 0f, 1f), rotateArrow * Time.deltaTime * 5000f);	
-	}
+    {
+        bossCollide = false;
+        CancelInvoke();
+    }
+
+    void DirectionArrow()
+    {
+        arrowDirection = transform.position - boss.transform.position;
+        arrowAngle = Mathf.Atan2(arrowDirection.y, arrowDirection.x) * Mathf.Rad2Deg;
+        relativeAngle = arrow.transform.eulerAngles.z;
+
+        if((relativeAngle > arrowAngle + 180f || relativeAngle < arrowAngle) && !(relativeAngle > arrowAngle + 361f))
+        {
+            rotateArrow = -0.01f;
+        } else {
+            rotateArrow = 0.01f;
+        }
+
+        float arrowAngleDeadZone = Mathf.Abs(relativeAngle - 180f - arrowAngle);
+
+        if(arrowAngleDeadZone < 1f)
+        {
+            rotateArrow = 0f;
+        }
+
+        arrow.transform.RotateAround(transform.position, new Vector3(0f, 0f, 1f), rotateArrow * Time.deltaTime * 5000f);
+    }
 }

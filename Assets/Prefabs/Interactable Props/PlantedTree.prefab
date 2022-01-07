@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8956742569315309859}
   m_Layer: 0
   m_Name: PlantedTree
-  m_TagString: Untagged
+  m_TagString: PlantedTree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

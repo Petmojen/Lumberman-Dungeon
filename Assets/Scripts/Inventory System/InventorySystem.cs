@@ -22,6 +22,7 @@ public class InventorySystem:MonoBehaviour
     Vine vineScript;
     Log logScript;
 
+
     void Start()
     {
         debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
@@ -38,7 +39,10 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-		if (flashTextAtStart)
+        
+        Debug.DrawLine(itemPlacementOffset.transform.position + itemPlacementOffset.transform.right, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2, Color.green);
+
+        if (flashTextAtStart)
 		{
 			FadeTextTimer();
 		}
@@ -248,9 +252,11 @@ public class InventorySystem:MonoBehaviour
 		{
 			seedInt--;
 			seedText.text = seedInt.ToString();
-			Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2f,  Quaternion.identity);
+            
+            Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2,  Quaternion.identity);  
 		}
 	}
+
 	void FadeText()
 	{
 		if (fadeOutTextColor <= 1f && !brightToDarkText)
@@ -262,6 +268,7 @@ public class InventorySystem:MonoBehaviour
 		} else {
 			brightToDarkText = true;
 		}
+
 		if (fadeOutTextColor > 0f && brightToDarkText) 
 		{
 			fadeOutTextColor -= Time.deltaTime * 2;
@@ -269,6 +276,7 @@ public class InventorySystem:MonoBehaviour
 			torchText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
 			seedText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
 		}
+
 		if (fadeOutTextColor <= 0f && brightToDarkText)
 		{
 			torchText.fontStyle = FontStyle.Normal;
@@ -293,14 +301,14 @@ public class InventorySystem:MonoBehaviour
 		CancelInvoke();
 	}
 	
-		void HighLightSeed()
+    void HighLightSeed()
 	{
 		seedText.fontStyle = FontStyle.Normal;
 		seedText.color = new Color(1f, 1f, 1f, 0.8f);
 		CancelInvoke();
 	}
 	
-		void HighLightVine()
+    void HighLightVine()
 	{
 		vineText.fontStyle = FontStyle.Normal;
 		vineText.color = new Color(1f, 1f, 1f, 0.8f);

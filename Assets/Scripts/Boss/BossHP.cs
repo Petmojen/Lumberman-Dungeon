@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BossHP : MonoBehaviour
 {
     [SerializeField] MinionSpawning minionInvincibleScript;
+    BossAnimationManager animaitonScript;
     ForceToBossDarkness darknessScript;
     [SerializeField] Slider healthBar;
     DifficultyManager difficultyScript;
@@ -20,7 +21,8 @@ public class BossHP : MonoBehaviour
         darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
         difficultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-		NextHealthLevel();
+        animaitonScript = GetComponent<BossAnimationManager>();
+        NextHealthLevel();
     }
 
     void Update()
@@ -41,15 +43,15 @@ public class BossHP : MonoBehaviour
                     maxHp = 100;
                     bossHp = maxHp;
                     break;
-                case 2: 
+                case 2:
                     maxHp = 200;
                     bossHp = maxHp;
                     break;
-				case 3: 
+				case 3:
                     maxHp = 300;
                     bossHp = maxHp;
                     break;
-				case 4: 
+				case 4:
                     maxHp = 500;
                     bossHp = maxHp;
                     break;
@@ -66,7 +68,7 @@ public class BossHP : MonoBehaviour
     {
 		if (timerScript.timeOut && darknessScript.radiusOfLight < 13.51f)
 		{
-			if (collision.CompareTag("Axe") && !hitCooldown && !minionInvincibleScript.bossInvicible)
+			if (collision.CompareTag("Axe") && !hitCooldown && !minionInvincibleScript.bossInvicible && animaitonScript.wakeOnce)
 			{
 				bossHp -= 2;
 				hitCooldown = true;
@@ -78,7 +80,7 @@ public class BossHP : MonoBehaviour
 				}
 			}
 
-			if (collision.CompareTag("Melee") && !hitCooldown && !minionInvincibleScript.bossInvicible)
+			if (collision.CompareTag("Melee") && !hitCooldown && !minionInvincibleScript.bossInvicible && animaitonScript.wakeOnce)
 			{
 				bossHp -= 5;
                 hitCooldown = true;

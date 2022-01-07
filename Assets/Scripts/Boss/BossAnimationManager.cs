@@ -30,7 +30,7 @@ public class BossAnimationManager:MonoBehaviour
 
     void Update()
     {
-        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible && !wakeOnce)
+        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !wakeOnce)
         {
             wakingUp = true;
         }

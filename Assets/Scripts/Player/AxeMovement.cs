@@ -39,6 +39,12 @@ public class AxeMovement:MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, angle);
             rgbd2D.velocity = transform.right * flyingSpeed;
         }
+
+        if(Vector3.Distance(playerPosition.transform.position, transform.position) < 1 && playerMovementScript.axeAttack == PlayerMovement.Attack.AxeReturning)
+        {
+            playerMovementScript.axeAttack = PlayerMovement.Attack.Idle;
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,6 +59,7 @@ public class AxeMovement:MonoBehaviour
         {
             pSFX.AxeHitWall();
         }
+
         if(collision.CompareTag("Boss") || collision.CompareTag("PlantedTree"))
         {
             pSFX.AxeHitWood();

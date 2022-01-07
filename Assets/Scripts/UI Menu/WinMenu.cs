@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WinMenu : MonoBehaviour
 {
+    [SerializeField] Sprite[] spriteLevels;
+    [SerializeField] Image changeLevelImage;
     [SerializeField] GameObject WinText;
 	public GameObject FadeToBlackForMenuUI;
     BossHP bossHPScript;
 	FadeToBlack fadeToBlack;
 	FadeToBlackForMenu fadeToBlackForMenu;
+    DifficultyManager dificultyScript;
 
     void Start()
     {
         bossHPScript = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>();
 		fadeToBlack = GameObject.FindObjectOfType(typeof(FadeToBlack)) as FadeToBlack;
-		fadeToBlackForMenu = GameObject.FindObjectOfType(typeof(FadeToBlackForMenu)) as FadeToBlackForMenu;			
+        dificultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
+        fadeToBlackForMenu = GameObject.FindObjectOfType(typeof(FadeToBlackForMenu)) as FadeToBlackForMenu;
+        changeLevelImage.sprite = spriteLevels[DifficultyManager.difficultyLevel];
     }
 
     void Update()

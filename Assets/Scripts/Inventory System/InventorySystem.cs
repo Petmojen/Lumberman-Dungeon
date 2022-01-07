@@ -41,13 +41,6 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-        //RaycastHit2D hit = Physics2D.Raycast(itemPlacementOffset.transform.position, itemPlacementOffset.transform.right, Mathf.Infinity, LayerMask.GetMask("Raycast"));
-        //if(hit.distance > 4 && hit.transform.CompareTag("Wall"))
-        //{
-
-        //}
-
-
         if (flashTextAtStart)
 		{
 			FadeTextTimer();
@@ -97,8 +90,7 @@ public class InventorySystem:MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Debug Validate"))
 		{
-            Invoke(nameof(PlaceTree), 0.02f);
-            //PlaceTree();
+            PlaceTree();
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("Debug Reset"))

@@ -17,9 +17,9 @@ public class AxeMovement:MonoBehaviour
     void Start()
     {
         axeSrc = GetComponent<AudioSource>();
-        pSFX = GameObject.FindObjectOfType(typeof(PlayerSFX)) as PlayerSFX;
         rgbd2D = GetComponent<Rigidbody2D>();
         playerPosition = GameObject.FindGameObjectWithTag("Player");
+        pSFX = GameObject.FindObjectOfType(typeof(PlayerSFX)) as PlayerSFX;
 		playerMovementScript = GameObject.FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement; 
     }
 

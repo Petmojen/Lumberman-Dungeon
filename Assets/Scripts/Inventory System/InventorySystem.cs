@@ -248,7 +248,6 @@ public class InventorySystem:MonoBehaviour
 		{
 			seedInt--;
 			seedText.text = seedInt.ToString();
-			
 			Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2f,  Quaternion.identity);
 		}
 	}

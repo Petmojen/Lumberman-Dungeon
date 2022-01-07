@@ -104,7 +104,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible && !debuggerScript.immortal)
+        if(!invincible)
         {
             switch(collision.gameObject.tag)
             {
@@ -138,7 +138,7 @@ public class PlayerHpSystem:MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Light":
-                if(!debuggerScript.immortal || timerScript.timeOut)
+                if(timerScript.timeOut)
                 darkness = false;
                 break;
             case "Heal":

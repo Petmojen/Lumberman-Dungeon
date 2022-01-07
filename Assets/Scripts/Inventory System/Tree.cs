@@ -10,7 +10,12 @@ public class Tree : MonoBehaviour
     {
         if(health <= 0) {
             Destroy(gameObject);
-        } 
+        }
+
+        if(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        {
+            GetComponent<Animator>().Play("Idle");
+        }
     }
 
     void TakeDamage(float amount)
@@ -28,7 +33,8 @@ public class Tree : MonoBehaviour
         CancelInvoke();
     }
 
-    void OnTriggerEnter2D(Collider2D collision) {
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         switch(collision.gameObject.tag)
         {
             case "Axe":

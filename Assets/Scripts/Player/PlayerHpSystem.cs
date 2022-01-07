@@ -27,7 +27,6 @@ public class PlayerHpSystem:MonoBehaviour
 		Invoke(nameof(Vincible), 1f);
 	}
 
-
 	void Update()
 	{
         //Debug

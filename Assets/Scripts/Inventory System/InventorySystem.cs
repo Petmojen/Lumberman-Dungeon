@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
+    public bool seedBool, vineBool, torchBool, logBool, maxCapacity, torchUsing;
 	[SerializeField] GameObject bonFirePrefab, treePrefab, itemPlacementOffset;
     [SerializeField] Text seedText, vineText, torchText;
-    public bool seedBool, vineBool, torchBool, logBool;
-	float bonFireTimer = 10, torchTimer = 5;
-    public bool maxCapacity, torchUsing;
 	bool brightToDarkText, flashTextAtStart = true;
+    public GameObject holdResource, miniMap;
+	float bonFireTimer = 10, torchTimer = 5;
     public int seedInt, vineInt, torchInt;
 	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
-    public GameObject holdResource, miniMap;
 	Debugger debuggerScript;
+
+
 
     PlayerMovement movementScript;
     EarthMound earthMoundScript;
@@ -25,6 +26,7 @@ public class InventorySystem:MonoBehaviour
 
     void Start()
     {
+
         debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
         playerHpScript = GetComponent<PlayerHpSystem>();
         movementScript = GetComponent<PlayerMovement>();
@@ -39,8 +41,12 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-        
-        Debug.DrawLine(itemPlacementOffset.transform.position + itemPlacementOffset.transform.right, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2, Color.green);
+        //RaycastHit2D hit = Physics2D.Raycast(itemPlacementOffset.transform.position, itemPlacementOffset.transform.right, Mathf.Infinity, LayerMask.GetMask("Raycast"));
+        //if(hit.distance > 4 && hit.transform.CompareTag("Wall"))
+        //{
+
+        //}
+
 
         if (flashTextAtStart)
 		{
@@ -91,7 +97,8 @@ public class InventorySystem:MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Debug Validate"))
 		{
-            PlaceTree();
+            Invoke(nameof(PlaceTree), 0.02f);
+            //PlaceTree();
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("Debug Reset"))
@@ -122,8 +129,7 @@ public class InventorySystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        holdResource = collision.gameObject;
-        switch(holdResource.tag)
+        switch(collision.tag)
         {
             case "Seed":
                 seedBool = true;
@@ -134,6 +140,7 @@ public class InventorySystem:MonoBehaviour
                 vineScript = collision.GetComponent<Vine>();
                 break;
             case "Tourch":
+                holdResource = collision.gameObject;
                 torchBool = true;
                 break;
             case "Log":
@@ -213,9 +220,10 @@ public class InventorySystem:MonoBehaviour
 	
 	void PlaceBonfire()
 	{
-		if (vineInt >= 4)
+        RaycastHit2D hit = Physics2D.Raycast(itemPlacementOffset.transform.position, itemPlacementOffset.transform.right, Mathf.Infinity, LayerMask.GetMask("Raycast"));
+		if (vineInt >= 4 && hit.distance > 2 && hit.transform.CompareTag("Wall"))
 		{
-			vineInt -= 4;
+            vineInt -= 4;
 			vineText.text = vineInt.ToString();
 			GameObject bonFireinstance = Instantiate(bonFirePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 1.5f,  Quaternion.identity);
 			Destroy(bonFireinstance, bonFireTimer);
@@ -248,13 +256,13 @@ public class InventorySystem:MonoBehaviour
 
     void PlaceTree()
 	{
-		if (seedInt > 0)
-		{
-			seedInt--;
-			seedText.text = seedInt.ToString();
-            
-            Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2,  Quaternion.identity);  
-		}
+        RaycastHit2D hit = Physics2D.Raycast(itemPlacementOffset.transform.position, itemPlacementOffset.transform.right, Mathf.Infinity, LayerMask.GetMask("Raycast"));
+        if(seedInt > 0 && hit.distance > 2 && hit.transform.CompareTag("Wall"))
+        {
+            seedInt--;
+            seedText.text = seedInt.ToString();
+            Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2, Quaternion.identity);
+        }
 	}
 
 	void FadeText()

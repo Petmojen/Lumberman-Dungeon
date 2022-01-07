@@ -10,9 +10,4 @@ public class DifficultyManager : MonoBehaviour
     {
 
     }
-
-    void Update()
-    {
-        
-    }
 }

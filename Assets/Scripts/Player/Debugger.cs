@@ -15,7 +15,7 @@ public class Debugger : MonoBehaviour
     {
 		if(Input.GetKeyDown(KeyCode.Alpha4))
 		{
-			//immortal = !immortal;
+			immortal = !immortal;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha5))
 		{

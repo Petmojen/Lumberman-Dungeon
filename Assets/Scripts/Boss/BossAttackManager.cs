@@ -35,12 +35,6 @@ public class BossAttackManager : MonoBehaviour
     {
 		difficultyLevel = DifficultyManager.difficultyLevel;
 
-        Debug.Log(DifficultyManager.difficultyLevel);
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            DifficultyManager.difficultyLevel = 4;
-        }
-
         if(wokenUp && !activateMinionSpawning.bossInvicible && !healthScript.bossDead)
         {
             switch(DifficultyManager.difficultyLevel)

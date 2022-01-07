@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class WinMenu : MonoBehaviour
 {
-    [SerializeField] Sprite[] spriteLevels;
+    [SerializeField] Sprite[] spriteLevels, winImage;
     [SerializeField] Image changeLevelImage;
-    [SerializeField] GameObject WinText;
+    [SerializeField] GameObject WinText, menuButton;
 	public GameObject FadeToBlackForMenuUI;
     BossHP bossHPScript;
 	FadeToBlack fadeToBlack;
@@ -30,7 +30,7 @@ public class WinMenu : MonoBehaviour
 		{
 			Invoke(nameof(FadeOut), 3f);
 			Invoke(nameof(FadeIn), 6f);
-        }        
+        }
     }
 
 	void FadeIn()
@@ -42,7 +42,8 @@ public class WinMenu : MonoBehaviour
 			if (fadeToBlackForMenu.image.color.a <= 0f)
 			{
 				WinText.SetActive(true);
-				FadeToBlackForMenuUI.SetActive(false);
+                menuButton.SetActive(false);
+                FadeToBlackForMenuUI.SetActive(false);
 				Invoke(nameof(NextStage), 3f);
 			}
 		}
@@ -55,7 +56,12 @@ public class WinMenu : MonoBehaviour
 	
 	void NextStage()
 	{
-		SceneManager.LoadScene("Map");
+        if(DifficultyManager.difficultyLevel == 5)
+        {
+            menuButton.SetActive(true);
+        } else {
+		    SceneManager.LoadScene("Map");
+        }
 		CancelInvoke();
 	}
 }

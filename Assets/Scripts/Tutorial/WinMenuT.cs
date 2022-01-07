@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinMenuT : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class WinMenuT : MonoBehaviour
 				WinText.SetActive(true);
 				FadeToBlackForMenuUI.SetActive(false);
 				DifficultyManager.difficultyLevel++;
+				Invoke(nameof(NextStage), 3f);
 			}
 		}
 	}
@@ -44,5 +46,11 @@ public class WinMenuT : MonoBehaviour
 	void FadeOut()
 	{
 		fadeToBlack.Fade(false);
+	}
+	
+	void NextStage()
+	{
+		SceneManager.LoadScene("Map");
+		CancelInvoke();
 	}
 }

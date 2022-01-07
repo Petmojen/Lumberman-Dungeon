@@ -18,7 +18,7 @@ public class SpinShield : MonoBehaviour
 		{
 			rectTransform.Rotate(0f, 2f, 0.0f, Space.Self);
 			rotateTimer += Time.deltaTime;
-		} else if (rectTransform.rotation.y >= -1f && rectTransform.rotation.y < 1f)
+		} else if (rectTransform.rotation.y >= -0.5f && rectTransform.rotation.y < 0.5f)
 		{
 			rectTransform.rotation = Quaternion.Euler(0, 0, 0);
 		}

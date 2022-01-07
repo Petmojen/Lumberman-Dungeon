@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 	void Start()
 	{
 		fadeToBlackForMenu = GameObject.FindObjectOfType(typeof(FadeToBlackForMenu)) as FadeToBlackForMenu;
+		FadeToBlackForMenuUI.SetActive(true);
 	}
 	
 	void Update()

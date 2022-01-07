@@ -9,11 +9,13 @@ public class Timer : MonoBehaviour
 	public bool timeOut = false;
 	Debugger debuggerScript;
     Text text;
+	TutorialTextScript tutorialTextScript;
 
     void Start()
     {
         debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		text = GetComponent<Text>();
+		tutorialTextScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
     }
 
     void Update()

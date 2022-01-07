@@ -9,58 +9,65 @@ public class HighlightItem : MonoBehaviour
 	Light2D lightSource;
 	Vine vineScript;
 	EarthMound earthMoundScript;
-
+	Log logScript;
 
     void Start()
     {
 		lightSource = gameObject.GetComponentInChildren<Light2D>();
 		textScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
-		vineScript = GameObject.FindObjectOfType(typeof(Vine)) as Vine;
-		earthMoundScript = GameObject.FindObjectOfType(typeof(EarthMound)) as EarthMound;
-
     }
 
 	void OnTriggerEnter2D(Collider2D collision)
-	{
-
-		if (transform.CompareTag("Tourch"))
+	{	
+		if (textScript.tutorialHighLight)
 		{
-				lightSource.intensity = 2f;
-				textScript.typeOfItem = transform.tag;
-		}
-		
-		if (transform.CompareTag("Seed"))
-		{
-			if (!earthMoundScript.taken)
+			switch (transform.tag)
 			{
-				lightSource.intensity = 2f;
-				textScript.typeOfItem = transform.tag;
+				case "Tourch":
+					lightSource.color = Color.white;
+					textScript.typeOfItem = transform.tag;
+					break;
+					
+				case "Seed":
+					earthMoundScript = GetComponent<EarthMound>();
+					if (!earthMoundScript.taken)
+						{
+							lightSource.intensity = 2f;
+							textScript.typeOfItem = transform.tag;
+						}
+					break;
+					
+				case "Log":
+					logScript = GetComponent<Log>();
+					if (!logScript.taken)
+					{
+						lightSource.intensity = 2f;
+						textScript.typeOfItem = transform.tag;
+					}
+					break;
+					
+				case "Vine":
+					vineScript = GetComponent<Vine>();
+					if (!vineScript.taken)
+					{
+						lightSource.intensity = 2f;
+						textScript.typeOfItem = transform.tag;
+					}
+					break;
 			}
-		}
-			
-				if (transform.CompareTag("Log"))
-		{
-		//	if (!logScript.taken)
-		//	{
-				lightSource.intensity = 2f;
-				textScript.typeOfItem = transform.tag;
-		//	}
-		}
-		if (transform.CompareTag("Vine"))
-		{
-		if (!vineScript.taken)
-		{
-			lightSource.intensity = 2f;
-			textScript.typeOfItem = transform.tag;
-		}
 		}
     }
     
 
     void OnTriggerExit2D(Collider2D collision)
     {
-		lightSource.intensity = 0f;
 		textScript.typeOfItem = "";
 		
+		if (transform.tag != "Tourch")
+		{
+			lightSource.intensity = 0f;
+		} else {
+			lightSource.color = new Color(1f, 0.7305389f, 0);
+		}
     }
 }

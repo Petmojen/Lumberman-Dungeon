@@ -8,6 +8,8 @@ public class PlayerSFX : MonoBehaviour
      * 0. PlayerFootsteps
      * 1. AxeMelee
      * 2. AxeThrow
+     * 3. AxeHitWall
+     * 4. AxeHitWood
      */
     [SerializeField]
     AudioClip[] playerSFX;
@@ -44,6 +46,20 @@ public class PlayerSFX : MonoBehaviour
     public void AxeThrow()
     {
         audioSource.clip = playerSFX[2];
+        audioSource.Play();
+    }
+
+    public void AxeHitWall()
+    {
+        audioSource.clip = playerSFX[3];
+        audioSource.pitch = Random.Range(0.7f, 0.9f);
+        audioSource.Play();
+    }
+
+    public void AxeHitWood()
+    {
+        audioSource.clip = playerSFX[4];
+        audioSource.pitch = Random.Range(0.7f, 0.9f);
         audioSource.Play();
     }
 }

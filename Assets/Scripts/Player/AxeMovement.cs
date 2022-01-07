@@ -11,10 +11,13 @@ public class AxeMovement:MonoBehaviour
     SpriteRenderer flipSprite;
     float flyingSpeed = 10;
     Rigidbody2D rgbd2D;
+    PlayerSFX pSFX;
+    AudioSource axeSrc;
 
     void Start()
     {
-
+        axeSrc = GetComponent<AudioSource>();
+        pSFX = GameObject.FindObjectOfType(typeof(PlayerSFX)) as PlayerSFX;
         rgbd2D = GetComponent<Rigidbody2D>();
         playerPosition = GameObject.FindGameObjectWithTag("Player");
 		playerMovementScript = GameObject.FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement; 
@@ -44,6 +47,15 @@ public class AxeMovement:MonoBehaviour
         {
             backToPlayer = true;
 			playerMovementScript.axeAttack = PlayerMovement.Attack.AxeReturning;
+        }
+
+        if(collision.CompareTag("Wall"))
+        {
+            pSFX.AxeHitWall();
+        }
+        if(collision.CompareTag("Boss") || collision.CompareTag("PlantedTree"))
+        {
+            pSFX.AxeHitWood();
         }
     }
 }

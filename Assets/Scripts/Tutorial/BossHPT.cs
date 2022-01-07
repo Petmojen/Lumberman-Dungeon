@@ -7,15 +7,18 @@ public class BossHPT : MonoBehaviour
 {
     [SerializeField] MinionSpawning minionInvincibleScript;
     TutorialDarkness darknessScript;
+	BossAnimationManagerT animationScript;
     [SerializeField] Slider healthBar;
     public bool bossDead, healing, takeHit;
     public float bossHp = 50;
+	static float maxHp = 50;
 	bool hitCooldown = false;
 	Timer timerScript;
 	
     void Start()
     {
         darknessScript = GameObject.FindObjectOfType(typeof(TutorialDarkness)) as TutorialDarkness;
+		animationScript = GetComponent<BossAnimationManagerT>();
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
     }
 
@@ -36,7 +39,7 @@ public class BossHPT : MonoBehaviour
     {
 		if (timerScript.timeOut)// && darknessScript.radiusOfLight < 13.51f)
 		{
-			if (collision.CompareTag("Axe") && !hitCooldown)
+			if (collision.CompareTag("Axe") && !hitCooldown && animationScript.wakeOnce)
 			{
 				bossHp -= 2;
 				hitCooldown = true;
@@ -44,7 +47,7 @@ public class BossHPT : MonoBehaviour
 				if (bossHp <= 0) bossDead = true;
 			}
 
-			if (collision.CompareTag("Melee") && !hitCooldown)
+			if (collision.CompareTag("Melee") && !hitCooldown && animationScript.wakeOnce)
 			{
 				bossHp -= 5;
                 hitCooldown = true;
@@ -57,7 +60,10 @@ public class BossHPT : MonoBehaviour
 
     void Heal()
     {
-        bossHp += 0.25f;
+        if(bossHp < maxHp)
+        {
+            bossHp += 0.25f;
+        }
         CancelInvoke();
     }
 

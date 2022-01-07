@@ -6,7 +6,7 @@ public class BossAnimationManagerT:MonoBehaviour
 {
     //MinionSpawning activateMinionSpawning;
     TutorialDarkness darknessScript;
-    BossAttackManager managerScript;
+    BossAttackManagerT managerScript;
     SpriteRenderer changeColor;
     BossHPT healthScript;
     Animator animator;
@@ -14,7 +14,7 @@ public class BossAnimationManagerT:MonoBehaviour
     BossSFX soundFX;
 
     public bool wakingUp, idle;
-    bool wakeOnce;
+    public bool wakeOnce;
     string currentState;
 
     void Start()
@@ -22,7 +22,7 @@ public class BossAnimationManagerT:MonoBehaviour
         darknessScript = GameObject.FindObjectOfType(typeof(TutorialDarkness)) as TutorialDarkness;
         //activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-        managerScript = GetComponent<BossAttackManager>();
+        managerScript = GetComponent<BossAttackManagerT>();
         changeColor = GetComponent<SpriteRenderer>();
         healthScript = GetComponent<BossHPT>();
         animator = GetComponent<Animator>();

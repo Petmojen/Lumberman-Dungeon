@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BossHP : MonoBehaviour
 {
     [SerializeField] MinionSpawning minionInvincibleScript;
-    BossAnimationManager animaitonScript;
+    BossAnimationManager animationScript;
     ForceToBossDarkness darknessScript;
     [SerializeField] Slider healthBar;
     DifficultyManager difficultyScript;
@@ -21,7 +21,7 @@ public class BossHP : MonoBehaviour
         darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
         difficultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
         timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-        animaitonScript = GetComponent<BossAnimationManager>();
+        animationScript = GetComponent<BossAnimationManager>();
         NextHealthLevel();
     }
 
@@ -68,7 +68,7 @@ public class BossHP : MonoBehaviour
     {
 		if (timerScript.timeOut && darknessScript.radiusOfLight < 13.51f)
 		{
-			if (collision.CompareTag("Axe") && !hitCooldown && !minionInvincibleScript.bossInvicible && animaitonScript.wakeOnce)
+			if (collision.CompareTag("Axe") && !hitCooldown && !minionInvincibleScript.bossInvicible && animationScript.wakeOnce)
 			{
 				bossHp -= 2;
 				hitCooldown = true;
@@ -80,7 +80,7 @@ public class BossHP : MonoBehaviour
 				}
 			}
 
-			if (collision.CompareTag("Melee") && !hitCooldown && !minionInvincibleScript.bossInvicible && animaitonScript.wakeOnce)
+			if (collision.CompareTag("Melee") && !hitCooldown && !minionInvincibleScript.bossInvicible && animationScript.wakeOnce)
 			{
 				bossHp -= 5;
                 hitCooldown = true;

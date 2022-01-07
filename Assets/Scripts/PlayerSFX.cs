@@ -46,4 +46,11 @@ public class PlayerSFX : MonoBehaviour
         audioSource.clip = playerSFX[2];
         audioSource.Play();
     }
+
+    public void AxeHitWall()
+    {
+        audioSource.clip = playerSFX[3];
+        audioSource.pitch = Random.Range(0.7f, 0.9f);
+        audioSource.Play();
+    }
 }

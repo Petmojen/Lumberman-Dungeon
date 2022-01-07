@@ -33,15 +33,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Map
   - Water
   - UI
   - MenuEffect
   - 
   - 
   - 
-  - 
-  - 
+  - WallOutline
+  - MiniMap
   - 
   - 
   - 

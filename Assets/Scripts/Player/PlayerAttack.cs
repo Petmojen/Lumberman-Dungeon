@@ -9,10 +9,12 @@ public class PlayerAttack:MonoBehaviour
     float axeThrowForce = 20, angle;
     GameObject axeAttack;
     Rigidbody2D rgbd2D;
+    PlayerSFX pSFX;
 	
 	void Start()
 	{
 		playerMovementScript = GameObject.FindObjectOfType(typeof(PlayerMovement)) as PlayerMovement;
+        pSFX = GetComponent<PlayerSFX>();
 	}
 
     void Update()
@@ -61,6 +63,7 @@ public class PlayerAttack:MonoBehaviour
         }
         rgbd2D = axe.GetComponent<Rigidbody2D>();
         rgbd2D.AddForce(axe.transform.right * axeThrowForce, ForceMode2D.Impulse);
+        pSFX.AxeThrow();
         CancelInvoke();
     }
 
@@ -69,6 +72,7 @@ public class PlayerAttack:MonoBehaviour
 		playerMovementScript.axeAttack = PlayerMovement.Attack.Melee;
         axeAttack = Instantiate(axeAttackPrefab, axeOffset.transform.position + new Vector3(1.25f, 0, 0), Quaternion.identity);
         axeAttack.transform.RotateAround(axeOffset.transform.position, Vector3.forward, angle);
+        pSFX.AxeMelee();
     }
 
     public void EndMelee()

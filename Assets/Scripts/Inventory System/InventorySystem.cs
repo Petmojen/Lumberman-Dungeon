@@ -14,7 +14,6 @@ public class InventorySystem:MonoBehaviour
     public int seedInt, vineInt, torchInt;
 	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
-	Debugger debuggerScript;
 
 
 
@@ -27,7 +26,6 @@ public class InventorySystem:MonoBehaviour
     void Start()
     {
 
-        debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
         playerHpScript = GetComponent<PlayerHpSystem>();
         movementScript = GetComponent<PlayerMovement>();
 		
@@ -96,26 +94,6 @@ public class InventorySystem:MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("Debug Reset"))
 		{
             PlaceBonfire();
-		}
-		
-		// Debug code
-		if (debuggerScript.addInventorySeed)
-		{
-			seedInt++;
-			seedText.text = string.Format("{0:0}", seedInt);
-			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed;
-		}
-		if (debuggerScript.addInventoryVine)
-		{
-			vineInt++;
-			vineText.text = string.Format("{0:0}", vineInt);
-			debuggerScript.addInventoryVine = !debuggerScript.addInventoryVine;
-		}
-		if (debuggerScript.addInventoryTorch)
-		{
-			torchInt++;
-			torchText.text = string.Format("{0:0}", torchInt);
-			debuggerScript.addInventoryTorch = !debuggerScript.addInventoryTorch;
 		}
     }
 

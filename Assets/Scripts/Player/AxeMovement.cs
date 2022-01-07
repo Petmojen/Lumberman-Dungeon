@@ -53,5 +53,9 @@ public class AxeMovement:MonoBehaviour
         {
             pSFX.AxeHitWall();
         }
+        if(collision.CompareTag("Boss") || collision.CompareTag("PlantedTree"))
+        {
+            pSFX.AxeHitWood();
+        }
     }
 }

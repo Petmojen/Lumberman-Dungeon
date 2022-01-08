@@ -7,13 +7,11 @@ public class Timer : MonoBehaviour
 {
     public float timeLeft = 180f;
 	public bool timeOut = false;
-	Debugger debuggerScript;
     Text text;
 	TutorialTextScript tutorialTextScript;
 
     void Start()
     {
-        debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		text = GetComponent<Text>();
 		tutorialTextScript = GameObject.FindObjectOfType(typeof(TutorialTextScript)) as TutorialTextScript;
     }
@@ -21,12 +19,12 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
-        if (timeLeft < 0 || debuggerScript.timerZero)
+        if (timeLeft < 0)
 		{
             timeLeft = 0;
 			timeOut = true;
-			debuggerScript.timerZero = false;
 		}
+
 		if (timeLeft <= 30)
 		{
 			text.color = Color.red;

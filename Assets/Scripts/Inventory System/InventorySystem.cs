@@ -5,26 +5,27 @@ using UnityEngine.UI;
 
 public class InventorySystem:MonoBehaviour
 {
+    public bool seedBool, vineBool, torchBool, logBool, maxCapacity, torchUsing;
 	[SerializeField] GameObject bonFirePrefab, treePrefab, itemPlacementOffset;
     [SerializeField] Text seedText, vineText, torchText;
-    public bool seedBool, vineBool, torchBool, logBool;
-	float bonFireTimer = 10, torchTimer = 5;
-    public bool maxCapacity, torchUsing;
 	bool brightToDarkText, flashTextAtStart = true;
+    public GameObject holdResource, miniMap;
+	float bonFireTimer = 10, torchTimer = 5;
     public int seedInt, vineInt, torchInt;
 	public float fadeOutTextColor = 0f;
     PlayerHpSystem playerHpScript;
-    public GameObject holdResource, miniMap;
-	Debugger debuggerScript;
+
+
 
     PlayerMovement movementScript;
     EarthMound earthMoundScript;
     Vine vineScript;
     Log logScript;
 
+
     void Start()
     {
-        debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
+
         playerHpScript = GetComponent<PlayerHpSystem>();
         movementScript = GetComponent<PlayerMovement>();
 		
@@ -38,7 +39,7 @@ public class InventorySystem:MonoBehaviour
 
     void Update()
     {
-		if (flashTextAtStart)
+        if (flashTextAtStart)
 		{
 			FadeTextTimer();
 		}
@@ -94,32 +95,11 @@ public class InventorySystem:MonoBehaviour
 		{
             PlaceBonfire();
 		}
-		
-		// Debug code
-		if (debuggerScript.addInventorySeed)
-		{
-			seedInt++;
-			seedText.text = string.Format("{0:0}", seedInt);
-			debuggerScript.addInventorySeed = !debuggerScript.addInventorySeed;
-		}
-		if (debuggerScript.addInventoryVine)
-		{
-			vineInt++;
-			vineText.text = string.Format("{0:0}", vineInt);
-			debuggerScript.addInventoryVine = !debuggerScript.addInventoryVine;
-		}
-		if (debuggerScript.addInventoryTorch)
-		{
-			torchInt++;
-			torchText.text = string.Format("{0:0}", torchInt);
-			debuggerScript.addInventoryTorch = !debuggerScript.addInventoryTorch;
-		}
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        holdResource = collision.gameObject;
-        switch(holdResource.tag)
+        switch(collision.tag)
         {
             case "Seed":
                 seedBool = true;
@@ -130,6 +110,7 @@ public class InventorySystem:MonoBehaviour
                 vineScript = collision.GetComponent<Vine>();
                 break;
             case "Tourch":
+                holdResource = collision.gameObject;
                 torchBool = true;
                 break;
             case "Log":
@@ -209,9 +190,10 @@ public class InventorySystem:MonoBehaviour
 	
 	void PlaceBonfire()
 	{
-		if (vineInt >= 4)
+        RaycastHit2D hit = Physics2D.Raycast(itemPlacementOffset.transform.position, itemPlacementOffset.transform.right, Mathf.Infinity, LayerMask.GetMask("Raycast"));
+		if (vineInt >= 4 && hit.distance > 2 && hit.transform.CompareTag("Wall"))
 		{
-			vineInt -= 4;
+            vineInt -= 4;
 			vineText.text = vineInt.ToString();
 			GameObject bonFireinstance = Instantiate(bonFirePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 1.5f,  Quaternion.identity);
 			Destroy(bonFireinstance, bonFireTimer);
@@ -244,14 +226,15 @@ public class InventorySystem:MonoBehaviour
 
     void PlaceTree()
 	{
-		if (seedInt > 0)
-		{
-			seedInt--;
-			seedText.text = seedInt.ToString();
-			
-			Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2f,  Quaternion.identity);
-		}
+        RaycastHit2D hit = Physics2D.Raycast(itemPlacementOffset.transform.position, itemPlacementOffset.transform.right, Mathf.Infinity, LayerMask.GetMask("Raycast"));
+        if(seedInt > 0 && hit.distance > 2 && hit.transform.CompareTag("Wall"))
+        {
+            seedInt--;
+            seedText.text = seedInt.ToString();
+            Instantiate(treePrefab, itemPlacementOffset.transform.position + itemPlacementOffset.transform.right * 2, Quaternion.identity);
+        }
 	}
+
 	void FadeText()
 	{
 		if (fadeOutTextColor <= 1f && !brightToDarkText)
@@ -263,6 +246,7 @@ public class InventorySystem:MonoBehaviour
 		} else {
 			brightToDarkText = true;
 		}
+
 		if (fadeOutTextColor > 0f && brightToDarkText) 
 		{
 			fadeOutTextColor -= Time.deltaTime * 2;
@@ -270,6 +254,7 @@ public class InventorySystem:MonoBehaviour
 			torchText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
 			seedText.color = new Color(fadeOutTextColor, fadeOutTextColor, fadeOutTextColor, 1f);
 		}
+
 		if (fadeOutTextColor <= 0f && brightToDarkText)
 		{
 			torchText.fontStyle = FontStyle.Normal;
@@ -294,14 +279,14 @@ public class InventorySystem:MonoBehaviour
 		CancelInvoke();
 	}
 	
-		void HighLightSeed()
+    void HighLightSeed()
 	{
 		seedText.fontStyle = FontStyle.Normal;
 		seedText.color = new Color(1f, 1f, 1f, 0.8f);
 		CancelInvoke();
 	}
 	
-		void HighLightVine()
+    void HighLightVine()
 	{
 		vineText.fontStyle = FontStyle.Normal;
 		vineText.color = new Color(1f, 1f, 1f, 0.8f);

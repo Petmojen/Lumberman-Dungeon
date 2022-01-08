@@ -8,11 +8,6 @@ public class DifficultyManager : MonoBehaviour
 
     void Start()
     {
-        difficultyLevel = 0;
-    }
 
-    void Update()
-    {
-        
     }
 }

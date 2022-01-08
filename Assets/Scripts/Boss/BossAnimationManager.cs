@@ -13,8 +13,7 @@ public class BossAnimationManager:MonoBehaviour
     Timer timerScript;
     BossSFX soundFX;
 
-    public bool wakingUp, idle;
-    bool wakeOnce;
+    public bool wakingUp, idle, wakeOnce;
     string currentState;
 
     void Start()
@@ -31,12 +30,12 @@ public class BossAnimationManager:MonoBehaviour
 
     void Update()
     {
-        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible && !wakeOnce)
+        if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !wakeOnce)
         {
             wakingUp = true;
         }
 
-        if(healthScript.takeHit)
+        if(healthScript.takeHit && wakeOnce)
         {
             changeColor.color = Color.red;
             Invoke(nameof(CancleRed), 0.05f);
@@ -61,8 +60,7 @@ public class BossAnimationManager:MonoBehaviour
             }
         }
     }
-
-
+    
     void ChangeAnimation(string newState)
     {
         if(newState == currentState) return;

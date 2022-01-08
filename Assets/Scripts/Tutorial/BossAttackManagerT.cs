@@ -4,38 +4,66 @@ using UnityEngine;
 
 public class BossAttackManagerT : MonoBehaviour
 {
-	//Leaf attack stuff
-	[SerializeField] GameObject leafPrefab, branchPrefab;
+	[SerializeField] GameObject leafPrefab;
+    //MinionSpawning activateMinionSpawning;
+    BossAnimationManagerT animationScript;
+    DifficultyManager dificultyScript;
     GameObject bossPositionOffset;
-
-    [SerializeField] MinionSpawning activateMinionSpawning;
-
     RootSnare snareActive;
-    ForceToBossDarkness darknessScript;
+    BossHPT healthScript;
+	public int difficultyLevel;
 
 	int numOfAttacks, attackRandomizer;
-    public bool bossAwake = false;
-	bool attackCooldown = false;
-	public string attackType;
-	Timer timerScript;
+    public bool bossAwake, wokenUp;
+	bool attackCooldown;
 	
-	public enum Attacks {Leafs, Minion, BranchSweep, RootSnare};
+	public enum State {Leafs, BranchSweep, Minion, RootSnare, Death, Idle};
+    public System.Object current;
 
     void Start()
     {
-        snareActive = GetComponent<RootSnare>();
+        //activateMinionSpawning = GameObject.FindObjectOfType(typeof(MinionSpawning)) as MinionSpawning;
+        dificultyScript = GameObject.FindObjectOfType(typeof(DifficultyManager)) as DifficultyManager;
+        animationScript = GetComponent<BossAnimationManagerT>();
         bossPositionOffset = GameObject.Find("BossOffset");
-        numOfAttacks = System.Enum.GetNames(typeof(Attacks)).Length;
-		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
-        darknessScript = GameObject.FindObjectOfType(typeof(ForceToBossDarkness)) as ForceToBossDarkness;
+        snareActive = GetComponent<RootSnare>();
+        healthScript = GetComponent<BossHPT>();
+        current = State.Idle;
     }
 
     void Update()
     {
-        //if(timerScript.timeOut && darknessScript.radiusOfLight < 13.51f && !activateMinionSpawning.bossInvicible)
-        //{
-            //AttackManager();
-        //}
+		difficultyLevel = DifficultyManager.difficultyLevel;
+		
+        if(wokenUp && !healthScript.bossDead)
+        {
+            switch(DifficultyManager.difficultyLevel)
+            {
+                case 0:
+                    numOfAttacks = 0;
+                    break;
+                case 1:
+                    numOfAttacks = 2;
+                    break;
+                case 2: 
+                    numOfAttacks = 3;
+                    break;
+				case 3: 
+                    numOfAttacks = 4;
+                    break;
+				case 4: 
+                    numOfAttacks = 4;
+                    break;
+            }
+
+            if((State)current == State.Idle)
+            {
+                Invoke(nameof(AttackManager), 3f);
+            }
+
+            attackRandomizer = Random.Range(0, numOfAttacks);
+        }
+
     }
 
 	void AttackManager()
@@ -45,25 +73,27 @@ public class BossAttackManagerT : MonoBehaviour
             if(bossAwake)
             {
                 attackCooldown = true;
-                attackRandomizer = Random.Range(0, numOfAttacks);
-                attackType = System.Enum.GetName(typeof(Attacks), attackRandomizer);
-            } else {
-                attackType = "";
+				if (numOfAttacks >= 1)
+				{
+					current = (State)System.Enum.ToObject(typeof(State), attackRandomizer);
+				} else {
+					current = State.Idle;
+				}
             }
         
-			switch (attackType)
+			switch (current)
 			{
-				case "Minion":
+				case State.Minion:
                     MinionAttack();
 				    break;
-				case "BranchSweep":
+				case State.BranchSweep:
                     BranchSweepAttack();
                     break;
-				case "Leafs":
-				    FireLeaf();
-                    Invoke(nameof(SwitchAttack), 5f);
+				case State.Leafs:
+                    animationScript.idle = false;
+                    Invoke(nameof(FireLeaf), 0.6f);
                     break;
-                case "RootSnare":
+                case State.RootSnare:
                     RootSnareAttack();
                     break;
 			}
@@ -78,39 +108,43 @@ public class BossAttackManagerT : MonoBehaviour
 
     void BranchSweepAttack()
     {
-        Instantiate(branchPrefab, bossPositionOffset.transform.position + new Vector3(0, -8, 0), Quaternion.identity);
-        Invoke(nameof(SwitchAttack), 5f);
+        animationScript.idle = false;
+        Invoke(nameof(SwitchAttack), 3.1f);
     }
 
     void MinionAttack()
     {
-        activateMinionSpawning.spawnActive = true;
+        //activateMinionSpawning.spawnActive = true;
         Invoke(nameof(SwitchAttack), 5f);
     }
 
-    // Leaf attack
     void FireLeaf()
 	{
+        Invoke(nameof(SwitchAttack), 5f);
         InvokeRepeating(nameof(Shoot), 0, 1);
     }
 
     void SwitchAttack()
 	{
-        activateMinionSpawning.spawnActive = false;
+        //activateMinionSpawning.spawnActive = false;
         snareActive.snareActivated = false;
+        animationScript.idle = true;
         attackCooldown = false;
-		CancelInvoke();
+        current = State.Idle;
+        CancelInvoke();
 	}
 
 	void Shoot()
     {
 		int numOfLeafs = 6;
-		float leafLimeTime = 3f;
+		float leafLiveTime = 3f;
 		for (float i = 0; i < numOfLeafs; i++)
 		{
 			GameObject leafinstance = Instantiate(leafPrefab, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z),  Quaternion.identity);
-			Destroy(leafinstance, leafLimeTime);
-		}
+			Destroy(leafinstance, leafLiveTime);
+		} 
+			
+			
     }
 	
 }

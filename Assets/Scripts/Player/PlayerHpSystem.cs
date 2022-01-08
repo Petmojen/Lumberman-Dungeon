@@ -12,7 +12,6 @@ public class PlayerHpSystem:MonoBehaviour
     public float health;
 
     [SerializeField] GameObject[] armorSprite;
-	Debugger debuggerScript;
 	Timer timerScript;
 
 	public GameObject miniMap;
@@ -22,22 +21,12 @@ public class PlayerHpSystem:MonoBehaviour
 
 	void Start()
 	{
-		debuggerScript = GameObject.FindObjectOfType(typeof(Debugger)) as Debugger;
 		timerScript = GameObject.FindObjectOfType(typeof(Timer)) as Timer;
 		Invoke(nameof(Vincible), 1f);
 	}
 
-
 	void Update()
 	{
-        //Debug
-		if(debuggerScript.instaDeath)
-        {
-            isDead = true;
-			health = 0f;
-			debuggerScript.instaDeath = !debuggerScript.instaDeath;
-        }
-
         sliderHealth.value = health / 100;
         if(health <= 0)
         {
@@ -45,7 +34,7 @@ public class PlayerHpSystem:MonoBehaviour
             timerScript.timeOut = false;
         }
 
-        if(!bonfire && !darkness && !GetComponent<InventorySystem>().torchUsing && !debuggerScript.immortal)
+        if(!bonfire && !darkness && !GetComponent<InventorySystem>().torchUsing)
 		{
 			miniMap.SetActive(false);
 			Invoke(nameof(Poison), 1f);
@@ -115,7 +104,7 @@ public class PlayerHpSystem:MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible && !debuggerScript.immortal)
+        if(!invincible)
         {
             switch(collision.gameObject.tag)
             {
@@ -149,7 +138,7 @@ public class PlayerHpSystem:MonoBehaviour
         switch(collision.gameObject.tag)
         {
             case "Light":
-                if(!debuggerScript.immortal || timerScript.timeOut)
+                if(timerScript.timeOut)
                 darkness = false;
                 break;
             case "Heal":

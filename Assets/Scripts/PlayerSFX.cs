@@ -8,11 +8,12 @@ public class PlayerSFX : MonoBehaviour
      * 0. PlayerFootsteps
      * 1. AxeMelee
      * 2. AxeThrow
+     * 3. AxeHitWall
+     * 4. AxeHitWood
      */
     [SerializeField]
     AudioClip[] playerSFX;
     AudioSource audioSource;
-    bool audioIsLooping = false;
 
     Rigidbody2D rb2d;
 
@@ -25,45 +26,40 @@ public class PlayerSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FootstepPlaySequence();
-        AxeMelee();
-        AxeThrow();
+        if(rb2d.velocity.magnitude > 0f)
+        {
+            Invoke(nameof(PlayFootstepSFX), 0.3f);
+        }
     }
     public void PlayFootstepSFX()
     {
         audioSource.clip = playerSFX[0];
         audioSource.pitch = Random.Range(0.7f, 1.4f);
         audioSource.Play();
+        CancelInvoke();
     }
-    void FootstepPlaySequence()
+    public void AxeMelee()
     {
-        if (rb2d.velocity.magnitude > 0.10f && !audioIsLooping)
-        {
-            InvokeRepeating(nameof(PlayFootstepSFX), 0, 0.5f);
-            audioIsLooping = true;
-        }
-        else if (rb2d.velocity.magnitude <= 0.10f)
-        {
-            CancelInvoke(nameof(PlayFootstepSFX));
-            audioIsLooping = false;
-        }
+        audioSource.clip = playerSFX[1];
+        audioSource.Play();
+    }
+    public void AxeThrow()
+    {
+        audioSource.clip = playerSFX[2];
+        audioSource.Play();
     }
 
-    void AxeMelee()
+    public void AxeHitWall()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            audioSource.clip = playerSFX[1];
-            audioSource.Play();
-        }
+        audioSource.clip = playerSFX[3];
+        audioSource.pitch = Random.Range(0.7f, 0.9f);
+        audioSource.Play();
     }
 
-    void AxeThrow()
+    public void AxeHitWood()
     {
-        if(Input.GetMouseButtonDown(1))
-        {
-            audioSource.clip = playerSFX[2];
-            audioSource.Play();
-        }
+        audioSource.clip = playerSFX[4];
+        audioSource.pitch = Random.Range(0.7f, 0.9f);
+        audioSource.Play();
     }
 }
